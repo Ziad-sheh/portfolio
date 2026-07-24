@@ -1,9 +1,44 @@
-// Play loops only while in view; pause off-screen (keeps many loops light).
-const playObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    const v = e.target;
-    if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); }
-    else v.pause();
+const homeLoops = [...document.querySelectorAll(".home-loop")];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function playLoop(video) {
+  if (reducedMotion.matches || document.hidden) return;
+  video.muted = true;
+  video.controls = false;
+  video.setAttribute("autoplay", "");
+  const playback = video.play();
+  if (playback) playback.catch(() => {});
+}
+
+function updateLoopMotion() {
+  homeLoops.forEach(video => {
+    if (reducedMotion.matches || document.hidden) {
+      video.pause();
+    } else if (video.dataset.inView === "true") {
+      playLoop(video);
+    }
   });
-}, { rootMargin: "150px 0px", threshold: 0.15 });
-document.querySelectorAll(".media video").forEach(v => playObserver.observe(v));
+}
+
+// Only load and play loops close to the viewport. Off-screen projects remain
+// lightweight, while every visible card behaves like a moving window.
+if ("IntersectionObserver" in window) {
+  const playObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      video.dataset.inView = String(entry.isIntersecting);
+      if (entry.isIntersecting) playLoop(video);
+      else video.pause();
+    });
+  }, { rootMargin: "180px 0px", threshold: 0.08 });
+
+  homeLoops.forEach(video => playObserver.observe(video));
+} else {
+  homeLoops.forEach(video => {
+    video.dataset.inView = "true";
+    playLoop(video);
+  });
+}
+
+document.addEventListener("visibilitychange", updateLoopMotion);
+reducedMotion.addEventListener?.("change", updateLoopMotion);

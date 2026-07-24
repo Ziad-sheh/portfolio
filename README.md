@@ -20,12 +20,14 @@ Available optional section types in `work-data.js`:
 - `links` — external campaign or viewing links
 
 Omit any section a campaign does not need. Do not add empty placeholders to the
-case page; only published material is rendered.
+case page; only published material is rendered. Unfinished campaigns also stay
+off the public homepage until their media is ready.
 
 ## Media = self-hosted silent loops (not embeds)
-Visible media = short silent autoplay loops as "living texture" (nakaza style) — no YouTube/FB chrome.
-- Loops shown: `assets/loop/<slug>.mp4` (~8s, 720p, silent/no audio track, ~5.6 MB total). Markup: `<video autoplay muted loop playsinline preload="auto" poster="assets/img/<slug>.jpg"><source src="assets/loop/<slug>.mp4">`.
-- `main.js` plays a chapter's loops when shown, pauses them when hidden.
+Visible media = short silent autoplay loops as "living texture" (nakaza style) — no YouTube/FB chrome and no homepage player controls.
+- Every published homepage tile is one project link. Its video ignores pointer input, so the complete window is the click target.
+- Loops shown: `assets/loop/<slug>.mp4` (~8s, 720p, silent/no audio track, ~5.6 MB total), with a still poster for loading and reduced-motion visitors.
+- `main.js` loads and plays loops near the viewport, pauses them off-screen or while the page is hidden, and respects reduced-motion preferences.
 - Full masters: `assets/video/<slug>.mp4` (720p `+faststart`, largest fab-mothers 58 MB, under GitHub's 100 MB/file cap). The case-study page loads these on demand with native controls.
 - Pipelines (reusable, in scratchpad): `dlvid.sh <slug> <youtube_id>` (download+compress+poster) · `loop_all.sh` (cut short silent loops from every master; edit per-film start if a loop lands on a dull/black frame).
 - Note: some source films have burned-in captions/supers — reselect a caption-free segment via `loop_all.sh` start times if cleaner texture is wanted.

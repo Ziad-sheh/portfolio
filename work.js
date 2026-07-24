@@ -13,7 +13,7 @@ function addText(tag, className, text) {
   return element;
 }
 
-function addVideo({ src, poster, autoplay = false, loop = false }) {
+function addVideo({ src, poster, label, autoplay = false, loop = false }) {
   const video = document.createElement("video");
   video.controls = !autoplay;
   video.autoplay = autoplay;
@@ -24,6 +24,11 @@ function addVideo({ src, poster, autoplay = false, loop = false }) {
   // immediate; each full film begins loading only when the viewer asks for it.
   video.preload = autoplay ? "auto" : "none";
   if (poster) video.poster = poster;
+  if (label) video.setAttribute("aria-label", label);
+  if (autoplay) {
+    video.setAttribute("aria-hidden", "true");
+    video.tabIndex = -1;
+  }
 
   const source = document.createElement("source");
   source.src = src;
@@ -78,7 +83,7 @@ function renderFilmsSection(section) {
   (section.items || []).forEach(item => {
     const figure = document.createElement("figure");
     if (item.title) figure.appendChild(addText("h2", "", item.title));
-    figure.appendChild(addVideo({ src: item.src, poster: item.poster }));
+    figure.appendChild(addVideo({ src: item.src, poster: item.poster, label: item.title || "Campaign film" }));
     if (item.caption) figure.appendChild(addText("figcaption", "", item.caption));
     grid.appendChild(figure);
   });
@@ -156,7 +161,11 @@ if (!project) {
 
   const primaryMedia = document.getElementById("work-primary-media");
   if (project.primaryFilm) {
-    primaryMedia.appendChild(addVideo({ src: project.primaryFilm, poster: project.poster }));
+    primaryMedia.appendChild(addVideo({
+      src: project.primaryFilm,
+      poster: project.poster,
+      label: project.primaryLabel || "Full campaign film",
+    }));
   } else if (project.loop) {
     primaryMedia.appendChild(addVideo({
       src: project.loop,
