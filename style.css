@@ -1,0 +1,158 @@
+:root {
+  --bg: #000;
+  --ink: #f4f2ed;
+  --mut: #8f8d86;
+  --dim: #5c5b56;
+  --line: #2c2c2a;
+  --line-strong: #555;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Golos Text", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scrollbar-color: #333 #000; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+
+.rail {
+  padding: 44px 40px 44px 48px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.wordmark-alt { font-style: italic; }
+.greeting { font-family: var(--serif); font-style: italic; font-size: 30px; }
+.whoami {
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: 0.015em;
+  margin-top: 10px;
+}
+.journey { margin-top: 14px; font-size: 11.5px; color: var(--mut); letter-spacing: 0.04em; }
+.journey s { text-decoration-thickness: 1px; }
+.journey strong { color: var(--ink); font-weight: 700; }
+.arrow { color: var(--ink); }
+
+.index { border-top: 1px solid var(--line-strong); padding-top: 16px; display: block; }
+.index a {
+  display: block;
+  font-size: 11.5px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.index a em { font-family: var(--serif); font-style: italic; color: var(--mut); }
+.index a:hover em, .index a:hover { color: #fff; }
+
+.reach { border-top: 1px solid var(--line-strong); padding-top: 18px; }
+.reach-title { font-weight: 500; font-size: 22px; margin-bottom: 10px; }
+.reach a, .reach .todo-link {
+  display: block;
+  font-size: 11.5px;
+  color: var(--mut);
+  line-height: 2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reach a:hover { color: var(--ink); }
+.todo-link { cursor: help; }
+
+.pane { padding: 44px 56px 80px 48px; min-width: 0; }
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 11.5px;
+  color: var(--ink);
+  padding-bottom: 10px;
+}
+.meta-row em, .chapter-meta em { font-family: var(--serif); }
+.about-link { color: var(--mut); }
+.about-link:hover { color: var(--ink); }
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.tab {
+  background: none;
+  border: 0;
+  color: var(--dim);
+  font: 700 11.5px/1 var(--sans);
+  letter-spacing: 0.05em;
+  padding: 12px 18px 12px 0;
+  margin-right: 18px;
+  border-right: 1px solid var(--line);
+  cursor: pointer;
+}
+.tab .years { font-weight: 400; color: inherit; }
+.tab:hover { color: var(--mut); }
+.tab.is-active { color: var(--ink); }
+.tab.is-locked { cursor: not-allowed; color: #3a3936; }
+.tab:last-child { border-right: 0; }
+
+.chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  row-gap: 56px;
+  padding-top: 44px;
+}
+.entry h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.entry h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: #cfcdc6; }
+.entry:hover h2 { border-color: var(--ink); }
+.media {
+  margin-top: 14px;
+  aspect-ratio: 16 / 9;
+  background: #131311;
+}
+.media.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media.placeholder span {
+  color: #454440;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  body { grid-template-columns: 1fr; }
+  .rail { position: static; height: auto; padding: 28px 24px; gap: 20px; }
+  .pane { padding: 8px 24px 56px; }
+  .chapter { grid-template-columns: 1fr; row-gap: 36px; }
+  .wordmark { font-size: 36px; }
+}
