@@ -11,7 +11,29 @@ window.PORTFOLIO_PROJECTS = [
     title: "360° VR Experience",
     poster: "assets/img/velar-vr.jpg",
     primaryFilm: "assets/video/velar-vr.mp4",
-    sections: [],
+    primaryLabel: "Arabic film",
+    primaryCaption: "Range Rover Velar — Virtual Drive Experience",
+    sections: [
+      {
+        type: "copy",
+        label: "The project",
+        paragraphs: [
+          "The project was an exploration in sensory immersion, combining carefully selected visuals and a tailored musical score to create a comprehensive experience of the Velar. My role involved managing various creative details, from the script to scene transitions, to ensure a smooth and engaging journey for the viewer.",
+        ],
+      },
+      {
+        type: "films",
+        label: "English film",
+        items: [
+          {
+            title: "Virtual Drive Experience",
+            src: "assets/video/velar-vr-2.mp4",
+            poster: "assets/img/velar-vr-2.jpg",
+            caption: "English version",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "lr-land-of",
@@ -27,7 +49,21 @@ window.PORTFOLIO_PROJECTS = [
     title: "Silence is a Virtue",
     poster: "assets/img/jaguar-silence.jpg",
     primaryFilm: "assets/video/jaguar-silence.mp4",
-    sections: [],
+    primaryLabel: "Silence is a Virtue",
+    sections: [
+      {
+        type: "films",
+        label: "More films",
+        items: [
+          {
+            title: "لأن الهدوء فضيلة",
+            src: "assets/video/jaguar-silence-2.mp4",
+            poster: "assets/img/jaguar-silence-2.jpg",
+            caption: "Jaguar I-PACE",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "lr-ramadan-2019",
@@ -35,7 +71,22 @@ window.PORTFOLIO_PROJECTS = [
     title: "Ramadan 2019",
     poster: "assets/img/lr-ramadan-2019.jpg",
     primaryFilm: "assets/video/lr-ramadan-2019.mp4",
-    sections: [],
+    primaryLabel: "Stay Grounded",
+    primaryCaption: "Automatic Access Height",
+    sections: [
+      {
+        type: "films",
+        label: "More films",
+        items: [
+          {
+            title: "Light Your Path",
+            src: "assets/video/lr-ramadan-2019-2.mp4",
+            poster: "assets/img/lr-ramadan-2019-2.jpg",
+            caption: "Pixel Laser LED Headlights",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "rrs-life-simple",
@@ -43,7 +94,21 @@ window.PORTFOLIO_PROJECTS = [
     title: "Life is Simple",
     poster: "assets/img/rrs-life-simple.jpg",
     primaryFilm: "assets/video/rrs-life-simple.mp4",
-    sections: [],
+    deck: "Social media campaign | concept | script",
+    primaryLabel: "Gesture Sunblind",
+    sections: [
+      {
+        type: "films",
+        label: "More films",
+        items: [
+          {
+            title: "Powered Gesture Tailgate",
+            src: "assets/video/rrs-life-simple-2.mp4",
+            poster: "assets/img/rrs-life-simple-2.jpg",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "lr-rediscovery",
@@ -51,6 +116,7 @@ window.PORTFOLIO_PROJECTS = [
     title: "Journey of Rediscovery",
     poster: "assets/img/lr-rediscovery.jpg",
     primaryFilm: "assets/video/lr-rediscovery.mp4",
+    deck: "Social media video",
     sections: [],
   },
   {
@@ -67,7 +133,36 @@ window.PORTFOLIO_PROJECTS = [
     title: "Ready for More",
     poster: "assets/img/lr-ready-more.jpg",
     primaryFilm: "assets/video/lr-ready-more.mp4",
-    sections: [],
+    deck: "Social media campaign",
+    primaryLabel: "The Journey of Challenges",
+    sections: [
+      {
+        type: "films",
+        label: "More films",
+        items: [
+          {
+            title: "The Routine Challenge",
+            src: "assets/video/lr-ready-more-routine.mp4",
+            poster: "assets/img/lr-ready-more-routine.jpg",
+          },
+          {
+            title: "The Darkness Challenge",
+            src: "assets/video/lr-ready-more-darkness.mp4",
+            poster: "assets/img/lr-ready-more-darkness.jpg",
+          },
+          {
+            title: "The Heights Challenge",
+            src: "assets/video/lr-ready-more-heights.mp4",
+            poster: "assets/img/lr-ready-more-heights.jpg",
+          },
+          {
+            title: "The Sea Challenge",
+            src: "assets/video/lr-ready-more-sea.mp4",
+            poster: "assets/img/lr-ready-more-sea.jpg",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "fab-mothers",
@@ -99,6 +194,7 @@ window.PORTFOLIO_PROJECTS = [
     title: "Stay Home Together",
     poster: "assets/img/lvqr-stayhome.jpg",
     primaryFilm: "assets/video/lvqr-stayhome.mp4",
+    deck: "Concept | Execution",
     sections: [],
   },
   {
@@ -107,16 +203,17 @@ window.PORTFOLIO_PROJECTS = [
     title: "The Amazing World of Gumball",
     poster: "assets/img/cn-gumball.jpg",
     loop: "assets/loop/cn-gumball.mp4",
+    deck: "Script & dubbing",
     primaryLabel: "Campaign preview",
-    primaryCaption: "Arabic dub. Full episodes are available below.",
+    primaryCaption: "Arabic dub. Three original episodes from the old portfolio are available below.",
     sections: [
       {
         type: "links",
         label: "Full episodes",
         items: [
-          { title: "Wrinkles", href: "https://www.youtube.com/watch?v=BdqV31Aw6hw" },
-          { title: "Punishment", href: "https://www.youtube.com/watch?v=m0Hs8IYTZ3g" },
-          { title: "The Picture", href: "https://www.youtube.com/watch?v=_rYxr1B0C2o" },
+          { title: "العش", href: "https://www.youtube.com/watch?v=d5YTXxsAKSA" },
+          { title: "الأصول", href: "https://www.youtube.com/watch?v=UckS3lgytIk" },
+          { title: "الخائن", href: "https://www.youtube.com/watch?v=_gj-ewiHXSQ" },
         ],
       },
     ],

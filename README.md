@@ -31,17 +31,19 @@ Visible media = short silent autoplay loops as "living texture" (nakaza style) �
 - Note: some source films have burned-in captions/supers — reselect a caption-free segment via `loop_all.sh` start times if cleaner texture is wanted.
 
 ## Provenance (source of each self-hosted film)
-FAB Mother's Day `Jxdv92BXu_Q` · FAB Covid/United We Grow Stronger `gKdxtjV1xKk` · FAB Heartbeat `aYIcgXztZ7A` · Velar 360° VR `d5ytvTclQdI` · Jaguar Silence `6dJBczts-M8` · RR Sport Life is Simple `zY1TypuX4qU` (Gesture Sunblind) · LR Ramadan/Slow Down `S72p7yYcHMU` · LR Ready for More `r1Oxk9s0Aag` · LR Ramadan 2019 = FB `LandRoverMENA/videos/670920666670259`. Brands own these; self-hosted for portfolio use only.
+FAB Mother's Day `Jxdv92BXu_Q` · FAB Covid/United We Grow Stronger `gKdxtjV1xKk` · FAB Heartbeat `aYIcgXztZ7A` · Velar 360° VR Arabic `d5ytvTclQdI` + English `tbEgZalU3bk` · Jaguar Silence `6dJBczts-M8` + `WJUkW0N7mY0` · RR Sport Life is Simple `zY1TypuX4qU` + `Zq9Q-W1PpWw` · LR Ramadan/Slow Down `S72p7yYcHMU` · LR Ready for More `r1Oxk9s0Aag`, `suXj2Jij5wA`, `V5wFy-ETLHw`, `LDRryH4CB2I`, `3M6_ClTzKio` · LR Ramadan 2019 = FB `LandRoverMENA/videos/670920666670259` + `LandRoverMENA/videos/873038963088964`. Brands own these; self-hosted for portfolio use only.
+
+Gumball episodes remain external YouTube links because they are full-length episodes:
+`d5YTXxsAKSA` (العش), `UckS3lgytIk` (الأصول), and `_gj-ewiHXSQ` (الخائن).
+
+Media and available write-ups were matched campaign-by-campaign against the old
+Adobe Portfolio. Its Apple Switchers page is empty. Its FAB Rally the Nation page
+does not match any of the three FAB campaigns currently selected for this site, so
+that film has not been attached to an unrelated campaign.
 
 ## Open items (Ziad's pen — see vault spec "Portfolio Site — Design")
 - Hero copy (current text is working draft)
 - Apple Switchers + selected campaigns
-- Campaign write-ups, stills, additional films, and credits in `work-data.js`
+- Additional write-ups, stills, and credits when supplied
 - Wordmark divergence + About bio
 - Remove `noindex` meta when identity diverges from the reference and content is approved
-
-## Alternate films harvested (swap-ins if preferred)
-- Velar 360° VR: second film `tbEgZalU3bk`
-- Jaguar Silence is a Virtue: second film `WJUkW0N7mY0`
-- RR Sport Life is Simple: second film `Zq9Q-W1PpWw` (current: Gesture Sunblind)
-- LR Ramadan 2019: second FB video `LandRoverMENA/videos/873038963088964`

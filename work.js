@@ -20,7 +20,9 @@ function addVideo({ src, poster, autoplay = false, loop = false }) {
   video.muted = autoplay;
   video.loop = loop;
   video.playsInline = true;
-  video.preload = autoplay ? "auto" : "metadata";
+  // Multi-film cases can contain several long masters. Posters keep the page
+  // immediate; each full film begins loading only when the viewer asks for it.
+  video.preload = autoplay ? "auto" : "none";
   if (poster) video.poster = poster;
 
   const source = document.createElement("source");
