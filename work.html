@@ -11,44 +11,80 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260724b">
-<link rel="stylesheet" href="work.css?v=20260724b">
+<link rel="stylesheet" href="style.css?v=20260724c">
+<link rel="stylesheet" href="work.css?v=20260724c">
 </head>
 <body class="work-page">
-  <header class="work-topbar">
-    <a class="work-back" id="work-back" href="index.html">← Selected work</a>
-    <a class="work-wordmark" href="index.html">Ziad <em>Shehade</em></a>
-    <span class="work-count" id="work-count"></span>
-  </header>
+  <a class="skip-link" href="#work-shell">Skip to campaign</a>
 
-  <main class="work-shell" id="work-shell" hidden>
-    <header class="work-hero">
-      <p class="work-client" id="work-client"></p>
-      <h1 id="work-title"></h1>
-      <p class="work-deck" id="work-deck" hidden></p>
-    </header>
+  <aside class="rail">
+    <h1 class="wordmark"><a href="index.html" aria-label="Ziad Shehade — home">Ziad <span class="wordmark-alt">Shehade</span></a></h1>
 
-    <section class="work-primary" aria-labelledby="primary-label">
-      <div class="work-section-label" id="primary-label">Full film</div>
-      <div class="work-primary-media" id="work-primary-media"></div>
-      <p class="work-caption" id="work-primary-caption" hidden></p>
-    </section>
+    <div class="intro">
+      <p class="greeting">Hi!</p>
+      <p class="whoami">I'M A BILINGUAL<br>CREATIVE DIRECTOR<br><span class="pen">✏&#xFE0E;</span> COPYWRITER (EN&nbsp;+&nbsp;AR)<br>BASED IN DUBAI.</p>
+    </div>
 
-    <div class="work-sections" id="work-sections"></div>
-
-    <nav class="work-pagination" aria-label="Campaign navigation">
-      <a id="work-previous" href="#"></a>
-      <a id="work-next" href="#"></a>
+    <nav class="index" aria-label="Work index">
+      <a href="index.html#velar-vr">Range Rover Velar <em>"360° VR Experience"</em></a>
+      <a href="index.html#lr-land-of">Land Rover <em>"The Land of Land Rovers"</em></a>
+      <a href="index.html#jaguar-silence">Jaguar <em>"Silence is a Virtue"</em></a>
+      <a href="index.html#lr-ramadan-2019">Land Rover <em>"Ramadan 2019"</em></a>
+      <a href="index.html#rrs-life-simple">Range Rover Sport <em>"Life is Simple"</em></a>
+      <a href="index.html#lr-rediscovery">Land Rover <em>"Journey of Rediscovery"</em></a>
+      <a href="index.html#lr-ramadan">Land Rover <em>"Ramadan"</em></a>
+      <a href="index.html#lr-ready-more">Land Rover <em>"Ready for More"</em></a>
+      <a href="index.html#fab-mothers">FAB <em>"Mother's Day"</em></a>
+      <a href="index.html#fab-covid">FAB <em>"Covid"</em></a>
+      <a href="index.html#fab-heartbeat">FAB <em>"Make Every Heartbeat Count"</em></a>
+      <a href="index.html#lvqr-stayhome">La Vache qui rit <em>"Stay Home Together"</em></a>
+      <a href="index.html#cn-gumball">Cartoon Network <em>"Gumball"</em></a>
     </nav>
-  </main>
 
-  <main class="work-missing" id="work-missing" hidden>
-    <p class="work-client">Selected work</p>
-    <h1>Campaign not found.</h1>
-    <a href="index.html">← Return to the portfolio</a>
-  </main>
+    <div class="reach">
+      <p class="reach-title">Reach out 👋</p>
+      <a href="mailto:ziadshehade@gmail.com">ziadshehade@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ziadshehade" target="_blank" rel="me noopener">LinkedIn ↗</a>
+    </div>
+  </aside>
 
-  <script src="work-data.js?v=20260724b"></script>
-  <script src="work.js?v=20260724b"></script>
+  <div class="work-pane">
+    <div class="work-meta">
+      <a class="work-back" id="work-back" href="index.html">← Selected work</a>
+      <span>Campaign case study</span>
+    </div>
+
+    <main class="work-shell" id="work-shell" hidden>
+      <header class="work-hero">
+        <div class="work-title-block">
+          <p class="work-client" id="work-client"></p>
+          <h1 id="work-title"></h1>
+        </div>
+        <p class="work-deck" id="work-deck" hidden></p>
+      </header>
+
+      <section class="work-primary" aria-labelledby="primary-label">
+        <div class="work-section-label" id="primary-label">Full film</div>
+        <div class="work-primary-media" id="work-primary-media"></div>
+        <p class="work-caption" id="work-primary-caption" hidden></p>
+      </section>
+
+      <div class="work-sections" id="work-sections"></div>
+
+      <nav class="work-pagination" aria-label="Campaign navigation">
+        <a id="work-previous" href="#"></a>
+        <a id="work-next" href="#"></a>
+      </nav>
+    </main>
+
+    <main class="work-missing" id="work-missing" hidden>
+      <p class="work-client">Selected work</p>
+      <h1>Campaign not found.</h1>
+      <a href="index.html">← Return to the portfolio</a>
+    </main>
+  </div>
+
+  <script src="work-data.js?v=20260724c"></script>
+  <script src="work.js?v=20260724c"></script>
 </body>
 </html>

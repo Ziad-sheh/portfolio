@@ -82,8 +82,8 @@ function renderFilmsSection(section) {
   grid.className = "work-films";
   (section.items || []).forEach(item => {
     const figure = document.createElement("figure");
-    if (item.title) figure.appendChild(addText("h2", "", item.title));
     figure.appendChild(addVideo({ src: item.src, poster: item.poster, label: item.title || "Campaign film" }));
+    if (item.title) figure.appendChild(addText("h2", "", item.title));
     if (item.caption) figure.appendChild(addText("figcaption", "", item.caption));
     grid.appendChild(figure);
   });
@@ -145,8 +145,8 @@ if (!project) {
 } else {
   document.title = `${project.client} — ${project.title} | Ziad Shehade`;
   document.getElementById("work-back").href = `index.html#${project.slug}`;
-  document.getElementById("work-count").textContent =
-    `${String(projectIndex + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
+  const currentIndexLink = document.querySelector(`.index a[href="index.html#${project.slug}"]`);
+  if (currentIndexLink) currentIndexLink.setAttribute("aria-current", "page");
   document.getElementById("work-client").textContent = project.client;
   document.getElementById("work-title").textContent = project.title;
 
