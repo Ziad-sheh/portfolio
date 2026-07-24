@@ -135,9 +135,12 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.01em;
   border-bottom: 1px solid var(--line-strong);
   padding-bottom: 8px;
+  min-height: 50px;
   display: flex;
-  gap: 8px;
-  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  align-items: flex-end;
+  align-content: flex-end;
 }
 .entry h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: #cfcdc6; }
 .entry:hover h3 { border-color: var(--ink); }
@@ -157,6 +160,28 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   background: #000;
 }
+.media.openable { cursor: pointer; position: relative; }
+.media.openable::after {
+  content: "▶";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 17px;
+  opacity: 0;
+  transition: opacity 0.18s;
+  pointer-events: none;
+}
+.media.openable:hover::after { opacity: 1; }
+.media.openable[data-open]::after { display: none; }
 .watch-links {
   margin-top: 10px;
   font-size: 11px;
