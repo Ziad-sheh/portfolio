@@ -155,9 +155,8 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 .media video {
-  object-fit: contain;
+  object-fit: cover;
   background: #000;
-  cursor: pointer;
 }
 .media.placeholder {
   display: flex;

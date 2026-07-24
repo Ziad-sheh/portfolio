@@ -7,12 +7,13 @@ Hand-built static site. No build step: edit, commit, push — Pages redeploys.
 - Rail index: `index.html` → `<nav class="index">` (keep in sync with entries).
 - Chapters: `index.html` ticker stops + `main.js` `metaByChapter`.
 
-## Media = self-hosted video (not embeds)
-Films are downloaded, web-compressed, and served from this repo — no YouTube/Facebook chrome.
-- Files: `assets/video/<slug>.mp4` (720p, H.264, `+faststart`), poster `assets/img/<slug>.jpg`.
-- Markup: `<div class="media"><video controls preload="metadata" poster="assets/img/<slug>.jpg"><source src="assets/video/<slug>.mp4" type="video/mp4"></video></div>`.
-- Pipeline (reusable): `scratchpad/dlvid.sh <slug> <youtube_id>` → yt-dlp download + ffmpeg compress + poster frame.
-- `preload="metadata"` means files only download on play, so page load stays light. Total video ~145 MB; largest is fab-mothers 58 MB (under GitHub's 100 MB/file limit).
+## Media = self-hosted silent loops (not embeds)
+Visible media = short silent autoplay loops as "living texture" (nakaza style) — no YouTube/FB chrome.
+- Loops shown: `assets/loop/<slug>.mp4` (~8s, 720p, silent/no audio track, ~5.6 MB total). Markup: `<video autoplay muted loop playsinline preload="auto" poster="assets/img/<slug>.jpg"><source src="assets/loop/<slug>.mp4">`.
+- `main.js` plays a chapter's loops when shown, pauses them when hidden.
+- Full masters kept: `assets/video/<slug>.mp4` (720p `+faststart`, ~145 MB, largest fab-mothers 58 MB, under GitHub's 100 MB/file cap). NOT referenced by the page — retained so we can add click-to-watch-full later.
+- Pipelines (reusable, in scratchpad): `dlvid.sh <slug> <youtube_id>` (download+compress+poster) · `loop_all.sh` (cut short silent loops from every master; edit per-film start if a loop lands on a dull/black frame).
+- Note: some source films have burned-in captions/supers — reselect a caption-free segment via `loop_all.sh` start times if cleaner texture is wanted.
 
 ## Provenance (source of each self-hosted film)
 FAB Mother's Day `Jxdv92BXu_Q` · FAB Covid/United We Grow Stronger `gKdxtjV1xKk` · FAB Heartbeat `aYIcgXztZ7A` · Velar 360° VR `d5ytvTclQdI` · Jaguar Silence `6dJBczts-M8` · RR Sport Life is Simple `zY1TypuX4qU` (Gesture Sunblind) · LR Ramadan/Slow Down `S72p7yYcHMU` · LR Ready for More `r1Oxk9s0Aag` · LR Ramadan 2019 = FB `LandRoverMENA/videos/670920666670259`. Brands own these; self-hosted for portfolio use only.

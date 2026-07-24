@@ -14,7 +14,14 @@ function activate(name) {
   stops.forEach(s => {
     s.classList.toggle("is-active", s.dataset.chapter === name);
   });
-  chapters.forEach(c => { c.hidden = c.dataset.chapter !== name; });
+  chapters.forEach(c => {
+    const shown = c.dataset.chapter === name;
+    c.hidden = !shown;
+    c.querySelectorAll("video").forEach(v => {
+      if (shown) { const p = v.play(); if (p) p.catch(() => {}); }
+      else v.pause();
+    });
+  });
   const meta = metaByChapter[name];
   if (meta) {
     metaBrand.textContent = meta[0];
