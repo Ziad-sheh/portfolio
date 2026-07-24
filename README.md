@@ -5,13 +5,28 @@ Hand-built static site. No build step: edit, commit, push — Pages redeploys.
 ## Editing content
 - Work entries: `index.html` → `<article class="entry">` blocks (id, heading, media box).
 - Rail index: `index.html` → `<nav class="index">` (keep in sync with entries).
-- Chapters: `index.html` ticker stops + `main.js` `metaByChapter`.
+- Case-study content: `work-data.js` → one object per campaign.
+- Case-study layout: `work.html` + `work.css`; optional blocks are rendered by `work.js`.
+
+## Campaign case studies
+Every populated homepage tile links to `work.html?project=<slug>`. The same page
+can hold a simple film-only case or a longer story without duplicating HTML.
+
+Available optional section types in `work-data.js`:
+- `copy` — label, heading, paragraphs
+- `stills` — images with alt text and optional captions
+- `films` — additional films with titles, posters, and captions
+- `credits` — role/name pairs
+- `links` — external campaign or viewing links
+
+Omit any section a campaign does not need. Do not add empty placeholders to the
+case page; only published material is rendered.
 
 ## Media = self-hosted silent loops (not embeds)
 Visible media = short silent autoplay loops as "living texture" (nakaza style) — no YouTube/FB chrome.
 - Loops shown: `assets/loop/<slug>.mp4` (~8s, 720p, silent/no audio track, ~5.6 MB total). Markup: `<video autoplay muted loop playsinline preload="auto" poster="assets/img/<slug>.jpg"><source src="assets/loop/<slug>.mp4">`.
 - `main.js` plays a chapter's loops when shown, pauses them when hidden.
-- Full masters kept: `assets/video/<slug>.mp4` (720p `+faststart`, ~145 MB, largest fab-mothers 58 MB, under GitHub's 100 MB/file cap). NOT referenced by the page — retained so we can add click-to-watch-full later.
+- Full masters: `assets/video/<slug>.mp4` (720p `+faststart`, largest fab-mothers 58 MB, under GitHub's 100 MB/file cap). The case-study page loads these on demand with native controls.
 - Pipelines (reusable, in scratchpad): `dlvid.sh <slug> <youtube_id>` (download+compress+poster) · `loop_all.sh` (cut short silent loops from every master; edit per-film start if a loop lands on a dull/black frame).
 - Note: some source films have burned-in captions/supers — reselect a caption-free segment via `loop_all.sh` start times if cleaner texture is wanted.
 
@@ -20,8 +35,8 @@ FAB Mother's Day `Jxdv92BXu_Q` · FAB Covid/United We Grow Stronger `gKdxtjV1xKk
 
 ## Open items (Ziad's pen — see vault spec "Portfolio Site — Design")
 - Hero copy (current text is working draft)
-- **Two films need source files — YouTube sources went private (can't download or embed):** Journey of Rediscovery (`Rl0h8wZIVuM`), Tropic of Cancer (`9LOH41wSveM`). Supply the .mp4 and drop in `assets/video/`.
-- Media still missing (no film found): The Land of Land Rovers, Gumball (dubbing), La Vache qui rit, Apple Switchers, Apple selected campaigns
+- Apple Switchers + selected campaigns
+- Campaign write-ups, stills, additional films, and credits in `work-data.js`
 - Wordmark divergence + About bio
 - Remove `noindex` meta when identity diverges from the reference and content is approved
 

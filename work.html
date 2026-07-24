@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selected work — Ziad Shehade</title>
+<meta name="description" content="Selected campaign work by Ziad Shehade.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="work.css">
+</head>
+<body class="work-page">
+  <header class="work-topbar">
+    <a class="work-back" id="work-back" href="index.html">← Selected work</a>
+    <a class="work-wordmark" href="index.html">Ziad <em>Shehade</em></a>
+    <span class="work-count" id="work-count"></span>
+  </header>
+
+  <main class="work-shell" id="work-shell" hidden>
+    <header class="work-hero">
+      <p class="work-client" id="work-client"></p>
+      <h1 id="work-title"></h1>
+      <p class="work-deck" id="work-deck" hidden></p>
+    </header>
+
+    <section class="work-primary" aria-labelledby="primary-label">
+      <div class="work-section-label" id="primary-label">Full film</div>
+      <div class="work-primary-media" id="work-primary-media"></div>
+      <p class="work-caption" id="work-primary-caption" hidden></p>
+    </section>
+
+    <div class="work-sections" id="work-sections"></div>
+
+    <nav class="work-pagination" aria-label="Campaign navigation">
+      <a id="work-previous" href="#"></a>
+      <a id="work-next" href="#"></a>
+    </nav>
+  </main>
+
+  <main class="work-missing" id="work-missing" hidden>
+    <p class="work-client">Selected work</p>
+    <h1>Campaign not found.</h1>
+    <a href="index.html">← Return to the portfolio</a>
+  </main>
+
+  <script src="work-data.js"></script>
+  <script src="work.js"></script>
+</body>
+</html>
