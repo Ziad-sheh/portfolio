@@ -160,6 +160,7 @@ if (!project) {
   const facts = document.getElementById("work-facts");
   [
     { label: "Client", value: project.client },
+    ...(project.role ? [{ label: "Role", value: project.role }] : []),
     ...((project.meta && project.meta.length)
       ? project.meta
       : [{ label: "Film", value: project.primaryLabel || "Full film" }]),

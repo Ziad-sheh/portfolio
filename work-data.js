@@ -4,34 +4,36 @@
 // { type: "stills", label: "Campaign stills", items: [{ src, alt, caption }] }
 // { type: "films", label: "More films", items: [{ title, src, poster, caption }] }
 // { type: "credits", label: "Credits", items: [{ role, names }] }
-// Optional project metadata uses: meta: [{ label: "Films", value: "Arabic · English" }]
+// Optional factual fields:
+// role: "Exact credited role"
+// meta: [{ label: "Versions", value: "Arabic · English" }]
 window.PORTFOLIO_PROJECTS = [
   {
     slug: "velar-vr",
-    client: "Range Rover Velar",
+    client: "Land Rover",
     title: "360° VR Experience",
     poster: "assets/img/velar-vr.jpg",
     primaryFilm: "assets/video/velar-vr.mp4",
-    meta: [{ label: "Films", value: "Arabic film · English film" }],
-    primaryLabel: "Arabic film",
+    role: "Copy Lead — Led Arabic and English copy, shaping the creative vision and music direction.",
+    meta: [{ label: "Versions", value: "Arabic-language version · English-language version" }],
+    primaryLabel: "Virtual Drive Experience — Arabic",
     primaryCaption: "Range Rover Velar — Virtual Drive Experience",
     sections: [
       {
         type: "copy",
         label: "The experience",
         paragraphs: [
-          "The project was an exploration in sensory immersion, combining carefully selected visuals and a tailored musical score to create a comprehensive experience of the Velar. My role involved managing various creative details, from the script to scene transitions, to ensure a smooth and engaging journey for the viewer.",
+          "An exploration of how 360° VR could create an immersive experience of the Range Rover Velar. Script, visuals, scene transitions and a tailored musical score work together as one continuous virtual drive, guiding viewers smoothly through the experience in Arabic and English.",
         ],
       },
       {
         type: "films",
-        label: "English film",
+        label: "English-language version",
         items: [
           {
-            title: "Virtual Drive Experience",
+            title: "Virtual Drive Experience — English",
             src: "assets/video/velar-vr-2.mp4",
             poster: "assets/img/velar-vr-2.jpg",
-            caption: "English version",
           },
         ],
       },
