@@ -4,6 +4,7 @@
 // { type: "stills", label: "Campaign stills", items: [{ src, alt, caption }] }
 // { type: "films", label: "More films", items: [{ title, src, poster, caption }] }
 // { type: "credits", label: "Credits", items: [{ role, names }] }
+// Optional project metadata uses: meta: [{ label: "Films", value: "Arabic · English" }]
 window.PORTFOLIO_PROJECTS = [
   {
     slug: "velar-vr",
@@ -11,10 +12,17 @@ window.PORTFOLIO_PROJECTS = [
     title: "360° VR Experience",
     poster: "assets/img/velar-vr.jpg",
     primaryFilm: "assets/video/velar-vr.mp4",
-    deck: "The project was an exploration in sensory immersion, combining carefully selected visuals and a tailored musical score to create a comprehensive experience of the Velar. My role involved managing various creative details, from the script to scene transitions, to ensure a smooth and engaging journey for the viewer.",
+    meta: [{ label: "Films", value: "Arabic film · English film" }],
     primaryLabel: "Arabic film",
     primaryCaption: "Range Rover Velar — Virtual Drive Experience",
     sections: [
+      {
+        type: "copy",
+        label: "The experience",
+        paragraphs: [
+          "The project was an exploration in sensory immersion, combining carefully selected visuals and a tailored musical score to create a comprehensive experience of the Velar. My role involved managing various creative details, from the script to scene transitions, to ensure a smooth and engaging journey for the viewer.",
+        ],
+      },
       {
         type: "films",
         label: "English film",

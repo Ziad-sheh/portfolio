@@ -75,7 +75,7 @@ function renderStillsSection(section) {
 
 function renderFilmsSection(section) {
   const wrapper = document.createElement("section");
-  wrapper.className = "work-content";
+  wrapper.className = "work-content work-film-story";
   wrapper.appendChild(addText("div", "work-section-label", section.label || "More films"));
 
   const grid = document.createElement("div");
@@ -83,24 +83,31 @@ function renderFilmsSection(section) {
   (section.items || []).forEach(item => {
     const figure = document.createElement("figure");
     figure.appendChild(addVideo({ src: item.src, poster: item.poster, label: item.title || "Campaign film" }));
-    if (item.title) figure.appendChild(addText("h2", "", item.title));
-    if (item.caption) figure.appendChild(addText("figcaption", "", item.caption));
+    const note = document.createElement("div");
+    note.className = "work-media-note";
+    note.appendChild(addText("h2", "work-film-title", item.title || section.label || "Campaign film"));
+    if (item.caption) note.appendChild(addText("figcaption", "", item.caption));
+    figure.appendChild(note);
     grid.appendChild(figure);
   });
   wrapper.appendChild(grid);
   return wrapper;
 }
 
-function renderCreditsSection(section) {
-  const wrapper = document.createElement("section");
-  wrapper.className = "work-content work-credits";
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "Credits"));
-
+function createCreditsList(section) {
   const list = document.createElement("dl");
   (section.items || []).forEach(item => {
     list.appendChild(addText("dt", "", item.role));
     list.appendChild(addText("dd", "", item.names));
   });
+  return list;
+}
+
+function renderCreditsSection(section) {
+  const wrapper = document.createElement("section");
+  wrapper.className = "work-content work-credits";
+  wrapper.appendChild(addText("div", "work-section-label", section.label || "Credits"));
+  const list = createCreditsList(section);
   wrapper.appendChild(list);
   return wrapper;
 }
@@ -150,10 +157,34 @@ if (!project) {
   document.getElementById("work-client").textContent = project.client;
   document.getElementById("work-title").textContent = project.title;
 
+  const facts = document.getElementById("work-facts");
+  [
+    { label: "Client", value: project.client },
+    ...((project.meta && project.meta.length)
+      ? project.meta
+      : [{ label: "Film", value: project.primaryLabel || "Full film" }]),
+  ].forEach(fact => {
+    const item = document.createElement("div");
+    item.className = "work-fact";
+    item.appendChild(addText("dt", "", fact.label));
+    item.appendChild(addText("dd", "", fact.value));
+    facts.appendChild(item);
+  });
+
   if (project.deck) {
     const deck = document.getElementById("work-deck");
     deck.textContent = project.deck;
     deck.hidden = false;
+  } else {
+    document.getElementById("work-intro").classList.add("is-facts-only");
+  }
+
+  const headerCredits = (project.sections || []).find(section => section.type === "credits");
+  if (headerCredits) {
+    const credits = document.getElementById("work-header-credits");
+    credits.appendChild(addText("div", "work-section-label", headerCredits.label || "Credits"));
+    credits.appendChild(createCreditsList(headerCredits));
+    credits.hidden = false;
   }
 
   const primaryLabel = document.getElementById("primary-label");
@@ -183,6 +214,7 @@ if (!project) {
 
   const sections = document.getElementById("work-sections");
   (project.sections || []).forEach(section => {
+    if (section === headerCredits) return;
     const renderer = sectionRenderers[section.type];
     if (renderer) sections.appendChild(renderer(section));
   });
