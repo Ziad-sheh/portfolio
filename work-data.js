@@ -15,13 +15,12 @@ window.PORTFOLIO_PROJECTS = [
     poster: "assets/img/velar-vr.jpg",
     primaryFilm: "assets/video/velar-vr.mp4",
     role: "Copy Lead — Led Arabic and English copy, shaping the creative vision and music direction.",
-    meta: [{ label: "Versions", value: "Arabic-language version · English-language version" }],
+    meta: [{ label: "Languages", value: "Arabic · English" }],
     primaryLabel: "Virtual Drive Experience — Arabic",
-    primaryCaption: "Range Rover Velar — Virtual Drive Experience",
     sections: [
       {
         type: "copy",
-        label: "The experience",
+        label: "Creative approach",
         paragraphs: [
           "An exploration of how 360° VR could create an immersive experience of the Range Rover Velar. Script, visuals, scene transitions and a tailored musical score work together as one continuous virtual drive, guiding viewers smoothly through the experience in Arabic and English.",
         ],
