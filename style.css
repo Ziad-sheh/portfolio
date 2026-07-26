@@ -84,8 +84,8 @@ a:focus-visible {
 }
 .index a {
   display: block;
-  font-size: 9px;
-  line-height: 1.42;
+  font-size: 10px;
+  line-height: 1.35;
   color: var(--ink);
 }
 .index a em { font-family: var(--serif); font-style: italic; color: var(--mut); }
@@ -100,9 +100,9 @@ a:focus-visible {
 .reach-title { font-weight: 500; font-size: 22.5px; line-height: 1.1; margin-bottom: 8px; }
 .reach a, .reach .todo-link {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
   color: var(--mut);
-  line-height: 1.6;
+  line-height: 1.5;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -114,8 +114,8 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  font-size: 9px;
-  line-height: 12.5px;
+  font-size: 10px;
+  line-height: 14px;
   color: var(--ink);
   padding-bottom: 7px;
 }
@@ -140,7 +140,7 @@ a:focus-visible {
 .ticker-set { display: flex; align-items: center; }
 .stop {
   color: var(--dim);
-  font: 600 9px/1 var(--sans);
+  font: 600 10px/1 var(--sans);
   letter-spacing: 0.05em;
   padding: 9px 0;
   white-space: nowrap;
@@ -150,7 +150,7 @@ a:focus-visible {
 .stop.is-active { color: var(--ink); }
 .tick-sep {
   color: var(--line-strong);
-  font-size: 8px;
+  font-size: 9px;
   padding: 0 16px;
   user-select: none;
 }
@@ -167,13 +167,13 @@ a:focus-visible {
   padding-top: 10px;
 }
 .entry h2 {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 15px;
+  line-height: 16px;
   letter-spacing: 0.01em;
   border-bottom: 1px solid var(--line-strong);
   padding: 4px 0 5px;
-  min-height: 25px;
+  min-height: 26px;
   display: flex;
   flex-wrap: wrap;
   gap: 0 5px;
@@ -225,7 +225,7 @@ a:focus-visible {
   .project-card:hover .media video { transform: scale(1.018); opacity: 0.78; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   body { grid-template-columns: 1fr; }
   .rail {
     position: static;
@@ -233,10 +233,10 @@ a:focus-visible {
     padding: 10px 10px 14px;
   }
   .index { display: none; }
-  .wordmark { font-size: 23px; }
+  .wordmark { font-size: clamp(23px, 4.7vw, 47px); }
   .intro { margin-top: 28px; }
-  .greeting { font-size: 27px; }
-  .whoami { font-size: 14px; line-height: 1.02; }
+  .greeting { font-size: clamp(27px, 4vw, 34px); }
+  .whoami { font-size: clamp(14px, 2vw, 18px); line-height: 1.02; }
   .reach {
     width: 100%;
     margin-top: 14px;
@@ -244,15 +244,33 @@ a:focus-visible {
   }
   .reach-title { font-size: 14px; margin-bottom: 2px; }
   .reach a,
-  .reach .todo-link { font-size: 9px; line-height: 1.45; }
+  .reach .todo-link { font-size: 10px; line-height: 1.45; }
   .pane { padding: 0 10px 40px; }
   .meta-row { padding-bottom: 5px; }
-  .entries { grid-template-columns: 1fr; row-gap: 15px; padding-top: 10px; }
+  .entries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 20px;
+    padding-top: 10px;
+  }
+  .entry h2 {
+    font-size: 15px;
+    line-height: 18px;
+    min-height: 31px;
+    padding: 3px 0 5px;
+  }
+  .entry h2 em { font-size: 15px; }
+}
+
+@media (max-width: 640px) {
+  .entries {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
   .entry h2 {
     font-size: 17px;
     line-height: 20.5px;
     min-height: 29px;
-    padding: 3px 0 5px;
   }
   .entry h2 em { font-size: 17px; }
 }

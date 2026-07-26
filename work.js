@@ -15,17 +15,18 @@ function addText(tag, className, text) {
 
 function addVideo({ src, poster, label, autoplay = false, loop = false }) {
   const video = document.createElement("video");
-  video.controls = !autoplay;
-  video.autoplay = autoplay;
-  video.muted = autoplay;
-  video.loop = loop;
+  const autoplayAllowed = autoplay && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  video.controls = !autoplayAllowed;
+  video.autoplay = autoplayAllowed;
+  video.muted = autoplayAllowed;
+  video.loop = loop && autoplayAllowed;
   video.playsInline = true;
   // Multi-film cases can contain several long masters. Posters keep the page
   // immediate; each full film begins loading only when the viewer asks for it.
-  video.preload = autoplay ? "auto" : "none";
+  video.preload = autoplayAllowed ? "auto" : "none";
   if (poster) video.poster = poster;
   if (label) video.setAttribute("aria-label", label);
-  if (autoplay) {
+  if (autoplayAllowed) {
     video.setAttribute("aria-hidden", "true");
     video.tabIndex = -1;
   }

@@ -4,7 +4,7 @@
 
 .work-pane {
   min-width: 0;
-  padding: 48px 48px 64px 44px;
+  padding: 48px 48px 64px 47px;
 }
 
 .work-meta {
@@ -14,8 +14,8 @@
   padding-bottom: 7px;
   border-bottom: 1px solid var(--line-strong);
   color: var(--mut);
-  font-size: 9px;
-  line-height: 12.5px;
+  font-size: 10px;
+  line-height: 14px;
 }
 .work-back { color: var(--ink); }
 .work-back:hover { color: var(--mut); }
@@ -31,7 +31,7 @@
 }
 .work-client,
 .work-section-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.04em;
@@ -85,14 +85,14 @@
 .work-fact dt {
   margin-bottom: 3px;
   color: var(--mut);
-  font-size: 8px;
+  font-size: 9px;
   line-height: 1.2;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .work-fact dd {
-  font-size: 11px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
 }
 .work-header-credits {
   display: grid;
@@ -107,7 +107,8 @@
   display: grid;
   grid-template-columns: minmax(140px, 1fr) minmax(0, 2fr);
   max-width: 720px;
-  font-size: 9px;
+  font-size: 10px;
+  line-height: 1.45;
 }
 .work-header-credits dt,
 .work-header-credits dd {
@@ -155,7 +156,7 @@
 .work-caption,
 figcaption {
   color: var(--mut);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.4;
 }
 
@@ -234,7 +235,7 @@ figcaption {
   justify-content: space-between;
   padding: 9px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 11px;
+  font-size: 12px;
 }
 .work-link-list a:hover,
 .work-link-list a:focus-visible { color: var(--mut); }
@@ -257,14 +258,14 @@ figcaption {
 }
 .work-nav-direction {
   color: var(--mut);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.3;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .work-nav-title {
   max-width: 420px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.2;
 }
 .work-pagination a:hover .work-nav-title { color: var(--mut); }
@@ -278,13 +279,16 @@ figcaption {
   text-underline-offset: 4px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .work-page { grid-template-columns: 1fr; }
+  .work-page .rail { padding-bottom: 10px; }
+  .work-page .intro,
+  .work-page .reach { display: none; }
   .work-pane { padding: 0 10px 40px; }
   .work-hero { padding: 14px 0 24px; }
   .work-title-block { min-height: 114px; }
   .work-hero h1,
-  .work-missing h1 { font-size: 44px; }
+  .work-missing h1 { font-size: clamp(44px, 7vw, 64px); }
   .work-intro,
   .work-intro.is-facts-only {
     grid-template-columns: 1fr;
@@ -310,7 +314,7 @@ figcaption {
     padding-top: 38px;
     padding-bottom: 44px;
   }
-  .work-copy p { font-size: 17px; }
+  .work-copy p { font-size: clamp(17px, 2vw, 19px); }
   .work-stills { grid-template-columns: 1fr; gap: 24px; }
   .work-stills figure:only-child { grid-column: auto; }
   .work-film-story { padding-top: 24px; }
