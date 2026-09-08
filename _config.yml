@@ -1,0 +1,7 @@
+# GitHub Pages copies the static runtime and excludes source-side research/tools.
+exclude:
+  - README.md
+  - RESEARCH.md
+  - scripts
+  - assets/apple-media.json
+  - LICENSES.md

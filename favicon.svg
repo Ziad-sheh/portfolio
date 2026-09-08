@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#000"/>
-  <text x="32" y="43" fill="#f4f2ed" font-family="Georgia, serif" font-size="34" font-style="italic" text-anchor="middle">Z</text>
+  <title>Ziad Shehade</title>
+  <rect width="64" height="64" rx="12" fill="#fff6d5"/>
+  <path fill="#193d91" d="M15 13h34v9L28 41h21v10H15v-9l21-19H15z"/>
 </svg>
