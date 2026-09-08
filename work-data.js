@@ -14,7 +14,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Switchers",
     "poster": "assets/img/apple-switchers-tahani.jpg",
     "primaryFilm": "assets/video/apple-switchers-tahani.mp4",
-    "deck": "Real stories of switching to iPhone, told through Memoji.",
+    "deck": "Real iPhone switchers in Saudi Arabia and the UAE, telling their own stories through Memoji.",
     "role": "Creative lead",
     "meta": [
       {
@@ -30,9 +30,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "Switchers began with conversations with people who had moved to iPhone. We looked for the everyday experiences behind that decision: a photograph that did not come out, a battery giving up mid-game, or a phone freezing at the wrong moment.",
+          "Follow-up interviews helped us find the details worth keeping. Those moments became short Memoji films, with each participant’s own voice at the centre. The animation and music were built around what they said, giving each story its own rhythm."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project from candidate selection and interviews to story edits, animation and music. We returned with more questions, then built each film around the strongest moments."
+          "I led the project from reviewing candidate profiles and attending interviews to choosing stories and shaping the edits. I worked with the animators and on the music through to the finished films. Across Saudi Arabia and the UAE, we created around 20 short edits."
         ]
       },
       {
@@ -61,7 +69,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Relax, it’s iPhone",
     "poster": "assets/img/apple-relax-matchmaker.jpg",
     "primaryFilm": "assets/video/apple-relax-matchmaker.mp4",
-    "deck": "Saudi life, with a little camera drama.",
+    "deck": "Saudi stories where iPhone camera features become part of the comedy.",
     "role": "Creative direction & copy",
     "meta": [
       {
@@ -77,9 +85,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The Saudi Relax films turn camera features into small social comedies. A wedding, a family trip to the desert, an office or a football pitch gives each story a familiar setting. The product feature becomes part of what happens between the characters.",
+          "In The Matchmaker, slow motion makes a potential suitor look rather more impressive. In The Favourite Son, a father’s change of heart becomes a change of focus. The 2026 films carry that approach into shorter stories about Dual Capture, stabilisation, Center Stage and zoom."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I developed the situations and wrote the scripts. I led the creative work, shaping cultural choices, casting and music in close collaboration with the director and production team."
+          "I developed the situations and wrote the scripts and copy, leading the creative work from strategy through production. I shaped the cultural choices, helped choose the cast and worked closely with the director and composer on the performances, timing and music."
         ]
       },
       {
@@ -135,7 +151,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Tap. Ride. Done.",
     "poster": "assets/img/apple-pay-metro-ar.jpg",
     "primaryFilm": "assets/video/apple-pay-metro-ar.mp4",
-    "deck": "Apple Pay meets Riyadh Metro.",
+    "deck": "An English and Arabic campaign welcoming Apple Pay to journeys on Riyadh Metro and the city’s buses.",
     "role": "Creative direction & copy",
     "meta": [
       {
@@ -151,9 +167,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The launch of Riyadh Metro brought a new way to move around the city. Our campaign introduced Apple Pay for the journey, turning the payment step into a simple sequence: tap, ride, done.",
+          "Animated hands, devices and characters show the action. The Arabic copy and details of local dress place it in Riyadh. The same idea runs through metro and bus films, display layouts and six-second social edits, in English and Arabic."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the creative work, originating the English and Arabic copy and shaping the music and local visual direction."
+          "I was the creative lead, originating the English and Arabic copy and shaping the music and overall direction. Working with the team, I led the cultural decisions behind the campaign, including how the illustrated characters looked and dressed."
         ]
       },
       {
@@ -269,7 +293,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "A day with Apple Watch",
     "poster": "assets/img/apple-watch-saudi.jpg",
     "primaryFilm": "assets/video/apple-watch-saudi.mp4",
-    "deck": "Health and movement, woven into a Saudi day.",
+    "deck": "An Apple Watch film built around a Saudi day, from sleep and swimming to an evening out with friends.",
     "role": "Creative direction & copy",
     "meta": [
       {
@@ -285,9 +309,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The film follows Apple Watch through familiar Saudi routines: waking up, getting in the water, checking in on health and heading out with friends. Each scene gives a feature a place in the day.",
+          "The Arabic narration moves with the characters, bringing encouragement and a little humour to the changing pace. Local detail comes through in the people, settings and everyday exchanges, alongside the health and activity story."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project from strategy and situations to the script, casting and music, working closely with the director through production."
+          "I led the project from strategy through production. I developed the situations, wrote the script and copy, and shaped casting and music. Working closely with the director, I carried the creative and cultural decisions into the performances and the finished film."
         ]
       }
     ],
@@ -299,7 +331,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Your next computer",
     "poster": "assets/img/apple-ipad-musical.jpg",
     "primaryFilm": "assets/video/apple-ipad-musical.mp4",
-    "deck": "A familiar song. An Arabic performance.",
+    "deck": "Adapting an iPad musical into Arabic, from the words on the page to the voices singing them.",
     "role": "Arabic localisation lead",
     "meta": [
       {
@@ -311,9 +343,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The global iPad film turns the wish to escape a desk into a musical. People tied to their computers sing as the film moves to iPad users working, playing and creating outside. The song carries both the humour and the product idea.",
+          "For the Arabic version, the lyrics had to work as lyrics: natural to sing, clear on first hearing and matched to the melody and performances already on screen. The adaptation needed to keep the longing and playfulness of the original song."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions, overseeing the localisation from adaptation to final performance."
+          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions. I oversaw the localisation from adaptation to final performance, working on the wording, phrasing and delivery together."
         ]
       }
     ],
@@ -328,7 +368,7 @@ window.PORTFOLIO_PROJECTS = [
       "src": "assets/img/apple-gaming-day.jpg",
       "alt": "iPhone 16 Pro billboard on King Fahd Road in Riyadh, featuring Assassin’s Creed Mirage and the Arabic campaign line."
     },
-    "deck": "An iPhone gaming idea drawn from Assassin’s Creed’s Leap of Faith.",
+    "deck": "An outdoor idea for iPhone gaming, inspired by Assassin’s Creed’s signature move: the Leap of Faith.",
     "role": "Concept & copy",
     "meta": [
       {
@@ -344,9 +384,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "Assassin’s Creed Mirage on iPhone offered a creative connection: the game’s Leap of Faith could also express a leap in gaming on a phone. That reference became the starting point for the Arabic headline.",
+          "The execution brought the idea to a large billboard on King Fahd Road in Riyadh. The game’s imagery and the line work together, giving players a familiar reference within an iPhone campaign."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I identified the opportunity and developed the concept and Arabic line, connecting the game’s signature leap with iPhone gaming."
+          "I identified the opportunity and originated the concept and Arabic copy. The idea came from connecting the game itself with a moment I saw for iPhone in Saudi gaming culture."
         ]
       },
       {
@@ -367,7 +415,7 @@ window.PORTFOLIO_PROJECTS = [
     "title": "In Arabic",
     "poster": "assets/img/apple-health-ar.jpg",
     "primaryFilm": "assets/video/apple-health-ar.mp4",
-    "deck": "Selected films. Arabic words, voices and performances.",
+    "deck": "Arabic adaptations of global Apple films, spanning health, privacy, everyday activity and adventure.",
     "role": "Arabic localisation lead",
     "meta": [
       {
@@ -379,9 +427,17 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "Each of these films asks for a different Arabic voice. Health with iPhone + Apple Watch builds comedy from a crowd of conflicting advice. The Waiting Room makes private health information awkwardly public. The Watch films range from playful encouragement to the drama of an expedition.",
+          "The work is in how the words meet the picture: fitting dialogue to an existing edit, carrying a joke across languages and finding the right delivery for each character. In the Health film, the voices pile up before the story turns to the woman’s own health information."
+        ]
+      },
+      {
+        "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led Arabic localisation end to end, shaping the copy and directing voice performances through to the final films."
+          "I led the Arabic localisation end to end, shaping the copy, directing dubbing actors and guiding the voice performances through to the final films. The English Health film is included below so both versions can be seen together."
         ]
       },
       {
@@ -393,31 +449,31 @@ window.PORTFOLIO_PROJECTS = [
             "title": "The Waiting Room",
             "src": "assets/video/apple-waiting-room.mp4",
             "poster": "assets/img/apple-waiting-room.jpg",
-            "caption": "Privacy on iPhone"
+            "caption": "Privacy on iPhone. A waiting room hears the details of everyone’s health. The comedy makes the case for keeping that information private."
           },
           {
             "title": "Hello Sunshine",
             "src": "assets/video/apple-hello-sunshine.mp4",
             "poster": "assets/img/apple-hello-sunshine.jpg",
-            "caption": "Apple Watch Series 6"
+            "caption": "Apple Watch Series 6. Plans for a quiet summer keep expanding into another activity, giving the Arabic narration an increasingly busy rhythm."
           },
           {
             "title": "Answers",
             "src": "assets/video/apple-answers.mp4",
             "poster": "assets/img/apple-answers.jpg",
-            "caption": "Apple Watch Series 7"
+            "caption": "Apple Watch Series 7. Questions about movement, sleep and health lead the story, with the Watch providing the answers along the way."
           },
           {
             "title": "New Things",
             "src": "assets/video/apple-new-things.mp4",
             "poster": "assets/img/apple-new-things.jpg",
-            "caption": "Apple Watch Series 8"
+            "caption": "Apple Watch Series 8. A conversational introduction to new ways of understanding movement, sleep and health, alongside safety features."
           },
           {
             "title": "Call to the Wild",
             "src": "assets/video/apple-ultra.mp4",
             "poster": "assets/img/apple-ultra.jpg",
-            "caption": "Apple Watch Ultra"
+            "caption": "Apple Watch Ultra. An expedition-style invitation plays over a landscape of mountains, water and the Watch itself, calling for a more dramatic Arabic delivery."
           }
         ]
       },

@@ -342,3 +342,5 @@ figcaption {
   .is-portrait .work-films, .is-portrait .work-stills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
   .is-portrait .work-film-title { font-size: 17px; }
 }
+
+.is-grid .work-media-note figcaption { font-size: 12px; line-height: 1.5; max-width: 46ch; }
