@@ -804,52 +804,100 @@ window.PORTFOLIO_PROJECTS = [
     "loop": "assets/loop/apple-health-ar.mp4"
   },
   {
-    slug: "velar-vr",
-    client: "Range Rover Velar",
-    title: "360° VR Experience",
-    poster: "assets/img/velar-vr.jpg",
-    primaryFilm: "assets/video/velar-vr.mp4",
-    role: "Copy Lead — Led Arabic and English copy, concept development, creative vision and music direction.",
-    meta: [{ label: "Languages", value: "Arabic · English" }],
-    primaryLabel: "Virtual Drive Experience — Arabic",
-    sections: [
+    "slug": "velar-vr",
+    "client": "Range Rover Velar",
+    "title": "360° VR Experience",
+    "poster": "assets/img/velar-vr.jpg",
+    "primaryFilm": "assets/video/velar-vr.mp4",
+    "role": "Creative & copy lead",
+    "meta": [
       {
-        type: "copy",
-        label: "Creative approach",
-        paragraphs: [
-          "An exploration of how 360° VR could create an immersive experience of the Range Rover Velar. Script, visuals, scene transitions and a tailored musical score work together as one continuous virtual drive, guiding viewers smoothly through the experience in Arabic and English.",
-        ],
+        "label": "Format",
+        "value": "360° film"
       },
       {
-        type: "films",
-        label: "English-language version",
-        items: [
-          {
-            title: "Virtual Drive Experience — English",
-            src: "assets/video/velar-vr-2.mp4",
-            poster: "assets/img/velar-vr-2.jpg",
-          },
-        ],
-      },
-      {
-        type: "credits",
-        label: "Credits",
-        items: [
-          {
-            role: "Agency",
-            names: "Spark44",
-          },
-          {
-            role: "CGI & VFX",
-            names: "RéCH",
-          },
-          {
-            role: "Colour grade",
-            names: "Dan Moran",
-          },
-        ],
-      },
+        "label": "Languages",
+        "value": "Arabic · English"
+      }
     ],
+    "primaryLabel": "Virtual Drive Experience — Arabic",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The experience begins on an open road, then takes the viewer inside the Velar. Rock formations pass the windows, the light changes and the journey continues into a night sky. The cabin remains the point of reference as the world moves around it.",
+          "The 360° format gives the viewer a part in the film: deciding where to look. Product details emerge along the route, from the displays and interior lighting to the panoramic roof. The journey provides a reason to explore the car."
+        ],
+        "sources": [
+          {
+            "title": "Land Rover MENA · The original 360° release",
+            "href": "https://www.youtube.com/watch?v=tbEgZalU3bk"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the Arabic and English copy and worked on the concept, creative vision and music direction. The script had to guide attention through the experience while giving the viewer room to discover it."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Writing around the viewer",
+        "paragraphs": [
+          "A conventional film can cut straight to the detail it wants you to notice. Here, the viewer may be looking elsewhere. The writing, scene transitions and music need to keep the journey legible as attention moves around the cabin.",
+          "The changing landscape gives the film its progression. Daylight, rock and darkness create different settings for the same interior, while the music connects those changes into a continuous drive. The Arabic and English versions follow that shared visual rhythm."
+        ]
+      },
+      {
+        "type": "links",
+        "label": "Explore in 360°",
+        "items": [
+          {
+            "title": "Arabic · interactive film",
+            "href": "https://www.youtube.com/watch?v=d5ytvTclQdI"
+          },
+          {
+            "title": "English · interactive film",
+            "href": "https://www.youtube.com/watch?v=tbEgZalU3bk"
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "English-language version",
+        "items": [
+          {
+            "title": "Virtual Drive Experience — English",
+            "src": "assets/video/velar-vr-2.mp4",
+            "poster": "assets/img/velar-vr-2.jpg",
+            "caption": "The English version follows the same journey, with copy timed to the changing surroundings and feature reveals."
+          }
+        ]
+      },
+      {
+        "type": "credits",
+        "label": "Credits",
+        "items": [
+          {
+            "role": "Agency",
+            "names": "Spark44"
+          },
+          {
+            "role": "CGI & VFX",
+            "names": "RéCH"
+          },
+          {
+            "role": "Colour grade",
+            "names": "Dan Moran"
+          }
+        ]
+      }
+    ],
+    "deck": "A virtual drive that lets the viewer choose where to look.",
+    "primaryCaption": "Panoramic preview of the Arabic film. The interactive 360° version is linked below."
   },
   {
     "slug": "lr-land-of",
@@ -857,14 +905,40 @@ window.PORTFOLIO_PROJECTS = [
     "title": "The Land of Land Rovers",
     "poster": "assets/img/lr-land-of.jpg",
     "primaryFilm": "assets/video/lr-land-of.mp4",
-    "role": "Creative — Contributed to the campaign concept, idea development and scripts.",
+    "role": "Creative & copy",
     "primaryLabel": "The Land of Land Rovers",
     "sections": [
       {
         "type": "copy",
-        "label": "The story",
+        "label": "The project",
         "paragraphs": [
-          "To mark Land Rover’s 70th anniversary, The Land of Land Rovers follows a community in the foothills of the Himalayas that has kept its fleet of Series Land Rovers on the road for generations. Set along the 31 km route between Maneybhanjang and Sandakphu in West Bengal, the film celebrates the enduring relationship between the people, the landscape and the vehicles they maintain."
+          "In Maneybhanjang, on the India–Nepal border, old Series Land Rovers are part of everyday life. They carry people and supplies up the steep route towards Sandakphu. Drivers maintain them, neighbours depend on them, and stories about the vehicles become stories about the community.",
+          "For Land Rover’s 70th anniversary, the film follows that relationship through the people who live it. Pride, practical knowledge and affection give the brand’s heritage a human scale. The cars’ age matters because they are still doing the work."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I contributed to the campaign concept, idea development and scripts as part of the creative team. The story brings the community’s experiences together around a shared relationship with Land Rover."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "People, place & music",
+        "paragraphs": [
+          "Director Matt Hopkins describes spending ten days in the village, meeting people and researching their stories. That closeness is visible in the film: conversations in shops and homes sit beside the rough mountain journey itself. The landscape explains what the vehicles face; the people explain why they matter.",
+          "Matt Shaw’s photography moves between those intimate encounters and the scale of the hills. Dan Graves created the music and sound design. Together, the images and sound give the journey space while keeping the villagers’ voices at its centre."
+        ],
+        "sources": [
+          {
+            "title": "Matt Hopkins · Making the documentary",
+            "href": "https://matthopkins.co/work/land-rover"
+          },
+          {
+            "title": "Dan Graves · Music & sound design",
+            "href": "https://vimeo.com/344901207"
+          }
         ]
       },
       {
@@ -923,70 +997,145 @@ window.PORTFOLIO_PROJECTS = [
             "summary": "In a filmmaker Q&A, Drage discussed the relationship between the villagers and their vehicles, and the response to a story grounded in that bond.",
             "href": "https://thetravelvideoawards.com/spotlight_article/spark44-the-land-of-land-rovers/",
             "linkLabel": "Read the interview"
+          },
+          {
+            "kind": "Campaign recognition",
+            "author": "NAB Show & Citizine",
+            "scope": "2019 Travel Video Awards",
+            "summary": "Nominated for Best Video by a Lifestyle Brand at the 2019 Travel Video Awards.",
+            "href": "https://www.nab.org/documents/newsroom/pressRelease.asp?id=4951",
+            "linkLabel": "View the official nominees"
           }
         ]
+      }
+    ],
+    "deck": "A mountain community tells the story of the vehicles it has kept alive.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Documentary"
+      },
+      {
+        "label": "Occasion",
+        "value": "Land Rover’s 70th anniversary"
       }
     ]
   },
   {
-    slug: "lr-ramadan-2019",
-    client: "Land Rover",
-    title: "Ramadan 2019",
-    poster: "assets/img/lr-ramadan-2019.jpg",
-    primaryFilm: "assets/video/lr-ramadan-2019.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative direction.",
-    primaryLabel: "Stay Grounded",
-    primaryCaption: "Automatic Access Height",
-    sections: [
+    "slug": "lr-ramadan-2019",
+    "client": "Land Rover",
+    "title": "Ramadan 2019",
+    "poster": "assets/img/lr-ramadan-2019.jpg",
+    "primaryFilm": "assets/video/lr-ramadan-2019.mp4",
+    "role": "Concept & copy lead",
+    "primaryLabel": "Stay Grounded",
+    "primaryCaption": "Automatic Access Height lowers the vehicle as “Stay Grounded” appears.",
+    "sections": [
       {
-        type: "copy",
-        label: "The idea",
-        paragraphs: [
-          "A pair of product-led Ramadan films that turn Land Rover technology into simple seasonal messages. Stay Grounded uses Automatic Access Height as a gesture of humility, while Light Your Path connects Pixel-Laser LED headlights with the idea of guidance.",
-        ],
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The campaign connects Ramadan with two simple thoughts: humility and guidance. Each is expressed through a Land Rover feature, giving the seasonal message a physical action on screen.",
+          "In Stay Grounded, the vehicle lowers itself using Automatic Access Height. In Light Your Path, headlights illuminate a winding road through the trees. Each headline describes the feature and carries a second meaning for the occasion."
+        ]
       },
       {
-        type: "films",
-        label: "The films",
-        items: [
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the campaign idea, concept development and copy, shaping the creative direction around those connections. The writing gives each demonstration its seasonal meaning."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "A feature becomes a thought",
+        "paragraphs": [
+          "The films are deliberately compact. The movement happens, the headline lands, and the feature name completes the thought. That sequence gives the audience a moment to make the connection themselves.",
+          "Both executions use the same structure, so they feel like parts of one campaign. A small physical change carries the message: a body lowering towards the ground, or a beam revealing the road ahead. The copy stays close to what is actually happening in the image."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "The films",
+        "items": [
           {
-            title: "Light Your Path",
-            src: "assets/video/lr-ramadan-2019-2.mp4",
-            poster: "assets/img/lr-ramadan-2019-2.jpg",
-            caption: "Pixel Laser LED Headlights",
-          },
-        ],
-      },
+            "title": "Light Your Path",
+            "src": "assets/video/lr-ramadan-2019-2.mp4",
+            "poster": "assets/img/lr-ramadan-2019-2.jpg",
+            "caption": "Pixel-Laser LED headlights illuminate the route, turning a product demonstration into a message about guidance."
+          }
+        ]
+      }
     ],
+    "deck": "Two Ramadan messages, found in what the vehicle already does.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Two short films"
+      },
+      {
+        "label": "Year",
+        "value": "2019"
+      }
+    ]
   },
   {
-    slug: "rrs-life-simple",
-    client: "Range Rover Sport",
-    title: "Life is Simple",
-    poster: "assets/img/rrs-life-simple.jpg",
-    primaryFilm: "assets/video/rrs-life-simple.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative direction.",
-    primaryLabel: "Gesture Sunblind",
-    sections: [
+    "slug": "rrs-life-simple",
+    "client": "Range Rover Sport",
+    "title": "Life is Simple",
+    "poster": "assets/img/rrs-life-simple.jpg",
+    "primaryFilm": "assets/video/rrs-life-simple.mp4",
+    "role": "Concept & copy lead",
+    "primaryLabel": "Gesture Sunblind",
+    "sections": [
       {
-        type: "copy",
-        label: "The idea",
-        paragraphs: [
-          "Life is Simple is a two-film social campaign built around everyday moments made effortless by Range Rover Sport technology. Gesture controls for the sunblind and powered tailgate become the payoff to each story, bringing the thought “If only life was that simple” to life through the vehicle’s features.",
-        ],
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "A man wants to shut out the morning light without leaving his pillow. A woman carrying a tray would like a kitchen cupboard to close with a movement of her foot. Both reach for a small convenience that ordinary life refuses to provide.",
+          "The same gestures work in the Range Rover Sport. Its gesture sunblind and powered tailgate become the answers to the opening frustrations. “If only life was that simple” connects the two worlds, giving each feature a familiar situation to solve."
+        ]
       },
       {
-        type: "films",
-        label: "The films",
-        items: [
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the campaign idea, concept development and copy, shaping the creative direction of the two films. The premise gives the technology a comic setup before the product demonstration delivers the payoff."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "The joke is in the gesture",
+        "paragraphs": [
+          "The performances keep the frustration small: a wave, a glance, a pause when nothing happens. Those reactions make the wish recognisable. The car then answers it with the same movement, so the viewer understands the feature through the joke.",
+          "The structure works across both films without repeating the situation. One begins in bed, the other in a kitchen. Matching the human action to the vehicle response holds the campaign together and keeps the demonstration easy to follow."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "The films",
+        "items": [
           {
-            title: "Powered Gesture Tailgate",
-            src: "assets/video/rrs-life-simple-2.mp4",
-            poster: "assets/img/rrs-life-simple-2.jpg",
-          },
-        ],
-      },
+            "title": "Powered Gesture Tailgate",
+            "src": "assets/video/rrs-life-simple-2.mp4",
+            "poster": "assets/img/rrs-life-simple-2.jpg",
+            "caption": "With her hands full, a woman tries closing a cupboard with her foot. The powered gesture tailgate makes the same wish work outside."
+          }
+        ]
+      }
     ],
+    "deck": "Everyday frustrations meet a car that understands the gesture.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Two social films"
+      },
+      {
+        "label": "Campaign line",
+        "value": "If only life was that simple"
+      }
+    ],
+    "primaryCaption": "A sleepy wave does little for the bedroom blinds. In the Range Rover Sport, the gesture works."
   },
   {
     "slug": "lr-journey-rediscovery",
@@ -994,14 +1143,36 @@ window.PORTFOLIO_PROJECTS = [
     "title": "A Journey of Rediscovery",
     "poster": "assets/img/lr-journey-rediscovery.jpg",
     "primaryFilm": "assets/video/lr-journey-rediscovery.mp4",
-    "role": "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction for the original score.",
+    "role": "Creative & copywriter",
     "primaryLabel": "A Journey of Rediscovery",
     "sections": [
       {
         "type": "copy",
-        "label": "The story",
+        "label": "The project",
         "paragraphs": [
-          "Created for Land Rover’s 70th anniversary, A Journey of Rediscovery traces the experiences of civil engineers Robin Webb and Majid Awwad, who relied on Land Rovers while working across the Trucial States in the 1960s. Combining their memories with previously unseen 8mm footage, the film looks back at a time before roads connected the Emirates, and at the vehicles that made their work—and their return home—possible."
+          "Robin Webb and Majid Awwad arrived in the Trucial States as civil engineers in the 1960s. Their Land Rovers took them between settlements, work sites and stretches of country where roads were scarce. Decades later, their memories reveal a different view of the Emirates.",
+          "Created for Land Rover’s 70th anniversary, the film combines their present-day accounts with Webb’s own archive. Boats on the creek, early buildings and vehicles on rough tracks place the stories in the world the two men remember. The brand’s history becomes part of a much larger story of change."
+        ],
+        "sources": [
+          {
+            "title": "Hind Shoufani · The film and its archive",
+            "href": "https://hindshoufani.com/portfolio-item/journey/"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I worked on the script as a creative and copywriter, and was involved in choosing the music. My contribution connected the storytelling with the film’s tone, as the memories move between the past and the present."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Memory on screen",
+        "paragraphs": [
+          "Hind Shoufani directed, edited and produced the documentary. Webb’s own films and photographs give his recollections something tangible to meet, fifty years after he recorded them.",
+          "The two men speak from experience. Their voices and the surviving images carry the detail, while the music helps the transitions hold together emotionally. The result is intimate in scale: the growth of a country seen through journeys, daily work and the people who remember them."
         ]
       },
       {
@@ -1055,8 +1226,26 @@ window.PORTFOLIO_PROJECTS = [
             "summary": "Gulf News covered the documentary as a window into life in the Emirates 50 years earlier, highlighting the personal accounts and historic footage.",
             "href": "https://gulfnews.com/going-out/society/new-film-documents-life-in-uae-50-years-ago-1.2260451",
             "linkLabel": "Read the feature"
+          },
+          {
+            "kind": "Director’s perspective",
+            "author": "Hind Shoufani",
+            "summary": "Shoufani describes revisiting Robin Webb’s archive and extending the documentary into two shorter portraits for the online and social release.",
+            "href": "https://hindshoufani.com/portfolio-item/journey/",
+            "linkLabel": "Read the production account"
           }
         ]
+      }
+    ],
+    "deck": "Two engineers, an old film archive, and a country taking shape.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Documentary · 2018"
+      },
+      {
+        "label": "Setting",
+        "value": "The Trucial States, 1960s"
       }
     ]
   },
@@ -1066,14 +1255,42 @@ window.PORTFOLIO_PROJECTS = [
     "title": "Ready for More",
     "poster": "assets/img/lr-ready-more.jpg",
     "primaryFilm": "assets/video/lr-ready-more.mp4",
-    "role": "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction.",
+    "role": "Creative & copywriter",
     "primaryLabel": "The Journey of Challenges",
     "sections": [
       {
         "type": "copy",
-        "label": "The journey",
+        "label": "The project",
         "paragraphs": [
-          "Ready for More is a five-film adventure series for the Land Rover Discovery, following explorer Mostafa Salameh and four participants as they confront personal challenges across Jordan. Each story transforms a familiar obstacle—routine, darkness, heights or the sea—into a journey beyond the comfort zone."
+          "Ready for More pairs Land Rover Discovery with explorer Mostafa Salameh on a journey across Jordan. Four participants face challenges involving routine, darkness, heights and the sea. A lead film introduces Mostafa’s own relationship with adventure; the following stories bring it down to the scale of an individual decision.",
+          "The connection to Discovery grows out of the journey. The vehicle carries people towards unfamiliar places, while the real question is what they will do when they arrive. Each episode gives “Ready for More” a different personal meaning."
+        ],
+        "sources": [
+          {
+            "title": "Land Rover · The adventure series",
+            "href": "https://www.landroverkuwait.com/en/sponsorship/adventure"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I worked on the scripts as a creative and copywriter, and was involved in choosing the music. Across the series, the writing needed to connect Mostafa’s perspective with each participant’s experience, while keeping the stories distinct."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "The person behind the challenge",
+        "paragraphs": [
+          "Mostafa is a mountaineer who has completed the Explorers Grand Slam, including the Seven Summits and both poles. That experience gives his encouragement weight. In the films, he listens, explains and takes the next step alongside the participant.",
+          "Director Nizar Sfair keeps the journeys close to the people undertaking them. The dramatic landscape gives each challenge its scale; the conversations and moments of hesitation give it a personal stake. Music helps carry the movement from anticipation into action."
+        ],
+        "sources": [
+          {
+            "title": "Mostafa Salameh · His story and the collaboration",
+            "href": "https://www.mostafasalameh.com/speaking"
+          }
         ]
       },
       {
@@ -1083,24 +1300,29 @@ window.PORTFOLIO_PROJECTS = [
           {
             "title": "The Routine Challenge",
             "src": "assets/video/lr-ready-more-routine.mp4",
-            "poster": "assets/img/lr-ready-more-routine.jpg"
+            "poster": "assets/img/lr-ready-more-routine.jpg",
+            "caption": "A familiar working day gives way to a journey through water and rock. The challenge begins with leaving the usual routine behind."
           },
           {
             "title": "The Darkness Challenge",
             "src": "assets/video/lr-ready-more-darkness.mp4",
-            "poster": "assets/img/lr-ready-more-darkness.jpg"
+            "poster": "assets/img/lr-ready-more-darkness.jpg",
+            "caption": "Bahaa talks about his fear before entering a dark space with Mostafa. The lantern light keeps the focus on the next step."
           },
           {
             "title": "The Heights Challenge",
             "src": "assets/video/lr-ready-more-heights.mp4",
-            "poster": "assets/img/lr-ready-more-heights.jpg"
+            "poster": "assets/img/lr-ready-more-heights.jpg",
+            "caption": "Bashar faces a climb with Mostafa beside him. The wide landscape and close views of hands and feet give the ascent two very different scales."
           },
           {
             "title": "The Sea Challenge",
             "src": "assets/video/lr-ready-more-sea.mp4",
-            "poster": "assets/img/lr-ready-more-sea.jpg"
+            "poster": "assets/img/lr-ready-more-sea.jpg",
+            "caption": "The journey moves from the shore into open water, following the participant from preparation towards the first dive."
           }
-        ]
+        ],
+        "layout": "grid"
       },
       {
         "type": "credits",
@@ -1148,74 +1370,194 @@ window.PORTFOLIO_PROJECTS = [
             "summary": "Sfair shared the episode in which Bahaa faces his fear of darkness with explorer Mostafa Salameh, alongside the film’s production credits.",
             "href": "https://vimeo.com/303594285",
             "linkLabel": "View the director’s post"
+          },
+          {
+            "kind": "Explorer’s perspective",
+            "author": "Mostafa Salameh",
+            "summary": "Salameh features the collaboration in his own work, connecting the episodes with his approach to courage, perseverance and guiding others through a challenge.",
+            "href": "https://www.mostafasalameh.com/speaking",
+            "linkLabel": "Explore the collaboration"
           }
         ]
+      }
+    ],
+    "deck": "An explorer helps four people take a step beyond the familiar.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Five-film series"
+      },
+      {
+        "label": "Location",
+        "value": "Jordan"
       }
     ]
   },
   {
-    slug: "fab-heartbeat",
-    client: "FAB",
-    title: "Make Every Heartbeat Count",
-    poster: "assets/img/fab-heartbeat.jpg",
-    primaryFilm: "assets/video/fab-heartbeat.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative direction.",
-    primaryLabel: "Make Every Heartbeat Count",
-    sections: [
+    "slug": "fab-heartbeat",
+    "client": "FAB",
+    "title": "Make Every Heartbeat Count",
+    "poster": "assets/img/fab-heartbeat.jpg",
+    "primaryFilm": "assets/video/fab-heartbeat.mp4",
+    "role": "Concept & copywriter",
+    "primaryLabel": "Make Every Heartbeat Count",
+    "sections": [
       {
-        type: "copy",
-        label: "The idea",
-        paragraphs: [
-          "Created around FAB’s association with the Formula 1 Etihad Airways Abu Dhabi Grand Prix, Make Every Heartbeat Count connects the pulse of the racetrack with the moments that make everyday life feel alive. The film moves between racing and personal scenes of energy, anticipation and celebration, building a shared rhythm around the campaign line.",
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "For FAB’s association with the Formula 1 Etihad Airways Abu Dhabi Grand Prix, the campaign finds a shared rhythm between racing and everyday life. A band performs, a vehicle crosses open ground, a couple dances among moving boxes. The film keeps returning to the track.",
+          "“Make Every Heartbeat Count” gives these different scenes a common thought. The excitement of a race sits alongside smaller moments of anticipation, freedom and celebration. That connection gives the sponsorship a place in people’s lives beyond the circuit."
         ],
+        "sources": [
+          {
+            "title": "FAB Connects · The original campaign film",
+            "href": "https://www.youtube.com/watch?v=aYIcgXztZ7A"
+          }
+        ]
       },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I worked on the campaign idea, concept and script. The writing connects the energy of Formula 1 with the human moments that give the line its meaning."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "A film built on rhythm",
+        "paragraphs": [
+          "The band is part of the film’s visual world, appearing between scenes of movement and racing. Performance, faces and speed give the edit a recurring rhythm, bringing very different kinds of excitement into the same minute.",
+          "The line holds that movement together. It can speak to the driver on the track, the person on stage or the couple starting something new. Each scene adds another way to understand the same invitation."
+        ]
+      }
     ],
+    "deck": "The energy of race day, connected to the moments that move us.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Campaign film"
+      },
+      {
+        "label": "Occasion",
+        "value": "Abu Dhabi Grand Prix"
+      }
+    ]
   },
   {
-    slug: "lvqr-stayhome",
-    client: "La Vache qui rit",
-    title: "Stay Home Together",
-    poster: "assets/img/lvqr-stayhome.jpg",
-    primaryFilm: "assets/video/lvqr-stayhome.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative direction.",
-    primaryLabel: "Stay Home Together",
-    sections: [
+    "slug": "lvqr-stayhome",
+    "client": "La Vache qui rit",
+    "title": "Stay Home Together",
+    "poster": "assets/img/lvqr-stayhome.jpg",
+    "primaryFilm": "assets/video/lvqr-stayhome.mp4",
+    "role": "Concept & copywriter",
+    "primaryLabel": "Stay Home Together",
+    "sections": [
       {
-        type: "copy",
-        label: "The idea",
-        paragraphs: [
-          "Created during the COVID-19 lockdowns, Stay Home Together reframed time at home as an opportunity for families to reconnect through play. The film turns an ordinary afternoon indoors into a shared family moment, extending the idea through games and activities under #StayHomeTogether.",
-        ],
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "The film opens with a question parents knew well during lockdown: what could the children do at home today? Everyone shares a room, but boredom has settled in. A snack brings the family together, then the room becomes a place to play.",
+          "The campaign turns the stay-at-home message into something a family can act on. The film ends by directing people to La Vache qui rit Arabia’s social account for more games and activities under #StayHomeTogether. The invitation continues beyond the thirty-second story."
+        ]
       },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I originated the idea and worked as the copywriter and conceptualiser, including work on the music. The thought was to turn time at home into an invitation to spend it together."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "From stillness to play",
+        "paragraphs": [
+          "The story stays inside an ordinary home. Its change comes through the family: slouched bodies give way to movement, the children start playing and the adults join in. That visible shift makes the idea easy to recognise.",
+          "The product sits within the shared moment, and the final call to action gives it a practical next step. Keeping the writing close to a familiar afternoon lets the film offer a small, achievable change of mood."
+        ]
+      }
     ],
+    "deck": "A bored afternoon becomes something the family does together.",
+    "meta": [
+      {
+        "label": "Format",
+        "value": "Campaign film"
+      },
+      {
+        "label": "Context",
+        "value": "COVID-19 stay-at-home period"
+      }
+    ]
   },
   {
-    slug: "cn-gumball",
-    client: "Cartoon Network",
-    title: "The Amazing World of Gumball",
-    poster: "assets/img/cn-gumball.jpg",
-    loop: "assets/loop/cn-gumball.mp4",
-    role: "Copy Lead — Led Arabic script adaptation and copy across multiple seasons.",
-    meta: [{ label: "Selection", value: "Three representative episodes" }],
-    primaryLabel: "Selected scenes",
-    primaryCaption: "Arabic dub. Three selected episodes are included below as references for the wider multi-season work.",
-    sections: [
+    "slug": "cn-gumball",
+    "client": "Cartoon Network",
+    "title": "The Amazing World of Gumball",
+    "poster": "assets/img/cn-gumball.jpg",
+    "loop": "assets/loop/cn-gumball.mp4",
+    "role": "Arabic scripts & actor management",
+    "meta": [
       {
-        type: "copy",
-        label: "The adaptation",
-        paragraphs: [
-          "Arabic-language adaptation work across multiple seasons of The Amazing World of Gumball, shaped to preserve the series’ pace, humour and character voices for a regional audience. The work focused on natural, performable Arabic dialogue while keeping the timing and comic beats aligned with the original animation. Three selected episodes are included below as representative samples.",
-        ],
+        "label": "Scope",
+        "value": "Multiple seasons"
       },
       {
-        type: "links",
-        label: "Full episodes",
-        items: [
-          { title: "The Nest", href: "https://www.youtube.com/watch?v=d5YTXxsAKSA" },
-          { title: "The Origins", href: "https://www.youtube.com/watch?v=UckS3lgytIk" },
-          { title: "The Traitor", href: "https://www.youtube.com/watch?v=_gj-ewiHXSQ" },
-        ],
-      },
+        "label": "Selection",
+        "value": "Three representative episodes"
+      }
     ],
+    "primaryLabel": "Selected scenes",
+    "primaryCaption": "Arabic dub. Three selected episodes are included below as references for the wider multi-season work.",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "The project",
+        "paragraphs": [
+          "Gumball moves quickly. Ordinary family conversations can become an argument, a visual joke or a completely surreal situation within a few lines. The Arabic adaptation has to move with those changes while keeping each character recognisable.",
+          "Across multiple seasons, the work was to make the scripts play naturally in Arabic within the timing of the original animation. Meaning, character and the placement of the joke all have to arrive together."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I worked on scripting and Arabic localisation and managed the actors involved in the dub. That brought the written adaptation and the people performing it into the same process."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Writing for the performance",
+        "paragraphs": [
+          "A line can be accurate on the page and still take too long to say. A joke may depend on an expression that has no useful equivalent in Arabic. The writing needs to find a phrase that fits the moment, sounds like the character and leaves room for the reaction on screen.",
+          "Managing the actors keeps that work connected to performance. Pace, emphasis and character matter alongside the words themselves. Across a series, the audience also needs continuity: the voices should feel like the same people even as the stories become increasingly strange."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Selected episodes",
+        "paragraphs": [
+          "The Nest, The Origins and The Traitor are included as representative samples of the wider work. They offer a way to hear the Arabic adaptation in the context of complete scenes and stories."
+        ]
+      },
+      {
+        "type": "links",
+        "label": "Full episodes",
+        "items": [
+          {
+            "title": "The Nest",
+            "href": "https://www.youtube.com/watch?v=d5YTXxsAKSA"
+          },
+          {
+            "title": "The Origins",
+            "href": "https://www.youtube.com/watch?v=UckS3lgytIk"
+          },
+          {
+            "title": "The Traitor",
+            "href": "https://www.youtube.com/watch?v=_gj-ewiHXSQ"
+          }
+        ]
+      }
+    ],
+    "deck": "Keeping the jokes, characters and comic timing alive in Arabic."
   },
 ];

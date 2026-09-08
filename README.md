@@ -77,3 +77,13 @@ Snaptacular adds Ziad’s iPhone 15 Arabic headline and the original supplied bi
 See [RESEARCH.md](RESEARCH.md) for the campaign-by-campaign source audit and remaining gaps. Cases without a verified relevant reference have no empty coverage section.
 
 Validation: all 17 case pages rendered at 390px and 1280px without horizontal overflow or missing cases; homepage keyboard activation and next/previous navigation passed. The 16 coverage entries have complete attributions and HTTPS links. All 103 referenced media paths exist, the supplied photograph is byte-for-byte unchanged, existing roles and primary films are preserved, and browser checks reported no warnings or errors.
+
+### Older project stories · 8 September 2026
+
+All nine earlier projects now have fuller project context, a concise role statement and a craft section grounded in the work. Ziad’s latest clarifications are reflected in Journey, Ready for More, FAB, Stay Home Together and Gumball. Personal authorship is separated from editorial observations about the finished films.
+
+New references include Hind Shoufani’s production account, Mostafa Salameh’s collaboration page and the official Travel Video Awards nomination for The Land of Land Rovers (Best Video by a Lifestyle Brand). Filmmaker/music credits, the original FAB release and Velar’s interactive viewing links sit beside the relevant copy. The shared coverage component now contains 19 entries across nine cases; unavailable or mismatched social reactions remain outside the site.
+
+Ready for More presents its four challenge films in a responsive grid with individual captions. Velar’s self-hosted movie is labelled as a panoramic preview, with links to the original Arabic and English 360° versions.
+
+Validation for this pass: all nine older cases checked at 390px and 1280px, with no horizontal overflow, missing titles or empty captions; representative desktop/mobile layouts visually inspected. Native playback advanced without errors in the Ready for More grid. Homepage keyboard activation and next-case navigation passed, and Switchers was checked at both widths as a control. JavaScript syntax, source structure and whitespace checks passed; all 103 media paths exist. All eight Apple objects, earlier media and existing credits are unchanged. No browser warnings or errors were reported. Saved locally on the editorial branch; no deployment.
