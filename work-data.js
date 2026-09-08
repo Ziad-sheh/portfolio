@@ -16,7 +16,7 @@ window.PORTFOLIO_PROJECTS = [
     "poster": "assets/img/apple-switchers-tahani.jpg",
     "primaryFilm": "assets/video/apple-switchers-tahani.mp4",
     "deck": "Real iPhone switchers in Saudi Arabia and the UAE, telling their own stories through Memoji.",
-    "role": "Creative lead",
+    "role": "Creative Director & copy",
     "meta": [
       {
         "label": "Markets",
@@ -41,7 +41,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project end to end: reviewing candidate profiles, attending interviews, assessing the stories and shaping the edits. I stayed close to the animation and music as the interviews became finished films. Across Saudi Arabia and the UAE, we made around 20 short edits."
+          "As creative director, I led the team from candidate review and interviews through to the finished films. I reviewed profiles, helped select the stories and shaped the edits, working with animators and the music team as the interviews became Memoji performances. Together, we made around 20 short edits across Saudi Arabia and the UAE."
         ]
       },
       {
@@ -99,7 +99,7 @@ window.PORTFOLIO_PROJECTS = [
     "poster": "assets/img/apple-relax-matchmaker.jpg",
     "primaryFilm": "assets/video/apple-relax-matchmaker.mp4",
     "deck": "Saudi stories where iPhone camera features become part of the comedy.",
-    "role": "Creative direction & copy",
+    "role": "Creative Director & copy",
     "meta": [
       {
         "label": "Market",
@@ -124,7 +124,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the creative work from strategy through production, developing the situations and writing the scripts and copy. I shaped the cultural decisions, helped choose the cast, and worked closely with the director and composer on the performances, timing and music."
+          "As creative director, I led the team from strategy through production, developing the situations and writing the scripts and copy. We shaped the cultural choices and cast together. I worked closely with the director and composer on performance, timing and music."
         ]
       },
       {
@@ -144,7 +144,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "Familiar faces",
         "paragraphs": [
-          "I considered a broad range of actors before we landed on recognisable Saudi names. A familiar face does useful work in a short film: the audience can place the character quickly, leaving more room for the joke.",
+          "We considered a broad range of actors before settling on recognisable Saudi names. A familiar face does useful work in a short film: the audience can place the character quickly, leaving more room for the joke.",
           "The 2025 cast brings together Abdullah Al Sadhan, known for two decades of Tash Ma Tash; Adwa Bader, the lead in NAGA and a 2023 TIFF Rising Star; Reem Al Habeeb; and Waleed Alkahtany. Established television comedy meets a newer generation of Saudi screen talent."
         ],
         "sources": [
@@ -167,7 +167,7 @@ window.PORTFOLIO_PROJECTS = [
         "label": "Direction & music",
         "paragraphs": [
           "The 2025 films were directed by Ali Kalthami, co-founder of Telfaz11 and director of Mandoob. The stories give ordinary exchanges the weight of a television drama; the comedy comes from how seriously the characters take them.",
-          "That dramatic world carries into the score. Composer Layal Watfeh, whose work spans film and television, created the 2025 music, with Ahmad Mostafa Zaky credited as assistant composer. My work with the director and composer connected the writing, performances and music around the same comic idea."
+          "That dramatic world carries into the score. Composer Layal Watfeh, whose work spans film and television, created the 2025 music, with Ahmad Mostafa Zaky credited as assistant composer. We worked across writing, performance and music to keep that comic idea consistent."
         ],
         "sources": [
           {
@@ -283,7 +283,7 @@ window.PORTFOLIO_PROJECTS = [
     "sections": [
       {
         "type": "copy",
-        "label": "The idea",
+        "label": "The project",
         "heading": "A familiar word. A small surprise.",
         "paragraphs": [
           "Snaptacular packs a camera promise into an invented word. The Arabic line needed its own piece of wordplay: something people could recognise, then enjoy discovering.",
@@ -294,7 +294,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I wrote the Arabic localisation line. The creative task was to give Arabic readers the same pleasure of recognition and surprise, using the possibilities of their own language."
+          "I wrote the Arabic localisation line for the wider campaign. My part was finding wordplay that gave Arabic readers the same pleasure of recognition and surprise."
         ]
       },
       {
@@ -337,7 +337,7 @@ window.PORTFOLIO_PROJECTS = [
     "poster": "assets/img/apple-pay-metro-ar.jpg",
     "primaryFilm": "assets/video/apple-pay-metro-ar.mp4",
     "deck": "An English and Arabic campaign welcoming Apple Pay to journeys on Riyadh Metro and the city’s buses.",
-    "role": "Creative direction & copy",
+    "role": "Creative Director & copy",
     "meta": [
       {
         "label": "Languages",
@@ -368,7 +368,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I was the creative lead, originating the English and Arabic copy and shaping the music and overall direction. Working with the team, I led the cultural choices that brought the campaign into Riyadh, from the language to the illustrated characters."
+          "As creative director, I led the team’s work on the campaign and wrote the English and Arabic copy. We shaped the music, animation and cultural details together, from the rhythm of the films to the illustrated characters."
         ]
       },
       {
@@ -508,7 +508,7 @@ window.PORTFOLIO_PROJECTS = [
     "poster": "assets/img/apple-watch-saudi.jpg",
     "primaryFilm": "assets/video/apple-watch-saudi.mp4",
     "deck": "An Apple Watch film built around a Saudi day, from sleep and swimming to an evening out with friends.",
-    "role": "Creative direction & copy",
+    "role": "Creative Director & copy",
     "meta": [
       {
         "label": "Market",
@@ -533,7 +533,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project from strategy through production, developing the situations and writing the script and copy. I helped shape the cast and worked closely with the director and composer, carrying the creative and cultural decisions through to the finished film."
+          "As creative director, I led the team through strategy and production, developing the situations and writing the script and copy. I helped choose the cast and worked with the director and composer to connect the performances, music and cultural detail."
         ]
       },
       {
@@ -541,7 +541,7 @@ window.PORTFOLIO_PROJECTS = [
         "label": "People, performance & pace",
         "paragraphs": [
           "The people and their reactions give the product story its warmth. A feature becomes more interesting when it belongs to someone waking up, swimming or spending time with friends. Casting and performance sit alongside the writing in making those moments feel familiar.",
-          "Music and narration connect the different scenes. The voice moves between observation and encouragement, while the soundtrack carries the changing energy of the day. My role brought those elements together with the situations and cultural detail."
+          "Music and narration connect the different scenes. The voice moves between observation and encouragement, while the soundtrack carries the changing energy of the day. I worked with the team to keep those elements connected to the situations and cultural detail."
         ]
       }
     ],
@@ -585,7 +585,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions. I oversaw the localisation end to end, working on the words, phrasing and vocal delivery together."
+          "I led the Arabic adaptation with the localisation team, reshaping the lyrics, choosing the singers and directing the singing sessions. Working with the performers, I brought the words, phrasing and vocal delivery into the existing film."
         ]
       },
       {
@@ -641,14 +641,14 @@ window.PORTFOLIO_PROJECTS = [
         "label": "The project",
         "paragraphs": [
           "Assassin’s Creed has a gesture players recognise: the Leap of Faith. With Mirage on iPhone, that offered a compact creative connection. A leap inside the game could also express a leap in what gaming on a phone could be.",
-          "I built the Arabic headline around that connection. It gives players a reference they already understand, while the wider idea remains clear to someone simply passing the billboard. The line and game imagery work together at the scale of King Fahd Road in Riyadh."
+          "The Arabic headline builds on that connection. It gives players a reference they already understand, while the wider idea remains clear to someone simply passing the billboard. The line and game imagery work together at the scale of King Fahd Road in Riyadh."
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I identified the opportunity and originated the concept and Arabic copy. The creative starting point was the game itself: finding a piece of its world that could say something useful about iPhone."
+          "I identified the opportunity and came up with the concept and Arabic headline. My starting point was the game itself: finding a familiar part of its world that could say something about gaming on iPhone."
         ]
       },
       {
@@ -698,7 +698,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the Arabic localisation end to end, shaping the copy, directing dubbing actors and guiding the voice performances through to the final films. The English Health film is included below so both versions can be seen together."
+          "I led the team’s Arabic localisation work, shaping the copy and directing the dubbing actors. My role was to help the performances carry each film’s humour, pace and character into Arabic, within the existing direction and edit. The English Health film is included below for comparison."
         ]
       },
       {
@@ -840,7 +840,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the Arabic and English copy and worked on the concept, creative vision and music direction. The script had to guide attention through the experience while giving the viewer room to discover it."
+          "I led the Arabic and English copy and worked with the team on the concept, creative vision and music direction. Working within the wider production, my focus was a script that could guide attention while leaving room for the viewer to explore."
         ]
       },
       {
@@ -920,7 +920,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I contributed to the campaign concept, idea development and scripts as part of the creative team. The story brings the community’s experiences together around a shared relationship with Land Rover."
+          "I contributed to the concept, idea development and scripts as part of the creative team. My focus was helping the community’s experiences come together as a story."
         ]
       },
       {
@@ -1043,7 +1043,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the campaign idea, concept development and copy, shaping the creative direction around those connections. The writing gives each demonstration its seasonal meaning."
+          "I led the idea development and copy within the creative team, shaping the campaign around humility and guidance. The challenge for me was to let each vehicle feature carry the seasonal thought."
         ]
       },
       {
@@ -1100,7 +1100,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the campaign idea, concept development and copy, shaping the creative direction of the two films. The premise gives the technology a comic setup before the product demonstration delivers the payoff."
+          "I led the idea development and copy within the creative team. I worked on the comic setup of each film, connecting a familiar frustration with the gesture that makes the feature useful."
         ]
       },
       {
@@ -1164,7 +1164,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I worked on the script as a creative and copywriter, and was involved in choosing the music. My contribution connected the storytelling with the film’s tone, as the memories move between the past and the present."
+          "I worked with the team on the script as a creative and copywriter, and helped choose the music. My contribution was to the storytelling and tone as the film moved between the two men’s memories and the archive."
         ]
       },
       {
@@ -1276,7 +1276,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I worked on the scripts as a creative and copywriter, and was involved in choosing the music. Across the series, the writing needed to connect Mostafa’s perspective with each participant’s experience, while keeping the stories distinct."
+          "I worked with the team on the scripts as a creative and copywriter, and helped choose the music. I focused on connecting Mostafa’s perspective with each participant’s experience while giving the stories their own character."
         ]
       },
       {
@@ -1420,7 +1420,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I worked on the campaign idea, concept and script. The writing connects the energy of Formula 1 with the human moments that give the line its meaning."
+          "I worked on the idea, concept and script as part of the creative team. My focus was the connection between the energy of Formula 1 and the smaller moments that make a heartbeat count."
         ]
       },
       {
@@ -1465,7 +1465,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I originated the idea and worked as the copywriter and conceptualiser, including work on the music. The thought was to turn time at home into an invitation to spend it together."
+          "I came up with the idea and worked with the team as copywriter and conceptualiser, with a part in the music too. I wanted to turn time at home into an invitation to spend it together."
         ]
       },
       {
@@ -1506,8 +1506,8 @@ window.PORTFOLIO_PROJECTS = [
         "value": "Three representative episodes"
       }
     ],
-    "primaryLabel": "Selected scenes",
-    "primaryCaption": "Arabic dub. Three selected episodes are included below as references for the wider multi-season work.",
+    "primaryLabel": "Selected scenes · silent preview",
+    "primaryCaption": "Three full Arabic episodes are linked below as examples of the wider work.",
     "sections": [
       {
         "type": "copy",
@@ -1521,7 +1521,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I worked on scripting and Arabic localisation and managed the actors involved in the dub. That brought the written adaptation and the people performing it into the same process."
+          "I worked on the Arabic scripts and localisation and managed the actors involved in the dub. Working with the performers kept the writing close to how the jokes and characters needed to sound."
         ]
       },
       {
@@ -1529,7 +1529,7 @@ window.PORTFOLIO_PROJECTS = [
         "label": "Writing for the performance",
         "paragraphs": [
           "A line can be accurate on the page and still take too long to say. A joke may depend on an expression that has no useful equivalent in Arabic. The writing needs to find a phrase that fits the moment, sounds like the character and leaves room for the reaction on screen.",
-          "Managing the actors keeps that work connected to performance. Pace, emphasis and character matter alongside the words themselves. Across a series, the audience also needs continuity: the voices should feel like the same people even as the stories become increasingly strange."
+          "Working with the actors brings the adaptation into performance. Pace, emphasis and character matter alongside the words themselves. Across a series, the audience also needs continuity: the voices should feel like the same people even as the stories become increasingly strange."
         ]
       },
       {

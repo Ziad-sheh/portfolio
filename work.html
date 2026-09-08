@@ -11,14 +11,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260908a">
-<link rel="stylesheet" href="work.css?v=20260908e">
+<link rel="stylesheet" href="style.css?v=20260908g">
+<link rel="stylesheet" href="work.css?v=20260908g">
 </head>
 <body class="work-page">
   <a class="skip-link" href="#work-shell">Skip to campaign</a>
 
   <aside class="rail">
-    <h1 class="wordmark"><a href="index.html" aria-label="Ziad Shehade — home">Ziad <span class="wordmark-alt">Shehade</span></a></h1>
+    <p class="wordmark"><a href="index.html" aria-label="Ziad Shehade — home">Ziad <span class="wordmark-alt">Shehade</span></a></p>
 
     <div class="intro">
       <p class="greeting">Hi!</p>
@@ -55,9 +55,10 @@
   <div class="work-pane">
     <div class="work-meta">
       <a class="work-back" id="work-back" href="index.html">← Selected work</a>
+      <a class="about-link" href="about.html">About ↗</a>
     </div>
 
-    <main class="work-shell" id="work-shell" hidden>
+    <main class="work-shell" id="work-shell" tabindex="-1" hidden>
       <header class="work-hero">
         <div class="work-title-block">
           <p class="work-client" id="work-client"></p>
@@ -67,13 +68,12 @@
           <p class="work-deck" id="work-deck" hidden></p>
           <dl class="work-facts" id="work-facts"></dl>
         </div>
-        <div class="work-header-credits" id="work-header-credits" hidden></div>
       </header>
 
       <section class="work-primary" aria-labelledby="primary-label">
         <div class="work-primary-media" id="work-primary-media"></div>
         <div class="work-media-note">
-          <div class="work-film-title" id="primary-label">Full film</div>
+          <h2 class="work-film-title" id="primary-label">Full film</h2>
           <p class="work-caption" id="work-primary-caption" hidden></p>
         </div>
       </section>
@@ -86,14 +86,14 @@
       </nav>
     </main>
 
-    <main class="work-missing" id="work-missing" hidden>
+    <main class="work-missing" id="work-missing" tabindex="-1" hidden>
       <p class="work-client">Selected work</p>
       <h1>Campaign not found.</h1>
       <a href="index.html">← Return to the portfolio</a>
     </main>
   </div>
 
-  <script src="work-data.js?v=20260908f"></script>
-  <script src="work.js?v=20260908e"></script>
+  <script src="work-data.js?v=20260908g"></script>
+  <script src="work.js?v=20260908g"></script>
 </body>
 </html>

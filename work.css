@@ -94,29 +94,6 @@
   font-size: 12px;
   line-height: 1.4;
 }
-.work-header-credits {
-  display: grid;
-  grid-template-columns: minmax(150px, 1fr) minmax(0, 2.5fr);
-  gap: 42px;
-  padding-top: 24px;
-  margin-top: 22px;
-  border-top: 1px solid var(--line);
-}
-.work-header-credits[hidden] { display: none; }
-.work-header-credits dl {
-  display: grid;
-  grid-template-columns: minmax(140px, 1fr) minmax(0, 2fr);
-  max-width: 720px;
-  font-size: 10px;
-  line-height: 1.45;
-}
-.work-header-credits dt,
-.work-header-credits dd {
-  padding: 4px 0;
-  border-bottom: 1px solid var(--line);
-}
-.work-header-credits dt { color: var(--mut); }
-
 .work-primary,
 .work-content {
   padding: 18px 0 38px;
@@ -142,11 +119,12 @@
 .work-media-note {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) minmax(0, 2fr);
-  gap: 42px;
+  gap: 0 42px;
   align-items: baseline;
   padding-top: 8px;
 }
 .work-film-title {
+  color: var(--ink);
   font-family: var(--serif);
   font-size: 18px;
   font-weight: 400;
@@ -156,8 +134,8 @@
 .work-caption,
 figcaption {
   color: var(--mut);
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .work-copy,
@@ -171,7 +149,7 @@ figcaption {
   padding-bottom: 64px;
 }
 .work-copy-body { max-width: 760px; }
-.work-copy h2 {
+.work-copy-body h3 {
   margin-bottom: 12px;
   font-family: var(--serif);
   font-size: 30px;
@@ -209,6 +187,7 @@ figcaption {
 .work-sources a:hover,
 .work-sources a:focus-visible { color: var(--ink); }
 .work-films .work-sources { margin-top: 16px; }
+.work-media-note > .work-sources { grid-column: 1 / -1; }
 
 .work-stills {
   display: grid;
@@ -333,8 +312,7 @@ figcaption {
     gap: 4px;
   }
   .work-copy,
-  .work-credits,
-  .work-header-credits { grid-template-columns: 1fr; gap: 16px; }
+  .work-credits { grid-template-columns: 1fr; gap: 16px; }
   .work-copy {
     padding-top: 38px;
     padding-bottom: 44px;
@@ -367,7 +345,7 @@ figcaption {
   .is-portrait .work-film-title { font-size: 17px; }
 }
 
-.is-grid .work-media-note figcaption { font-size: 12px; line-height: 1.5; max-width: 46ch; }
+.is-grid .work-caption { max-width: 46ch; }
 
 /* Selected public reactions and coverage share one editorial treatment. */
 .work-coverage {

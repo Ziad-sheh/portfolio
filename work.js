@@ -62,11 +62,11 @@ function appendSources(parent, sources) {
 function renderCopySection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-copy";
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "Campaign"));
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "Campaign"));
 
   const body = document.createElement("div");
   body.className = "work-copy-body";
-  if (section.heading) body.appendChild(addText("h2", "", section.heading));
+  if (section.heading) body.appendChild(addText("h3", "", section.heading));
   (section.paragraphs || []).forEach(paragraph => {
     body.appendChild(addText("p", "", paragraph));
   });
@@ -109,7 +109,7 @@ function renderStillsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content";
   if (section.layout === "portrait") wrapper.classList.add("is-portrait");
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "Campaign stills"));
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "Campaign stills"));
 
   const grid = document.createElement("div");
   grid.className = "work-stills";
@@ -131,19 +131,19 @@ function renderFilmsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-film-story";
   if (["grid", "portrait"].includes(section.layout)) wrapper.classList.add(`is-${section.layout}`);
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "More films"));
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "More films"));
 
   const grid = document.createElement("div");
   grid.className = "work-films";
   (section.items || []).forEach(item => {
     const figure = document.createElement("figure");
     figure.appendChild(addVideo({ src: item.src, poster: item.poster, label: item.title || "Campaign film" }));
-    const note = document.createElement("div");
+    const note = document.createElement("figcaption");
     note.className = "work-media-note";
-    note.appendChild(addText("h2", "work-film-title", item.title || section.label || "Campaign film"));
-    if (item.caption) note.appendChild(addText("figcaption", "", item.caption));
+    note.appendChild(addText("h3", "work-film-title", item.title || section.label || "Campaign film"));
+    if (item.caption) note.appendChild(addText("p", "work-caption", item.caption));
+    appendSources(note, item.sources);
     figure.appendChild(note);
-    appendSources(figure, item.sources);
     grid.appendChild(figure);
   });
   wrapper.appendChild(grid);
@@ -162,7 +162,7 @@ function createCreditsList(section) {
 function renderCreditsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-credits";
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "Credits"));
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "Credits"));
   const list = createCreditsList(section);
   wrapper.appendChild(list);
   return wrapper;
@@ -171,7 +171,7 @@ function renderCreditsSection(section) {
 function renderLinksSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-links";
-  wrapper.appendChild(addText("div", "work-section-label", section.label || "Watch"));
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "Watch"));
 
   const list = document.createElement("div");
   list.className = "work-link-list";
@@ -206,6 +206,7 @@ function setCampaignLink(element, targetProject, direction) {
 
 if (!project) {
   missing.hidden = false;
+  document.querySelector(".skip-link").href = "#work-missing";
 } else {
   document.title = `${project.client} — ${project.title} | Ziad Shehade`;
   document.getElementById("work-back").href = `index.html#${project.slug}`;
@@ -237,14 +238,6 @@ if (!project) {
     document.getElementById("work-intro").classList.add("is-facts-only");
   }
 
-  const headerCredits = (project.sections || []).find(section => section.type === "credits");
-  if (headerCredits) {
-    const credits = document.getElementById("work-header-credits");
-    credits.appendChild(addText("div", "work-section-label", headerCredits.label || "Credits"));
-    credits.appendChild(createCreditsList(headerCredits));
-    credits.hidden = false;
-  }
-
   const primaryLabel = document.getElementById("primary-label");
   primaryLabel.textContent = project.primaryLabel || "Full film";
 
@@ -265,8 +258,7 @@ if (!project) {
     primaryMedia.appendChild(addVideo({
       src: project.loop,
       poster: project.poster,
-      autoplay: true,
-      loop: true,
+      label: project.primaryLabel || "Campaign preview",
     }));
   }
 
@@ -278,7 +270,6 @@ if (!project) {
 
   const sections = document.getElementById("work-sections");
   (project.sections || []).forEach(section => {
-    if (section === headerCredits) return;
     const renderer = sectionRenderers[section.type];
     if (renderer) sections.appendChild(renderer(section));
   });

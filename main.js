@@ -1,8 +1,10 @@
 const homeLoops = [...document.querySelectorAll(".home-loop")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const motionToggle = document.querySelector(".motion-toggle");
+let motionPaused = false;
 
 function playLoop(video) {
-  if (reducedMotion.matches || document.hidden) return;
+  if (reducedMotion.matches || motionPaused || document.hidden) return;
   video.muted = true;
   video.controls = false;
   video.setAttribute("autoplay", "");
@@ -11,8 +13,9 @@ function playLoop(video) {
 }
 
 function updateLoopMotion() {
+  if (motionToggle) motionToggle.hidden = reducedMotion.matches;
   homeLoops.forEach(video => {
-    if (reducedMotion.matches || document.hidden) {
+    if (reducedMotion.matches || motionPaused || document.hidden) {
       video.pause();
     } else if (video.dataset.inView === "true") {
       playLoop(video);
@@ -42,3 +45,13 @@ if ("IntersectionObserver" in window) {
 
 document.addEventListener("visibilitychange", updateLoopMotion);
 reducedMotion.addEventListener?.("change", updateLoopMotion);
+
+if (motionToggle) {
+  motionToggle.addEventListener("click", () => {
+    motionPaused = !motionPaused;
+    document.body.classList.toggle("motion-paused", motionPaused);
+    motionToggle.textContent = motionPaused ? "Resume motion" : "Pause motion";
+    updateLoopMotion();
+  });
+}
+updateLoopMotion();

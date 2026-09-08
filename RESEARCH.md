@@ -61,3 +61,9 @@ Fourteen local films were sampled at twelve evenly spaced frames each, including
 ## Asset and authorship
 
 The Snaptacular photograph was supplied by Ziad and copied unchanged to `assets/img/apple-snaptacular.jpg`. Ziad directly confirmed that he wrote the Arabic localisation line. The English explanation describes the visible wordplay; it does not invent a campaign-wide creative-director credit, a client brief or a production anecdote. All site copy remains English; the original campaign artwork retains Arabic.
+
+## Team credit and current title
+
+In the whole-site editorial review, Ziad confirmed that the recent Apple work was done as a Creative Director managing a team. The four original-production Apple cases name that role explicitly. Personal script/headline/concept authorship remains clear; the Arabic adaptation cases retain their local scope and do not take credit for global direction. Older contributions are described within their creative teams, including the previously confirmed music-direction credit on Velar. Existing sources and named production credits are unchanged.
+
+About uses Creative Director as the current title. The exact promotion date was requested but not supplied during this pass, so the Apple tenure remains grouped as 2020–present with the preceding roles named, rather than inventing dates. Broad claims about transforming the team’s practice, exact headcount and agency-wide adoption were replaced with a factual description of the work and collaboration.

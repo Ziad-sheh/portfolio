@@ -24,7 +24,8 @@ body {
   min-height: 100vh;
 }
 a { color: inherit; text-decoration: none; }
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 4px;
 }
@@ -139,7 +140,7 @@ a:focus-visible {
 }
 .ticker-set { display: flex; align-items: center; }
 .stop {
-  color: var(--dim);
+  color: var(--mut);
   font: 600 10px/1 var(--sans);
   letter-spacing: 0.05em;
   padding: 9px 0;
@@ -286,3 +287,16 @@ a:focus-visible {
 /* Still-image projects share the same card frame as film projects. */
 .media img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .meta-links { display: flex; gap: 24px; }
+
+/* Motion remains optional without changing the project-card layout. */
+.motion-toggle { border: 0; padding: 0; background: none; color: var(--mut); font: inherit; cursor: pointer; }
+.motion-toggle:hover { color: var(--ink); }
+.motion-paused .ticker-track { animation-play-state: paused; }
+.meta-row, .meta-links { flex-wrap: wrap; align-items: baseline; }
+.meta-row { row-gap: 8px; }
+@media (max-width: 640px) {
+  .meta-row > .meta-links { flex: 1 0 100%; justify-content: space-between; gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-set[aria-hidden="true"] { display: none; }
+}
