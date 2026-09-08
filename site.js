@@ -23,10 +23,15 @@ let returnScroll = 0;
 let hasCaseOrigin = false;
 const moments = [choices[0], choices[1], choices[3]];
 
+function motionAllowed() { return !motionPaused && !reducedMotion.matches; }
+
 function syncMotionButton() {
   const button = document.querySelector('#motion-toggle');
   button.textContent = motionPaused ? 'Play motion' : 'Pause motion';
   button.setAttribute('aria-pressed', String(motionPaused));
+  const body = document.querySelector('body');
+  if (motionPaused) body.classList.add('motion-paused');
+  else body.classList.remove('motion-paused');
 }
 
 const previewWanted = new WeakMap();
@@ -44,10 +49,10 @@ async function playPreview(video) {
 function pausePreview(video) { previewWanted.set(video, false); video.pause(); video.classList.remove('playing'); }
 
 const heroDeck = window.createHeroDeck({
-  stack: document.querySelector('.moment-stack'), moments, projects,
+  stack: document.querySelector('.moment-stack'), moments, projects, brandMarkup: window.portfolioBrandMarkup,
   open: openCase, play: playPreview, pause: pausePreview,
   canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open && !contactDialog.open,
-  canAnimate: () => !motionPaused && !reducedMotion.matches && !document.hidden,
+  canAnimate: () => motionAllowed() && !document.hidden,
 });
 function syncHero() { heroDeck.sync(); }
 
@@ -67,7 +72,7 @@ function renderGrid() {
   grid.innerHTML = choices.map((choice, index) => {
     const project = projects.get(choice.slug);
     const touch = touches[choice.slug];
-    return `<article class="project-card treatment-${touch.treatment}" style="--column:${touch.column};--push:${touch.push}px;--ratio:${touch.ratio};--note-turn:${touch.turn}deg" data-campaign="${choice.slug}"><div class="project-annotation hand">${escapeHtml(touch.note)}${index % 3 === 0 ? '<span class="mark mark-arrow" aria-hidden="true"></span>' : ''}</div><div class="cover-mount"><button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}"><img src="${choice.image}" alt="${escapeHtml(choice.alt)}" ${imageSize(choice.image)} loading="lazy" style="object-position:${choice.position}">${choice.clip ? `<video data-preview src="${choice.clip}" poster="${choice.image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button></div><div class="project-info"><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><span class="client">${escapeHtml(project.client)}</span></div><p class="project-description">${escapeHtml(project.deck)}</p></article>`;
+    return `<article class="project-card treatment-${touch.treatment}" style="--column:${touch.column};--push:${touch.push}px;--ratio:${touch.ratio};--note-turn:${touch.turn}deg" data-campaign="${choice.slug}"><div class="project-annotation hand">${escapeHtml(touch.note)}${index % 3 === 0 ? '<span class="mark mark-arrow" aria-hidden="true"></span>' : ''}</div><div class="cover-mount"><button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}"><img src="${choice.image}" alt="${escapeHtml(choice.alt)}" ${imageSize(choice.image)} loading="lazy" style="object-position:${choice.position}">${choice.clip ? `<video data-preview src="${choice.clip}" poster="${choice.image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button></div><div class="project-info"><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><span class="client">${window.portfolioBrandMarkup(project.client)}</span></div><p class="project-description">${escapeHtml(project.deck)}</p></article>`;
   }).join('');
   grid.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
   grid.querySelectorAll('.project-cover').forEach(button => {
@@ -173,8 +178,10 @@ async function openCase(slug, target, updateUrl = true) {
   const project = projects.get(slug);
   const choice = choices.find(item=>item.slug===slug);
   if (!project || !choice) {
+    if (caseDialog.open) finishClose();
     history.replaceState(null, '', '#work');
     document.querySelector('#work').scrollIntoView();
+    document.querySelector('#work-heading').focus({preventScroll:true});
     return;
   }
   if (!caseDialog.open) {
@@ -185,22 +192,22 @@ async function openCase(slug, target, updateUrl = true) {
   document.querySelectorAll('video').forEach(pausePreview);
   document.querySelectorAll('.playing').forEach(video=>video.classList.remove('playing'));
   const thumb = target?.querySelector('img');
-  if (thumb && document.startViewTransition && !reducedMotion.matches) thumb.style.viewTransitionName = 'selected-cover';
+  if (thumb && document.startViewTransition && motionAllowed()) thumb.style.viewTransitionName = 'selected-cover';
   const render = () => {
     if (thumb) thumb.style.viewTransitionName = '';
     document.querySelector('#case-content').innerHTML = caseMarkup(project, choice);
-    document.querySelector('#case-client').textContent = project.client;
+    document.querySelector('#case-client').innerHTML = window.portfolioBrandMarkup(project.client);
     currentProject = slug;
     if (!caseDialog.open) caseDialog.showModal();
     caseDialog.scrollTop = 0;
     document.querySelector('#case-title').focus({preventScroll:true});
     const cover = caseDialog.querySelector('.hero-media');
-    if (thumb && document.startViewTransition && !reducedMotion.matches) cover.style.viewTransitionName = 'selected-cover';
+    if (thumb && document.startViewTransition && motionAllowed()) cover.style.viewTransitionName = 'selected-cover';
     caseDialog.querySelector('[data-back]').addEventListener('click', closeCase);
     caseDialog.querySelector('[data-next]').addEventListener('click', nextCase);
     caseDialog.querySelector('[data-bts-jump]')?.addEventListener('click',()=>{
       const section=caseDialog.querySelector('#case-bts');
-      section.scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
+      section.scrollIntoView({behavior:motionAllowed()?'smooth':'instant',block:'start'});
       section.querySelector('h3').focus({preventScroll:true});
     });
     caseDialog.querySelectorAll('[data-bts-photo]').forEach(button=>button.addEventListener('click',()=>{
@@ -212,7 +219,7 @@ async function openCase(slug, target, updateUrl = true) {
     }));
     if (updateUrl) history.pushState({project:slug, returnToWork:true},'', '#project='+slug);
   };
-  if (thumb && document.startViewTransition && !reducedMotion.matches) {
+  if (thumb && document.startViewTransition && motionAllowed()) {
     const transition = document.startViewTransition(render);
     await transition.finished.catch(()=>{});
     const cover = caseDialog.querySelector('.hero-media');

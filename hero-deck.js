@@ -1,5 +1,5 @@
 /* Fixed photo cards move through the stack; their media never swaps mid-animation. */
-window.createHeroDeck = function ({stack, moments, projects, open, play, pause, canPlay, canAnimate}) {
+window.createHeroDeck = function ({stack, moments, projects, open, play, pause, canPlay, canAnimate, brandMarkup}) {
   const deck = stack.querySelector('.moment-deck');
   const nextButton = stack.querySelector('#next-moment');
   const status = stack.querySelector('.deck-status');
@@ -11,7 +11,7 @@ window.createHeroDeck = function ({stack, moments, projects, open, play, pause, 
   ];
   deck.innerHTML = moments.map((choice, index) => {
     const project = projects.get(choice.slug);
-    return `<figure class="moment-frame" data-slot="${index}"${index ? ' inert aria-hidden="true"' : ''}><button type="button" class="moment-image" aria-label="Open ${escape(project.title)}"${index ? ' tabindex="-1"' : ''}><img src="${choice.image}" alt="${escape(choice.alt)}" draggable="false"${index ? '' : ' fetchpriority="high"'}><video src="${choice.clip}" muted playsinline loop preload="none" aria-hidden="true"></video></button><figcaption>${escape(project.client)} · ${escape(project.title)}</figcaption></figure>`;
+    return `<figure class="moment-frame" data-slot="${index}"${index ? ' inert aria-hidden="true"' : ''}><button type="button" class="moment-image" aria-label="Open ${escape(project.title)}"${index ? ' tabindex="-1"' : ''}><img src="${choice.image}" alt="${escape(choice.alt)}" draggable="false"${index ? '' : ' fetchpriority="high"'}><video src="${choice.clip}" muted playsinline loop preload="none" aria-hidden="true"></video></button><figcaption>${brandMarkup ? brandMarkup(project.client) : escape(project.client)}<span class="moment-title">${escape(project.title)}</span></figcaption></figure>`;
   }).join('');
   const cards = [...deck.querySelectorAll('.moment-frame')];
   let order = cards.map((_, index) => index);

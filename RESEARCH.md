@@ -67,3 +67,12 @@ The Snaptacular photograph was supplied by Ziad and copied unchanged to `assets/
 In the whole-site editorial review, Ziad confirmed that the recent Apple work was done as a Creative Director managing a team. The four original-production Apple cases name that role explicitly. Personal script/headline/concept authorship remains clear; the Arabic adaptation cases retain their local scope and do not take credit for global direction. Older contributions are described within their creative teams, including the previously confirmed music-direction credit on Velar. Existing sources and named production credits are unchanged.
 
 About uses Creative Director as the current title. The exact promotion date was requested but not supplied during this pass, so the Apple tenure remains grouped as 2020–present with the preceding roles named, rather than inventing dates. Broad claims about transforming the team’s practice, exact headcount and agency-wide adoption were replaced with a factual description of the work and collaboration.
+
+
+## 8 September 2026 — public source maintenance
+
+The Ready for More source `https://www.landroverkuwait.com/en/sponsorship/adventure` now redirects to a generic Explore page. Removed that redundant reference; the existing official Mostafa Salameh collaboration page and director’s Vimeo source remain.
+
+The English (`tbEgZalU3bk`) and Arabic (`d5ytvTclQdI`) Velar YouTube URLs both displayed “This video isn't available anymore” in the browser. Removed the three links pointing to those releases and the instruction promising an interactive version below. Both local film previews remain. This leaves 40 reference entries across 35 unique public URLs.
+
+All 56 referenced MP4 files had valid H.264 video metadata and progressive-playback headers; every recorded image dimension matched its local file. The Drum returned HTTP 202 and AWFC needed web indexing to confirm the public composer profile. Public availability can change after this review.

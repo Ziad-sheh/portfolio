@@ -11,8 +11,8 @@ const check = (condition, message) => { if (!condition) failures.push(message); 
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = relative => fs.existsSync(path.join(root, relative));
 const entryFiles = ['index.html', 'work.html', 'about.html'];
-const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js'];
-const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css'];
+const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js'];
+const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css'];
 const runtimeFiles = [...entryFiles, ...dataFiles, ...stylesheetFiles, 'site.js', 'hero-deck.js', 'legacy-route.js', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
 const allFiles = [];
 
@@ -100,7 +100,20 @@ const canonicalFlag = process.argv.indexOf('--canonical');
 const canonicalSource = canonicalFlag >= 0
   ? fs.readFileSync(process.argv[canonicalFlag + 1], 'utf8')
   : execFileSync('git', ['show', '3e927e7:work-data.js'], { cwd: root, encoding: 'utf8' });
-check(read('work-data.js') === canonicalSource, 'Canonical campaign content differs from the approved editorial baseline');
+const approvedContext = {window: {}};
+vm.runInNewContext(canonicalSource, approvedContext);
+// The 2026-09-08 browser audit confirmed both former Velar 360 links unavailable.
+// Keep the film/story baseline, omitting only the retired links and their instruction.
+const approvedVelar = approvedContext.window.PORTFOLIO_PROJECTS.find(project => project.slug === 'velar-vr');
+approvedVelar.sections = approvedVelar.sections.filter(section => section.type !== 'links' || section.label !== 'Explore in 360°');
+approvedVelar.primaryCaption = 'Panoramic preview of the Arabic film.';
+// Maintain public citations without changing approved stories, roles, credits or media.
+function editorialContent(value) {
+  if (Array.isArray(value)) return value.map(editorialContent);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'sources' && key !== 'href').map(([key, child]) => [key, editorialContent(child)]));
+}
+check(JSON.stringify(editorialContent(projects)) === JSON.stringify(editorialContent(approvedContext.window.PORTFOLIO_PROJECTS)), 'Campaign stories, roles, credits or media differ from the approved editorial baseline');
 const sourceLinks = [];
 function collectLinks(value) {
   if (!value || typeof value !== 'object') return;
@@ -110,7 +123,7 @@ function collectLinks(value) {
   }
 }
 collectLinks(projects);
-check(sourceLinks.length === 44, `Expected 44 campaign source-link entries; found ${sourceLinks.length}`);
+check(sourceLinks.length === 40, `Expected 40 campaign source-link entries; found ${sourceLinks.length}`);
 check(sourceLinks.every(href => /^https:\/\//.test(href)), 'Campaign source links must use HTTPS');
 
 const localReferences = new Set();
@@ -160,7 +173,7 @@ try {
     } catch (error) { failures.push(`Case render failed (${project.slug}): ${error.message}`); }
   }
 } catch (error) { failures.push(`Site initialization failed: ${error.message}`); }
-check(renderedSourceLinks.length === 44, `Expected 44 rendered source links; found ${renderedSourceLinks.length}`);
+check(renderedSourceLinks.length === 40, `Expected 40 rendered source links; found ${renderedSourceLinks.length}`);
 const frequency = values => [...values.reduce((map, value) => map.set(value, (map.get(value) || 0) + 1), new Map())].sort();
 check(JSON.stringify(frequency(sourceLinks)) === JSON.stringify(frequency(renderedSourceLinks)), 'Rendered campaign source links differ from canonical content');
 
@@ -190,7 +203,7 @@ if (failures.length) {
   console.error(`Release verification failed (${failures.length} checks):\n${failures.map(message => '- ' + message).join('\n')}`);
   process.exitCode = 1;
 } else {
-  console.log(`Release verified: ${renderedCases} campaigns rendered, 44 source links preserved, ${localReferences.size} local dependencies found.`);
+  console.log(`Release verified: ${renderedCases} campaigns rendered, 40 source links preserved, ${localReferences.size} local dependencies found.`);
   console.log(`Legacy routes passed. ${deployedFiles.length} deployable files; ${(publishedBytes / 1024 ** 2).toFixed(1)} MiB. No symlinks, oversized files, local paths or draft controls.`);
   console.log('Pages exclusions checked statically. Browser interactions and the built/live Pages output require separate verification.');
 }

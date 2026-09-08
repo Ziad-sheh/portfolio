@@ -13,6 +13,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `bts-content.js`: supplied Switchers and Relax behind-the-scenes material.
 - `background-data.js`: approved professional background, experience and education.
 - `site.js` / `site.css`: shared interaction and responsive design.
+- `brands.js` / `brands.css` / `brands/`: official brand marks, their accessible labels and optical sizing; source URLs are retained in `LICENSES.md`.
 - `hero-deck.js` / `opening.css`: the three-card photo stack, drag and keyboard shuffle, and opening layout.
 - `collection.css`: consistent paper frames, hover/focus movement and the invitation circle.
 - `image-dimensions.js`: intrinsic media dimensions that reserve layout space while images load.

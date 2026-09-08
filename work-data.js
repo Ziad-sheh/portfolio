@@ -828,12 +828,6 @@ window.PORTFOLIO_PROJECTS = [
         "paragraphs": [
           "The experience begins on an open road, then takes the viewer inside the Velar. Rock formations pass the windows, the light changes and the journey continues into a night sky. The cabin remains the point of reference as the world moves around it.",
           "The 360° format gives the viewer a part in the film: deciding where to look. Product details emerge along the route, from the displays and interior lighting to the panoramic roof. The journey provides a reason to explore the car."
-        ],
-        "sources": [
-          {
-            "title": "Land Rover MENA · The original 360° release",
-            "href": "https://www.youtube.com/watch?v=tbEgZalU3bk"
-          }
         ]
       },
       {
@@ -849,20 +843,6 @@ window.PORTFOLIO_PROJECTS = [
         "paragraphs": [
           "A conventional film can cut straight to the detail it wants you to notice. Here, the viewer may be looking elsewhere. The writing, scene transitions and music need to keep the journey legible as attention moves around the cabin.",
           "The changing landscape gives the film its progression. Daylight, rock and darkness create different settings for the same interior, while the music connects those changes into a continuous drive. The Arabic and English versions follow that shared visual rhythm."
-        ]
-      },
-      {
-        "type": "links",
-        "label": "Explore in 360°",
-        "items": [
-          {
-            "title": "Arabic · interactive film",
-            "href": "https://www.youtube.com/watch?v=d5ytvTclQdI"
-          },
-          {
-            "title": "English · interactive film",
-            "href": "https://www.youtube.com/watch?v=tbEgZalU3bk"
-          }
         ]
       },
       {
@@ -897,7 +877,7 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     "deck": "A virtual drive that lets the viewer choose where to look.",
-    "primaryCaption": "Panoramic preview of the Arabic film. The interactive 360° version is linked below."
+    "primaryCaption": "Panoramic preview of the Arabic film."
   },
   {
     "slug": "lr-land-of",
@@ -1264,12 +1244,6 @@ window.PORTFOLIO_PROJECTS = [
         "paragraphs": [
           "Ready for More pairs Land Rover Discovery with explorer Mostafa Salameh on a journey across Jordan. Four participants face challenges involving routine, darkness, heights and the sea. A lead film introduces Mostafa’s own relationship with adventure; the following stories bring it down to the scale of an individual decision.",
           "The connection to Discovery grows out of the journey. The vehicle carries people towards unfamiliar places, while the real question is what they will do when they arrive. Each episode gives “Ready for More” a different personal meaning."
-        ],
-        "sources": [
-          {
-            "title": "Land Rover · The adventure series",
-            "href": "https://www.landroverkuwait.com/en/sponsorship/adventure"
-          }
         ]
       },
       {

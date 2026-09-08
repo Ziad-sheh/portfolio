@@ -160,3 +160,14 @@
     transform: none;
   }
 }
+
+/* The explicit motion control has the same effect as the system preference. */
+html:has(body.motion-paused){scroll-behavior:auto!important}
+.motion-paused #project-grid .cover-mount,
+.motion-paused #project-grid .cover-mount:hover,
+.motion-paused #project-grid .cover-mount:focus-within{transform:rotate(var(--print-turn));transition:none}
+.motion-paused .work-invitation #surprise-project,
+.motion-paused .work-invitation #surprise-project:hover{transform:rotate(2deg);transition:none}
+.motion-paused #surprise-project:hover>span:last-child,
+.motion-paused .deck-controls #next-moment:hover span{transform:none}
+.motion-paused *, .motion-paused *::before, .motion-paused *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
