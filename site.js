@@ -104,8 +104,14 @@ function links(sources = []) {
   return sources.length ? `<div class="source-links">${sources.map(source => resourceLink(source.href, source.title)).join('')}</div>` : '';
 }
 
+function captionTracks(src) {
+  const caption = window.FILM_CAPTIONS[src];
+  if (!caption) return '';
+  return `<track kind="subtitles" srclang="en" label="English" src="${escapeHtml(caption.src)}"${caption.default ? ' default' : ''}>`;
+}
+
 function filmMarkup(film) {
-  return `<figure><video src="${escapeHtml(original(film.src))}" poster="${escapeHtml(original(film.poster || ''))}" controls playsinline preload="none" aria-label="${escapeHtml(film.title || 'Campaign film')}"></video><figcaption>${film.title ? `<strong>${escapeHtml(film.title)}</strong>` : ''}${escapeHtml(film.caption || '')}${links(film.sources)}</figcaption></figure>`;
+  return `<figure><video src="${escapeHtml(original(film.src))}" poster="${escapeHtml(original(film.poster || ''))}" controls playsinline preload="none" aria-label="${escapeHtml(film.title || 'Campaign film')}">${captionTracks(film.src)}</video><figcaption>${film.title ? `<strong>${escapeHtml(film.title)}</strong>` : ''}${escapeHtml(film.caption || '')}${links(film.sources)}</figcaption></figure>`;
 }
 
 function renderSection(section) {
@@ -125,7 +131,7 @@ function btsMarkup(slug) {
   const bts = behindTheScenes[slug];
   if (!bts) return '';
   const media = bts.video
-    ? `<figure class="bts-video"><video src="${bts.video}" poster="${bts.poster}" width="${bts.width}" height="${bts.height}" controls playsinline preload="none" aria-label="Switchers behind the scenes"></video><figcaption>${escapeHtml(bts.caption)}</figcaption></figure>`
+    ? `<figure class="bts-video"><video src="${bts.video}" poster="${bts.poster}" width="${bts.width}" height="${bts.height}" controls playsinline preload="none" aria-label="Switchers behind the scenes">${captionTracks(bts.video)}</video><figcaption>${escapeHtml(bts.caption)}</figcaption></figure>`
     : `<div class="bts-photo-grid">${bts.images.map((item,index)=>`<figure><button type="button" data-bts-photo="${index}" aria-label="View Relax behind-the-scenes photo ${index+1}"><img src="${item.src}" width="${item.width}" height="${item.height}" alt="${escapeHtml(item.alt)}" loading="lazy"><span class="photo-expand" aria-hidden="true">↗</span></button></figure>`).join('')}</div>`;
   return `<section class="case-section case-bts ${bts.video?'bts-with-video':'bts-with-photos'}" id="case-bts"><div class="bts-intro"><h3 class="hand" tabindex="-1">${escapeHtml(bts.heading)}</h3><p>${escapeHtml(bts.intro)}</p></div>${media}</section>`;
 }
@@ -156,7 +162,7 @@ photoDialog.addEventListener('keydown',event=>{
 function caseMarkup(project, choice) {
   const heroFilm = choice.source.endsWith('.mp4') && !choice.crop ? choice.source : null;
   const heroMedia = heroFilm
-    ? `<video class="hero-media" src="${escapeHtml(original(heroFilm))}" poster="${choice.image}" controls playsinline preload="none" aria-label="${escapeHtml(project.slug === 'cn-gumball' ? 'Gumball scene preview, silent' : project.title + ' film')}"></video>`
+    ? `<video class="hero-media" src="${escapeHtml(original(heroFilm))}" poster="${choice.image}" controls playsinline preload="none" aria-label="${escapeHtml(project.slug === 'cn-gumball' ? 'Gumball scene preview, silent' : project.title + ' film')}">${captionTracks(heroFilm)}</video>`
     : `<img class="hero-media" src="${choice.image}" alt="${escapeHtml(choice.alt)}" ${imageSize(choice.image)} style="object-position:${choice.position}">`;
   const extraPrimary = project.primaryFilm && project.primaryFilm !== heroFilm
     ? `<section class="case-section case-films"><h3>${escapeHtml(project.primaryLabel || 'The film')}</h3><div class="film-grid single">${filmMarkup({src:project.primaryFilm,poster:project.poster,title:project.primaryLabel || project.title,caption:project.primaryCaption})}</div></section>` : '';

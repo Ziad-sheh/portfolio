@@ -216,6 +216,8 @@ strong{font-weight:600}
 
 .case-hero .media-context{display:block;font-family:var(--body);font-size:14px;line-height:1.5;color:#535f77;margin-top:9px;max-width:70ch}
 
+video::cue{font-family:Arial,sans-serif;background-color:rgba(0,0,0,.82);color:#fff}
+
 /* One contact card from About, the footer and the background panel. */
 #contact-dialog{inset:0;margin:auto;width:min(520px,calc(100% - 32px));height:fit-content;max-height:calc(100dvh - 32px);overflow:auto;padding:clamp(20px,4vw,36px);background:var(--butter);color:var(--blue);box-shadow:0 20px 70px #17203940}
 .contact-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px}

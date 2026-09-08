@@ -76,3 +76,41 @@ The Ready for More source `https://www.landroverkuwait.com/en/sponsorship/advent
 The English (`tbEgZalU3bk`) and Arabic (`d5ytvTclQdI`) Velar YouTube URLs both displayed “This video isn't available anymore” in the browser. Removed the three links pointing to those releases and the instruction promising an interactive version below. Both local film previews remain. This leaves 40 reference entries across 35 unique public URLs.
 
 All 56 referenced MP4 files had valid H.264 video metadata and progressive-playback headers; every recorded image dimension matched its local file. The Drum returned HTTP 202 and AWFC needed web indexing to confirm the public composer profile. Public availability can change after this review.
+
+
+## English film subtitles — 8 September 2026
+
+Audited the 45 distinct full-film/BTS assets used in case studies (28 Apple films, 16 other films, one Switchers BTS clip), separately from muted decorative loops. Added 23 selectable English subtitle tracks, defaulting on. These are dialogue/on-screen translations, not a certified SDH or full sound-description treatment.
+
+| Films | Coverage and source |
+|---|---|
+| Relax: The Matchmaker and The Favourite Son | Dialogue wording recovered from the public English-subtitled releases in [shots](https://shots.net/news/view/apple-launches-a-special-ramadan-series). Audio correlation aligned the 30-second edits (approximately 0.06-second source offsets). Arabic feature/endline text also translated. Favourite Son’s local endline stops at 27.1 seconds, before its Mobily slate. |
+| Relax: Confrontation, Steady Steps, Office Nap | Published YouTube source auto-captions cross-checked with local transcription and actual frames. Feature typography translated; Office’s short phone chat condensed for its 1.6-second appearance. Only the two vocal refrains inside the 15-second Office edit included. |
+| Switchers: Tahani, Khaled, Ziad | English translations of the authored Arabic subtitles in supplied square edits, aligned to the published landscape films. First cues condensed for reading speed. |
+| Apple localisations: Call to the Wild, New Things, The Waiting Room, Hello Sunshine, Answers | Translated from concordant local Arabic transcriptions, with visual context and obvious orthographic corrections. Unrelated ASR tail credits rejected. |
+| Health, English | Eight spoken lines from the original YouTube auto-caption word timings, cross-checked against local transcription. The final line follows the source wording “Oxygen deprivation hurts your heart.” |
+| Apple Pay: Metro, Bus, Hello, No Face ID, No Unlock — Arabic | Translations of the Arabic on-screen typography, using each Arabic edit’s timing. “Easy” and “Tap and go” preserve the Arabic meaning rather than substituting the different English master lines. Bus includes its five visible place names only. |
+| Velar, Arabic and English | Timed narration subtitles. Arabic translated independently; the parallel English narration corroborates the thoughts/unknown imagery where Arabic ASR misspelled words. |
+| FAB: Make Every Heartbeat Count | English narration with punctuation and cue breaks; spurious endpoint “Thank you” rejected. |
+| La Vache qui rit: Stay Home Together | English voiceover from 18.92 to 27.26 seconds; two independent tail transcriptions agreed. Account spelling confirmed from the actual endcard. |
+
+Seven Land Rover films already show English subtitles in the image: The Land of Land Rovers, A Journey of Rediscovery, Ready for More and its four challenge films. No duplicate tracks were added. Five English Apple Pay films communicate through English typography. Both Ramadan films and both Life Is Simple films yielded no reliable dialogue in the audit; no speech was invented. The local Gumball preview is silent. This is not a certification of every background sound or lyric.
+
+### Remaining transcript confirmations
+
+Five films remain without new tracks, because their wording is not reliably resolved:
+
+- Your next computer: final Arabic adapted song lyrics needed; several local transcriptions were inconsistent.
+- Switchers BTS: overlapping/off-camera conversation in the 15-second clip needs the script or a human transcript.
+- A day with Apple Watch: interjection around 15.68–17.06 seconds, just before “حتى هنا”. The remainder is drafted; held as a whole rather than publishing an incomplete dialogue track.
+- Relax, The Winning Selfie: colloquial exchange around 6–9 seconds differs between transcription engines.
+- Health, Arabic: overlapping final advice around 17–21 seconds remains unclear. The English master does not establish the exact Arabic adaptation.
+
+Requested the lyric/BTS scripts and Watch/Selfie clarification from Ziad. Do not fill these gaps by copying different-language master dialogue or plausible guessed words.
+
+### Verification scope
+
+- Confirmed the published Health films and all four 2026 Relax films start at the same audio time as their downloaded YouTube originals (correlations above 0.999). Their shorter length trims the tail, not the beginning.
+- Subtitle files checked for valid WebVTT, one/two lines, maximum 42 characters per line, ordered non-overlapping cues and duration bounds against the exact local films.
+- The existing release check now verifies that each mapped track is attached to its rendered film, is available to Pages and contains no draft/source notes. Original campaign stories and media remain unchanged.
+- Real-browser playback checked at desktop and 390px phone width, including the native caption on/off control. Text/source checks do not replace a human listening review of ambiguous dialogue.

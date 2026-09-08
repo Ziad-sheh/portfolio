@@ -11,7 +11,7 @@ const check = (condition, message) => { if (!condition) failures.push(message); 
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = relative => fs.existsSync(path.join(root, relative));
 const entryFiles = ['index.html', 'work.html', 'about.html'];
-const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js'];
+const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js', 'captions.js'];
 const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css'];
 const runtimeFiles = [...entryFiles, ...dataFiles, ...stylesheetFiles, 'site.js', 'hero-deck.js', 'legacy-route.js', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
 const allFiles = [];
@@ -149,6 +149,7 @@ for (const relative of stylesheetFiles) {
   for (const match of read(relative).matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) reference(match[1], relative);
 }
 let renderedCases = 0;
+const renderedCaptionSources = new Set();
 const renderedSourceLinks = [];
 try {
   vm.runInContext(read('site.js') + '\n globalThis.releaseAudit = {caseMarkup, backgroundNotes};', context, { filename: 'site.js' });
@@ -162,6 +163,15 @@ try {
       const choice = choices.find(item => item.slug === project.slug);
       const html = context.releaseAudit.caseMarkup(project, choice);
       auditHtml(html, 'index.html');
+      for (const video of html.matchAll(/<video\b[^>]*src="([^"]+)"[^>]*>([\s\S]*?)<\/video>/g)) {
+        const caption = context.window.FILM_CAPTIONS[video[1]];
+        if (!caption) continue;
+        check(video[2].includes(`src="${caption.src}"`), `Caption missing from film player: ${video[1]}`);
+        check(video[2].includes('srclang="en"'), `English caption language missing: ${video[1]}`);
+        check(video[2].includes('kind="subtitles"'), `Subtitle kind missing: ${video[1]}`);
+        check(!caption.default || / default(?:>|\s)/.test(video[2]), `Default subtitles missing: ${video[1]}`);
+        renderedCaptionSources.add(video[1]);
+      }
       if (project.primaryCaption) {
         const caption = project.primaryCaption.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
         check(html.includes(caption), `Approved primary-media caption is not rendered: ${project.slug}`);
@@ -173,6 +183,27 @@ try {
     } catch (error) { failures.push(`Case render failed (${project.slug}): ${error.message}`); }
   }
 } catch (error) { failures.push(`Site initialization failed: ${error.message}`); }
+for (const [film, caption] of Object.entries(context.window.FILM_CAPTIONS)) {
+  check(renderedCaptionSources.has(film), `Caption is not attached to a visible film: ${film}`);
+  check(exists(film), `Captioned film is missing: ${film}`);
+  check(exists(caption.src), `Caption track is missing: ${caption.src}`);
+  if (!exists(film) || !exists(caption.src)) continue;
+  const vtt = read(caption.src);
+  check(vtt.startsWith('WEBVTT\n'), `Invalid WebVTT header: ${caption.src}`);
+  check(!/NOTE|draft|\/tmp\/|\/Users\//i.test(vtt), `Editorial notes leaked into subtitles: ${caption.src}`);
+  const duration = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', path.join(root, film)], {encoding:'utf8'}));
+  const seconds = stamp => stamp.split(':').reduce((total, value) => total * 60 + Number(value), 0);
+  const cues = [...vtt.matchAll(/^(\d{2}:\d{2}:\d{2}\.\d{3}) --> (\d{2}:\d{2}:\d{2}\.\d{3})(?:[^\n]*)\n([^]*?)(?=\n\n|$)/gm)];
+  check(cues.length > 0, `Empty caption track: ${caption.src}`);
+  let previousEnd = 0;
+  for (const cue of cues) {
+    const start = seconds(cue[1]), end = seconds(cue[2]);
+    check(start >= previousEnd && end > start && end <= duration + .05, `Caption overlap or out-of-film timing: ${caption.src} at ${cue[1]}`);
+    check(cue[3].trim().length > 0 && cue[3].trim().split('\n').length <= 2, `Caption must have one or two readable lines: ${caption.src} at ${cue[1]}`);
+    check(cue[3].trim().split('\n').every(line => line.length <= 42), `Subtitle line too long: ${caption.src} at ${cue[1]}`);
+    previousEnd = end;
+  }
+}
 check(renderedSourceLinks.length === 40, `Expected 40 rendered source links; found ${renderedSourceLinks.length}`);
 const frequency = values => [...values.reduce((map, value) => map.set(value, (map.get(value) || 0) + 1), new Map())].sort();
 check(JSON.stringify(frequency(sourceLinks)) === JSON.stringify(frequency(renderedSourceLinks)), 'Rendered campaign source links differ from canonical content');
