@@ -17,6 +17,7 @@ Available optional section types in `work-data.js`:
 - `copy` — label, heading, paragraphs, optional `sources: [{ title, href }]`
 - `stills` — images with alt text and optional captions
 - `films` — additional films with titles, posters, captions, and optional per-film `sources`
+- `coverage` — selected public reactions, media coverage and production accounts; each item has a source URL, attribution and an explicit scope where needed
 - `credits` — role/name pairs
 - `links` — external campaign or viewing links
 
@@ -68,3 +69,11 @@ Validation for this pass: all seven Apple cases checked at 390px and 1280px; nat
 The Apple stories now include casting, performance and music context. Source links live beside the relevant copy in `work-data.js`. Saudi cast, director and music credits are explicitly scoped to the 2025 films. Syn’s music account describes the wider Switchers campaign, without assigning individual global composers to a particular local edit. The Waiting Room award and original Jane Lynch performance are credited to the global campaign; Ziad’s role remains Arabic localisation.
 
 Public names remain unconfirmed for the 2026 Relax cast/music, the Saudi Watch cast/composer, the iPad Arabic singers and other Arabic dubbing performers. Gaming-event attribution is still unconfirmed. These gaps do not appear as placeholders or invented credits on the site. Creative commentary is editorial portfolio copy based on the films; personal role statements use Ziad’s descriptions, without invented session anecdotes.
+
+### Conversation & coverage · September 2026
+
+Snaptacular adds Ziad’s iPhone 15 Arabic headline and the original supplied billboard photograph. All 17 selected projects were searched for campaign-specific public discussion. Nine cases have selected references in the shared `coverage` layout. Quotes are brief, attributed and linked; summaries are visually distinct from quotations. Global campaign recognition, production accounts and service-launch discussion are labelled by scope. No reach, virality or campaign-effectiveness metrics are inferred from these posts.
+
+See [RESEARCH.md](RESEARCH.md) for the campaign-by-campaign source audit and remaining gaps. Cases without a verified relevant reference have no empty coverage section.
+
+Validation: all 17 case pages rendered at 390px and 1280px without horizontal overflow or missing cases; homepage keyboard activation and next/previous navigation passed. The 16 coverage entries have complete attributions and HTTPS links. All 103 referenced media paths exist, the supplied photograph is byte-for-byte unchanged, existing roles and primary films are preserved, and browser checks reported no warnings or errors.

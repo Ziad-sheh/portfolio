@@ -75,6 +75,36 @@ function renderCopySection(section) {
   return wrapper;
 }
 
+function renderCoverageSection(section) {
+  const wrapper = document.createElement("section");
+  wrapper.className = "work-content work-coverage";
+  wrapper.appendChild(addText("h2", "work-section-label", section.label || "Conversation & coverage"));
+  const body = document.createElement("div");
+  body.className = "work-coverage-body";
+  if (section.intro) body.appendChild(addText("p", "work-coverage-intro", section.intro));
+
+  const list = document.createElement("ul");
+  list.className = "work-coverage-list";
+  (section.items || []).forEach(item => {
+    const entry = document.createElement("li");
+    entry.className = "work-coverage-item";
+    entry.appendChild(addText("p", "work-coverage-kind", [item.kind, item.scope].filter(Boolean).join(" · ")));
+    if (item.quote) {
+      const quote = addText("blockquote", "work-coverage-quote", "“" + item.quote + "”");
+      quote.cite = item.href;
+      entry.appendChild(quote);
+    }
+    if (item.summary) entry.appendChild(addText("p", "work-coverage-summary", item.summary));
+    const attribution = addText("p", "work-coverage-attribution", [item.author, item.platform].filter(Boolean).join(" · "));
+    entry.appendChild(attribution);
+    appendSources(entry, [{ title: item.linkLabel || "Read the source", href: item.href }]);
+    list.appendChild(entry);
+  });
+  body.appendChild(list);
+  wrapper.appendChild(body);
+  return wrapper;
+}
+
 function renderStillsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content";
@@ -159,6 +189,7 @@ function renderLinksSection(section) {
 
 const sectionRenderers = {
   copy: renderCopySection,
+  coverage: renderCoverageSection,
   stills: renderStillsSection,
   films: renderFilmsSection,
   credits: renderCreditsSection,

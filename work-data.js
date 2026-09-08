@@ -4,6 +4,7 @@
 // { type: "stills", label: "Campaign stills", items: [{ src, alt, caption }] }
 // { type: "films", label: "More films", items: [{ title, src, poster, caption }] }
 // { type: "credits", label: "Credits", items: [{ role, names }] }
+// { type: "coverage", label: "Conversation & coverage", intro, items: [{ kind, scope, author, platform, quote, summary, href, linkLabel }] }
 // Optional factual fields:
 // role: "Exact credited role"
 // meta: [{ label: "Versions", value: "Arabic · English" }]
@@ -71,6 +72,20 @@ window.PORTFOLIO_PROJECTS = [
           {
             "title": "Syn · Creating the Switchers music",
             "href": "https://www.syn.world/work/apple-switchers"
+          }
+        ]
+      },
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
+          {
+            "kind": "Production perspective",
+            "scope": "The wider Switchers campaign",
+            "author": "Syn",
+            "summary": "The music team’s account describes giving real switchers’ stories a regional sound, including collaborations with Saudi oud players.",
+            "href": "https://www.syn.world/work/apple-switchers",
+            "linkLabel": "Read the music story"
           }
         ]
       }
@@ -208,24 +223,112 @@ window.PORTFOLIO_PROJECTS = [
         ]
       },
       {
-        "type": "copy",
-        "label": "In the press",
-        "paragraphs": [
-          "Campaign Middle East framed the 2025 films as an homage to Saudi soap operas. shots highlighted their playful handling of everyday drama. Both picked up on the same thing that makes the idea work: a recognisable Saudi entertainment language, carrying a product story."
-        ],
-        "sources": [
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
           {
-            "title": "Campaign Middle East · March 2025",
-            "href": "https://campaignme.com/apple-pays-homage-to-saudi-soap-operas-in-latest-tv-commercials/"
+            "kind": "Social coverage",
+            "scope": "The Favourite Son · 2025",
+            "author": "Smashi Business",
+            "platform": "YouTube",
+            "summary": "Smashi Business picked up the Saudi ad’s dark humour and portrait-focus reveal in a short video about Apple in the Kingdom.",
+            "href": "https://www.youtube.com/shorts/HZoA20lidWc",
+            "linkLabel": "Watch the commentary"
           },
           {
-            "title": "shots · March 2025",
-            "href": "https://shots.net/news/view/apple-launches-a-special-ramadan-series"
+            "kind": "Creative commentary",
+            "scope": "The Favourite Son · 2025",
+            "author": "Mohammad Ibrahim",
+            "platform": "LinkedIn",
+            "summary": "Ibrahim singled out the way family expectations and the portrait-focus feature become one comic story, praising the cultural detail and product integration.",
+            "href": "https://www.linkedin.com/posts/md-ib_marketing-localization-brandstorytelling-activity-7308493482484985856-BRW1",
+            "linkLabel": "Read the post"
+          },
+          {
+            "kind": "Media coverage",
+            "scope": "The Saudi films · 2025",
+            "author": "Campaign Middle East",
+            "summary": "The publication framed the films as an homage to Saudi soap operas, highlighting the familiar cast and the everyday drama behind the jokes.",
+            "href": "https://campaignme.com/apple-pays-homage-to-saudi-soap-operas-in-latest-tv-commercials/",
+            "linkLabel": "Read the feature"
           }
         ]
       }
     ],
     "loop": "assets/loop/apple-relax-matchmaker.mp4"
+  },
+  {
+    "slug": "apple-snaptacular",
+    "client": "Apple",
+    "title": "Snaptacular",
+    "poster": "assets/img/apple-snaptacular.jpg",
+    "primaryImage": {
+      "src": "assets/img/apple-snaptacular.jpg",
+      "alt": "iPhone 15 outdoor campaign in Dubai, with the Arabic wordplay above Snaptacular and colourful cameras framing the headline."
+    },
+    "deck": "One word. A little photographic licence.",
+    "role": "Arabic copy & localisation",
+    "meta": [
+      {
+        "label": "Product",
+        "value": "iPhone 15"
+      },
+      {
+        "label": "Format",
+        "value": "Outdoor · UAE"
+      }
+    ],
+    "primaryLabel": "The headline in the city",
+    "primaryCaption": "The Arabic localisation alongside the English campaign line.",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "The idea",
+        "heading": "A familiar word. A small surprise.",
+        "paragraphs": [
+          "Snaptacular packs a camera promise into an invented word. The Arabic line needed its own piece of wordplay: something people could recognise, then enjoy discovering.",
+          "The line folds the Arabic word for “fantastic” into the familiar sound of “photographic”. The result keeps photography in the word itself, with a little exaggeration built in. On the billboard, the colourful cameras frame a headline that can do its work in a glance."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I wrote the Arabic localisation line. The creative task was to give Arabic readers the same pleasure of recognition and surprise, using the possibilities of their own language."
+        ]
+      },
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "intro": "The line prompted a public discussion about Arabic wordplay and the craft of localisation. These are selected reactions to the billboard, shared on LinkedIn.",
+        "items": [
+          {
+            "kind": "Social reaction",
+            "author": "Wafa AlAnazi",
+            "platform": "LinkedIn",
+            "quote": "I love how Apple sets the standard in Arabic localization",
+            "href": "https://www.linkedin.com/posts/wafaalanazi_in-the-realm-of-outdoor-advertising-arabic-activity-7193937600544489473-D2FN",
+            "linkLabel": "Read the post"
+          },
+          {
+            "kind": "Comment on the headline",
+            "author": "Moey Shawash",
+            "platform": "LinkedIn",
+            "quote": "one of my favourite Arabic headlines",
+            "href": "https://www.linkedin.com/posts/georges-gerges-7951511a_in-the-realm-of-outdoor-advertising-arabic-activity-7193930754492395520-QIhu",
+            "linkLabel": "Read the discussion"
+          },
+          {
+            "kind": "Comment on the headline",
+            "author": "Hala Al Bassar",
+            "platform": "LinkedIn",
+            "quote": "We feel your creativity and love for the craft.",
+            "href": "https://www.linkedin.com/posts/georges-gerges-7951511a_in-the-realm-of-outdoor-advertising-arabic-activity-7193930754492395520-QIhu",
+            "linkLabel": "Read the discussion"
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "apple-pay-riyadh",
@@ -379,6 +482,21 @@ window.PORTFOLIO_PROJECTS = [
             "poster": "assets/img/apple-pay-no-unlock-en.jpg"
           }
         ]
+      },
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "intro": "Public conversation around the service introduced in the campaign.",
+        "items": [
+          {
+            "kind": "Launch conversation",
+            "author": "Sabre Bugri",
+            "platform": "LinkedIn",
+            "summary": "At launch, Bugri highlighted the simplicity of using Express Mode on Riyadh’s metro and buses: tap and travel without unlocking the device.",
+            "href": "https://www.linkedin.com/posts/sabre_apple-pay-express-mode-activity-7272457413524377600-cTSW",
+            "linkLabel": "Read the launch post"
+          }
+        ]
       }
     ],
     "loop": "assets/loop/apple-pay-metro-ar.mp4"
@@ -479,15 +597,16 @@ window.PORTFOLIO_PROJECTS = [
         ]
       },
       {
-        "type": "copy",
-        "label": "In the press",
-        "paragraphs": [
-          "MacRumors described the global film as a “fun musical” and highlighted how its visuals tell the story. The Arabic adaptation carries that same playful premise through the singing."
-        ],
-        "sources": [
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
           {
-            "title": "MacRumors · June 2021",
-            "href": "https://www.macrumors.com/2021/06/12/ipad-pro-ad-little-mermaid/"
+            "kind": "Media coverage",
+            "scope": "Global original · 2021",
+            "author": "MacRumors",
+            "summary": "MacRumors highlighted the musical premise and visual storytelling: people at conventional computers singing about the freedom of iPad.",
+            "href": "https://www.macrumors.com/2021/06/12/ipad-pro-ad-little-mermaid/",
+            "linkLabel": "Read the feature"
           }
         ]
       }
@@ -609,12 +728,8 @@ window.PORTFOLIO_PROJECTS = [
             "title": "The Waiting Room",
             "src": "assets/video/apple-waiting-room.mp4",
             "poster": "assets/img/apple-waiting-room.jpg",
-            "caption": "The global film pairs Jane Lynch’s intrusive narration with Craig Gillespie’s direction: a waiting room hears everyone’s private health details. I led the Arabic adaptation and dubbing, carrying the escalating embarrassment into a new voice. The global campaign won a Silver Pencil for writing in Health & Wellness at The One Show 2024.",
+            "caption": "The global film pairs Jane Lynch’s intrusive narration with Craig Gillespie’s direction: a waiting room hears everyone’s private health details. I led the Arabic adaptation and dubbing, carrying the escalating embarrassment into a new voice.",
             "sources": [
-              {
-                "title": "The One Show · Global campaign award & credits",
-                "href": "https://www.oneclub.org/awards/theoneshow/-award/52967/the-waiting-room/"
-              },
               {
                 "title": "The Drum · The original performance",
                 "href": "https://www.thedrum.com/news/jane-lynch-stars-health-shaming-app-apple-data-privacy-ad"
@@ -657,6 +772,31 @@ window.PORTFOLIO_PROJECTS = [
             "src": "assets/video/apple-health-en.mp4",
             "poster": "assets/img/apple-health-en.jpg",
             "caption": "Global original · shown for comparison"
+          }
+        ]
+      },
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "intro": "Coverage and recognition of the global films. My contribution was their Arabic localisation and dubbing direction.",
+        "items": [
+          {
+            "kind": "Creative commentary",
+            "scope": "Global original · Health",
+            "author": "Natalie Hogg",
+            "platform": "LinkedIn",
+            "quote": "The noise is relentless and instantly familiar.",
+            "summary": "Hogg praised the film for recognising how overwhelming contradictory health advice can feel.",
+            "href": "https://www.linkedin.com/posts/nhogg1_i-was-watching-an-apple-ad-last-week-and-activity-7472649261697011712-NI5i",
+            "linkLabel": "Read the post"
+          },
+          {
+            "kind": "Campaign recognition",
+            "scope": "Global original · The Waiting Room",
+            "author": "The One Show",
+            "summary": "Silver Pencil, Health & Wellness / Craft / Writing, 2024.",
+            "href": "https://www.oneclub.org/awards/theoneshow/-award/52967/the-waiting-room/",
+            "linkLabel": "View the award & credits"
           }
         ]
       }
@@ -712,60 +852,81 @@ window.PORTFOLIO_PROJECTS = [
     ],
   },
   {
-    slug: "lr-land-of",
-    client: "Land Rover",
-    title: "The Land of Land Rovers",
-    poster: "assets/img/lr-land-of.jpg",
-    primaryFilm: "assets/video/lr-land-of.mp4",
-    role: "Creative — Contributed to the campaign concept, idea development and scripts.",
-    primaryLabel: "The Land of Land Rovers",
-    sections: [
+    "slug": "lr-land-of",
+    "client": "Land Rover",
+    "title": "The Land of Land Rovers",
+    "poster": "assets/img/lr-land-of.jpg",
+    "primaryFilm": "assets/video/lr-land-of.mp4",
+    "role": "Creative — Contributed to the campaign concept, idea development and scripts.",
+    "primaryLabel": "The Land of Land Rovers",
+    "sections": [
       {
-        type: "copy",
-        label: "The story",
-        paragraphs: [
-          "To mark Land Rover’s 70th anniversary, The Land of Land Rovers follows a community in the foothills of the Himalayas that has kept its fleet of Series Land Rovers on the road for generations. Set along the 31 km route between Maneybhanjang and Sandakphu in West Bengal, the film celebrates the enduring relationship between the people, the landscape and the vehicles they maintain.",
-        ],
+        "type": "copy",
+        "label": "The story",
+        "paragraphs": [
+          "To mark Land Rover’s 70th anniversary, The Land of Land Rovers follows a community in the foothills of the Himalayas that has kept its fleet of Series Land Rovers on the road for generations. Set along the 31 km route between Maneybhanjang and Sandakphu in West Bengal, the film celebrates the enduring relationship between the people, the landscape and the vehicles they maintain."
+        ]
       },
       {
-        type: "credits",
-        label: "Credits",
-        items: [
+        "type": "credits",
+        "label": "Credits",
+        "items": [
           {
-            role: "Agency",
-            names: "Spark44",
+            "role": "Agency",
+            "names": "Spark44"
           },
           {
-            role: "Director",
-            names: "Matt Hopkins",
+            "role": "Director",
+            "names": "Matt Hopkins"
           },
           {
-            role: "Production company",
-            names: "The Progress Film Company",
+            "role": "Production company",
+            "names": "The Progress Film Company"
           },
           {
-            role: "Director of photography",
-            names: "Matt Shaw",
+            "role": "Director of photography",
+            "names": "Matt Shaw"
           },
           {
-            role: "Music & sound design",
-            names: "Dan Graves",
+            "role": "Music & sound design",
+            "names": "Dan Graves"
           },
           {
-            role: "Agency producer",
-            names: "Chris Hook",
+            "role": "Agency producer",
+            "names": "Chris Hook"
           },
           {
-            role: "Production producer",
-            names: "Richard “Rich” Guy",
+            "role": "Production producer",
+            "names": "Richard “Rich” Guy"
           },
           {
-            role: "India production",
-            names: "Angles Unlimited India",
-          },
-        ],
+            "role": "India production",
+            "names": "Angles Unlimited India"
+          }
+        ]
       },
-    ],
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
+          {
+            "kind": "Creative commentary",
+            "author": "Chris Lema",
+            "summary": "Lema used the film to explain how a community can lead a brand story, with the vehicle earning its place through the people’s lives.",
+            "href": "https://chrislema.com/the-art-of-telling-stories/",
+            "linkLabel": "Read the story analysis"
+          },
+          {
+            "kind": "Production perspective",
+            "author": "Dan Drage, Spark44",
+            "platform": "Travel Video Awards",
+            "summary": "In a filmmaker Q&A, Drage discussed the relationship between the villagers and their vehicles, and the response to a story grounded in that bond.",
+            "href": "https://thetravelvideoawards.com/spotlight_article/spark44-the-land-of-land-rovers/",
+            "linkLabel": "Read the interview"
+          }
+        ]
+      }
+    ]
   },
   {
     slug: "lr-ramadan-2019",
@@ -828,134 +989,169 @@ window.PORTFOLIO_PROJECTS = [
     ],
   },
   {
-    slug: "lr-journey-rediscovery",
-    client: "Land Rover",
-    title: "A Journey of Rediscovery",
-    poster: "assets/img/lr-journey-rediscovery.jpg",
-    primaryFilm: "assets/video/lr-journey-rediscovery.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction for the original score.",
-    primaryLabel: "A Journey of Rediscovery",
-    sections: [
+    "slug": "lr-journey-rediscovery",
+    "client": "Land Rover",
+    "title": "A Journey of Rediscovery",
+    "poster": "assets/img/lr-journey-rediscovery.jpg",
+    "primaryFilm": "assets/video/lr-journey-rediscovery.mp4",
+    "role": "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction for the original score.",
+    "primaryLabel": "A Journey of Rediscovery",
+    "sections": [
       {
-        type: "copy",
-        label: "The story",
-        paragraphs: [
-          "Created for Land Rover’s 70th anniversary, A Journey of Rediscovery traces the experiences of civil engineers Robin Webb and Majid Awwad, who relied on Land Rovers while working across the Trucial States in the 1960s. Combining their memories with previously unseen 8mm footage, the film looks back at a time before roads connected the Emirates, and at the vehicles that made their work—and their return home—possible.",
-        ],
+        "type": "copy",
+        "label": "The story",
+        "paragraphs": [
+          "Created for Land Rover’s 70th anniversary, A Journey of Rediscovery traces the experiences of civil engineers Robin Webb and Majid Awwad, who relied on Land Rovers while working across the Trucial States in the 1960s. Combining their memories with previously unseen 8mm footage, the film looks back at a time before roads connected the Emirates, and at the vehicles that made their work—and their return home—possible."
+        ]
       },
       {
-        type: "credits",
-        label: "Credits",
-        items: [
+        "type": "credits",
+        "label": "Credits",
+        "items": [
           {
-            role: "Agency",
-            names: "Spark44 MENA",
+            "role": "Agency",
+            "names": "Spark44 MENA"
           },
           {
-            role: "Production company",
-            names: "Discontent",
+            "role": "Production company",
+            "names": "Discontent"
           },
           {
-            role: "Executive producer",
-            names: "Iain Akerman",
+            "role": "Executive producer",
+            "names": "Iain Akerman"
           },
           {
-            role: "Director, editor & producer",
-            names: "Hind Shoufani",
+            "role": "Director, editor & producer",
+            "names": "Hind Shoufani"
           },
           {
-            role: "Director of photography",
-            names: "Nick Zajicek",
+            "role": "Director of photography",
+            "names": "Nick Zajicek"
           },
           {
-            role: "Colour grade",
-            names: "Belal Hibri — Lucid, Beirut",
+            "role": "Colour grade",
+            "names": "Belal Hibri — Lucid, Beirut"
           },
           {
-            role: "Business director",
-            names: "Jose Acar",
-          },
-        ],
+            "role": "Business director",
+            "names": "Jose Acar"
+          }
+        ]
       },
-    ],
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
+          {
+            "kind": "Media coverage",
+            "author": "The National",
+            "summary": "The National featured the film’s look at life in the Trucial States, connecting the engineers’ memories with the early history of the UAE.",
+            "href": "https://www.thenationalnews.com/arts-culture/timeframe-land-rover-celebrated-in-the-trucial-states-1.758807",
+            "linkLabel": "Read the feature"
+          },
+          {
+            "kind": "Media coverage",
+            "author": "Gulf News",
+            "summary": "Gulf News covered the documentary as a window into life in the Emirates 50 years earlier, highlighting the personal accounts and historic footage.",
+            "href": "https://gulfnews.com/going-out/society/new-film-documents-life-in-uae-50-years-ago-1.2260451",
+            "linkLabel": "Read the feature"
+          }
+        ]
+      }
+    ]
   },
   {
-    slug: "lr-ready-more",
-    client: "Land Rover",
-    title: "Ready for More",
-    poster: "assets/img/lr-ready-more.jpg",
-    primaryFilm: "assets/video/lr-ready-more.mp4",
-    role: "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction.",
-    primaryLabel: "The Journey of Challenges",
-    sections: [
+    "slug": "lr-ready-more",
+    "client": "Land Rover",
+    "title": "Ready for More",
+    "poster": "assets/img/lr-ready-more.jpg",
+    "primaryFilm": "assets/video/lr-ready-more.mp4",
+    "role": "Copy Lead — Led the campaign idea, concept development and copy, shaping its creative vision and music direction.",
+    "primaryLabel": "The Journey of Challenges",
+    "sections": [
       {
-        type: "copy",
-        label: "The journey",
-        paragraphs: [
-          "Ready for More is a five-film adventure series for the Land Rover Discovery, following explorer Mostafa Salameh and four participants as they confront personal challenges across Jordan. Each story transforms a familiar obstacle—routine, darkness, heights or the sea—into a journey beyond the comfort zone.",
-        ],
+        "type": "copy",
+        "label": "The journey",
+        "paragraphs": [
+          "Ready for More is a five-film adventure series for the Land Rover Discovery, following explorer Mostafa Salameh and four participants as they confront personal challenges across Jordan. Each story transforms a familiar obstacle—routine, darkness, heights or the sea—into a journey beyond the comfort zone."
+        ]
       },
       {
-        type: "films",
-        label: "The challenges",
-        items: [
+        "type": "films",
+        "label": "The challenges",
+        "items": [
           {
-            title: "The Routine Challenge",
-            src: "assets/video/lr-ready-more-routine.mp4",
-            poster: "assets/img/lr-ready-more-routine.jpg",
+            "title": "The Routine Challenge",
+            "src": "assets/video/lr-ready-more-routine.mp4",
+            "poster": "assets/img/lr-ready-more-routine.jpg"
           },
           {
-            title: "The Darkness Challenge",
-            src: "assets/video/lr-ready-more-darkness.mp4",
-            poster: "assets/img/lr-ready-more-darkness.jpg",
+            "title": "The Darkness Challenge",
+            "src": "assets/video/lr-ready-more-darkness.mp4",
+            "poster": "assets/img/lr-ready-more-darkness.jpg"
           },
           {
-            title: "The Heights Challenge",
-            src: "assets/video/lr-ready-more-heights.mp4",
-            poster: "assets/img/lr-ready-more-heights.jpg",
+            "title": "The Heights Challenge",
+            "src": "assets/video/lr-ready-more-heights.mp4",
+            "poster": "assets/img/lr-ready-more-heights.jpg"
           },
           {
-            title: "The Sea Challenge",
-            src: "assets/video/lr-ready-more-sea.mp4",
-            poster: "assets/img/lr-ready-more-sea.jpg",
-          },
-        ],
+            "title": "The Sea Challenge",
+            "src": "assets/video/lr-ready-more-sea.mp4",
+            "poster": "assets/img/lr-ready-more-sea.jpg"
+          }
+        ]
       },
       {
-        type: "credits",
-        label: "Credits",
-        items: [
+        "type": "credits",
+        "label": "Credits",
+        "items": [
           {
-            role: "Agency",
-            names: "Spark44",
+            "role": "Agency",
+            "names": "Spark44"
           },
           {
-            role: "Production company",
-            names: "Rolling Thunder Dubai",
+            "role": "Production company",
+            "names": "Rolling Thunder Dubai"
           },
           {
-            role: "Director",
-            names: "Nizar Sfair",
+            "role": "Director",
+            "names": "Nizar Sfair"
           },
           {
-            role: "Explorer",
-            names: "Mostafa Salameh",
+            "role": "Explorer",
+            "names": "Mostafa Salameh"
           },
           {
-            role: "The Darkness Challenge — Director of photography",
-            names: "Robo Wilson",
+            "role": "The Darkness Challenge — Director of photography",
+            "names": "Robo Wilson"
           },
           {
-            role: "The Darkness Challenge — Second camera & Ronin",
-            names: "Martin Leahy",
+            "role": "The Darkness Challenge — Second camera & Ronin",
+            "names": "Martin Leahy"
           },
           {
-            role: "The Darkness Challenge — Editor",
-            names: "David Zavadescu",
-          },
-        ],
+            "role": "The Darkness Challenge — Editor",
+            "names": "David Zavadescu"
+          }
+        ]
       },
-    ],
+      {
+        "type": "coverage",
+        "label": "Conversation & coverage",
+        "items": [
+          {
+            "kind": "Director’s post",
+            "scope": "The Darkness Challenge",
+            "author": "Nizar Sfair",
+            "platform": "Vimeo",
+            "summary": "Sfair shared the episode in which Bahaa faces his fear of darkness with explorer Mostafa Salameh, alongside the film’s production credits.",
+            "href": "https://vimeo.com/303594285",
+            "linkLabel": "View the director’s post"
+          }
+        ]
+      }
+    ]
   },
   {
     slug: "fab-heartbeat",
