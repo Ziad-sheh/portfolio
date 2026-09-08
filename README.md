@@ -3,6 +3,8 @@
 Hand-built static site. No build step: edit, commit, push — Pages redeploys.
 
 ## Editing content
+All website copy, navigation and media labels are in English. Original campaign films and artwork retain their published language.
+
 - Work entries and all three rail indexes: edit `work-data.js`, then run `node scripts/sync-projects.mjs` to regenerate the static HTML.
 - Case-study content: `work-data.js` → one object per campaign.
 - Case-study layout: `work.html` + `work.css`; optional blocks are rendered by `work.js`.

@@ -1015,9 +1015,9 @@ window.PORTFOLIO_PROJECTS = [
         type: "links",
         label: "Full episodes",
         items: [
-          { title: "العش", href: "https://www.youtube.com/watch?v=d5YTXxsAKSA" },
-          { title: "الأصول", href: "https://www.youtube.com/watch?v=UckS3lgytIk" },
-          { title: "الخائن", href: "https://www.youtube.com/watch?v=_gj-ewiHXSQ" },
+          { title: "The Nest", href: "https://www.youtube.com/watch?v=d5YTXxsAKSA" },
+          { title: "The Origins", href: "https://www.youtube.com/watch?v=UckS3lgytIk" },
+          { title: "The Traitor", href: "https://www.youtube.com/watch?v=_gj-ewiHXSQ" },
         ],
       },
     ],
