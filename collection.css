@@ -1,46 +1,167 @@
-/* One kind of print throughout the collection; the arrangements stay personal. */
-#project-grid .project-card {
-  --print-turn: -1.25deg;
+/* A steady two-column collection, with handwritten notes on the prints. */
+#project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 72px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-#project-grid .project-card:nth-child(even) {
-  --print-turn: 1.35deg;
+.project-card {
+  --print-turn: 0deg;
+  min-width: 0;
 }
 
-#project-grid .project-card:nth-child(3n) {
-  --print-turn: -.65deg;
-}
+.project-card:nth-child(6n + 1) { --print-turn: -.65deg; }
+.project-card:nth-child(6n + 4) { --print-turn: .65deg; }
 
-#project-grid .cover-mount {
-  padding: 10px 10px 26px;
+.cover-mount {
+  margin: 0;
+  padding: 10px 10px 0;
   background: var(--butter);
-  box-shadow: 0 5px 14px #17203916;
-  transform: translateY(0) rotate(var(--print-turn));
+  box-shadow: 0 4px 12px #17203912;
+  transform: rotate(var(--print-turn));
   transform-origin: 50% 65%;
-  transition:
-    transform 520ms cubic-bezier(.2, .75, .2, 1),
-    box-shadow 520ms cubic-bezier(.2, .75, .2, 1);
+  transition: transform 420ms cubic-bezier(.2, .75, .2, 1), box-shadow 420ms ease;
 }
 
-#project-grid .project-cover {
-  aspect-ratio: var(--ratio);
+.project-cover {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--mist);
+  text-align: left;
 }
 
-#project-grid .cover-mount:focus-within {
-  transform: translateY(-7px) rotate(0deg);
-  box-shadow: 0 15px 25px #17203924;
+.project-cover img,
+.project-cover video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--cover-position, 50% 50%);
+  transform: scale(var(--cover-scale, 1));
+  transform-origin: var(--cover-origin, 50% 50%);
 }
 
-#project-grid .project-cover:focus-visible {
+.project-cover video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.project-cover video.playing { opacity: 1; }
+
+.project-annotation {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 9px 10px 12px;
+  color: var(--blue);
+  font-size: clamp(24px, 2.1vw, 29px);
+  line-height: 1.1;
+}
+
+.project-card:nth-child(3n + 1) .project-annotation { color: var(--red); }
+
+.project-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.project-info h3 {
+  min-width: 0;
+  font-family: var(--display);
+  font-size: clamp(27px, 2.5vw, 34px);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: 1.1;
+}
+
+.project-info h3 button { text-align: left; }
+.project-info h3 button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.project-info .client {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 38px;
+  padding: 2px 0 0;
+}
+
+.project-info .brand-mark { max-width: 108px; }
+.project-info .brand-apple { --logo-height: 26px; }
+.project-info .brand-land-rover { --logo-height: 32px; }
+.project-info .brand-la-vache-qui-rit { --logo-height: 38px; }
+.project-info .brand-fab { --logo-height: 25px; padding: 3px 7px; }
+.project-info .brand-cartoon-network { --logo-height: 25px; padding: 4px 6px; }
+.project-info .brand-range-rover { width: 108px; }
+
+.project-description {
+  margin-top: 8px;
+  max-width: 55ch;
+  color: #535b6d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cover-mount:focus-within {
+  transform: translateY(-5px) rotate(0deg);
+  box-shadow: 0 12px 22px #17203920;
+}
+
+.project-cover:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 4px;
 }
 
-#project-grid .project-cover .open-hint {
+.project-cover .open-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 14px;
   background: var(--butter);
-  transition:
-    opacity 220ms ease,
-    transform 320ms cubic-bezier(.2, .75, .2, 1);
+  color: var(--ink);
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 200ms, transform 250ms;
+}
+
+.project-cover:hover .open-hint,
+.project-cover:focus-visible .open-hint { opacity: 1; transform: none; }
+
+@media (max-width: 1100px) and (min-width: 701px) {
+  .project-info h3 { min-height: 2.2em; }
+}
+
+@media (max-width: 1000px) and (min-width: 701px) {
+  #project-grid { column-gap: 28px; }
+  .project-annotation { font-size: 25px; padding-inline: 6px; }
+}
+
+@media (max-width: 700px) {
+  #project-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; }
+  .cover-mount { padding: 8px 8px 0; }
+  .project-annotation { min-height: 50px; font-size: 26px; padding: 9px 7px 11px; }
+  .project-info { margin-top: 18px; gap: 14px; }
+  .project-info h3 { font-size: 28px; }
+}
+
+@media (max-width: 360px) {
+  .project-info h3 { font-size: 25px; }
+  .project-info .brand-range-rover { width: 94px; }
+  .project-annotation { font-size: 24px; }
 }
 
 /* This loop is drawn to the button bounds, including the arrow. */
@@ -89,8 +210,8 @@
 
 @media (hover: hover) and (pointer: fine) {
   #project-grid .cover-mount:hover {
-    transform: translateY(-7px) rotate(0deg);
-    box-shadow: 0 15px 25px #17203924;
+    transform: translateY(-5px) rotate(0deg);
+    box-shadow: 0 12px 22px #17203920;
   }
 
   .work-invitation #surprise-project:hover {
@@ -99,10 +220,6 @@
 }
 
 @media (max-width: 600px) {
-  #project-grid .cover-mount {
-    padding: 8px 8px 22px;
-  }
-
   .work-invitation {
     flex-direction: column;
     align-items: flex-start;

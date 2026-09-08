@@ -41,7 +41,10 @@ window.COVER_CHOICES = [
     "position": "50% 50%",
     "image": "media/apple-pay-riyadh.jpg",
     "clip": "media/apple-pay-riyadh.mp4",
-    "alt": "Three Apple Pay travel steps ending with a green tick"
+    "alt": "Three Apple Pay travel steps ending with a green tick",
+    "gridImage": "media/grid/apple-pay-riyadh.jpg",
+    "gridAlt": "The complete green tick after the Apple Pay travel steps",
+    "gridPosition": "50% 50%"
   },
   {
     "slug": "lvqr-stayhome",
@@ -50,7 +53,12 @@ window.COVER_CHOICES = [
     "position": "50% 50%",
     "image": "media/lvqr-stayhome.jpg",
     "clip": "media/lvqr-stayhome.mp4",
-    "alt": "A family playing together in their living room"
+    "alt": "A family playing together in their living room",
+    "gridImage": "media/grid/lvqr-stayhome.jpg",
+    "gridAlt": "Four family members sharing a snack on the sofa",
+    "gridScale": 1.4884,
+    "gridOrigin": "50% 50%",
+    "gridClip": "media/grid/lvqr-stayhome.mp4"
   },
   {
     "slug": "apple-watch-saudi",
@@ -64,7 +72,9 @@ window.COVER_CHOICES = [
     "source": "assets/video/apple-ipad-musical.mp4",
     "position": "50% 50%",
     "image": "media/apple-ipad-musical.jpg",
-    "alt": "A singer with an iPad outdoors"
+    "alt": "A singer with an iPad outdoors",
+    "gridScale": 1.3436,
+    "gridOrigin": "64% 50%"
   },
   {
     "slug": "apple-gaming",
@@ -93,7 +103,9 @@ window.COVER_CHOICES = [
     "source": "assets/video/lr-land-of.mp4",
     "position": "50% 50%",
     "image": "media/lr-land-of.jpg",
-    "alt": "A Land Rover rounding a mountain track"
+    "alt": "A Land Rover rounding a mountain track",
+    "gridScale": 1.3084,
+    "gridOrigin": "60% 50%"
   },
   {
     "slug": "lr-ramadan-2019",
@@ -107,7 +119,10 @@ window.COVER_CHOICES = [
     "source": "assets/video/rrs-life-simple.mp4",
     "position": "50% 50%",
     "image": "media/rrs-life-simple.jpg",
-    "alt": "A man gesturing at a window blind"
+    "alt": "A man gesturing at a window blind",
+    "gridImage": "media/grid/rrs-life-simple.jpg",
+    "gridAlt": "A man in bed gesturing with a raised hand",
+    "gridPosition": "50% 50%"
   },
   {
     "slug": "lr-ready-more",
@@ -121,7 +136,11 @@ window.COVER_CHOICES = [
     "source": "assets/video/fab-heartbeat.mp4",
     "position": "50% 50%",
     "image": "media/fab-heartbeat.jpg",
-    "alt": "A racing car at speed"
+    "alt": "A racing car at speed",
+    "gridImage": "media/grid/fab-heartbeat.jpg",
+    "gridAlt": "A racing car rounding a corner",
+    "gridScale": 1.3237,
+    "gridOrigin": "5.1% 50%"
   },
   {
     "slug": "cn-gumball",

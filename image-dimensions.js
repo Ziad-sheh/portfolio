@@ -311,5 +311,21 @@ window.IMAGE_DIMENSIONS = {
   "media/ziad-portrait.jpg": {
     "width": 1122,
     "height": 1402
+  },
+  "media/grid/apple-pay-riyadh.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "media/grid/rrs-life-simple.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "media/grid/lvqr-stayhome.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "media/grid/fab-heartbeat.jpg": {
+    "width": 1280,
+    "height": 720
   }
 };

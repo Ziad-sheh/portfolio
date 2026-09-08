@@ -8,9 +8,9 @@
 .brand-fab{--logo-height:32px;padding:4px 10px;background:#153568}
 .brand-la-vache-qui-rit{--logo-height:44px}
 .brand-cartoon-network{--logo-height:30px;padding:5px 7px;background:#171717}
-.project-info{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.project-info .client{display:flex;align-items:center;text-align:left;max-width:none;height:44px;margin:0;padding:0}
-.project-description{margin-top:6px}
+
+
+
 .case-bar{gap:clamp(8px,2vw,18px)}
 .case-bar #case-client{display:flex;align-items:center;justify-content:center;flex:0 1 130px;min-width:0;line-height:1}
 .case-bar .brand-mark{display:inline-flex;max-width:100%}
@@ -24,12 +24,12 @@
 .moment-frame .brand-apple img{height:18px}
 .moment-title{min-width:0;line-height:1.25}
 @media(max-width:600px){
-  .project-info{gap:9px}
-  .project-info .client{height:40px}
-  .project-info .brand-apple{--logo-height:25px}
-  .project-info .brand-land-rover{--logo-height:32px}
-  .project-info .brand-la-vache-qui-rit{--logo-height:40px}
-  .project-info .brand-range-rover{width:154px}
+
+
+
+
+
+
   .case-bar .brand-mark img{max-height:24px;max-width:60px}
   .case-bar .brand-range-rover img{max-width:100%}
   .case-bar .brand-fab,.case-bar .brand-cartoon-network{padding:3px 5px}
