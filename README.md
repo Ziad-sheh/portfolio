@@ -13,6 +13,8 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `bts-content.js`: supplied Switchers and Relax behind-the-scenes material.
 - `background-data.js`: approved professional background, experience and education.
 - `site.js` / `site.css`: shared interaction and responsive design.
+- `hero-deck.js` / `opening.css`: the three-card photo stack, drag and keyboard shuffle, and opening layout.
+- `collection.css`: consistent paper frames, hover/focus movement and the invitation circle.
 - `image-dimensions.js`: intrinsic media dimensions that reserve layout space while images load.
 - `assets/`: original portfolio web media. `media/`: selected cover frames, short previews, portrait and BTS derivatives.
 - `fonts/`, `fonts.css`, `marks/`: local fonts and hand-drawn accents; licence files are retained.
@@ -21,7 +23,7 @@ Keep campaign facts in `work-data.js`. New editorial readings should not introdu
 
 ## Checks
 
-Run `node scripts/verify-release.mjs` before publishing. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts.
+Run `node scripts/verify-release.mjs` before publishing. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts.
 
 Case links use `index.html#project=<slug>`. Old `work.html?project=<slug>`, `about.html` and homepage campaign anchors remain supported. Local preview/review controls are not shipped.
 

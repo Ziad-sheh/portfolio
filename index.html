@@ -15,38 +15,43 @@
   <meta property="og:image" content="https://ziad-sheh.github.io/portfolio/media/apple-relax-saudi.jpg">
   <meta property="og:image:alt" content="A moment from Relax, it’s iPhone, in Ziad Shehade’s selected work">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="fonts.css?v=20260908-launch">
-  <link rel="stylesheet" href="site.css?v=20260908-launch">
-  <script src="work-data.js?v=20260908-launch" defer></script>
-  <script src="background-data.js?v=20260908-launch" defer></script>
-  <script src="choices.js?v=20260908-launch" defer></script>
-  <script src="personal-touches.js?v=20260908-launch" defer></script>
-  <script src="bts-content.js?v=20260908-launch" defer></script>
-  <script src="image-dimensions.js?v=20260908-launch" defer></script>
-  <script src="site.js?v=20260908-launch" defer></script>
+  <link rel="stylesheet" href="fonts.css?v=20260908-polaroids">
+  <link rel="stylesheet" href="site.css?v=20260908-polaroids">
+  <link rel="stylesheet" href="opening.css?v=20260908-polaroids">
+  <link rel="stylesheet" href="collection.css?v=20260908-polaroids">
+  <script src="work-data.js?v=20260908-polaroids" defer></script>
+  <script src="background-data.js?v=20260908-polaroids" defer></script>
+  <script src="choices.js?v=20260908-polaroids" defer></script>
+  <script src="personal-touches.js?v=20260908-polaroids" defer></script>
+  <script src="bts-content.js?v=20260908-polaroids" defer></script>
+  <script src="image-dimensions.js?v=20260908-polaroids" defer></script>
+  <script src="hero-deck.js?v=20260908-polaroids" defer></script>
+  <script src="site.js?v=20260908-polaroids" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#work">Skip to work</a>
   <header class="masthead">
-    <a class="name" href="#top">Ziad Shehade<span>Creative director &amp; copywriter</span></a>
+    <p class="role">Creative director<br>&amp; copywriter</p>
     <nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a></nav>
   </header>
   <main>
     <section class="opening" aria-label="Introduction">
       <div class="opening-stage">
-        <h1>Ziad.</h1>
+        <h1>Ziad<span class="name-stop">.</span></h1>
         <div class="moment-stack">
-          <div class="back-frame" aria-hidden="true"></div>
-          <figure class="moment-frame">
-            <button type="button" class="moment-image" id="hero-project" aria-label="Open Relax, it’s iPhone">
-              <img id="hero-poster" src="media/apple-relax-saudi.jpg" alt="Abdullah Al Sadhan’s reaction in The Favourite Son" fetchpriority="high">
-              <video id="hero-video" src="media/apple-relax-saudi.mp4" muted playsinline loop preload="metadata" aria-hidden="true"></video>
-            </button>
-            <figcaption><span id="moment-caption">Apple · Relax, it’s iPhone</span><button id="next-moment" type="button">Another moment <span aria-hidden="true">↻</span></button></figcaption>
-          </figure>
+          <div class="moment-deck">
+            <figure class="moment-frame" data-slot="0">
+              <button type="button" class="moment-image" id="hero-project" aria-label="Open Relax, it’s iPhone">
+                <img src="media/apple-relax-saudi.jpg" alt="Abdullah Al Sadhan’s reaction in The Favourite Son" fetchpriority="high">
+              </button>
+              <figcaption>Apple · Relax, it’s iPhone</figcaption>
+            </figure>
+          </div>
+          <div class="deck-controls"><span class="hand" aria-hidden="true">drag to shuffle</span><button id="next-moment" type="button" aria-label="Shuffle photos">Another moment <span aria-hidden="true">↻</span></button></div>
+          <span class="deck-status" role="status" aria-live="polite" aria-atomic="true"></span>
         </div>
       </div>
-      <div class="opening-bottom"><p>Creative director and copywriter.<br>Working in Arabic and English.</p><a class="work-cue" href="#work" aria-label="View selected work"><span class="hand">have a look</span><span aria-hidden="true">↓</span></a><button id="motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
+      <div class="opening-bottom"><p>Based in Dubai.<br>Working in Arabic and English.</p><a class="work-cue" href="#work" aria-label="View selected work"><span class="hand">have a look</span><span aria-hidden="true">↓</span></a><button id="motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
     </section>
     <section class="work-section" id="work" aria-labelledby="work-heading">
       <div class="section-top"><h2 id="work-heading" tabindex="-1"><span class="hand">the</span> Work</h2><div><span class="collection-count">17 campaigns</span></div></div>

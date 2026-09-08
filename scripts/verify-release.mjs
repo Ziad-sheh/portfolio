@@ -12,7 +12,8 @@ const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = relative => fs.existsSync(path.join(root, relative));
 const entryFiles = ['index.html', 'work.html', 'about.html'];
 const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js'];
-const runtimeFiles = [...entryFiles, ...dataFiles, 'site.js', 'legacy-route.js', 'site.css', 'fonts.css', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
+const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css'];
+const runtimeFiles = [...entryFiles, ...dataFiles, ...stylesheetFiles, 'site.js', 'hero-deck.js', 'legacy-route.js', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
 const allFiles = [];
 
 function inventory(directory = '') {
@@ -70,7 +71,11 @@ function node(selector) {
   return nodes.get(selector);
 }
 const context = {
-  window: { matchMedia: () => ({ matches: true, addEventListener() {} }), addEventListener() {} },
+  window: {
+    matchMedia: () => ({ matches: true, addEventListener() {} }), addEventListener() {},
+    // Keep campaign rendering checks independent from the real deck's input and animation tests.
+    createHeroDeck: () => ({ sync() {}, setMotionPaused() {} }),
+  },
   document: { querySelector: node, querySelectorAll: () => [], addEventListener() {}, hidden: false },
   location: { hash: '' }, IntersectionObserver: class { observe() {} }, console,
 };
@@ -126,7 +131,8 @@ function auditHtml(html, owner) {
   check(!/(?:undefined|\[object Object\])/.test(html), `Missing data rendered into HTML: ${owner}`);
 }
 for (const relative of entryFiles) auditHtml(read(relative), relative);
-for (const relative of ['site.css', 'fonts.css']) {
+for (const relative of stylesheetFiles) {
+  if (!exists(relative)) continue;
   for (const match of read(relative).matchAll(/url\(\s*['"]?([^'"\s)]+)['"]?\s*\)/g)) reference(match[1], relative);
 }
 let renderedCases = 0;

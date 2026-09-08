@@ -12,9 +12,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const grid = document.querySelector('#project-grid');
 const caseDialog = document.querySelector('#case-dialog');
 const reviewDialog = document.querySelector('#review-dialog');
-const heroVideo = document.querySelector('#hero-video');
-const heroPoster = document.querySelector('#hero-poster');
-const heroButton = document.querySelector('#hero-project');
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const original = path => path;
 let motionPaused = reducedMotion.matches;
@@ -23,7 +20,6 @@ let currentProject = null;
 let returnTarget = null;
 let returnScroll = 0;
 let hasCaseOrigin = false;
-let momentIndex = 0;
 const moments = [choices[0], choices[1], choices[3]];
 
 function syncMotionButton() {
@@ -32,24 +28,30 @@ function syncMotionButton() {
   button.setAttribute('aria-pressed', String(motionPaused));
 }
 
+const previewWanted = new WeakMap();
+
 async function playPreview(video) {
   if (!video || motionPaused || document.hidden || caseDialog.open || reviewDialog.open) return;
+  previewWanted.set(video, true);
   try {
     await video.play();
-    if (motionPaused || document.hidden || caseDialog.open || reviewDialog.open || !video.isConnected) pausePreview(video);
+    if (!previewWanted.get(video) || motionPaused || document.hidden || caseDialog.open || reviewDialog.open || !video.isConnected) pausePreview(video);
     else video.classList.add('playing');
   } catch { video.classList.remove('playing'); }
 }
 
-function pausePreview(video) { video.pause(); video.classList.remove('playing'); }
+function pausePreview(video) { previewWanted.set(video, false); video.pause(); video.classList.remove('playing'); }
 
-function syncHero() {
-  if (heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open) playPreview(heroVideo);
-  else pausePreview(heroVideo);
-}
+const heroDeck = window.createHeroDeck({
+  stack: document.querySelector('.moment-stack'), moments, projects,
+  open: openCase, play: playPreview, pause: pausePreview,
+  canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open,
+  canAnimate: () => !motionPaused && !reducedMotion.matches && !document.hidden,
+});
+function syncHero() { heroDeck.sync(); }
 
-new IntersectionObserver(entries => {heroVisible = entries[0].isIntersecting; syncHero();}, {threshold: 0.2}).observe(heroVideo);
-document.addEventListener('visibilitychange', () => {if (document.hidden) document.querySelectorAll('video').forEach(video=>video.pause()); else syncHero();});
+new IntersectionObserver(entries => {heroVisible = entries[0].isIntersecting; syncHero();}, {threshold: 0.2}).observe(document.querySelector('.moment-stack'));
+document.addEventListener('visibilitychange', () => {if (document.hidden) document.querySelectorAll('video').forEach(pausePreview); syncHero();});
 reducedMotion.addEventListener('change', () => {motionPaused = reducedMotion.matches; syncMotionButton(); syncHero(); if (motionPaused) document.querySelectorAll('.project-cover video').forEach(pausePreview);});
 document.querySelector('#motion-toggle').addEventListener('click', () => {
   motionPaused = !motionPaused;
@@ -87,26 +89,6 @@ document.querySelector('#surprise-project').addEventListener('click', event => {
 const momentCollection = document.querySelector('#moment-collection');
 momentCollection.innerHTML = window.FILM_MOMENTS.map(moment => `<figure class="little-frame"><button type="button" data-project="${moment.slug}" aria-label="Open ${escapeHtml(projects.get(moment.slug).title)} from this film moment"><img src="${moment.image}" alt="${escapeHtml(moment.alt)}" ${imageSize(moment.image)} loading="lazy"></button><figcaption class="hand">${escapeHtml(moment.caption)}</figcaption></figure>`).join('');
 momentCollection.querySelectorAll('button').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
-
-document.querySelector('#next-moment').addEventListener('click', async event => {
-  const button = event.currentTarget;
-  button.disabled = true;
-  pausePreview(heroVideo);
-  momentIndex = (momentIndex + 1) % moments.length;
-  const choice = moments[momentIndex];
-  const project = projects.get(choice.slug);
-  const frame = document.querySelector('.moment-frame');
-  if (!reducedMotion.matches) await frame.animate([{transform:'rotate(3deg)'},{transform:'translateY(-12px) rotate(-1deg)',opacity:.55}],{duration:160,easing:'ease-in',fill:'forwards'}).finished;
-  heroPoster.src = choice.image;
-  heroPoster.alt = choice.alt;
-  heroVideo.src = choice.clip;
-  heroButton.setAttribute('aria-label', 'Open ' + project.title);
-  document.querySelector('#moment-caption').textContent = project.client + ' · ' + project.title;
-  if (!reducedMotion.matches) await frame.animate([{transform:'translateY(12px) rotate(6deg)',opacity:.6},{transform:'rotate(3deg)',opacity:1}],{duration:330,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'}).finished;
-  button.disabled = false;
-  syncHero();
-});
-heroButton.addEventListener('click', () => openCase(moments[momentIndex].slug, heroButton));
 
 function resourceLink(href, label) {
   return `<a class="resource-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(label)}</span><span class="resource-arrow" aria-hidden="true">↗</span></a>`;
@@ -199,7 +181,7 @@ async function openCase(slug, target, updateUrl = true) {
     returnTarget = target || document.querySelector('#work-heading');
     returnScroll = target ? window.scrollY : Math.max(0,document.querySelector('#work').getBoundingClientRect().top + window.scrollY - 28);
   }
-  document.querySelectorAll('video').forEach(video=>video.pause());
+  document.querySelectorAll('video').forEach(pausePreview);
   document.querySelectorAll('.playing').forEach(video=>video.classList.remove('playing'));
   const thumb = target?.querySelector('img');
   if (thumb && document.startViewTransition && !reducedMotion.matches) thumb.style.viewTransitionName = 'selected-cover';
@@ -277,7 +259,7 @@ function backgroundNotes() {
 }
 
 function showBackground() {
-  document.querySelectorAll('video').forEach(video=>video.pause());
+  document.querySelectorAll('video').forEach(pausePreview);
   document.querySelectorAll('.playing').forEach(video=>video.classList.remove('playing'));
   document.querySelector('#review-content').innerHTML = backgroundNotes();
   if (!reviewDialog.open) reviewDialog.showModal();

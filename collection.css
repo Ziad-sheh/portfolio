@@ -1,0 +1,162 @@
+/* One kind of print throughout the collection; the arrangements stay personal. */
+#project-grid .project-card {
+  --print-turn: -1.25deg;
+}
+
+#project-grid .project-card:nth-child(even) {
+  --print-turn: 1.35deg;
+}
+
+#project-grid .project-card:nth-child(3n) {
+  --print-turn: -.65deg;
+}
+
+#project-grid .cover-mount {
+  padding: 10px 10px 26px;
+  background: var(--butter);
+  box-shadow: 0 5px 14px #17203916;
+  transform: translateY(0) rotate(var(--print-turn));
+  transform-origin: 50% 65%;
+  transition:
+    transform 520ms cubic-bezier(.2, .75, .2, 1),
+    box-shadow 520ms cubic-bezier(.2, .75, .2, 1);
+}
+
+#project-grid .project-cover {
+  aspect-ratio: var(--ratio);
+}
+
+#project-grid .cover-mount:focus-within {
+  transform: translateY(-7px) rotate(0deg);
+  box-shadow: 0 15px 25px #17203924;
+}
+
+#project-grid .project-cover:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+#project-grid .project-cover .open-hint {
+  background: var(--butter);
+  transition:
+    opacity 220ms ease,
+    transform 320ms cubic-bezier(.2, .75, .2, 1);
+}
+
+/* This loop is drawn to the button bounds, including the arrow. */
+.work-invitation {
+  flex-wrap: wrap;
+  column-gap: 32px;
+  row-gap: 20px;
+}
+
+.work-invitation #surprise-project {
+  isolation: isolate;
+  flex-shrink: 0;
+  min-height: 82px;
+  margin: 0 6px 0 auto;
+  padding: 24px 34px;
+  gap: 12px;
+  transform: rotate(2deg);
+  transition: transform 320ms cubic-bezier(.2, .75, .2, 1);
+}
+
+#surprise-project .hand {
+  font-size: 29px;
+  line-height: 1;
+}
+
+#surprise-project .mark-loop {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  opacity: .9;
+  mask-image: url('marks/pick-circle.svg');
+  -webkit-mask-image: url('marks/pick-circle.svg');
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+
+#surprise-project > span:last-child {
+  font-size: 23px;
+}
+
+#surprise-project:focus-visible {
+  outline-offset: 5px;
+  border-radius: 50%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #project-grid .cover-mount:hover {
+    transform: translateY(-7px) rotate(0deg);
+    box-shadow: 0 15px 25px #17203924;
+  }
+
+  .work-invitation #surprise-project:hover {
+    transform: translateY(-2px) rotate(0deg);
+  }
+}
+
+@media (max-width: 600px) {
+  #project-grid .cover-mount {
+    padding: 8px 8px 22px;
+  }
+
+  .work-invitation {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .work-invitation > p {
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .work-invitation #surprise-project {
+    align-self: flex-end;
+    min-height: 76px;
+    margin: 0 3px 0 0;
+    padding: 22px 30px;
+    gap: 10px;
+  }
+
+  #surprise-project .hand {
+    font-size: 27px;
+  }
+
+  #surprise-project > span:last-child {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .work-invitation #surprise-project {
+    padding-inline: 28px;
+  }
+
+  #surprise-project .hand {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #project-grid .cover-mount,
+  #project-grid .cover-mount:hover,
+  #project-grid .cover-mount:focus-within {
+    transform: rotate(var(--print-turn));
+    transition: none;
+  }
+
+  .work-invitation #surprise-project,
+  .work-invitation #surprise-project:hover {
+    transform: rotate(2deg);
+    transition: none;
+  }
+
+  #surprise-project:hover > span:last-child {
+    transform: none;
+  }
+}
