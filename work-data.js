@@ -9,6 +9,435 @@
 // meta: [{ label: "Versions", value: "Arabic · English" }]
 window.PORTFOLIO_PROJECTS = [
   {
+    "slug": "apple-switchers",
+    "client": "Apple",
+    "title": "Switchers",
+    "poster": "assets/img/apple-switchers-tahani.jpg",
+    "primaryFilm": "assets/video/apple-switchers-tahani.mp4",
+    "deck": "Real stories of switching to iPhone, told through Memoji.",
+    "role": "Creative lead",
+    "meta": [
+      {
+        "label": "Markets",
+        "value": "UAE · Saudi Arabia"
+      },
+      {
+        "label": "Scope",
+        "value": "Around 20 short edits"
+      }
+    ],
+    "primaryLabel": "Tahani · Photography",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the project from candidate selection and interviews to story edits, animation and music. We returned with more questions, then built each film around the strongest moments."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Selected Saudi stories",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "Khaled · Battery life",
+            "src": "assets/video/apple-switchers-khaled.mp4",
+            "poster": "assets/img/apple-switchers-khaled.jpg"
+          },
+          {
+            "title": "Ziad · Gaming",
+            "src": "assets/video/apple-switchers-ziad.mp4",
+            "poster": "assets/img/apple-switchers-ziad.jpg"
+          }
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-switchers-tahani.mp4"
+  },
+  {
+    "slug": "apple-relax-saudi",
+    "client": "Apple",
+    "title": "Relax, it’s iPhone",
+    "poster": "assets/img/apple-relax-matchmaker.jpg",
+    "primaryFilm": "assets/video/apple-relax-matchmaker.mp4",
+    "deck": "Saudi life, with a little camera drama.",
+    "role": "Creative direction & copy",
+    "meta": [
+      {
+        "label": "Market",
+        "value": "Saudi Arabia"
+      },
+      {
+        "label": "Campaigns",
+        "value": "2025 · 2026"
+      }
+    ],
+    "primaryLabel": "The Matchmaker · 2025",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I developed the situations and wrote the scripts. I led the creative work, shaping cultural choices, casting and music in close collaboration with the director and production team."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "2025",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "The Favourite Son",
+            "src": "assets/video/apple-relax-favourite-son.mp4",
+            "poster": "assets/img/apple-relax-favourite-son.jpg",
+            "caption": "Cinematic mode"
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "2026",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "The Confrontation",
+            "src": "assets/video/apple-relax-confrontation.mp4",
+            "poster": "assets/img/apple-relax-confrontation.jpg",
+            "caption": "Dual Capture"
+          },
+          {
+            "title": "Steady Steps",
+            "src": "assets/video/apple-relax-skating.mp4",
+            "poster": "assets/img/apple-relax-skating.jpg",
+            "caption": "Video stabilisation"
+          },
+          {
+            "title": "The Winning Selfie",
+            "src": "assets/video/apple-relax-selfie.mp4",
+            "poster": "assets/img/apple-relax-selfie.jpg",
+            "caption": "Center Stage"
+          },
+          {
+            "title": "Office Nap",
+            "src": "assets/video/apple-relax-office.mp4",
+            "poster": "assets/img/apple-relax-office.jpg",
+            "caption": "8× zoom"
+          }
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-relax-matchmaker.mp4"
+  },
+  {
+    "slug": "apple-pay-riyadh",
+    "client": "Apple",
+    "title": "Tap. Ride. Done.",
+    "poster": "assets/img/apple-pay-metro-ar.jpg",
+    "primaryFilm": "assets/video/apple-pay-metro-ar.mp4",
+    "deck": "Apple Pay meets Riyadh Metro.",
+    "role": "Creative direction & copy",
+    "meta": [
+      {
+        "label": "Languages",
+        "value": "English · Arabic"
+      },
+      {
+        "label": "Work",
+        "value": "Film · Social · Display"
+      }
+    ],
+    "primaryLabel": "Metro · Arabic",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the creative work, originating the English and Arabic copy and shaping the music and local visual direction."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Metro & bus",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "Metro · English",
+            "src": "assets/video/apple-pay-metro-en.mp4",
+            "poster": "assets/img/apple-pay-metro-en.jpg"
+          },
+          {
+            "title": "Bus · Arabic",
+            "src": "assets/video/apple-pay-bus-ar.mp4",
+            "poster": "assets/img/apple-pay-bus-ar.jpg"
+          },
+          {
+            "title": "Bus · English",
+            "src": "assets/video/apple-pay-bus-en.mp4",
+            "poster": "assets/img/apple-pay-bus-en.jpg"
+          }
+        ]
+      },
+      {
+        "type": "stills",
+        "label": "Display · Arabic",
+        "layout": "portrait",
+        "items": [
+          {
+            "src": "assets/img/apple-pay-display-easy-ar.jpg",
+            "alt": "Arabic Apple Pay display ad for Riyadh Metro, showing contactless travel."
+          },
+          {
+            "src": "assets/img/apple-pay-display-iphone-ar.jpg",
+            "alt": "Arabic Apple Pay display ad for Riyadh Metro, showing an iPhone payment."
+          },
+          {
+            "src": "assets/img/apple-pay-display-watch-ar.jpg",
+            "alt": "Arabic Apple Pay display ad for Riyadh Metro, showing an Apple Watch payment."
+          }
+        ]
+      },
+      {
+        "type": "stills",
+        "label": "Display · English",
+        "layout": "portrait",
+        "items": [
+          {
+            "src": "assets/img/apple-pay-display-easy-en.jpg",
+            "alt": "English Apple Pay display ad for Riyadh Metro, showing contactless travel."
+          },
+          {
+            "src": "assets/img/apple-pay-display-iphone-en.jpg",
+            "alt": "English Apple Pay display ad for Riyadh Metro, showing an iPhone payment."
+          },
+          {
+            "src": "assets/img/apple-pay-display-watch-en.jpg",
+            "alt": "English Apple Pay display ad for Riyadh Metro, showing an Apple Watch payment."
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Six seconds · Arabic",
+        "layout": "portrait",
+        "items": [
+          {
+            "title": "Hello Riyadh",
+            "src": "assets/video/apple-pay-hello-ar.mp4",
+            "poster": "assets/img/apple-pay-hello-ar.jpg"
+          },
+          {
+            "title": "No Face ID",
+            "src": "assets/video/apple-pay-no-face-id-ar.mp4",
+            "poster": "assets/img/apple-pay-no-face-id-ar.jpg"
+          },
+          {
+            "title": "No unlocking",
+            "src": "assets/video/apple-pay-no-unlock-ar.mp4",
+            "poster": "assets/img/apple-pay-no-unlock-ar.jpg"
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Six seconds · English",
+        "layout": "portrait",
+        "items": [
+          {
+            "title": "Hello Riyadh",
+            "src": "assets/video/apple-pay-hello-en.mp4",
+            "poster": "assets/img/apple-pay-hello-en.jpg"
+          },
+          {
+            "title": "No Face ID",
+            "src": "assets/video/apple-pay-no-face-id-en.mp4",
+            "poster": "assets/img/apple-pay-no-face-id-en.jpg"
+          },
+          {
+            "title": "No unlocking",
+            "src": "assets/video/apple-pay-no-unlock-en.mp4",
+            "poster": "assets/img/apple-pay-no-unlock-en.jpg"
+          }
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-pay-metro-ar.mp4"
+  },
+  {
+    "slug": "apple-watch-saudi",
+    "client": "Apple",
+    "title": "A day with Apple Watch",
+    "poster": "assets/img/apple-watch-saudi.jpg",
+    "primaryFilm": "assets/video/apple-watch-saudi.mp4",
+    "deck": "Health and movement, woven into a Saudi day.",
+    "role": "Creative direction & copy",
+    "meta": [
+      {
+        "label": "Market",
+        "value": "Saudi Arabia"
+      },
+      {
+        "label": "Language",
+        "value": "Arabic"
+      }
+    ],
+    "primaryLabel": "Apple Watch · Saudi Arabia",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led the project from strategy and situations to the script, casting and music, working closely with the director through production."
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-watch-saudi.mp4"
+  },
+  {
+    "slug": "apple-ipad-musical",
+    "client": "Apple",
+    "title": "Your next computer",
+    "poster": "assets/img/apple-ipad-musical.jpg",
+    "primaryFilm": "assets/video/apple-ipad-musical.mp4",
+    "deck": "A familiar song. An Arabic performance.",
+    "role": "Arabic localisation lead",
+    "meta": [
+      {
+        "label": "Craft",
+        "value": "Lyrics · Casting · Singing direction"
+      }
+    ],
+    "primaryLabel": "Your next computer is not a computer · Arabic",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions, overseeing the localisation from adaptation to final performance."
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-ipad-musical.mp4"
+  },
+  {
+    "slug": "apple-gaming",
+    "client": "Apple",
+    "title": "A leap in gaming",
+    "poster": "assets/img/apple-gaming-day.jpg",
+    "primaryImage": {
+      "src": "assets/img/apple-gaming-day.jpg",
+      "alt": "iPhone 16 Pro billboard on King Fahd Road in Riyadh, featuring Assassin’s Creed Mirage and the Arabic campaign line."
+    },
+    "deck": "An iPhone gaming idea drawn from Assassin’s Creed’s Leap of Faith.",
+    "role": "Concept & copy",
+    "meta": [
+      {
+        "label": "Market",
+        "value": "Saudi Arabia"
+      },
+      {
+        "label": "Format",
+        "value": "Outdoor"
+      }
+    ],
+    "primaryLabel": "King Fahd Road · Riyadh",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I identified the opportunity and developed the concept and Arabic line, connecting the game’s signature leap with iPhone gaming."
+        ]
+      },
+      {
+        "type": "stills",
+        "label": "After dark",
+        "items": [
+          {
+            "src": "assets/img/apple-gaming-night.jpg",
+            "alt": "The illuminated iPhone 16 Pro gaming billboard in Riyadh at night."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "apple-arabic-localisation",
+    "client": "Apple",
+    "title": "In Arabic",
+    "poster": "assets/img/apple-health-ar.jpg",
+    "primaryFilm": "assets/video/apple-health-ar.mp4",
+    "deck": "Selected films. Arabic words, voices and performances.",
+    "role": "Arabic localisation lead",
+    "meta": [
+      {
+        "label": "Work",
+        "value": "Adaptation · Casting · Dubbing direction"
+      }
+    ],
+    "primaryLabel": "Health with iPhone + Apple Watch · Arabic",
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I led Arabic localisation end to end, shaping the copy and directing voice performances through to the final films."
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Selected films",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "The Waiting Room",
+            "src": "assets/video/apple-waiting-room.mp4",
+            "poster": "assets/img/apple-waiting-room.jpg",
+            "caption": "Privacy on iPhone"
+          },
+          {
+            "title": "Hello Sunshine",
+            "src": "assets/video/apple-hello-sunshine.mp4",
+            "poster": "assets/img/apple-hello-sunshine.jpg",
+            "caption": "Apple Watch Series 6"
+          },
+          {
+            "title": "Answers",
+            "src": "assets/video/apple-answers.mp4",
+            "poster": "assets/img/apple-answers.jpg",
+            "caption": "Apple Watch Series 7"
+          },
+          {
+            "title": "New Things",
+            "src": "assets/video/apple-new-things.mp4",
+            "poster": "assets/img/apple-new-things.jpg",
+            "caption": "Apple Watch Series 8"
+          },
+          {
+            "title": "Call to the Wild",
+            "src": "assets/video/apple-ultra.mp4",
+            "poster": "assets/img/apple-ultra.jpg",
+            "caption": "Apple Watch Ultra"
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Original English film",
+        "layout": "grid",
+        "items": [
+          {
+            "title": "Health with iPhone + Apple Watch",
+            "src": "assets/video/apple-health-en.mp4",
+            "poster": "assets/img/apple-health-en.jpg",
+            "caption": "Global original · shown for comparison"
+          }
+        ]
+      }
+    ],
+    "loop": "assets/loop/apple-health-ar.mp4"
+  },
+  {
     slug: "velar-vr",
     client: "Range Rover Velar",
     title: "360° VR Experience",

@@ -3,8 +3,7 @@
 Hand-built static site. No build step: edit, commit, push — Pages redeploys.
 
 ## Editing content
-- Work entries: `index.html` → `<article class="entry">` blocks (id, heading, media box).
-- Rail index: `index.html` → `<nav class="index">` (keep in sync with entries).
+- Work entries and all three rail indexes: edit `work-data.js`, then run `node scripts/sync-projects.mjs` to regenerate the static HTML.
 - Case-study content: `work-data.js` → one object per campaign.
 - Case-study layout: `work.html` + `work.css`; optional blocks are rendered by `work.js`.
 
@@ -26,7 +25,7 @@ off the public homepage until their media is ready.
 ## Media = self-hosted silent loops (not embeds)
 Visible media = short silent autoplay loops as "living texture" (nakaza style) — no YouTube/FB chrome and no homepage player controls.
 - Every published homepage tile is one project link. Its video ignores pointer input, so the complete window is the click target.
-- Loops shown: `assets/loop/<slug>.mp4` (~8s, 720p, silent/no audio track, ~5.6 MB total), with a still poster for loading and reduced-motion visitors.
+- Loops shown: `assets/loop/<slug>.mp4` (short, 720p, silent/no audio track), with a still poster for loading and reduced-motion visitors. Image-led projects use a still.
 - `main.js` loads and plays loops near the viewport, pauses them off-screen or while the page is hidden, and respects reduced-motion preferences.
 - Full masters: `assets/video/<slug>.mp4` (720p `+faststart`, largest fab-mothers 58 MB, under GitHub's 100 MB/file cap). The case-study page loads these on demand with native controls.
 - Pipelines (reusable, in scratchpad): `dlvid.sh <slug> <youtube_id>` (download+compress+poster) · `loop_all.sh` (cut short silent loops from every master; edit per-film start if a loop lands on a dull/black frame).
@@ -45,7 +44,19 @@ that film has not been attached to an unrelated campaign.
 
 ## Open items (Ziad's pen — see vault spec "Portfolio Site — Design")
 - Hero copy (current text is working draft)
-- Apple Switchers + selected campaigns
+- Remaining campaign assets and behind-the-scenes material when supplied
 - Additional write-ups, stills, and credits when supplied
 - Wordmark divergence + About bio
 - Remove `noindex` meta when identity diverges from the reference and content is approved
+
+## Apple additions · September 2026
+
+Seven case studies: Switchers, Saudi Relax (2025 + 2026), Apple Pay / Riyadh Metro, Watch Saudi Arabia, iPad musical adaptation, gaming OOH, and Arabic localisation. Role statements come from Ziad’s project descriptions; uncertain launch dates, results and gaming-event attribution are omitted. Older global Relax films remain outside this pass.
+
+Media are web derivatives of the supplied Apple Portfolio assets. Original campaign files stay in the source collection. Known black tails are trimmed; films retain their sound. The three Switchers films use Apple’s clean, published landscape versions, replacing the counter-bearing review exports for presentation. The English Health film is explicitly labelled as the global original for comparison.
+
+The Metro page presents the four landscape films, six short social films and six display layouts from the deck. Alternate crops and reference imagery are not displayed. The gaming page uses the two original photographs extracted from the supplied PDF.
+
+`assets/apple-media.json` records media provenance. `primaryImage` supports image-led cases; `films` sections accept `layout: "grid"` or `"portrait"`; portrait stills use the same layout value. No publishing step is part of this update.
+
+Validation for this pass: all seven Apple cases checked at 390px and 1280px; native playback checked on a landscape and a vertical film; all 28 films fully decoded with H.264 video, AAC audio and faststart verified. All 16 projects have valid assets and matching indexes. The nine existing case objects are unchanged.

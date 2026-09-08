@@ -282,3 +282,7 @@ a:focus-visible {
   .project-card:hover .media video,
   .project-card:focus-visible .media video { transform: none; }
 }
+
+/* Still-image projects share the same card frame as film projects. */
+.media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.meta-links { display: flex; gap: 24px; }

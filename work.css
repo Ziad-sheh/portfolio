@@ -208,6 +208,7 @@ figcaption {
   gap: 44px;
 }
 .work-films video {
+  height: auto;
   aspect-ratio: 16 / 9;
 }
 
@@ -326,4 +327,18 @@ figcaption {
     border-left: 0;
   }
   .work-missing { padding: 12vh 0; }
+}
+
+/* Collections keep secondary films compact and preserve vertical compositions. */
+.work-primary-media.is-image { aspect-ratio: auto; background: none; }
+.work-primary-media img { width: 100%; height: auto; display: block; }
+.is-grid .work-films { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+.is-grid .work-films figure:only-child { grid-column: 1 / -1; }
+.is-grid .work-media-note, .is-portrait .work-media-note { grid-template-columns: 1fr; gap: 4px; }
+.is-portrait .work-films, .is-portrait .work-stills { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 18px; }
+.is-portrait .work-films video { aspect-ratio: 9 / 16; }
+@media (max-width: 640px) {
+  .is-grid .work-films { grid-template-columns: 1fr; }
+  .is-portrait .work-films, .is-portrait .work-stills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .is-portrait .work-film-title { font-size: 17px; }
 }

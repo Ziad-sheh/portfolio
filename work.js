@@ -56,6 +56,7 @@ function renderCopySection(section) {
 function renderStillsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content";
+  if (section.layout === "portrait") wrapper.classList.add("is-portrait");
   wrapper.appendChild(addText("div", "work-section-label", section.label || "Campaign stills"));
 
   const grid = document.createElement("div");
@@ -77,6 +78,7 @@ function renderStillsSection(section) {
 function renderFilmsSection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-film-story";
+  if (["grid", "portrait"].includes(section.layout)) wrapper.classList.add(`is-${section.layout}`);
   wrapper.appendChild(addText("div", "work-section-label", section.label || "More films"));
 
   const grid = document.createElement("div");
@@ -193,7 +195,13 @@ if (!project) {
   primaryLabel.textContent = project.primaryLabel || "Full film";
 
   const primaryMedia = document.getElementById("work-primary-media");
-  if (project.primaryFilm) {
+  if (project.primaryImage) {
+    const image = document.createElement("img");
+    image.src = project.primaryImage.src;
+    image.alt = project.primaryImage.alt || "";
+    primaryMedia.classList.add("is-image");
+    primaryMedia.appendChild(image);
+  } else if (project.primaryFilm) {
     primaryMedia.appendChild(addVideo({
       src: project.primaryFilm,
       poster: project.poster,
