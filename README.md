@@ -23,7 +23,7 @@ Keep campaign facts in `work-data.js`. New editorial readings should not introdu
 
 ## Checks
 
-Run `node scripts/verify-release.mjs` before publishing. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts.
+Run `node scripts/verify-release.mjs` and `node scripts/verify-hero-touch.mjs` before publishing. The touch regression checks model implicit capture and descendant event bubbling; a narrow viewport alone does not test touch input. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts.
 
 Case links use `index.html#project=<slug>`. Old `work.html?project=<slug>`, `about.html` and homepage campaign anchors remain supported. Local preview/review controls are not shipped.
 

@@ -157,7 +157,11 @@ window.createHeroDeck = function ({stack, moments, projects, open, play, pause, 
     });
     button.addEventListener('pointerup', event => releaseGesture(event));
     button.addEventListener('pointercancel', event => releaseGesture(event, true));
-    button.addEventListener('lostpointercapture', event => releaseGesture(event, true));
+    button.addEventListener('lostpointercapture', event => {
+      // If touch starts with implicit capture on an image, its capture-loss event
+      // bubbles here when the button takes over; that is not a cancelled swipe.
+      if (event.target === button) releaseGesture(event, true);
+    });
     button.addEventListener('click', event => {
       if (event.detail > 0 && suppressPointerClick) { suppressPointerClick = false; event.preventDefault(); return; }
       if (!busy && !gesture?.horizontal && index === order[0]) open(moments[index].slug, button);

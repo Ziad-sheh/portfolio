@@ -25,7 +25,7 @@
 .moment-frame[data-slot="2"] { z-index: 1; transform: translate3d(3%,-3%,0) rotate(7deg) scale(.96); }
 .moment-frame .moment-image { touch-action: pan-y; cursor: grab; }
 .moment-frame .moment-image:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
-.moment-frame .moment-image img { user-select: none; -webkit-user-drag: none; }
+.moment-frame .moment-image img { pointer-events: none; user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; }
 .moment-frame .moment-image video { pointer-events: none; }
 .moment-deck.is-dragging .moment-image { cursor: grabbing; }
 .moment-deck.is-shuffling .moment-image { cursor: default; }
