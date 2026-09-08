@@ -15,18 +15,18 @@
   <meta property="og:image" content="https://ziad-sheh.github.io/portfolio/media/apple-relax-saudi.jpg">
   <meta property="og:image:alt" content="A moment from Relax, it’s iPhone, in Ziad Shehade’s selected work">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="fonts.css?v=20260908-touch">
-  <link rel="stylesheet" href="site.css?v=20260908-touch">
-  <link rel="stylesheet" href="opening.css?v=20260908-touch">
-  <link rel="stylesheet" href="collection.css?v=20260908-touch">
-  <script src="work-data.js?v=20260908-touch" defer></script>
-  <script src="background-data.js?v=20260908-touch" defer></script>
-  <script src="choices.js?v=20260908-touch" defer></script>
-  <script src="personal-touches.js?v=20260908-touch" defer></script>
-  <script src="bts-content.js?v=20260908-touch" defer></script>
-  <script src="image-dimensions.js?v=20260908-touch" defer></script>
-  <script src="hero-deck.js?v=20260908-touch" defer></script>
-  <script src="site.js?v=20260908-touch" defer></script>
+  <link rel="stylesheet" href="fonts.css?v=20260908-contact">
+  <link rel="stylesheet" href="site.css?v=20260908-contact">
+  <link rel="stylesheet" href="opening.css?v=20260908-contact">
+  <link rel="stylesheet" href="collection.css?v=20260908-contact">
+  <script src="work-data.js?v=20260908-contact" defer></script>
+  <script src="background-data.js?v=20260908-contact" defer></script>
+  <script src="choices.js?v=20260908-contact" defer></script>
+  <script src="personal-touches.js?v=20260908-contact" defer></script>
+  <script src="bts-content.js?v=20260908-contact" defer></script>
+  <script src="image-dimensions.js?v=20260908-contact" defer></script>
+  <script src="hero-deck.js?v=20260908-contact" defer></script>
+  <script src="site.js?v=20260908-contact" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#work">Skip to work</a>
@@ -69,13 +69,20 @@
         <p>I’m Ziad, a creative director and copywriter based in Dubai, working in Arabic and English.</p>
         <p>I lead creative teams and stay close to the writing, from the first thought through scripts, music and performance. The work here has taken shape with directors, animators, musicians and the people on my team.</p>
         <div class="off-duty"><h3 class="hand underlined">away from the desk</h3><p>Cinema, art, music and a good series. Fashion, good food and people, too.</p></div>
-        <div class="about-links"><button type="button" id="background-open">My background ↗</button><a class="hello-link" href="mailto:ziadshehade@gmail.com"><span class="hand">say hello</span><span aria-hidden="true">↗</span></a></div>
+        <div class="about-links"><button type="button" id="background-open">My background ↗</button><button class="hello-link" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog"><span class="hand">say hello</span><span aria-hidden="true">↗</span></button></div>
       </div>
     </section>
   </main>
-<footer><a class="name" href="#top">Ziad Shehade</a><p>Creative director &amp; copywriter</p><a class="footer-contact" href="mailto:ziadshehade@gmail.com">Get in touch ↗</a></footer>
+<footer><a class="name" href="#top">Ziad Shehade</a><p>Creative director &amp; copywriter</p><button class="footer-contact" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">Get in touch ↗</button></footer>
   <dialog id="case-dialog" aria-labelledby="case-title"><div class="case-bar"><button type="button" id="case-close">← Back to work</button><span id="case-client"></span><button type="button" id="case-next">Next project →</button></div><div id="case-content"></div></dialog>
   <dialog id="review-dialog" aria-labelledby="review-title"><header class="review-bar"><h2 id="review-title">My background</h2><button id="review-close" type="button">Close</button></header><div id="review-content"></div></dialog>
   <dialog id="photo-dialog" aria-labelledby="photo-title"><header class="photo-bar"><h2 id="photo-title">Behind the scenes</h2><button id="photo-close" type="button">Close photo</button></header><figure><img id="photo-image" alt=""><figcaption><span id="photo-caption"></span><span id="photo-count" aria-live="polite" aria-atomic="true"></span></figcaption></figure><nav class="photo-nav" aria-label="Photographs"><button type="button" id="photo-previous">← Previous</button><button type="button" id="photo-next">Next →</button></nav></dialog>
+  <dialog id="contact-dialog" aria-labelledby="contact-title">
+    <div class="contact-heading"><h2 id="contact-title" class="hand">say hello.</h2><button id="contact-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button></div>
+    <div class="contact-links">
+      <a href="tel:+971551775118"><span><span class="contact-label">Call me</span><span class="contact-detail">055 177 5118</span></span><span aria-hidden="true">↗</span></a>
+      <a href="mailto:ziadshehade@gmail.com"><span><span class="contact-label">Email me</span><span class="contact-detail">ziadshehade@gmail.com</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+  </dialog>
 </body>
 </html>

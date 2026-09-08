@@ -12,6 +12,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const grid = document.querySelector('#project-grid');
 const caseDialog = document.querySelector('#case-dialog');
 const reviewDialog = document.querySelector('#review-dialog');
+const contactDialog = document.querySelector('#contact-dialog');
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const original = path => path;
 let motionPaused = reducedMotion.matches;
@@ -31,11 +32,11 @@ function syncMotionButton() {
 const previewWanted = new WeakMap();
 
 async function playPreview(video) {
-  if (!video || motionPaused || document.hidden || caseDialog.open || reviewDialog.open) return;
+  if (!video || motionPaused || document.hidden || caseDialog.open || reviewDialog.open || contactDialog.open) return;
   previewWanted.set(video, true);
   try {
     await video.play();
-    if (!previewWanted.get(video) || motionPaused || document.hidden || caseDialog.open || reviewDialog.open || !video.isConnected) pausePreview(video);
+    if (!previewWanted.get(video) || motionPaused || document.hidden || caseDialog.open || reviewDialog.open || contactDialog.open || !video.isConnected) pausePreview(video);
     else video.classList.add('playing');
   } catch { video.classList.remove('playing'); }
 }
@@ -45,7 +46,7 @@ function pausePreview(video) { previewWanted.set(video, false); video.pause(); v
 const heroDeck = window.createHeroDeck({
   stack: document.querySelector('.moment-stack'), moments, projects,
   open: openCase, play: playPreview, pause: pausePreview,
-  canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open,
+  canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open && !contactDialog.open,
   canAnimate: () => !motionPaused && !reducedMotion.matches && !document.hidden,
 });
 function syncHero() { heroDeck.sync(); }
@@ -255,7 +256,7 @@ window.addEventListener('hashchange', syncRoute);
 function backgroundNotes() {
   const background = window.PORTFOLIO_BACKGROUND;
   const sections = background.sections.map(section => `<section><h3>${escapeHtml(section.heading)}</h3>${section.paragraphs.map(p=>`<p>${escapeHtml(p)}</p>`).join('')}${section.entries.length ? `<dl class="background-timeline">${section.entries.map(entry=>`<div><dt>${escapeHtml(entry.label)}</dt><dd>${escapeHtml(entry.detail)}</dd></div>`).join('')}</dl>` : ''}</section>`).join('');
-  return `<div class="review-body background-body"><p class="hand background-hello">a little more about me.</p><h3>Words, people<br>and the work.</h3><p>${escapeHtml(background.deck)}</p>${sections}<a class="background-contact" href="mailto:ziadshehade@gmail.com">Say hello ↗</a></div>`;
+  return `<div class="review-body background-body"><p class="hand background-hello">a little more about me.</p><h3>Words, people<br>and the work.</h3><p>${escapeHtml(background.deck)}</p>${sections}<button class="background-contact" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">Say hello ↗</button></div>`;
 }
 
 function showBackground() {
@@ -268,6 +269,19 @@ function showBackground() {
 document.querySelector('#background-open').addEventListener('click',showBackground);
 document.querySelector('#review-close').addEventListener('click',()=>reviewDialog.close());
 reviewDialog.addEventListener('close',syncHero);
+
+document.addEventListener('click', event => {
+  if (!event.target.closest('[data-contact-open]')) return;
+  document.querySelectorAll('video').forEach(pausePreview);
+  if (!contactDialog.open) contactDialog.showModal();
+});
+document.querySelector('#contact-close').addEventListener('click', () => contactDialog.close());
+contactDialog.addEventListener('close', syncHero);
+contactDialog.addEventListener('click', event => {
+  if (event.target !== contactDialog) return;
+  const bounds = contactDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) contactDialog.close();
+});
 
 renderGrid();
 syncRoute();

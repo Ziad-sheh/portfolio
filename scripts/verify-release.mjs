@@ -116,7 +116,7 @@ check(sourceLinks.every(href => /^https:\/\//.test(href)), 'Campaign source link
 const localReferences = new Set();
 function reference(value, owner) {
   const decoded = value.replace(/&amp;/g, '&').trim();
-  if (!decoded || /^(?:https?:|mailto:|data:|#)/i.test(decoded) || decoded.includes('${')) return;
+  if (!decoded || /^(?:https?:|mailto:|tel:|data:|#)/i.test(decoded) || decoded.includes('${')) return;
   const filename = decoded.split(/[?#]/)[0];
   check(!path.isAbsolute(filename), `Root-absolute link would escape /portfolio/: ${owner} -> ${filename}`);
   const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(owner), filename));
