@@ -32,15 +32,15 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "Switchers began with conversations with people who had moved to iPhone. We looked for the everyday experiences behind that decision: a photograph that did not come out, a battery giving up mid-game, or a phone freezing at the wrong moment.",
-          "Follow-up interviews helped us find the details worth keeping. Those moments became short Memoji films, with each participant’s own voice at the centre. The animation and music were built around what they said, giving each story its own rhythm."
+          "The stories came before the films. We began by meeting people who had moved to iPhone, listening for the experiences behind the switch: a missed photograph, a battery giving up mid-game, a phone freezing at the wrong moment. Small frustrations, told in their own words.",
+          "A second round of interviews let us go deeper. From those conversations, we shaped short edits around the details that made each person’s story theirs. Tahani’s photography, Khaled’s battery life and Ziad’s gaming became distinct Memoji performances, each keeping the participant’s recorded voice."
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project from reviewing candidate profiles and attending interviews to choosing stories and shaping the edits. I worked with the animators and on the music through to the finished films. Across Saudi Arabia and the UAE, we created around 20 short edits."
+          "I led the project end to end: reviewing candidate profiles, attending interviews, assessing the stories and shaping the edits. I stayed close to the animation and music as the interviews became finished films. Across Saudi Arabia and the UAE, we made around 20 short edits."
         ]
       },
       {
@@ -57,6 +57,20 @@ window.PORTFOLIO_PROJECTS = [
             "title": "Ziad · Gaming",
             "src": "assets/video/apple-switchers-ziad.mp4",
             "poster": "assets/img/apple-switchers-ziad.jpg"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Voice, character & music",
+        "paragraphs": [
+          "Casting here meant finding people with something specific to say. The creative work continued in the edit: how much of a pause to keep, where an expression could carry the thought, how to give a short story a beginning and a payoff. Memoji gave those everyday experiences a playful visual form.",
+          "Music helped give the stories a local character. Syn created original music for the wider Switchers campaign, which included Saudi Arabia and the UAE. Their production account describes working with regional instrumentalists, including Saudi oud players. Together, voice, animation and music turn an interview excerpt into a small performance."
+        ],
+        "sources": [
+          {
+            "title": "Syn · Creating the Switchers music",
+            "href": "https://www.syn.world/work/apple-switchers"
           }
         ]
       }
@@ -87,15 +101,15 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "The Saudi Relax films turn camera features into small social comedies. A wedding, a family trip to the desert, an office or a football pitch gives each story a familiar setting. The product feature becomes part of what happens between the characters.",
-          "In The Matchmaker, slow motion makes a potential suitor look rather more impressive. In The Favourite Son, a father’s change of heart becomes a change of focus. The 2026 films carry that approach into shorter stories about Dual Capture, stabilisation, Center Stage and zoom."
+          "A little family drama can make a camera feature easy to understand. For Ramadan 2025, the Saudi Relax films borrowed the heightened emotions and familiar relationships of Saudi soap operas. Each story lets an iPhone feature tip the scene in an unexpected direction.",
+          "In The Matchmaker, an aunt uses slow motion to make a potential husband look rather more impressive. In The Favourite Son, a father can rearrange his loyalties simply by changing the focus of a photograph. The demonstration and the joke happen at the same moment."
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I developed the situations and wrote the scripts and copy, leading the creative work from strategy through production. I shaped the cultural choices, helped choose the cast and worked closely with the director and composer on the performances, timing and music."
+          "I led the creative work from strategy through production, developing the situations and writing the scripts and copy. I shaped the cultural decisions, helped choose the cast, and worked closely with the director and composer on the performances, timing and music."
         ]
       },
       {
@@ -107,8 +121,59 @@ window.PORTFOLIO_PROJECTS = [
             "title": "The Favourite Son",
             "src": "assets/video/apple-relax-favourite-son.mp4",
             "poster": "assets/img/apple-relax-favourite-son.jpg",
-            "caption": "Cinematic mode"
+            "caption": "Next-generation portraits. A father’s change of heart becomes a change of focus."
           }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Familiar faces",
+        "paragraphs": [
+          "I considered a broad range of actors before we landed on recognisable Saudi names. A familiar face does useful work in a short film: the audience can place the character quickly, leaving more room for the joke.",
+          "The 2025 cast brings together Abdullah Al Sadhan, known for two decades of Tash Ma Tash; Adwa Bader, the lead in NAGA and a 2023 TIFF Rising Star; Reem Al Habeeb; and Waleed Alkahtany. Established television comedy meets a newer generation of Saudi screen talent."
+        ],
+        "sources": [
+          {
+            "title": "Campaign Middle East · The cast",
+            "href": "https://campaignme.com/apple-pays-homage-to-saudi-soap-operas-in-latest-tv-commercials/"
+          },
+          {
+            "title": "Red Sea Film Festival · Abdullah Al Sadhan",
+            "href": "https://redseafilmfest.com/en/press/red-sea-film-festival-reveals-full-juries-for-2023-edition/"
+          },
+          {
+            "title": "TIFF · Adwa Bader",
+            "href": "https://www.linkedin.com/posts/tiff-net_tiff-announces-exciting-2023-rising-stars-activity-7102290906183069697-rpib"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Direction & music",
+        "paragraphs": [
+          "The 2025 films were directed by Ali Kalthami, co-founder of Telfaz11 and director of Mandoob. The stories give ordinary exchanges the weight of a television drama; the comedy comes from how seriously the characters take them.",
+          "That dramatic world carries into the score. Composer Layal Watfeh, whose work spans film and television, created the 2025 music, with Ahmad Mostafa Zaky credited as assistant composer. My work with the director and composer connected the writing, performances and music around the same comic idea."
+        ],
+        "sources": [
+          {
+            "title": "shots · Film and music credits",
+            "href": "https://shots.net/news/view/apple-launches-a-special-ramadan-series"
+          },
+          {
+            "title": "Arab Cinema Center · Ali Kalthami",
+            "href": "https://acc.film/cannes100/2024/ali-kalthami.php"
+          },
+          {
+            "title": "Alliance for Women Film Composers · Layal Watfeh",
+            "href": "https://theawfc.com/spotlight/layal-watfeh/"
+          }
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "The next chapter · 2026",
+        "paragraphs": [
+          "The 2026 films take the same instinct into new settings: a confrontation, an unsteady ride, a volleyball court and an office nap. Dual Capture, stabilisation, Center Stage and zoom each become a way to reveal the comedy in the situation. The scenes change; the feature still earns its place in the story."
         ]
       },
       {
@@ -141,6 +206,23 @@ window.PORTFOLIO_PROJECTS = [
             "caption": "8× zoom"
           }
         ]
+      },
+      {
+        "type": "copy",
+        "label": "In the press",
+        "paragraphs": [
+          "Campaign Middle East framed the 2025 films as an homage to Saudi soap operas. shots highlighted their playful handling of everyday drama. Both picked up on the same thing that makes the idea work: a recognisable Saudi entertainment language, carrying a product story."
+        ],
+        "sources": [
+          {
+            "title": "Campaign Middle East · March 2025",
+            "href": "https://campaignme.com/apple-pays-homage-to-saudi-soap-operas-in-latest-tv-commercials/"
+          },
+          {
+            "title": "shots · March 2025",
+            "href": "https://shots.net/news/view/apple-launches-a-special-ramadan-series"
+          }
+        ]
       }
     ],
     "loop": "assets/loop/apple-relax-matchmaker.mp4"
@@ -169,15 +251,29 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "The launch of Riyadh Metro brought a new way to move around the city. Our campaign introduced Apple Pay for the journey, turning the payment step into a simple sequence: tap, ride, done.",
-          "Animated hands, devices and characters show the action. The Arabic copy and details of local dress place it in Riyadh. The same idea runs through metro and bus films, display layouts and six-second social edits, in English and Arabic."
+          "Riyadh Metro introduced a new way to move around the city. The campaign brought Apple Pay into that moment with a simple sequence: tap, ride, done. It had to welcome people to the service and make the payment step immediately clear.",
+          "The idea works through movement. A hand, a device, a tap, and the journey continues. English and Arabic films for the metro and buses expand into display layouts and six-second social edits, each keeping that same easy rhythm."
+        ],
+        "sources": [
+          {
+            "title": "Apple · Travel with Apple Pay in Riyadh",
+            "href": "https://www.apple.com/sa/apple-pay/transport/"
+          }
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I was the creative lead, originating the English and Arabic copy and shaping the music and overall direction. Working with the team, I led the cultural decisions behind the campaign, including how the illustrated characters looked and dressed."
+          "I was the creative lead, originating the English and Arabic copy and shaping the music and overall direction. Working with the team, I led the cultural choices that brought the campaign into Riyadh, from the language to the illustrated characters."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Making it feel like Riyadh",
+        "paragraphs": [
+          "The illustration system features the work of Stephen Cheetham. Localisation continued inside that visual world: exploring the shemagh, agal and everyday dress so the characters belonged in the city around them.",
+          "Copy, animation and music share a practical job. They carry the viewer through the tap quickly enough for a short film to feel effortless. The smallest edits focus on a single benefit, such as travelling without unlocking the device or using Face ID."
         ]
       },
       {
@@ -311,15 +407,23 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "The film follows Apple Watch through familiar Saudi routines: waking up, getting in the water, checking in on health and heading out with friends. Each scene gives a feature a place in the day.",
-          "The Arabic narration moves with the characters, bringing encouragement and a little humour to the changing pace. Local detail comes through in the people, settings and everyday exchanges, alongside the health and activity story."
+          "The film follows a Saudi day through the people living it: waking up, getting in the water, checking in on health and heading out with friends. Each moment gives an Apple Watch feature a natural place in a routine.",
+          "The Arabic narration keeps the story moving, with encouragement and a little humour. A quiet morning gives way to activity, then to an evening out. That change of pace lets the film cover several features while still feeling like a day unfolding."
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the project from strategy through production. I developed the situations, wrote the script and copy, and shaped casting and music. Working closely with the director, I carried the creative and cultural decisions into the performances and the finished film."
+          "I led the project from strategy through production, developing the situations and writing the script and copy. I helped shape the cast and worked closely with the director and composer, carrying the creative and cultural decisions through to the finished film."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "People, performance & pace",
+        "paragraphs": [
+          "The people and their reactions give the product story its warmth. A feature becomes more interesting when it belongs to someone waking up, swimming or spending time with friends. Casting and performance sit alongside the writing in making those moments feel familiar.",
+          "Music and narration connect the different scenes. The voice moves between observation and encouragement, while the soundtrack carries the changing energy of the day. My role brought those elements together with the situations and cultural detail."
         ]
       }
     ],
@@ -345,15 +449,46 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "The global iPad film turns the wish to escape a desk into a musical. People tied to their computers sing as the film moves to iPad users working, playing and creating outside. The song carries both the humour and the product idea.",
-          "For the Arabic version, the lyrics had to work as lyrics: natural to sing, clear on first hearing and matched to the melody and performances already on screen. The adaptation needed to keep the longing and playfulness of the original song."
+          "People stuck at their computers look out at a different way of working. The global iPad film turns that wish into a musical, using Part of Your World from The Little Mermaid, written by Alan Menken and Howard Ashman. A song about longing becomes a playful argument for the freedom of iPad.",
+          "The Arabic version had to carry the idea through a new language and a new vocal performance. Every line needed to make sense on first hearing, fit the existing melody and feel at home with the person singing on screen."
+        ],
+        "sources": [
+          {
+            "title": "D23 · The original song",
+            "href": "https://d23.com/a-to-z/part-of-your-world/"
+          },
+          {
+            "title": "iSpot · The global iPad film",
+            "href": "https://www.ispot.tv/ad/ONSz/apple-ipad-your-next-computer"
+          }
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions. I oversaw the localisation from adaptation to final performance, working on the wording, phrasing and delivery together."
+          "I reshaped the Arabic lyrics, chose the singers and led the singing sessions. I oversaw the localisation end to end, working on the words, phrasing and vocal delivery together."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Writing for the voice",
+        "paragraphs": [
+          "In a musical, the adaptation is only finished when it is sung. A phrase has to fit a breath, land its emphasis on the right beat and still sound like something the character could mean. The humour depends on people giving a very ordinary frustration a surprisingly heartfelt performance.",
+          "Choosing the singers and directing the sessions were part of the same creative task as reshaping the lyrics. The Arabic voices had to belong to the faces and moods already in the film, and work together as the song gathered momentum."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "In the press",
+        "paragraphs": [
+          "MacRumors described the global film as a “fun musical” and highlighted how its visuals tell the story. The Arabic adaptation carries that same playful premise through the singing."
+        ],
+        "sources": [
+          {
+            "title": "MacRumors · June 2021",
+            "href": "https://www.macrumors.com/2021/06/12/ipad-pro-ad-little-mermaid/"
+          }
         ]
       }
     ],
@@ -386,15 +521,22 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "Assassin’s Creed Mirage on iPhone offered a creative connection: the game’s Leap of Faith could also express a leap in gaming on a phone. That reference became the starting point for the Arabic headline.",
-          "The execution brought the idea to a large billboard on King Fahd Road in Riyadh. The game’s imagery and the line work together, giving players a familiar reference within an iPhone campaign."
+          "Assassin’s Creed has a gesture players recognise: the Leap of Faith. With Mirage on iPhone, that offered a compact creative connection. A leap inside the game could also express a leap in what gaming on a phone could be.",
+          "I built the Arabic headline around that connection. It gives players a reference they already understand, while the wider idea remains clear to someone simply passing the billboard. The line and game imagery work together at the scale of King Fahd Road in Riyadh."
         ]
       },
       {
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I identified the opportunity and originated the concept and Arabic copy. The idea came from connecting the game itself with a moment I saw for iPhone in Saudi gaming culture."
+          "I identified the opportunity and originated the concept and Arabic copy. The creative starting point was the game itself: finding a piece of its world that could say something useful about iPhone."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "The idea on the street",
+        "paragraphs": [
+          "Outdoor gives a headline very little time. Here, a familiar gaming reference carries the thought in a few words, with the visual completing it. The day and night photographs show the same simple relationship holding across two very different views of the city."
         ]
       },
       {
@@ -429,8 +571,8 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "The project",
         "paragraphs": [
-          "Each of these films asks for a different Arabic voice. Health with iPhone + Apple Watch builds comedy from a crowd of conflicting advice. The Waiting Room makes private health information awkwardly public. The Watch films range from playful encouragement to the drama of an expedition.",
-          "The work is in how the words meet the picture: fitting dialogue to an existing edit, carrying a joke across languages and finding the right delivery for each character. In the Health film, the voices pile up before the story turns to the woman’s own health information."
+          "A global film arrives with its own characters, timing and tone. The Arabic adaptation has to bring those elements together again in performance. Across this collection, that means a crowd of conflicting health advice, an uncomfortably public waiting room, playful encouragement and the drama of an expedition.",
+          "Each film needs a different voice. A joke has to arrive with the reaction on screen. A short exchange has to feel conversational inside a fixed edit. A more dramatic script needs room to build. The work happens in the relationship between the wording and the delivery."
         ]
       },
       {
@@ -438,6 +580,24 @@ window.PORTFOLIO_PROJECTS = [
         "label": "My role",
         "paragraphs": [
           "I led the Arabic localisation end to end, shaping the copy, directing dubbing actors and guiding the voice performances through to the final films. The English Health film is included below so both versions can be seen together."
+        ]
+      },
+      {
+        "type": "copy",
+        "label": "Health · voices & music",
+        "paragraphs": [
+          "In Health with iPhone + Apple Watch, strangers offer advice until their voices become a wall of opinions. The Arabic performances need to feel like individual people while building that collective noise. The turn comes when the woman looks at information about her own health.",
+          "The global film was directed by Björn Rühmann and uses Dhund Lo Mujhe by performer-composer Sheherazaad. Her music accompanies the shift from other people’s opinions to the woman’s own perspective. My part was the Arabic adaptation and dubbing direction within that existing film."
+        ],
+        "sources": [
+          {
+            "title": "Muse by Clio · Film credits",
+            "href": "https://musebyclios.com/health/listen-to-your-body-not-unsolicited-health-advice-says-apple/"
+          },
+          {
+            "title": "Erased Tapes Music · Sheherazaad’s track",
+            "href": "https://www.erasedtapesmusic.com/work/apple-listen-to-your-body"
+          }
         ]
       },
       {
@@ -449,7 +609,17 @@ window.PORTFOLIO_PROJECTS = [
             "title": "The Waiting Room",
             "src": "assets/video/apple-waiting-room.mp4",
             "poster": "assets/img/apple-waiting-room.jpg",
-            "caption": "Privacy on iPhone. A waiting room hears the details of everyone’s health. The comedy makes the case for keeping that information private."
+            "caption": "The global film pairs Jane Lynch’s intrusive narration with Craig Gillespie’s direction: a waiting room hears everyone’s private health details. I led the Arabic adaptation and dubbing, carrying the escalating embarrassment into a new voice. The global campaign won a Silver Pencil for writing in Health & Wellness at The One Show 2024.",
+            "sources": [
+              {
+                "title": "The One Show · Global campaign award & credits",
+                "href": "https://www.oneclub.org/awards/theoneshow/-award/52967/the-waiting-room/"
+              },
+              {
+                "title": "The Drum · The original performance",
+                "href": "https://www.thedrum.com/news/jane-lynch-stars-health-shaming-app-apple-data-privacy-ad"
+              }
+            ]
           },
           {
             "title": "Hello Sunshine",

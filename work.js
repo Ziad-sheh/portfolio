@@ -38,6 +38,27 @@ function addVideo({ src, poster, label, autoplay = false, loop = false }) {
   return video;
 }
 
+function appendSources(parent, sources) {
+  if (!sources?.length) return;
+  const list = document.createElement("ul");
+  list.className = "work-sources";
+  list.setAttribute("aria-label", "Sources and further reading");
+  sources.forEach(source => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = source.href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.appendChild(document.createTextNode(source.title));
+    const arrow = addText("span", "", " ↗");
+    arrow.setAttribute("aria-hidden", "true");
+    link.appendChild(arrow);
+    item.appendChild(link);
+    list.appendChild(item);
+  });
+  parent.appendChild(list);
+}
+
 function renderCopySection(section) {
   const wrapper = document.createElement("section");
   wrapper.className = "work-content work-copy";
@@ -49,6 +70,7 @@ function renderCopySection(section) {
   (section.paragraphs || []).forEach(paragraph => {
     body.appendChild(addText("p", "", paragraph));
   });
+  appendSources(body, section.sources);
   wrapper.appendChild(body);
   return wrapper;
 }
@@ -91,6 +113,7 @@ function renderFilmsSection(section) {
     note.appendChild(addText("h2", "work-film-title", item.title || section.label || "Campaign film"));
     if (item.caption) note.appendChild(addText("figcaption", "", item.caption));
     figure.appendChild(note);
+    appendSources(figure, item.sources);
     grid.appendChild(figure);
   });
   wrapper.appendChild(grid);

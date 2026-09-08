@@ -12,9 +12,9 @@ Every populated homepage tile links to `work.html?project=<slug>`. The same page
 can hold a simple film-only case or a longer story without duplicating HTML.
 
 Available optional section types in `work-data.js`:
-- `copy` — label, heading, paragraphs
+- `copy` — label, heading, paragraphs, optional `sources: [{ title, href }]`
 - `stills` — images with alt text and optional captions
-- `films` — additional films with titles, posters, and captions
+- `films` — additional films with titles, posters, captions, and optional per-film `sources`
 - `credits` — role/name pairs
 - `links` — external campaign or viewing links
 
@@ -60,3 +60,9 @@ The Metro page presents the four landscape films, six short social films and six
 `assets/apple-media.json` records media provenance. `primaryImage` supports image-led cases; `films` sections accept `layout: "grid"` or `"portrait"`; portrait stills use the same layout value. No publishing step is part of this update.
 
 Validation for this pass: all seven Apple cases checked at 390px and 1280px; native playback checked on a landscape and a vertical film; all 28 films fully decoded with H.264 video, AAC audio and faststart verified. All 16 projects have valid assets and matching indexes. The nine existing case objects are unchanged.
+
+### Campaign stories and public credits
+
+The Apple stories now include casting, performance and music context. Source links live beside the relevant copy in `work-data.js`. Saudi cast, director and music credits are explicitly scoped to the 2025 films. Syn’s music account describes the wider Switchers campaign, without assigning individual global composers to a particular local edit. The Waiting Room award and original Jane Lynch performance are credited to the global campaign; Ziad’s role remains Arabic localisation.
+
+Public names remain unconfirmed for the 2026 Relax cast/music, the Saudi Watch cast/composer, the iPad Arabic singers and other Arabic dubbing performers. Gaming-event attribution is still unconfirmed. These gaps do not appear as placeholders or invented credits on the site. Creative commentary is editorial portfolio copy based on the films; personal role statements use Ziad’s descriptions, without invented session anecdotes.
