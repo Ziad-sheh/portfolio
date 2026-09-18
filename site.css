@@ -179,7 +179,7 @@ strong{font-weight:600}
 .text-link{text-decoration:underline;text-underline-offset:5px;min-height:40px}
 
 /* Rotate the text itself, not a stretched grid cell, to keep its left edge anchored. */
-.case-sidenote{font-size:var(--hand-small);line-height:1.15;max-width:100%;width:fit-content;margin-left:0;transform-origin:left bottom}
+.case-sidenote{font-size:var(--hand-small);line-height:1.15;max-width:100%;width:fit-content;margin:0 0 8px;transform:rotate(-1deg);transform-origin:left bottom}
 .case-copy h3,.case-credits>h3,.case-coverage>h3,.case-links>h3,.case-social>h3,.case-related>h3,.case-films-compact>h3{font-family:var(--hand);font-size:var(--hand-heading);line-height:1.12;letter-spacing:0;font-weight:400;color:var(--blue);text-wrap:balance;transform:rotate(-3deg);transform-origin:left bottom;align-self:start;justify-self:start;width:fit-content}
 .case-social>h3,.case-related>h3,.case-films-compact>h3{max-width:100%}
 .next-story .hand{width:fit-content;transform-origin:left bottom}
