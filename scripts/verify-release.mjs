@@ -85,13 +85,24 @@ for (const relative of dataFiles) vm.runInContext(read(relative), context, { fil
 const projects = context.window.PORTFOLIO_PROJECTS;
 const choices = context.window.COVER_CHOICES;
 const touches = context.window.PERSONAL_TOUCHES;
-check(projects.length === 18, `Expected 17 campaigns and the localisation collection; found ${projects.length}`);
-check(choices.length === projects.length, `Expected ${projects.length} homepage covers; found ${choices.length}`);
-check(new Set(choices.map(choice => choice.slug)).size === projects.length, 'Homepage campaign covers contain duplicate slugs');
+const homepageProjects = projects.filter(project => !project.parent);
+check(projects.length === 20, `Expected 17 existing cases, one collection and two child campaigns; found ${projects.length}`);
+check(homepageProjects.length === 18, 'Homepage must retain the 17 existing campaigns and one localisation collection');
+check(choices.length === projects.length, `Expected ${projects.length} case covers; found ${choices.length}`);
+check(new Set(choices.map(choice => choice.slug)).size === projects.length, 'Case covers contain duplicate slugs');
 check(choices[2].slug === 'apple-across-markets', 'Regional leadership collection must follow Relax and Switchers');
 for (const project of projects) {
-  check(choices.some(choice => choice.slug === project.slug), `Campaign missing from homepage: ${project.slug}`);
+  check(choices.some(choice => choice.slug === project.slug), `Case has no cover: ${project.slug}`);
   check(Boolean(touches[project.slug]), `Campaign has no layout/handwriting data: ${project.slug}`);
+  if (project.parent) {
+    const parent = projects.find(parent => parent.slug === project.parent);
+    check(parent?.layout === 'collection', `Missing parent collection: ${project.slug}`);
+    check(parent?.sections.some(section => section.type === 'collection' && section.items.includes(project.slug)), `Child is unreachable from collection: ${project.slug}`);
+  }
+  for (const section of project.sections.filter(section => section.type === 'collection')) {
+    check(section.items.length >= 2 && new Set(section.items).size === section.items.length, `Invalid collection cards: ${project.slug}`);
+    check(section.items.every(slug => projects.find(child => child.slug === slug)?.parent === project.slug), `Collection points outside its child cases: ${project.slug}`);
+  }
 }
 for (const choice of choices) {
   check(Boolean(choice.alt), `Cover lacks descriptive alt text: ${choice.slug}`);
@@ -118,7 +129,9 @@ function editorialContent(value) {
 // September 18: Ziad authorised the regional leadership case and the connected
 // Health role correction. Freeze those edits while retaining all other stories.
 const authorisedEdits = new Map([
-  ['apple-across-markets', '1e3db2df133c4aca50c119432a3395a16b2d58da2ff50af3c25c47d2fcb98f7a'],
+  ['apple-across-markets', '821b0c3eacb76e3048a3112693c46e6bf03cb69b7de37cfac1963bff49df5f29'],
+  ['apple-iphone-launch-localisation', 'df028a188c5150963bf3c755b47077823cdfa900f0db9eb015569e2c0669d5e4'],
+  ['apple-health-localisation', '7071279a6a06b0dc99541e816707843d4f98fb0539012e0202adcaa44ec54d20'],
   ['apple-arabic-localisation', '1af94f7e04ad862ede72737d3ae3c0828fce68ae4c0a920d932f7eb94f3059af'],
 ]);
 const unchanged = list => editorialContent(list.filter(project => !authorisedEdits.has(project.slug)));
@@ -167,7 +180,8 @@ const renderedSourceLinks = [];
 try {
   vm.runInContext(read('site.js') + '\n globalThis.releaseAudit = {caseMarkup, backgroundNotes};', context, { filename: 'site.js' });
   const gridHtml = node('#project-grid').innerHTML;
-  check((gridHtml.match(/data-campaign=/g) || []).length === projects.length, 'Rendered homepage does not contain every campaign and collection');
+  check((gridHtml.match(/data-campaign=/g) || []).length === homepageProjects.length, 'Rendered homepage must contain only top-level campaigns and collections');
+  for (const project of projects.filter(project => project.parent)) check(!gridHtml.includes(project.slug), `Child campaign leaked onto homepage: ${project.slug}`);
   auditHtml(gridHtml, 'index.html');
   auditHtml(node('#moment-collection').innerHTML, 'index.html');
   auditHtml(context.releaseAudit.backgroundNotes(), 'index.html');
@@ -176,6 +190,12 @@ try {
       const choice = choices.find(item => item.slug === project.slug);
       const html = context.releaseAudit.caseMarkup(project, choice);
       auditHtml(html, 'index.html');
+      if (project.layout === 'collection') {
+        const children = project.sections.find(section => section.type === 'collection').items;
+        check(!html.includes('<video'), 'Collection overview must not render campaign players');
+        check((html.match(/data-collection-project=/g) || []).length === children.length, 'Collection does not render every campaign card');
+      }
+      if (project.parent) check((html.match(/data-film-section=/g) || []).length === 1, `Child case must have its own campaign player: ${project.slug}`);
       for (const section of project.sections.filter(section => section.type === 'campaign')) {
         check(section.variants.length > 1, `Campaign needs market versions: ${section.id}`);
         check(new Set(section.variants.map(film => film.language)).size === section.variants.length, `Duplicate language controls: ${section.id}`);

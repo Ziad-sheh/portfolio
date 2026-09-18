@@ -261,14 +261,10 @@ window.PORTFOLIO_PROJECTS = [
     "slug": "apple-across-markets",
     "client": "Apple",
     "title": "Across markets",
-    "layout": "chapters",
-    "deck": "Creative localisation leadership across EU, CEMEA and wider EMEA markets. Two campaigns, from adaptation to final production sign-off.",
+    "layout": "collection",
+    "deck": "Creative localisation leadership for Apple across EU, CEMEA and wider EMEA markets, from adaptation to final production sign-off.",
     "role": "Creative localisation lead",
     "meta": [
-      {
-        "label": "Responsibility",
-        "value": "Creative direction · Final production sign-off"
-      },
       {
         "label": "Scope",
         "value": "Film · TV · Social · Digital advertising"
@@ -276,12 +272,34 @@ window.PORTFOLIO_PROJECTS = [
     ],
     "sections": [
       {
-        "type": "copy",
-        "label": "My role",
-        "paragraphs": [
-          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
+        "type": "collection",
+        "label": "Choose a campaign",
+        "items": [
+          "apple-iphone-launch-localisation",
+          "apple-health-localisation"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "apple-iphone-launch-localisation",
+    "client": "Apple",
+    "title": "iPhone 18 Pro",
+    "parent": "apple-across-markets",
+    "layout": "campaign",
+    "deck": "Local voiceovers in four languages. Subtitles in others. A ten-day launch window.",
+    "role": "Creative localisation lead",
+    "meta": [
+      {
+        "label": "Markets",
+        "value": "EU · CEMEA · Wider EMEA"
       },
+      {
+        "label": "Responsibility",
+        "value": "Creative direction · Final production sign-off"
+      }
+    ],
+    "sections": [
       {
         "type": "campaign",
         "id": "iphone-launch",
@@ -372,6 +390,14 @@ window.PORTFOLIO_PROJECTS = [
             "title": "UAE Arabic film · Apple",
             "href": "https://www.youtube.com/watch?v=hMhE16K4-Xo"
           }
+        ],
+        "standalone": true
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
         ]
       },
       {
@@ -393,6 +419,41 @@ window.PORTFOLIO_PROJECTS = [
           }
         ]
       },
+      {
+        "type": "credits",
+        "label": "Credits",
+        "items": [
+          {
+            "role": "Creative localisation direction & final production sign-off",
+            "names": "Ziad Shehade"
+          },
+          {
+            "role": "Market collaboration",
+            "names": "Local creative and production teams across the markets I led"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "apple-health-localisation",
+    "client": "Apple",
+    "title": "Health with iPhone + Apple Watch",
+    "parent": "apple-across-markets",
+    "layout": "campaign",
+    "deck": "Finding local voices and preserving the jokes, from the main film to social executions.",
+    "role": "Creative localisation lead",
+    "meta": [
+      {
+        "label": "Markets",
+        "value": "EU · CEMEA · Wider EMEA"
+      },
+      {
+        "label": "Responsibility",
+        "value": "Creative direction · Final production sign-off"
+      }
+    ],
+    "sections": [
       {
         "type": "campaign",
         "id": "health",
@@ -497,6 +558,14 @@ window.PORTFOLIO_PROJECTS = [
             "title": "UAE Arabic film · Apple",
             "href": "https://www.youtube.com/watch?v=CjBCq2J-178"
           }
+        ],
+        "standalone": true
+      },
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
         ]
       },
       {

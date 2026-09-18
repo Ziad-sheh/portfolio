@@ -131,17 +131,20 @@ Ziad separately confirmed all four Health social film families: sleep, ECG, cycl
 tracking and heart health. These confirmations are session evidence, not inferred
 from public credits.
 
-The new collection is the third homepage entry, after Relax and Switchers. All 17
-previous cases remain. The In Arabic collection retains its craft focus and now
-links to the regional Health leadership account. Original/global production credits
-remain explicitly separate from localisation credits.
+The new collection is the third homepage entry, after Relax and Switchers. At Ziad's
+request, it opens a short overview with two campaign cards, rather than combining
+both stories on one page. iPhone and Health each have an independent case URL with
+their own story and films. Child cases stay off the homepage, which retains all 17
+previous cases and the single Across markets card. The In Arabic collection retains
+its craft focus and links to the regional collection. Original/global production
+credits remain explicitly separate from localisation credits.
 
 Media provenance is in assets/apple-media.json. The six iPhone players use official
 Apple.com product-film streams (UK, DE, FR, IT, ES and UAE Arabic), retaining their
 published edits. The Apple.com timings differ from YouTube's uploads. Health uses
 six newly retrieved official market uploads plus the two existing Saudi Arabic and
 English portfolio films, whose existing web trims are preserved. Additional official
-market links remain available in each chapter.
+market links remain available within each campaign.
 
 The four social samples come from Motion's public Apple ad archive. Sleep, ECG and
 heart health use English versions. The retrieved cycle-tracking sample is Portuguese;
@@ -156,6 +159,10 @@ Verification: release checks retain the old editorial baseline for unrelated cas
 and freeze the authorised updates separately. Every supplied media derivative has
 been probed and decoded. Browser checks cover language selection, native playback,
 caption replacement, one playing film at a time, related cases, legacy routes and
-responsive widths. Public publication remains a separate step.
+responsive widths. The collection refinement also passed browser Back/Forward,
+parent and sibling navigation, Enter/Escape, direct and legacy child routes, homepage
+focus restoration, and overflow checks at 320, 390, 768 and 1440 pixels. The overview
+contains two cards and no players; each child contains only its own campaign.
+Public publication remains a separate step.
 
 The 50-second shorter launch execution is the official Apple UAE upload pRgWq85pGbw. It is labelled as a related launch film, not a cutdown of the main film, because it uses a distinct soundtrack and edit.

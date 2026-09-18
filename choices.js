@@ -156,5 +156,19 @@ window.COVER_CHOICES = [
     "position": "50% 50%",
     "image": "media/cn-gumball.jpg",
     "alt": "Darwin with a wide-eyed expression"
+  },
+  {
+    "slug": "apple-iphone-launch-localisation",
+    "source": "media/apple-across-markets.jpg",
+    "image": "media/apple-across-markets.jpg",
+    "position": "50% 50%",
+    "alt": "iPhone 18 Pro suspended above a workbench in the launch film"
+  },
+  {
+    "slug": "apple-health-localisation",
+    "source": "media/apple-arabic-localisation.jpg",
+    "image": "media/apple-arabic-localisation.jpg",
+    "position": "50% 50%",
+    "alt": "A woman turning toward a crowd of people offering health advice"
   }
 ];

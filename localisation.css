@@ -1,4 +1,9 @@
 /* Campaign chapters inherit the portfolio's paper, blue ink and handwriting. */
+.campaign-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.campaign-collection{max-width:1380px;margin-top:6px;margin-bottom:64px}
+.campaign-card-grid .project-info h3{font-size:clamp(26px,2.5vw,34px);font-weight:600;line-height:1.12}
+.campaign-chapter.campaign-standalone{border:0;padding-top:0;margin-top:0}
+@media(max-width:700px){.campaign-card-grid{grid-template-columns:1fr;gap:44px}.campaign-collection{margin-top:12px}}
 .campaign-nav{display:flex;flex-wrap:wrap;gap:12px 36px;max-width:1380px;margin:0 auto 50px;padding:0 var(--gutter);color:var(--blue)}
 .campaign-nav button{min-height:44px;text-align:left;text-decoration:underline;text-underline-offset:6px;font-size:15px}
 .campaign-nav button span{margin-left:12px}

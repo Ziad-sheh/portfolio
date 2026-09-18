@@ -1,5 +1,6 @@
 const projects = new Map(window.PORTFOLIO_PROJECTS.map(project => [project.slug, project]));
-const choices = window.COVER_CHOICES;
+const allChoices = window.COVER_CHOICES;
+const choices = allChoices.filter(choice => !projects.get(choice.slug).parent);
 const touches = window.PERSONAL_TOUCHES;
 const behindTheScenes = window.BEHIND_THE_SCENES;
 const imageDimensions = window.IMAGE_DIMENSIONS;
@@ -116,8 +117,8 @@ function filmMarkup(film) {
 
 function campaignMarkup(section) {
   const film = section.variants[0];
-  return `<section class="case-section campaign-chapter" id="campaign-${section.id}">
-    <header class="campaign-heading"><p class="hand">${escapeHtml(section.heading)}</p><h3 tabindex="-1">${escapeHtml(section.title)}</h3></header>
+  return `<section class="case-section campaign-chapter${section.standalone ? ' campaign-standalone' : ''}" id="campaign-${section.id}">
+    ${section.standalone ? '' : `<header class="campaign-heading"><p class="hand">${escapeHtml(section.heading)}</p><h3 tabindex="-1">${escapeHtml(section.title)}</h3></header>`}
     <div class="campaign-story">${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>
     <div class="film-versions" data-film-section="${section.id}">
       <div class="film-language-heading"><span>Choose a language</span><span class="film-market" data-current-market aria-live="polite">${escapeHtml(film.market)} · ${escapeHtml(film.treatment)}</span></div>
@@ -157,6 +158,11 @@ function renderSection(section) {
   const label = section.label || section.heading || '';
   const friendlyLabels = {'The project':'How it came together', 'My role':'My part in it', 'Credits':'The team', 'Conversation & coverage':'Out in the world'};
   const heading = `<h3>${escapeHtml(friendlyLabels[label] || label)}</h3>`;
+  if (section.type === 'collection') return `<section class="case-section campaign-collection" aria-label="${escapeHtml(label)}"><div class="campaign-card-grid">${section.items.map(slug => {
+    const project = projects.get(slug);
+    const choice = allChoices.find(choice => choice.slug === slug);
+    return `<article class="project-card" data-collection-project="${slug}"><figure class="cover-mount"><button type="button" class="project-cover" data-child-project="${slug}" aria-label="Open ${escapeHtml(project.title)}"><img src="${choice.image}" alt="${escapeHtml(choice.alt)}" ${imageSize(choice.image)}><span class="open-hint">Take a look ↗</span></button><figcaption class="project-annotation hand">${escapeHtml(touches[slug].note)}</figcaption></figure><div class="project-info"><h3><button type="button" data-child-project="${slug}">${escapeHtml(project.title)}</button></h3></div><p class="project-description">${escapeHtml(project.deck)}</p></article>`;
+  }).join('')}</div></section>`;
   if (section.type === 'campaign') return campaignMarkup(section);
   if (section.type === 'social') return `<section class="case-section case-social">${heading}<p>${escapeHtml(section.intro)}</p><div class="social-films">${section.items.map(film => `<figure><video src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster)}" controls playsinline preload="none" style="aspect-ratio:${escapeHtml(film.aspect)}" aria-label="Health social film · ${escapeHtml(film.title)}"></video><figcaption>${escapeHtml(film.title)}<span>${escapeHtml(film.caption)}</span></figcaption></figure>`).join('')}</div>${links(section.sources)}</section>`;
   if (section.type === 'related') return `<section class="case-section case-related">${heading}<button type="button" data-related-project="${escapeHtml(section.slug)}"><strong>${escapeHtml(section.title)} <span aria-hidden="true">↗</span></strong><span>${escapeHtml(section.description)}</span></button></section>`;
@@ -201,6 +207,15 @@ photoDialog.addEventListener('keydown',event=>{
   if (event.key==='ArrowRight') { event.preventDefault(); showPhoto(photoIndex+1); }
 });
 
+function nextChoice(project) {
+  const parent = projects.get(project.parent);
+  const siblings = parent
+    ? parent.sections.find(section => section.type === 'collection').items.map(slug => allChoices.find(choice => choice.slug === slug))
+    : choices;
+  const index = siblings.findIndex(choice => choice.slug === project.slug);
+  return siblings[(index + 1) % siblings.length];
+}
+
 function caseMarkup(project, choice) {
   const heroFilm = choice.source.endsWith('.mp4') && !choice.crop ? choice.source : null;
   const heroMedia = heroFilm
@@ -213,20 +228,22 @@ function caseMarkup(project, choice) {
     return {...section, items:section.items.filter(item=>item.src!==heroFilm)};
   }).filter(section=>section.type!=='films'||section.items.length);
   const touch = touches[project.slug];
-  const next = choices[(choices.indexOf(choice) + 1) % choices.length];
+  const next = nextChoice(project);
   const nextProject = projects.get(next.slug);
   const heroCaption = project.slug === 'cn-gumball' ? 'Scene preview · silent' : project.slug === 'apple-switchers' ? 'Real voices. Animated selves.' : choice.note;
   const primaryCaption = project.primaryCaption && (!project.primaryFilm || project.primaryFilm === heroFilm) ? project.primaryCaption : '';
   const frame = touch.frame ? `<figure class="case-moment"><img src="${touch.frame}" alt="${escapeHtml(touch.frameCaption)}" ${imageSize(touch.frame)} loading="lazy"><figcaption><span class="hand">${escapeHtml(touch.frameCaption)}</span><span class="frame-origin">A moment from the film</span></figcaption></figure>` : '';
   const story = sections.map((section,index)=>renderSection(section) + (index===1 ? btsMarkup(project.slug) + frame : '')).join('');
   const chapterNav = project.layout === 'chapters' ? `<nav class="campaign-nav" aria-label="Campaigns in this collection">${sections.filter(section => section.type === 'campaign').map(section => `<button type="button" data-case-jump="campaign-${section.id}">${escapeHtml(section.title)} <span aria-hidden="true">↓</span></button>`).join('')}</nav>` : '';
-  const hero = project.layout === 'chapters' ? chapterNav : `<figure class="case-hero">${heroMedia}${heroCaption || primaryCaption ? `<figcaption>${heroCaption ? `<span>${escapeHtml(heroCaption)}</span>` : ''}${primaryCaption ? `<span class="media-context">${escapeHtml(primaryCaption)}</span>` : ''}</figcaption>` : ''}</figure>`;
-  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header>${hero}${extraPrimary}${story}<div class="case-end"><button type="button" data-back>Back to the collection ↖</button><button class="next-story" type="button" data-next aria-label="Next project: ${escapeHtml(nextProject.title)}"><span><span class="hand">one more?</span><strong>${escapeHtml(nextProject.title)} ↗</strong></span><img src="${next.image}" alt="" ${imageSize(next.image)} loading="lazy" style="object-position:${next.position}"></button></div>`;
+  const hero = ['collection', 'campaign'].includes(project.layout) ? '' : project.layout === 'chapters' ? chapterNav : `<figure class="case-hero">${heroMedia}${heroCaption || primaryCaption ? `<figcaption>${heroCaption ? `<span>${escapeHtml(heroCaption)}</span>` : ''}${primaryCaption ? `<span class="media-context">${escapeHtml(primaryCaption)}</span>` : ''}</figcaption>` : ''}</figure>`;
+  const backLabel = project.parent ? `Back to ${projects.get(project.parent).title} ↖` : 'Back to work ↖';
+  const nextLink = project.layout === 'collection' ? '<button type="button" data-next>Next project →</button>' : `<button class="next-story" type="button" data-next aria-label="Next project: ${escapeHtml(nextProject.title)}"><span><span class="hand">one more?</span><strong>${escapeHtml(nextProject.title)} ↗</strong></span><img src="${next.image}" alt="" ${imageSize(next.image)} loading="lazy" style="object-position:${next.position}"></button>`;
+  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header>${hero}${extraPrimary}${story}<div class="case-end"><button type="button" data-back>${escapeHtml(backLabel)}</button>${nextLink}</div>`;
 }
 
 async function openCase(slug, target, updateUrl = true) {
   const project = projects.get(slug);
-  const choice = choices.find(item=>item.slug===slug);
+  const choice = allChoices.find(item=>item.slug===slug);
   if (!project || !choice) {
     if (caseDialog.open) finishClose();
     history.replaceState(null, '', '#work');
@@ -234,6 +251,8 @@ async function openCase(slug, target, updateUrl = true) {
     document.querySelector('#work-heading').focus({preventScroll:true});
     return;
   }
+  const caseDepth = caseDialog.open ? (history.state?.caseDepth || 1) + 1 : 1;
+  const parentOrigin = project.parent === currentProject ? project.parent : undefined;
   if (!caseDialog.open) {
     hasCaseOrigin = Boolean(target && updateUrl);
     returnTarget = target || document.querySelector('#work-heading');
@@ -247,15 +266,20 @@ async function openCase(slug, target, updateUrl = true) {
     if (thumb) thumb.style.viewTransitionName = '';
     document.querySelector('#case-content').innerHTML = caseMarkup(project, choice);
     document.querySelector('#case-client').innerHTML = window.portfolioBrandMarkup(project.client);
+    document.querySelector('#case-close').textContent = project.parent ? `← ${projects.get(project.parent).title}` : '← Back to work';
+    document.querySelector('#case-next').textContent = project.parent ? 'Next campaign →' : 'Next project →';
     currentProject = slug;
     if (!caseDialog.open) caseDialog.showModal();
     caseDialog.scrollTop = 0;
     document.querySelector('#case-title').focus({preventScroll:true});
     const cover = caseDialog.querySelector('.hero-media');
-    if (thumb && document.startViewTransition && motionAllowed()) cover.style.viewTransitionName = 'selected-cover';
+    if (cover && thumb && document.startViewTransition && motionAllowed()) cover.style.viewTransitionName = 'selected-cover';
     caseDialog.querySelector('[data-back]').addEventListener('click', closeCase);
     caseDialog.querySelector('[data-next]').addEventListener('click', nextCase);
     bindCampaignFilms(project);
+    caseDialog.querySelectorAll('[data-child-project]').forEach(button => button.addEventListener('click', () => {
+      openCase(button.dataset.childProject, button);
+    }));
     caseDialog.querySelectorAll('[data-case-jump]').forEach(button => button.addEventListener('click', () => {
       const section = caseDialog.querySelector(`#${button.dataset.caseJump}`);
       section.scrollIntoView({behavior:motionAllowed()?'smooth':'instant',block:'start'});
@@ -277,7 +301,7 @@ async function openCase(slug, target, updateUrl = true) {
     caseDialog.querySelectorAll('video').forEach(video=>video.addEventListener('play',()=>{
       caseDialog.querySelectorAll('video').forEach(other=>{if(other!==video) other.pause();});
     }));
-    if (updateUrl) history.pushState({project:slug, returnToWork:true},'', '#project='+slug);
+    if (updateUrl) history.pushState({project:slug, returnToWork:true, caseDepth, parent:parentOrigin},'', '#project='+slug);
   };
   if (thumb && document.startViewTransition && motionAllowed()) {
     const transition = document.startViewTransition(render);
@@ -298,12 +322,20 @@ function finishClose() {
 }
 
 function closeCase() {
-  if (hasCaseOrigin && location.hash.startsWith('#project=') && history.state?.returnToWork) history.back();
+  const parent = projects.get(currentProject)?.parent;
+  if (parent) {
+    if (history.state?.parent === parent) history.back();
+    else {
+      openCase(parent, null, false);
+      history.replaceState({...history.state, project:parent, parent:undefined}, '', '#project=' + parent);
+    }
+    return;
+  }
+  if (hasCaseOrigin && location.hash.startsWith('#project=') && history.state?.returnToWork) history.go(-(history.state.caseDepth || 1));
   else { history.replaceState(null, '', location.pathname + location.search + '#work'); finishClose(); }
 }
 function nextCase() {
-  const index = choices.findIndex(choice=>choice.slug===currentProject);
-  openCase(choices[(index+1)%choices.length].slug, null, false);
+  openCase(nextChoice(projects.get(currentProject)).slug, null, false);
   history.replaceState({...history.state, project:currentProject},'', '#project='+currentProject);
 }
 document.querySelector('#case-close').addEventListener('click', closeCase);
