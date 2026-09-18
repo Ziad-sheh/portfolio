@@ -23,6 +23,8 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 
 Keep campaign facts in `work-data.js`. New editorial readings should not introduce unconfirmed personal credits, production identities or outcome claims. The visible portrait includes the requested subtle smile edit; original personal files remain outside this public site.
 
+Campaign players open with the first entry in their `variants` array; iPhone 18 Pro leads with French. The film sits before the story, following the existing cases. Language controls and related links share the site's button styles; handwritten headings use a content-sized box anchored at the left edge.
+
 ## Checks
 
 Run `node scripts/verify-release.mjs` and `node scripts/verify-hero-touch.mjs` before publishing. The touch regression checks model implicit capture and descendant event bubbling; a narrow viewport alone does not test touch input. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts. In Across markets, check the two-card overview, each separate campaign, browser Back/Forward, keyboard entry, Escape and direct child links. Within the campaigns, test every language button, English caption restoration, single-film playback, the official-source fallback and the In Arabic cross-link.

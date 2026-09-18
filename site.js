@@ -119,15 +119,14 @@ function campaignMarkup(section) {
   const film = section.variants[0];
   return `<section class="case-section campaign-chapter${section.standalone ? ' campaign-standalone' : ''}" id="campaign-${section.id}">
     ${section.standalone ? '' : `<header class="campaign-heading"><p class="hand">${escapeHtml(section.heading)}</p><h3 tabindex="-1">${escapeHtml(section.title)}</h3></header>`}
-    <div class="campaign-story">${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>
     <div class="film-versions" data-film-section="${section.id}">
-      <div class="film-language-heading"><span>Choose a language</span><span class="film-market" data-current-market aria-live="polite">${escapeHtml(film.market)} · ${escapeHtml(film.treatment)}</span></div>
+      <div class="film-language-heading"><span>Watch in</span><span class="film-market" data-current-market aria-live="polite">${escapeHtml(film.market)} · ${escapeHtml(film.treatment)}</span></div>
       <div class="film-language-options" role="group" aria-label="${escapeHtml(section.title)} film language">${section.variants.map((variant, index) => `<button type="button" data-film-version="${index}" aria-pressed="${index === 0}" aria-controls="film-${section.id}">${escapeHtml(variant.language)}</button>`).join('')}</div>
       <video id="film-${section.id}" class="hero-media" src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster)}" controls playsinline preload="none" aria-label="${escapeHtml(section.title + ' · ' + film.language)}">${captionTracks(film.src)}</video>
       <p class="film-error" hidden>This film couldn’t load. <a href="${escapeHtml(film.source.href)}" target="_blank" rel="noopener noreferrer">Watch the official version</a>.</p>
-      <p class="film-switch-note">Each language starts from the beginning.</p>
     </div>
     <details class="market-sources"><summary>Official market films</summary>${links(section.variants.map(variant => variant.source).concat(section.sources || []))}</details>
+    <div class="case-copy campaign-story"><h3>How it came together</h3><div>${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></div>
   </section>`;
 }
 
@@ -165,7 +164,7 @@ function renderSection(section) {
   }).join('')}</div></section>`;
   if (section.type === 'campaign') return campaignMarkup(section);
   if (section.type === 'social') return `<section class="case-section case-social">${heading}<p>${escapeHtml(section.intro)}</p><div class="social-films">${section.items.map(film => `<figure><video src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster)}" controls playsinline preload="none" style="aspect-ratio:${escapeHtml(film.aspect)}" aria-label="Health social film · ${escapeHtml(film.title)}"></video><figcaption>${escapeHtml(film.title)}<span>${escapeHtml(film.caption)}</span></figcaption></figure>`).join('')}</div>${links(section.sources)}</section>`;
-  if (section.type === 'related') return `<section class="case-section case-related">${heading}<button type="button" data-related-project="${escapeHtml(section.slug)}"><strong>${escapeHtml(section.title)} <span aria-hidden="true">↗</span></strong><span>${escapeHtml(section.description)}</span></button></section>`;
+  if (section.type === 'related') return `<section class="case-section case-related">${heading}<button type="button" class="resource-link" data-related-project="${escapeHtml(section.slug)}"><span><strong>${escapeHtml(section.title)}</strong><span class="related-description">${escapeHtml(section.description)}</span></span><span class="resource-arrow" aria-hidden="true">↗</span></button></section>`;
   if (section.type === 'links') return `<section class="case-section case-links">${heading}${links(section.items)}</section>`;
   if (section.type === 'copy') return `<section class="case-section case-copy">${heading}<div>${section.heading ? `<p><strong>${escapeHtml(section.heading)}</strong></p>` : ''}${(section.paragraphs || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}${links(section.sources)}</div></section>`;
   if (section.type === 'films') return `<section class="case-section case-films${section.layout === 'compact' ? ' case-films-compact' : ''}">${heading}<div class="film-grid ${section.items.length===1?'single':''}">${section.items.map(filmMarkup).join('')}</div></section>`;

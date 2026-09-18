@@ -165,4 +165,13 @@ focus restoration, and overflow checks at 320, 390, 768 and 1440 pixels. The ove
 contains two cards and no players; each child contains only its own campaign.
 Public publication remains a separate step.
 
+Ziad requested a consistency pass and the French film as the iPhone default. The
+campaigns now follow the existing film-first case layout and reuse its story grid,
+button colours, typography and link treatment. Handwritten headings rotate around
+their own content at the left edge instead of stretching across a grid cell. Copy
+repetition was reduced without extending the confirmed remit. All 14 language
+versions played in Chromium; rapid and keyboard switching, caption restoration,
+market attribution and failed-load recovery passed. Six existing/new cases passed
+alignment and overflow checks at 320, 390, 768 and 1440 pixels.
+
 The 50-second shorter launch execution is the official Apple UAE upload pRgWq85pGbw. It is labelled as a related launch film, not a cutdown of the main film, because it uses a distinct soundtrack and edit.

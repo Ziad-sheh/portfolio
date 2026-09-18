@@ -1,7 +1,7 @@
 // Editorial notes and compositions. Campaign facts remain in work-data.js.
 window.PERSONAL_TOUCHES = {
   'apple-iphone-launch-localisation': {note:'a launch. ten days.', chapter:'A launch. Ten days.'},
-  'apple-health-localisation': {note:'keeping the jokes', chapter:'Finding the voices. Keeping the jokes.'},
+  'apple-health-localisation': {note:'keeping the jokes', chapter:'Keeping the jokes.'},
   'apple-across-markets': {note:'every market. every detail.', chapter:'The work travels.'},
   'apple-relax-saudi': {note:'a little family drama', chapter:'The comedy is in the everyday.', frame:'media/moment-matchmaker.jpg', frameCaption:'A raised eyebrow. The Matchmaker.'},
   'apple-switchers': {note:'real people. Memoji faces.', chapter:'First, a conversation.'},

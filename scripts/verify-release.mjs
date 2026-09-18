@@ -130,8 +130,8 @@ function editorialContent(value) {
 // Health role correction. Freeze those edits while retaining all other stories.
 const authorisedEdits = new Map([
   ['apple-across-markets', '821b0c3eacb76e3048a3112693c46e6bf03cb69b7de37cfac1963bff49df5f29'],
-  ['apple-iphone-launch-localisation', 'df028a188c5150963bf3c755b47077823cdfa900f0db9eb015569e2c0669d5e4'],
-  ['apple-health-localisation', '7071279a6a06b0dc99541e816707843d4f98fb0539012e0202adcaa44ec54d20'],
+  ['apple-iphone-launch-localisation', 'e65b6be49410adf69a5cd53a762cac59ed785c049235a72e3e11c1d109f50b1f'],
+  ['apple-health-localisation', '789018f16d5b7e0b1a0761469f8d894eccba6c3d411196a9bf840841e006f58d'],
   ['apple-arabic-localisation', '1af94f7e04ad862ede72737d3ae3c0828fce68ae4c0a920d932f7eb94f3059af'],
 ]);
 const unchanged = list => editorialContent(list.filter(project => !authorisedEdits.has(project.slug)));
@@ -177,8 +177,18 @@ for (const relative of stylesheetFiles) {
 let renderedCases = 0;
 const renderedCaptionSources = new Set();
 const renderedSourceLinks = [];
+function auditCaption(film, markup) {
+  const caption = context.window.FILM_CAPTIONS[film];
+  if (!caption) return;
+  reference(caption.src, 'index.html');
+  check(markup.includes(`src="${caption.src}"`), `Caption missing from film player: ${film}`);
+  check(markup.includes('srclang="en"'), `English caption language missing: ${film}`);
+  check(markup.includes('kind="subtitles"'), `Subtitle kind missing: ${film}`);
+  check(!caption.default || / default(?:>|\s)/.test(markup), `Default subtitles missing: ${film}`);
+  renderedCaptionSources.add(film);
+}
 try {
-  vm.runInContext(read('site.js') + '\n globalThis.releaseAudit = {caseMarkup, backgroundNotes};', context, { filename: 'site.js' });
+  vm.runInContext(read('site.js') + '\n globalThis.releaseAudit = {caseMarkup, backgroundNotes, captionTracks};', context, { filename: 'site.js' });
   const gridHtml = node('#project-grid').innerHTML;
   check((gridHtml.match(/data-campaign=/g) || []).length === homepageProjects.length, 'Rendered homepage must contain only top-level campaigns and collections');
   for (const project of projects.filter(project => project.parent)) check(!gridHtml.includes(project.slug), `Child campaign leaked onto homepage: ${project.slug}`);
@@ -199,21 +209,18 @@ try {
       for (const section of project.sections.filter(section => section.type === 'campaign')) {
         check(section.variants.length > 1, `Campaign needs market versions: ${section.id}`);
         check(new Set(section.variants.map(film => film.language)).size === section.variants.length, `Duplicate language controls: ${section.id}`);
+        if (section.id === 'iphone-launch') check(section.variants[0].language === 'French', 'iPhone launch must open with the French film');
         for (const film of section.variants) {
           reference(film.src, 'index.html');
           reference(film.poster, 'index.html');
           check(Boolean(film.market && film.treatment && film.source?.href), `Market film lacks attribution: ${section.id}/${film.language}`);
+          // Language changes insert these tracks after the initial render.
+          auditCaption(film.src, context.releaseAudit.captionTracks(film.src));
         }
         check(html.includes(`id="film-${section.id}"`), `Missing campaign player: ${section.id}`);
       }
       for (const video of html.matchAll(/<video\b[^>]*src="([^"]+)"[^>]*>([\s\S]*?)<\/video>/g)) {
-        const caption = context.window.FILM_CAPTIONS[video[1]];
-        if (!caption) continue;
-        check(video[2].includes(`src="${caption.src}"`), `Caption missing from film player: ${video[1]}`);
-        check(video[2].includes('srclang="en"'), `English caption language missing: ${video[1]}`);
-        check(video[2].includes('kind="subtitles"'), `Subtitle kind missing: ${video[1]}`);
-        check(!caption.default || / default(?:>|\s)/.test(video[2]), `Default subtitles missing: ${video[1]}`);
-        renderedCaptionSources.add(video[1]);
+        auditCaption(video[1], video[2]);
       }
       if (project.primaryCaption) {
         const caption = project.primaryCaption.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));

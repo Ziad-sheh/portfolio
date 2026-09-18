@@ -306,10 +306,21 @@ window.PORTFOLIO_PROJECTS = [
         "title": "iPhone 18 Pro",
         "heading": "A launch. Ten days.",
         "paragraphs": [
-          "The launch left ten days for localisation, from receiving the materials to final production sign-off. Casting and recording had to move quickly in some markets; others needed subtitling.",
-          "Germany, Spain, Italy and France recorded local voiceovers. The remaining localised markets used subtitles. I set the direction, reviewed the adaptations and oversaw production with local teams through final sign-off."
+          "There were ten days for localisation, from receiving the materials to final production sign-off. Casting and recording had to move quickly in some markets; others needed subtitling.",
+          "German, Spanish, Italian and French had local voiceovers. The remaining localised markets used subtitles."
         ],
         "variants": [
+          {
+            "language": "French",
+            "market": "France",
+            "treatment": "Local voiceover",
+            "src": "assets/video/apple-iphone-fr.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "French · Apple",
+              "href": "https://www.apple.com/fr/iphone-18-pro/"
+            }
+          },
           {
             "language": "English",
             "market": "UK",
@@ -330,17 +341,6 @@ window.PORTFOLIO_PROJECTS = [
             "source": {
               "title": "German · Apple",
               "href": "https://www.apple.com/de/iphone-18-pro/"
-            }
-          },
-          {
-            "language": "French",
-            "market": "France",
-            "treatment": "Local voiceover",
-            "src": "assets/video/apple-iphone-fr.mp4",
-            "poster": "media/apple-across-markets.jpg",
-            "source": {
-              "title": "French · Apple",
-              "href": "https://www.apple.com/fr/iphone-18-pro/"
             }
           },
           {
@@ -397,7 +397,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
+          "I set the creative direction for localisation, approved the adaptations and oversaw production with local teams. My remit covered film, TV, social films and copy, and digital advertising. I owned final production sign-off across the markets I led."
         ]
       },
       {
@@ -458,10 +458,10 @@ window.PORTFOLIO_PROJECTS = [
         "type": "campaign",
         "id": "health",
         "title": "Health with iPhone + Apple Watch",
-        "heading": "Finding the voices. Keeping the jokes.",
+        "heading": "Keeping the jokes.",
         "paragraphs": [
           "A crowd of strangers. Plenty of advice. Each voice needed its own character, and the jokes needed to survive the move into another language.",
-          "I worked closely with local teams on casting and adaptation, finding voice actors who could carry the humour and reviewing the performances through production. My responsibility extended across the campaign’s film, TV, social and digital advertising, through final sign-off."
+          "I worked closely with local teams on casting and adaptation, finding voice actors who could carry the humour and reviewing the performances through production."
         ],
         "variants": [
           {
@@ -565,7 +565,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
+          "I set the creative direction for localisation, approved the adaptations and oversaw production with local teams. My remit covered film, TV, social films and copy, and digital advertising. I owned final production sign-off across the markets I led."
         ]
       },
       {
@@ -647,7 +647,7 @@ window.PORTFOLIO_PROJECTS = [
       },
       {
         "type": "related",
-        "label": "A closer look at the Arabic work",
+        "label": "More in Arabic",
         "slug": "apple-arabic-localisation",
         "title": "In Arabic",
         "description": "The writing, casting and performances behind a collection of Apple adaptations."
