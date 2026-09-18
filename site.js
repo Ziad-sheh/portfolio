@@ -21,7 +21,7 @@ let currentProject = null;
 let returnTarget = null;
 let returnScroll = 0;
 let hasCaseOrigin = false;
-const moments = [choices[0], choices[1], choices[3]];
+const moments = ['apple-relax-saudi', 'apple-switchers', 'lr-journey-rediscovery'].map(slug => choices.find(choice => choice.slug === slug));
 
 function motionAllowed() { return !motionPaused && !reducedMotion.matches; }
 
@@ -114,13 +114,55 @@ function filmMarkup(film) {
   return `<figure><video src="${escapeHtml(original(film.src))}" poster="${escapeHtml(original(film.poster || ''))}" controls playsinline preload="none" aria-label="${escapeHtml(film.title || 'Campaign film')}">${captionTracks(film.src)}</video><figcaption>${film.title ? `<strong>${escapeHtml(film.title)}</strong>` : ''}${escapeHtml(film.caption || '')}${links(film.sources)}</figcaption></figure>`;
 }
 
+function campaignMarkup(section) {
+  const film = section.variants[0];
+  return `<section class="case-section campaign-chapter" id="campaign-${section.id}">
+    <header class="campaign-heading"><p class="hand">${escapeHtml(section.heading)}</p><h3 tabindex="-1">${escapeHtml(section.title)}</h3></header>
+    <div class="campaign-story">${section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>
+    <div class="film-versions" data-film-section="${section.id}">
+      <div class="film-language-heading"><span>Choose a language</span><span class="film-market" data-current-market aria-live="polite">${escapeHtml(film.market)} · ${escapeHtml(film.treatment)}</span></div>
+      <div class="film-language-options" role="group" aria-label="${escapeHtml(section.title)} film language">${section.variants.map((variant, index) => `<button type="button" data-film-version="${index}" aria-pressed="${index === 0}" aria-controls="film-${section.id}">${escapeHtml(variant.language)}</button>`).join('')}</div>
+      <video id="film-${section.id}" class="hero-media" src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster)}" controls playsinline preload="none" aria-label="${escapeHtml(section.title + ' · ' + film.language)}">${captionTracks(film.src)}</video>
+      <p class="film-error" hidden>This film couldn’t load. <a href="${escapeHtml(film.source.href)}" target="_blank" rel="noopener noreferrer">Watch the official version</a>.</p>
+      <p class="film-switch-note">Each language starts from the beginning.</p>
+    </div>
+    <details class="market-sources"><summary>Official market films</summary>${links(section.variants.map(variant => variant.source).concat(section.sources || []))}</details>
+  </section>`;
+}
+
+function bindCampaignFilms(project) {
+  for (const section of project.sections.filter(section => section.type === 'campaign')) {
+    const player = caseDialog.querySelector(`[data-film-section="${section.id}"]`);
+    const video = player.querySelector('video');
+    const error = player.querySelector('.film-error');
+    video.addEventListener('error', () => { error.hidden = false; });
+    player.querySelectorAll('[data-film-version]').forEach(button => button.addEventListener('click', () => {
+      if (button.getAttribute('aria-pressed') === 'true') return;
+      const film = section.variants[Number(button.dataset.filmVersion)];
+      video.pause();
+      player.querySelectorAll('[data-film-version]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+      error.hidden = true;
+      error.querySelector('a').href = film.source.href;
+      video.innerHTML = captionTracks(film.src);
+      video.poster = film.poster;
+      video.src = film.src;
+      video.setAttribute('aria-label', `${section.title} · ${film.language}`);
+      video.load();
+      player.querySelector('[data-current-market]').textContent = `${film.market} · ${film.treatment}`;
+    }));
+  }
+}
+
 function renderSection(section) {
   const label = section.label || section.heading || '';
   const friendlyLabels = {'The project':'How it came together', 'My role':'My part in it', 'Credits':'The team', 'Conversation & coverage':'Out in the world'};
   const heading = `<h3>${escapeHtml(friendlyLabels[label] || label)}</h3>`;
+  if (section.type === 'campaign') return campaignMarkup(section);
+  if (section.type === 'social') return `<section class="case-section case-social">${heading}<p>${escapeHtml(section.intro)}</p><div class="social-films">${section.items.map(film => `<figure><video src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster)}" controls playsinline preload="none" style="aspect-ratio:${escapeHtml(film.aspect)}" aria-label="Health social film · ${escapeHtml(film.title)}"></video><figcaption>${escapeHtml(film.title)}<span>${escapeHtml(film.caption)}</span></figcaption></figure>`).join('')}</div>${links(section.sources)}</section>`;
+  if (section.type === 'related') return `<section class="case-section case-related">${heading}<button type="button" data-related-project="${escapeHtml(section.slug)}"><strong>${escapeHtml(section.title)} <span aria-hidden="true">↗</span></strong><span>${escapeHtml(section.description)}</span></button></section>`;
   if (section.type === 'links') return `<section class="case-section case-links">${heading}${links(section.items)}</section>`;
   if (section.type === 'copy') return `<section class="case-section case-copy">${heading}<div>${section.heading ? `<p><strong>${escapeHtml(section.heading)}</strong></p>` : ''}${(section.paragraphs || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}${links(section.sources)}</div></section>`;
-  if (section.type === 'films') return `<section class="case-section case-films">${heading}<div class="film-grid ${section.items.length===1?'single':''}">${section.items.map(filmMarkup).join('')}</div></section>`;
+  if (section.type === 'films') return `<section class="case-section case-films${section.layout === 'compact' ? ' case-films-compact' : ''}">${heading}<div class="film-grid ${section.items.length===1?'single':''}">${section.items.map(filmMarkup).join('')}</div></section>`;
   if (section.type === 'stills') return `<section class="case-section case-stills">${heading}<div class="still-grid">${section.items.map(item=>`<figure><img src="${escapeHtml(original(item.src))}" alt="${escapeHtml(item.alt || '')}" ${imageSize(item.src)} loading="lazy">${item.caption?`<figcaption>${escapeHtml(item.caption)}</figcaption>`:''}</figure>`).join('')}</div></section>`;
   if (section.type === 'credits') return `<section class="case-section case-credits">${heading}<ul>${section.items.map(item=>`<li><strong>${escapeHtml(item.role)}</strong>${escapeHtml(Array.isArray(item.names)?item.names.join(', '):item.names)}</li>`).join('')}</ul></section>`;
   if (section.type === 'coverage') return `<section class="case-section case-coverage">${heading}${section.intro?`<p>${escapeHtml(section.intro)}</p>`:''}${section.items.map(item=>`<article class="coverage-item"><div class="source-label">${escapeHtml(item.kind || '')}<br>${escapeHtml(item.author || item.platform || '')}${item.scope?`<p>${escapeHtml(item.scope)}</p>`:''}</div><div>${item.quote?`<p>“${escapeHtml(item.quote)}”</p>`:''}<p>${escapeHtml(item.summary || '')}</p>${resourceLink(item.href, item.linkLabel || 'View source')}</div></article>`).join('')}</section>`;
@@ -177,7 +219,9 @@ function caseMarkup(project, choice) {
   const primaryCaption = project.primaryCaption && (!project.primaryFilm || project.primaryFilm === heroFilm) ? project.primaryCaption : '';
   const frame = touch.frame ? `<figure class="case-moment"><img src="${touch.frame}" alt="${escapeHtml(touch.frameCaption)}" ${imageSize(touch.frame)} loading="lazy"><figcaption><span class="hand">${escapeHtml(touch.frameCaption)}</span><span class="frame-origin">A moment from the film</span></figcaption></figure>` : '';
   const story = sections.map((section,index)=>renderSection(section) + (index===1 ? btsMarkup(project.slug) + frame : '')).join('');
-  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header><figure class="case-hero">${heroMedia}${heroCaption || primaryCaption ? `<figcaption>${heroCaption ? `<span>${escapeHtml(heroCaption)}</span>` : ''}${primaryCaption ? `<span class="media-context">${escapeHtml(primaryCaption)}</span>` : ''}</figcaption>` : ''}</figure>${extraPrimary}${story}<div class="case-end"><button type="button" data-back>Back to the collection ↖</button><button class="next-story" type="button" data-next aria-label="Next project: ${escapeHtml(nextProject.title)}"><span><span class="hand">one more?</span><strong>${escapeHtml(nextProject.title)} ↗</strong></span><img src="${next.image}" alt="" ${imageSize(next.image)} loading="lazy" style="object-position:${next.position}"></button></div>`;
+  const chapterNav = project.layout === 'chapters' ? `<nav class="campaign-nav" aria-label="Campaigns in this collection">${sections.filter(section => section.type === 'campaign').map(section => `<button type="button" data-case-jump="campaign-${section.id}">${escapeHtml(section.title)} <span aria-hidden="true">↓</span></button>`).join('')}</nav>` : '';
+  const hero = project.layout === 'chapters' ? chapterNav : `<figure class="case-hero">${heroMedia}${heroCaption || primaryCaption ? `<figcaption>${heroCaption ? `<span>${escapeHtml(heroCaption)}</span>` : ''}${primaryCaption ? `<span class="media-context">${escapeHtml(primaryCaption)}</span>` : ''}</figcaption>` : ''}</figure>`;
+  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header>${hero}${extraPrimary}${story}<div class="case-end"><button type="button" data-back>Back to the collection ↖</button><button class="next-story" type="button" data-next aria-label="Next project: ${escapeHtml(nextProject.title)}"><span><span class="hand">one more?</span><strong>${escapeHtml(nextProject.title)} ↗</strong></span><img src="${next.image}" alt="" ${imageSize(next.image)} loading="lazy" style="object-position:${next.position}"></button></div>`;
 }
 
 async function openCase(slug, target, updateUrl = true) {
@@ -211,6 +255,16 @@ async function openCase(slug, target, updateUrl = true) {
     if (thumb && document.startViewTransition && motionAllowed()) cover.style.viewTransitionName = 'selected-cover';
     caseDialog.querySelector('[data-back]').addEventListener('click', closeCase);
     caseDialog.querySelector('[data-next]').addEventListener('click', nextCase);
+    bindCampaignFilms(project);
+    caseDialog.querySelectorAll('[data-case-jump]').forEach(button => button.addEventListener('click', () => {
+      const section = caseDialog.querySelector(`#${button.dataset.caseJump}`);
+      section.scrollIntoView({behavior:motionAllowed()?'smooth':'instant',block:'start'});
+      section.querySelector('h3').focus({preventScroll:true});
+    }));
+    caseDialog.querySelectorAll('[data-related-project]').forEach(button => button.addEventListener('click', () => {
+      openCase(button.dataset.relatedProject, null, false);
+      history.replaceState({...history.state, project:currentProject}, '', '#project=' + currentProject);
+    }));
     caseDialog.querySelector('[data-bts-jump]')?.addEventListener('click',()=>{
       const section=caseDialog.querySelector('#case-bts');
       section.scrollIntoView({behavior:motionAllowed()?'smooth':'instant',block:'start'});

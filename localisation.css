@@ -1,0 +1,42 @@
+/* Campaign chapters inherit the portfolio's paper, blue ink and handwriting. */
+.campaign-nav{display:flex;flex-wrap:wrap;gap:12px 36px;max-width:1380px;margin:0 auto 50px;padding:0 var(--gutter);color:var(--blue)}
+.campaign-nav button{min-height:44px;text-align:left;text-decoration:underline;text-underline-offset:6px;font-size:15px}
+.campaign-nav button span{margin-left:12px}
+.campaign-chapter{padding-top:44px;border-top:1px solid #dce1eb;margin-top:72px;margin-bottom:82px;scroll-margin-top:76px}
+.campaign-heading{margin-bottom:28px}
+.campaign-heading .hand{font-size:clamp(28px,3vw,42px);line-height:1.1;color:var(--red);transform:rotate(-2deg);transform-origin:left bottom;width:fit-content;max-width:100%;margin-bottom:20px}
+.campaign-heading h3{font-family:var(--display);font-size:clamp(32px,4.4vw,64px);font-weight:600;letter-spacing:-.055em;line-height:1.08;color:var(--blue);max-width:22ch;text-wrap:balance}
+.campaign-heading h3:focus{outline:none}
+.campaign-story{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:34px}
+.campaign-story p{font-size:17px;line-height:1.65;max-width:58ch}
+.film-language-heading{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:12px;font-size:13px}
+.film-market{color:#535f77;text-align:right}
+.film-language-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.film-language-options button{min-height:44px;padding:10px 18px;border:1px solid #cbd2df;border-radius:3px;background:white;font-size:14px;line-height:1.2}
+.film-language-options button:hover{border-color:var(--blue);color:var(--blue)}
+.film-language-options button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:white}
+.film-versions video{width:100%;aspect-ratio:16/9;object-fit:contain;background:#000}
+.film-switch-note{font-size:12px;color:#606575;margin-top:10px}
+.film-error{padding:14px 0;font-size:14px;color:var(--red)}
+.film-error a{text-decoration:underline;text-underline-offset:3px}
+.market-sources{font-size:13px;margin-top:22px}
+.market-sources summary{cursor:pointer;padding-block:12px;width:fit-content;color:var(--blue)}
+.market-sources .source-links{margin-top:8px}
+.case-films-compact{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:start}
+.case-films-compact>h3{font-family:var(--hand);font-size:var(--hand-heading);font-weight:400;color:var(--blue);transform:rotate(-2deg)}
+.case-social>h3{font-family:var(--hand);font-size:var(--hand-heading);font-weight:400;color:var(--blue);transform:rotate(-2deg);transform-origin:left bottom;margin-bottom:24px}
+.case-social>p{font-size:17px;max-width:66ch;margin-bottom:32px}
+.social-films{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;align-items:start;max-width:900px;margin:0 auto}
+.social-films video{width:100%;height:auto;object-fit:contain;background:#000}
+.social-films figcaption{font-size:15px;margin-top:12px;color:var(--blue)}
+.social-films figcaption span{display:block;font-size:11px;line-height:1.45;color:#606575;margin-top:5px}
+.case-social>.source-links{margin-top:28px}
+.case-related{display:grid;grid-template-columns:1fr 2fr;gap:60px;border-top:1px solid #dce1eb;padding-top:32px;margin-top:50px}
+.case-related h3{font-family:var(--hand);font-size:var(--hand-heading);font-weight:400;color:var(--red);line-height:1.12;transform:rotate(-2deg)}
+.case-related button{text-align:left;padding-block:4px;color:var(--blue)}
+.case-related button strong{display:block;font-family:var(--display);font-size:32px;font-weight:600;letter-spacing:-.04em;margin-bottom:10px}
+.case-related button>span{display:block;font-size:15px;line-height:1.5;max-width:50ch;color:#535f77}
+.case-related button:hover strong{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+@media(max-width:800px){.campaign-story{gap:25px}.campaign-story p{font-size:16px}.social-films{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 22px;max-width:520px}.case-related{gap:30px}}
+@media(max-width:600px){.case-films-compact{grid-template-columns:1fr;gap:0}}
+@media(max-width:600px){.campaign-nav{gap:4px;margin-bottom:35px;flex-direction:column;align-items:start}.campaign-nav button{font-size:14px}.campaign-chapter{padding-top:30px;margin-top:44px;margin-bottom:52px}.campaign-heading .hand{margin-bottom:16px;line-height:1.2}.campaign-heading h3{font-size:35px}.campaign-story{grid-template-columns:1fr;gap:16px;margin-bottom:26px}.film-language-heading{flex-direction:column;gap:6px}.film-market{text-align:left;font-size:12px}.film-language-options{gap:7px}.film-language-options button{padding-inline:13px;font-size:13px}.case-social>p{font-size:16px}.social-films{gap:24px 14px}.social-films figcaption{font-size:14px}.case-related{grid-template-columns:1fr;gap:20px}.case-related button strong{font-size:30px}}

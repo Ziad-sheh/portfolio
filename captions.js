@@ -1,5 +1,9 @@
 // English subtitle tracks for the exact published edits.
 window.FILM_CAPTIONS = {
+  "assets/video/apple-iphone-en.mp4": {
+    "src": "assets/captions/apple-iphone-en.en.vtt",
+    "default": false
+  },
   "assets/video/apple-answers.mp4": {
     "src": "assets/captions/apple-answers.en.vtt",
     "default": true

@@ -18,6 +18,14 @@ window.COVER_CHOICES = [
     "alt": "Tahani’s Memoji surrounded by photographs"
   },
   {
+    "slug": "apple-across-markets",
+    "source": "media/apple-across-markets.jpg",
+    "note": "A launch. Ten days. Many voices.",
+    "position": "50% 50%",
+    "image": "media/apple-across-markets.jpg",
+    "alt": "iPhone 18 Pro suspended above a workbench in the launch film"
+  },
+  {
     "slug": "apple-snaptacular",
     "source": "assets/img/apple-snaptacular.jpg",
     "note": "A little photographic licence.",

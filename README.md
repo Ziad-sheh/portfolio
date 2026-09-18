@@ -2,7 +2,7 @@
 
 Live site: https://ziad-sheh.github.io/portfolio/
 
-A static portfolio for Ziad Shehade, creative director and copywriter. The homepage shows all 17 campaigns. Project stories, role statements and public references come from `work-data.js`; original campaign films and artwork retain their published language. Site copy is English.
+A static portfolio for Ziad Shehade, creative director and copywriter. The homepage shows the 17 existing campaigns and Across markets, a two-campaign collection about regional creative localisation leadership. Project stories, role statements and public references come from `work-data.js`; original campaign films and artwork retain their published language. Site copy is English.
 
 ## Editing
 
@@ -16,6 +16,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `brands.js` / `brands.css` / `brands/`: official brand marks, their accessible labels and optical sizing; source URLs are retained in `LICENSES.md`.
 - `hero-deck.js` / `opening.css`: the three-card photo stack, drag and keyboard shuffle, and opening layout.
 - `collection.css`: consistent paper frames, hover/focus movement and the invitation circle.
+- `localisation.css`: campaign chapters, accessible language controls and social reference gallery.
 - `image-dimensions.js`: intrinsic media dimensions that reserve layout space while images load.
 - `assets/`: original portfolio web media. `media/`: selected cover frames, short previews, portrait and BTS derivatives.
 - `fonts/`, `fonts.css`, `marks/`: local fonts and hand-drawn accents; licence files are retained.
@@ -24,7 +25,7 @@ Keep campaign facts in `work-data.js`. New editorial readings should not introdu
 
 ## Checks
 
-Run `node scripts/verify-release.mjs` and `node scripts/verify-hero-touch.mjs` before publishing. The touch regression checks model implicit capture and descendant event bubbling; a narrow viewport alone does not test touch input. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts.
+Run `node scripts/verify-release.mjs` and `node scripts/verify-hero-touch.mjs` before publishing. The touch regression checks model implicit capture and descendant event bubbling; a narrow viewport alone does not test touch input. For browser checks at the correct deployment base path, serve the parent directory of a checkout named `portfolio`, then open `/portfolio/`. Check a photo shuffle by button, keyboard and drag; a short drag should settle back, vertical gestures should not open a campaign, and Pause motion should settle an interrupted shuffle. Only the front card should play video or receive keyboard focus. Verify a fresh homepage load, an old `work.html?project=<slug>` URL, About, video playback, photo navigation and phone layouts. In Across markets, test every language button, English caption restoration, single-film playback, the official-source fallback, chapter jumps and the In Arabic cross-link.
 
 Case links use `index.html#project=<slug>`. Old `work.html?project=<slug>`, `about.html` and homepage campaign anchors remain supported. Local preview/review controls are not shipped.
 

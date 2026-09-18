@@ -258,6 +258,334 @@ window.PORTFOLIO_PROJECTS = [
     "loop": "assets/loop/apple-relax-matchmaker.mp4"
   },
   {
+    "slug": "apple-across-markets",
+    "client": "Apple",
+    "title": "Across markets",
+    "layout": "chapters",
+    "deck": "Creative localisation leadership across EU, CEMEA and wider EMEA markets. Two campaigns, from adaptation to final production sign-off.",
+    "role": "Creative localisation lead",
+    "meta": [
+      {
+        "label": "Responsibility",
+        "value": "Creative direction · Final production sign-off"
+      },
+      {
+        "label": "Scope",
+        "value": "Film · TV · Social · Digital advertising"
+      }
+    ],
+    "sections": [
+      {
+        "type": "copy",
+        "label": "My role",
+        "paragraphs": [
+          "I set the creative direction for localisation, approved the work and oversaw production across the markets I led. From casting and recording to subtitles and social copy, I worked closely with local teams and owned final production sign-off."
+        ]
+      },
+      {
+        "type": "campaign",
+        "id": "iphone-launch",
+        "title": "iPhone 18 Pro",
+        "heading": "A launch. Ten days.",
+        "paragraphs": [
+          "The launch left ten days for localisation, from receiving the materials to final production sign-off. Casting and recording had to move quickly in some markets; others needed subtitling.",
+          "Germany, Spain, Italy and France recorded local voiceovers. The remaining localised markets used subtitles. I set the direction, reviewed the adaptations and oversaw production with local teams through final sign-off."
+        ],
+        "variants": [
+          {
+            "language": "English",
+            "market": "UK",
+            "treatment": "English version",
+            "src": "assets/video/apple-iphone-en.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "English · Apple",
+              "href": "https://www.apple.com/uk/iphone-18-pro/"
+            }
+          },
+          {
+            "language": "German",
+            "market": "Germany",
+            "treatment": "Local voiceover",
+            "src": "assets/video/apple-iphone-de.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "German · Apple",
+              "href": "https://www.apple.com/de/iphone-18-pro/"
+            }
+          },
+          {
+            "language": "French",
+            "market": "France",
+            "treatment": "Local voiceover",
+            "src": "assets/video/apple-iphone-fr.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "French · Apple",
+              "href": "https://www.apple.com/fr/iphone-18-pro/"
+            }
+          },
+          {
+            "language": "Italian",
+            "market": "Italy",
+            "treatment": "Local voiceover",
+            "src": "assets/video/apple-iphone-it.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "Italian · Apple",
+              "href": "https://www.apple.com/it/iphone-18-pro/"
+            }
+          },
+          {
+            "language": "Spanish",
+            "market": "Spain",
+            "treatment": "Local voiceover",
+            "src": "assets/video/apple-iphone-es.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "Spanish · Apple",
+              "href": "https://www.apple.com/es/iphone-18-pro/"
+            }
+          },
+          {
+            "language": "Arabic",
+            "market": "UAE",
+            "treatment": "Subtitled version",
+            "src": "assets/video/apple-iphone-ar.mp4",
+            "poster": "media/apple-across-markets.jpg",
+            "source": {
+              "title": "Arabic · Apple",
+              "href": "https://www.apple.com/ae-ar/iphone-18-pro/"
+            }
+          }
+        ],
+        "sources": [
+          {
+            "title": "Polish film · Apple",
+            "href": "https://www.youtube.com/watch?v=WlyhIBfTwAc"
+          },
+          {
+            "title": "Saudi Arabic film · Apple",
+            "href": "https://www.youtube.com/watch?v=X49WlTf2bf4"
+          },
+          {
+            "title": "UAE Arabic film · Apple",
+            "href": "https://www.youtube.com/watch?v=hMhE16K4-Xo"
+          }
+        ]
+      },
+      {
+        "type": "films",
+        "label": "Also from the launch",
+        "layout": "compact",
+        "items": [
+          {
+            "title": "iPhone 18 Pro · Short launch film",
+            "src": "assets/video/apple-iphone-short-uae.mp4",
+            "poster": "media/apple-iphone-short.jpg",
+            "caption": "The shorter launch execution published by Apple UAE. English version.",
+            "sources": [
+              {
+                "title": "Watch on Apple UAE",
+                "href": "https://www.youtube.com/watch?v=pRgWq85pGbw"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "campaign",
+        "id": "health",
+        "title": "Health with iPhone + Apple Watch",
+        "heading": "Finding the voices. Keeping the jokes.",
+        "paragraphs": [
+          "A crowd of strangers. Plenty of advice. Each voice needed its own character, and the jokes needed to survive the move into another language.",
+          "I worked closely with local teams on casting and adaptation, finding voice actors who could carry the humour and reviewing the performances through production. My responsibility extended across the campaign’s film, TV, social and digital advertising, through final sign-off."
+        ],
+        "variants": [
+          {
+            "language": "English",
+            "market": "Saudi Arabia",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-en.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "English · Apple",
+              "href": "https://www.youtube.com/watch?v=m2ejsOKOWsk"
+            }
+          },
+          {
+            "language": "German",
+            "market": "Germany",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-de.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "German · Apple",
+              "href": "https://www.youtube.com/watch?v=LoOw4XoOc5Y"
+            }
+          },
+          {
+            "language": "French",
+            "market": "France",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-fr.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "French · Apple",
+              "href": "https://www.youtube.com/watch?v=e7eHvCJSY2Q"
+            }
+          },
+          {
+            "language": "Italian",
+            "market": "Italy",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-it.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "Italian · Apple",
+              "href": "https://www.youtube.com/watch?v=s1pHCd-k5-4"
+            }
+          },
+          {
+            "language": "Spanish",
+            "market": "Spain",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-es.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "Spanish · Apple",
+              "href": "https://www.youtube.com/watch?v=on-gZnJLbWc"
+            }
+          },
+          {
+            "language": "Arabic",
+            "market": "Saudi Arabia",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-ar.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "Arabic · Apple",
+              "href": "https://www.youtube.com/watch?v=c8Oh1bXwrtA"
+            }
+          },
+          {
+            "language": "Polish",
+            "market": "Poland",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-pl.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "Polish · Apple",
+              "href": "https://www.youtube.com/watch?v=xSRbud40p9w"
+            }
+          },
+          {
+            "language": "Turkish",
+            "market": "Türkiye",
+            "treatment": "Published market film",
+            "src": "assets/video/apple-health-tr.mp4",
+            "poster": "media/apple-arabic-localisation.jpg",
+            "source": {
+              "title": "Turkish · Apple",
+              "href": "https://www.youtube.com/watch?v=hyFybtOKA4k"
+            }
+          }
+        ],
+        "sources": [
+          {
+            "title": "UAE Arabic film · Apple",
+            "href": "https://www.youtube.com/watch?v=CjBCq2J-178"
+          }
+        ]
+      },
+      {
+        "type": "social",
+        "label": "Beyond the main film",
+        "intro": "Sleep, ECG, cycle tracking and heart health. I led localisation of all four social films, working with local teams on the adaptations and final production. Campaign reference versions are shown below.",
+        "items": [
+          {
+            "title": "Sleep",
+            "src": "assets/video/apple-health-social-sleep.mp4",
+            "poster": "media/apple-health-social-sleep.jpg",
+            "aspect": "9 / 16",
+            "caption": "English campaign reference"
+          },
+          {
+            "title": "ECG",
+            "src": "assets/video/apple-health-social-ecg.mp4",
+            "poster": "media/apple-health-social-ecg.jpg",
+            "aspect": "9 / 16",
+            "caption": "English campaign reference"
+          },
+          {
+            "title": "Cycle tracking",
+            "src": "assets/video/apple-health-social-cycle.mp4",
+            "poster": "media/apple-health-social-cycle.jpg",
+            "aspect": "9 / 16",
+            "caption": "Portuguese campaign reference"
+          },
+          {
+            "title": "Heart health",
+            "src": "assets/video/apple-health-social-heart.mp4",
+            "poster": "media/apple-health-social-heart.jpg",
+            "aspect": "9 / 16",
+            "caption": "English campaign reference"
+          }
+        ],
+        "sources": [
+          {
+            "title": "Published social examples · Motion archive",
+            "href": "https://motionapp.com/library/apple"
+          }
+        ]
+      },
+      {
+        "type": "credits",
+        "label": "Credits",
+        "items": [
+          {
+            "role": "Creative localisation direction & final production sign-off",
+            "names": "Ziad Shehade"
+          },
+          {
+            "role": "Market collaboration",
+            "names": "Local creative and production teams across the markets I led"
+          },
+          {
+            "role": "Health · original film direction",
+            "names": "Björn Rühmann / SMUGGLER"
+          },
+          {
+            "role": "Health · original film music",
+            "names": "Sheherazaad — Dhund Lo Mujhe"
+          }
+        ]
+      },
+      {
+        "type": "links",
+        "label": "The original campaign",
+        "items": [
+          {
+            "title": "Health · Film and production credits",
+            "href": "https://smugglersite.com/global/commercial/directors/bjorn-ruhmann-2/apple-opinionators/"
+          },
+          {
+            "title": "Health · Campaign story and digital credits",
+            "href": "https://musebyclios.com/health/listen-to-your-body-not-unsolicited-health-advice-says-apple/"
+          }
+        ]
+      },
+      {
+        "type": "related",
+        "label": "A closer look at the Arabic work",
+        "slug": "apple-arabic-localisation",
+        "title": "In Arabic",
+        "description": "The writing, casting and performances behind a collection of Apple adaptations."
+      }
+    ]
+  },
+  {
     "slug": "apple-snaptacular",
     "client": "Apple",
     "title": "Snaptacular",
@@ -698,7 +1026,7 @@ window.PORTFOLIO_PROJECTS = [
         "type": "copy",
         "label": "My role",
         "paragraphs": [
-          "I led the team’s Arabic localisation work, shaping the copy and directing the dubbing actors. My role was to help the performances carry each film’s humour, pace and character into Arabic, within the existing direction and edit. The English Health film is included below for comparison."
+          "I led the team’s Arabic localisation work, shaping the copy and directing the dubbing actors. My role was to help the performances carry each film’s humour, pace and character into Arabic, within the existing direction and edit. For Health, I also led creative localisation across EU, CEMEA and wider EMEA markets, with final production sign-off. The English Health film is included below for comparison."
         ]
       },
       {
@@ -706,7 +1034,7 @@ window.PORTFOLIO_PROJECTS = [
         "label": "Health · voices & music",
         "paragraphs": [
           "In Health with iPhone + Apple Watch, strangers offer advice until their voices become a wall of opinions. The Arabic performances need to feel like individual people while building that collective noise. The turn comes when the woman looks at information about her own health.",
-          "The global film was directed by Björn Rühmann and uses Dhund Lo Mujhe by performer-composer Sheherazaad. Her music accompanies the shift from other people’s opinions to the woman’s own perspective. My part was the Arabic adaptation and dubbing direction within that existing film."
+          "The global film was directed by Björn Rühmann and uses Dhund Lo Mujhe by performer-composer Sheherazaad. Her music accompanies the shift from other people’s opinions to the woman’s own perspective. Alongside the Arabic adaptation and dubbing direction, I led Health’s creative localisation across the regional markets I owned."
         ],
         "sources": [
           {
@@ -718,6 +1046,13 @@ window.PORTFOLIO_PROJECTS = [
             "href": "https://www.erasedtapesmusic.com/work/apple-listen-to-your-body"
           }
         ]
+      },
+      {
+        "type": "related",
+        "label": "The wider localisation story",
+        "slug": "apple-across-markets",
+        "title": "Across markets",
+        "description": "Regional creative direction, local-team collaboration and final production sign-off."
       },
       {
         "type": "films",
@@ -778,7 +1113,7 @@ window.PORTFOLIO_PROJECTS = [
       {
         "type": "coverage",
         "label": "Conversation & coverage",
-        "intro": "Coverage and recognition of the global films. My contribution was their Arabic localisation and dubbing direction.",
+        "intro": "Coverage and recognition of the global films. This collection focuses on my Arabic localisation and dubbing work; my broader Health localisation remit is covered in Across markets.",
         "items": [
           {
             "kind": "Creative commentary",
@@ -1533,5 +1868,5 @@ window.PORTFOLIO_PROJECTS = [
       }
     ],
     "deck": "Keeping the jokes, characters and comic timing alive in Arabic."
-  },
+  }
 ];

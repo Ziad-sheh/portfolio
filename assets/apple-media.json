@@ -240,5 +240,113 @@
     "sourceFile": "codex-clipboard-a91bbdf2-821f-4835-8d94-7b21bb977427.jpg",
     "sourceUrl": null,
     "note": "Original billboard photograph supplied by Ziad in the portfolio conversation. Copied unchanged. Ziad confirmed authorship of the Arabic localisation line."
+  },
+  {
+    "file": "assets/video/apple-iphone-en.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/uk/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-uk-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-iphone-de.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/de/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-de-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-iphone-fr.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/fr/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-fr-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-iphone-es.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/es/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-es-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-iphone-it.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/it/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-it-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-iphone-ar.mp4",
+    "sourceUrl": "https://www.apple.com/105/media/aear/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-aear-2026_16x9.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-de.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=LoOw4XoOc5Y",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-fr.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=e7eHvCJSY2Q",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-es.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=on-gZnJLbWc",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-it.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=s1pHCd-k5-4",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-pl.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=xSRbud40p9w",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-tr.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=hyFybtOKA4k",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple film, encoded for the portfolio with original audio; no editorial trim."
+  },
+  {
+    "file": "assets/video/apple-health-social-cycle.mp4",
+    "sourceUrl": "https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/961198686799298/6a0ee25d24084c7ace0621ee/f26d0ffa-f5ee-4325-943c-2c226f5477ac.mp4",
+    "retrieved": "2026-09-18",
+    "note": "Web derivative with original audio. Social assets are published campaign references; exact archive market attribution is not assumed."
+  },
+  {
+    "file": "assets/video/apple-health-social-ecg.mp4",
+    "sourceUrl": "https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1394045362442489/69fefb0a08c1a6eaf90e2c2b/a4c5da3c-ae88-486f-bd19-5a9280216bdd.mp4",
+    "retrieved": "2026-09-18",
+    "note": "Web derivative with original audio. Social assets are published campaign references; exact archive market attribution is not assumed."
+  },
+  {
+    "file": "assets/video/apple-health-social-sleep.mp4",
+    "sourceUrl": "https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1379013534076402/69fefb0a08c1a6eaf90e2c2c/5820305a-1f5e-4260-a7f2-0148589772e7.mp4",
+    "retrieved": "2026-09-18",
+    "note": "Web derivative with original audio. Social assets are published campaign references; exact archive market attribution is not assumed."
+  },
+  {
+    "file": "assets/video/apple-health-social-heart.mp4",
+    "sourceUrl": "https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1371295021674568/6a0114c608c1a6eaf918155d/5e0b03c6-6867-4e5e-b611-71d6b8fd9d2f.mp4",
+    "retrieved": "2026-09-18",
+    "note": "Web derivative with original audio. Social assets are published campaign references; exact archive market attribution is not assumed."
+  },
+  {
+    "file": "assets/captions/apple-iphone-en.en.vtt",
+    "sourceUrl": "https://www.apple.com/105/media/uk/iphone-18-pro/2026/591df885-5ee2-4173-86e6-401021249f7c/films/product/iphone-18-pro-product-tpl-uk-2026_vtt_segments/prog_index.m3u8",
+    "retrieved": "2026-09-18",
+    "note": "Official Apple English caption segments deduplicated, with timestamps retained and lines wrapped to 42 characters."
+  },
+  {
+    "file": "assets/video/apple-iphone-short-uae.mp4",
+    "sourceUrl": "https://www.youtube.com/watch?v=pRgWq85pGbw",
+    "retrieved": "2026-09-18",
+    "note": "Related shorter launch execution from Apple UAE. Retains the published English edit and soundtrack; not described as a cutdown of the main film."
   }
 ]

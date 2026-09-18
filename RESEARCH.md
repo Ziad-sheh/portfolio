@@ -114,3 +114,48 @@ Requested the lyric/BTS scripts and Watch/Selfie clarification from Ziad. Do not
 - Subtitle files checked for valid WebVTT, one/two lines, maximum 42 characters per line, ordered non-overlapping cues and duration bounds against the exact local films.
 - The existing release check now verifies that each mapped track is attached to its rendered film, is available to Pages and contains no draft/source notes. Original campaign stories and media remain unchanged.
 - Real-browser playback checked at desktop and 390px phone width, including the native caption on/off control. Text/source checks do not replace a human listening review of ambiguous dialogue.
+
+
+## September 18 — Regional localisation leadership
+
+Ziad authorised the Across markets collection after confirming creative direction,
+adaptation approval, production oversight and final production sign-off across his
+EU, CEMEA and wider EMEA markets. Film, TV, social copy/films and digital advertising
+are in scope. Website campaign assets, outdoor and retail are excluded from this
+case. The regional labels overlap; no aggregate market or language count is claimed.
+
+The iPhone 18 Pro localisation window was ten days from materials to final sign-off.
+German, Spanish, Italian and French recorded voiceovers; other localised markets used
+subtitles. Health's challenge was casting and preserving humour with local teams.
+Ziad separately confirmed all four Health social film families: sleep, ECG, cycle
+tracking and heart health. These confirmations are session evidence, not inferred
+from public credits.
+
+The new collection is the third homepage entry, after Relax and Switchers. All 17
+previous cases remain. The In Arabic collection retains its craft focus and now
+links to the regional Health leadership account. Original/global production credits
+remain explicitly separate from localisation credits.
+
+Media provenance is in assets/apple-media.json. The six iPhone players use official
+Apple.com product-film streams (UK, DE, FR, IT, ES and UAE Arabic), retaining their
+published edits. The Apple.com timings differ from YouTube's uploads. Health uses
+six newly retrieved official market uploads plus the two existing Saudi Arabic and
+English portfolio films, whose existing web trims are preserved. Additional official
+market links remain available in each chapter.
+
+The four social samples come from Motion's public Apple ad archive. Sleep, ECG and
+heart health use English versions. The retrieved cycle-tracking sample is Portuguese;
+all are labelled campaign references, not claimed as specific market deliveries.
+The archive copies are 360 pixels wide and displayed in a compact gallery. No
+unsupported market attribution, performance metric or production outcome is added.
+The new cover is frame 167 of the official UK iPhone film. The English iPhone captions
+come from that exact Apple's published HLS caption track; they are not applied to the
+differently timed or voiced market edits.
+
+Verification: release checks retain the old editorial baseline for unrelated cases
+and freeze the authorised updates separately. Every supplied media derivative has
+been probed and decoded. Browser checks cover language selection, native playback,
+caption replacement, one playing film at a time, related cases, legacy routes and
+responsive widths. Public publication remains a separate step.
+
+The 50-second shorter launch execution is the official Apple UAE upload pRgWq85pGbw. It is labelled as a related launch film, not a cutdown of the main film, because it uses a distinct soundtrack and edit.

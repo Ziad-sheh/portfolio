@@ -327,5 +327,29 @@ window.IMAGE_DIMENSIONS = {
   "media/grid/fab-heartbeat.jpg": {
     "width": 1280,
     "height": 720
+  },
+  "media/apple-across-markets.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "media/apple-health-social-cycle.jpg": {
+    "width": 360,
+    "height": 640
+  },
+  "media/apple-health-social-heart.jpg": {
+    "width": 360,
+    "height": 640
+  },
+  "media/apple-health-social-ecg.jpg": {
+    "width": 360,
+    "height": 640
+  },
+  "media/apple-health-social-sleep.jpg": {
+    "width": 360,
+    "height": 640
+  },
+  "media/apple-iphone-short.jpg": {
+    "width": 1280,
+    "height": 720
   }
 };

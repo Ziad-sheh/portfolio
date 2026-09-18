@@ -3,6 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 
 // Structural release checks complement the real-browser interaction review.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -12,7 +13,7 @@ const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = relative => fs.existsSync(path.join(root, relative));
 const entryFiles = ['index.html', 'work.html', 'about.html'];
 const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js', 'captions.js'];
-const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css'];
+const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css', 'localisation.css'];
 const runtimeFiles = [...entryFiles, ...dataFiles, ...stylesheetFiles, 'site.js', 'hero-deck.js', 'legacy-route.js', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
 const allFiles = [];
 
@@ -84,9 +85,10 @@ for (const relative of dataFiles) vm.runInContext(read(relative), context, { fil
 const projects = context.window.PORTFOLIO_PROJECTS;
 const choices = context.window.COVER_CHOICES;
 const touches = context.window.PERSONAL_TOUCHES;
-check(projects.length === 17, `Expected 17 canonical campaigns; found ${projects.length}`);
-check(choices.length === 17, `Expected 17 homepage covers; found ${choices.length}`);
-check(new Set(choices.map(choice => choice.slug)).size === 17, 'Homepage campaign covers contain duplicate slugs');
+check(projects.length === 18, `Expected 17 campaigns and the localisation collection; found ${projects.length}`);
+check(choices.length === projects.length, `Expected ${projects.length} homepage covers; found ${choices.length}`);
+check(new Set(choices.map(choice => choice.slug)).size === projects.length, 'Homepage campaign covers contain duplicate slugs');
+check(choices[2].slug === 'apple-across-markets', 'Regional leadership collection must follow Relax and Switchers');
 for (const project of projects) {
   check(choices.some(choice => choice.slug === project.slug), `Campaign missing from homepage: ${project.slug}`);
   check(Boolean(touches[project.slug]), `Campaign has no layout/handwriting data: ${project.slug}`);
@@ -113,7 +115,18 @@ function editorialContent(value) {
   if (!value || typeof value !== 'object') return value;
   return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'sources' && key !== 'href').map(([key, child]) => [key, editorialContent(child)]));
 }
-check(JSON.stringify(editorialContent(projects)) === JSON.stringify(editorialContent(approvedContext.window.PORTFOLIO_PROJECTS)), 'Campaign stories, roles, credits or media differ from the approved editorial baseline');
+// September 18: Ziad authorised the regional leadership case and the connected
+// Health role correction. Freeze those edits while retaining all other stories.
+const authorisedEdits = new Map([
+  ['apple-across-markets', '1e3db2df133c4aca50c119432a3395a16b2d58da2ff50af3c25c47d2fcb98f7a'],
+  ['apple-arabic-localisation', '1af94f7e04ad862ede72737d3ae3c0828fce68ae4c0a920d932f7eb94f3059af'],
+]);
+const unchanged = list => editorialContent(list.filter(project => !authorisedEdits.has(project.slug)));
+check(JSON.stringify(unchanged(projects)) === JSON.stringify(unchanged(approvedContext.window.PORTFOLIO_PROJECTS)), 'Unrelated campaign stories, roles, credits or media differ from the approved editorial baseline');
+for (const [slug, digest] of authorisedEdits) {
+  const project = projects.find(project => project.slug === slug);
+  check(project && createHash('sha256').update(JSON.stringify(editorialContent(project))).digest('hex') === digest, `Localisation editorial baseline differs: ${slug}`);
+}
 const sourceLinks = [];
 function collectLinks(value) {
   if (!value || typeof value !== 'object') return;
@@ -123,7 +136,7 @@ function collectLinks(value) {
   }
 }
 collectLinks(projects);
-check(sourceLinks.length === 40, `Expected 40 campaign source-link entries; found ${sourceLinks.length}`);
+check(sourceLinks.length >= 40, 'Existing campaign source coverage has been reduced');
 check(sourceLinks.every(href => /^https:\/\//.test(href)), 'Campaign source links must use HTTPS');
 
 const localReferences = new Set();
@@ -154,7 +167,7 @@ const renderedSourceLinks = [];
 try {
   vm.runInContext(read('site.js') + '\n globalThis.releaseAudit = {caseMarkup, backgroundNotes};', context, { filename: 'site.js' });
   const gridHtml = node('#project-grid').innerHTML;
-  check((gridHtml.match(/data-campaign=/g) || []).length === 17, 'Rendered homepage does not contain all 17 campaigns');
+  check((gridHtml.match(/data-campaign=/g) || []).length === projects.length, 'Rendered homepage does not contain every campaign and collection');
   auditHtml(gridHtml, 'index.html');
   auditHtml(node('#moment-collection').innerHTML, 'index.html');
   auditHtml(context.releaseAudit.backgroundNotes(), 'index.html');
@@ -163,6 +176,16 @@ try {
       const choice = choices.find(item => item.slug === project.slug);
       const html = context.releaseAudit.caseMarkup(project, choice);
       auditHtml(html, 'index.html');
+      for (const section of project.sections.filter(section => section.type === 'campaign')) {
+        check(section.variants.length > 1, `Campaign needs market versions: ${section.id}`);
+        check(new Set(section.variants.map(film => film.language)).size === section.variants.length, `Duplicate language controls: ${section.id}`);
+        for (const film of section.variants) {
+          reference(film.src, 'index.html');
+          reference(film.poster, 'index.html');
+          check(Boolean(film.market && film.treatment && film.source?.href), `Market film lacks attribution: ${section.id}/${film.language}`);
+        }
+        check(html.includes(`id="film-${section.id}"`), `Missing campaign player: ${section.id}`);
+      }
       for (const video of html.matchAll(/<video\b[^>]*src="([^"]+)"[^>]*>([\s\S]*?)<\/video>/g)) {
         const caption = context.window.FILM_CAPTIONS[video[1]];
         if (!caption) continue;
@@ -204,9 +227,11 @@ for (const [film, caption] of Object.entries(context.window.FILM_CAPTIONS)) {
     previousEnd = end;
   }
 }
-check(renderedSourceLinks.length === 40, `Expected 40 rendered source links; found ${renderedSourceLinks.length}`);
+// Each campaign player also exposes its selected source as a playback fallback.
+const fallbackSources = projects.flatMap(project => project.sections.filter(section => section.type === 'campaign').map(section => section.variants[0].source.href));
+check(renderedSourceLinks.length === sourceLinks.length + fallbackSources.length, 'Unexpected number of rendered source links');
 const frequency = values => [...values.reduce((map, value) => map.set(value, (map.get(value) || 0) + 1), new Map())].sort();
-check(JSON.stringify(frequency(sourceLinks)) === JSON.stringify(frequency(renderedSourceLinks)), 'Rendered campaign source links differ from canonical content');
+check(JSON.stringify(frequency([...sourceLinks, ...fallbackSources])) === JSON.stringify(frequency(renderedSourceLinks)), 'Rendered campaign source links differ from canonical content');
 
 const legacyCode = read('legacy-route.js');
 function legacyDestination(route, query) {
@@ -234,7 +259,7 @@ if (failures.length) {
   console.error(`Release verification failed (${failures.length} checks):\n${failures.map(message => '- ' + message).join('\n')}`);
   process.exitCode = 1;
 } else {
-  console.log(`Release verified: ${renderedCases} campaigns rendered, 40 source links preserved, ${localReferences.size} local dependencies found.`);
+  console.log(`Release verified: ${renderedCases} cases rendered, ${sourceLinks.length} source links preserved, ${localReferences.size} local dependencies found.`);
   console.log(`Legacy routes passed. ${deployedFiles.length} deployable files; ${(publishedBytes / 1024 ** 2).toFixed(1)} MiB. No symlinks, oversized files, local paths or draft controls.`);
   console.log('Pages exclusions checked statically. Browser interactions and the built/live Pages output require separate verification.');
 }
