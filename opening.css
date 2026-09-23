@@ -64,7 +64,5 @@
   .deck-controls > .hand { font-size: 21px; }
   .deck-controls #next-moment { font-size: 10px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .deck-controls #next-moment span { transition: none; }
-  .deck-controls #next-moment:hover span { transform: none; }
+@media (prefers-reduced-motion: reduce) {html:not(.motion-playing) .deck-controls #next-moment span{ transition: none; }html:not(.motion-playing) .deck-controls #next-moment:hover span{ transform: none; }
 }

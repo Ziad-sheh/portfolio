@@ -259,21 +259,13 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #project-grid .cover-mount,
-  #project-grid .cover-mount:hover,
-  #project-grid .cover-mount:focus-within {
+@media (prefers-reduced-motion: reduce) {html:not(.motion-playing) #project-grid .cover-mount, html:not(.motion-playing) #project-grid .cover-mount:hover, html:not(.motion-playing) #project-grid .cover-mount:focus-within{
     transform: rotate(var(--print-turn));
     transition: none;
-  }
-
-  .work-invitation #surprise-project,
-  .work-invitation #surprise-project:hover {
+  }html:not(.motion-playing) .work-invitation #surprise-project, html:not(.motion-playing) .work-invitation #surprise-project:hover{
     transform: rotate(2deg);
     transition: none;
-  }
-
-  #surprise-project:hover > span:last-child {
+  }html:not(.motion-playing) #surprise-project:hover > span:last-child{
     transform: none;
   }
 }

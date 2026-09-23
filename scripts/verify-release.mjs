@@ -90,7 +90,7 @@ check(projects.length === 20, `Expected 17 existing cases, one collection and tw
 check(homepageProjects.length === 18, 'Homepage must retain the 17 existing campaigns and one localisation collection');
 check(choices.length === projects.length, `Expected ${projects.length} case covers; found ${choices.length}`);
 check(new Set(choices.map(choice => choice.slug)).size === projects.length, 'Case covers contain duplicate slugs');
-check(choices[2].slug === 'apple-across-markets', 'Regional leadership collection must follow Relax and Switchers');
+check(choices[1].slug === 'apple-across-markets', 'Regional leadership collection must sit in the top row, directly after Relax');
 for (const project of projects) {
   check(choices.some(choice => choice.slug === project.slug), `Case has no cover: ${project.slug}`);
   check(Boolean(touches[project.slug]), `Campaign has no layout/handwriting data: ${project.slug}`);

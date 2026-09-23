@@ -131,7 +131,7 @@ Ziad separately confirmed all four Health social film families: sleep, ECG, cycl
 tracking and heart health. These confirmations are session evidence, not inferred
 from public credits.
 
-The new collection is the third homepage entry, after Relax and Switchers. At Ziad's
+The collection is the second homepage entry, directly after Relax (moved into the top row 2026-09-23 so the first screen shows regional leadership). At Ziad’s
 request, it opens a short overview with two campaign cards, rather than combining
 both stories on one page. iPhone and Health each have an independent case URL with
 their own story and films. Child cases stay off the homepage, which retains all 17

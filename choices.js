@@ -9,6 +9,14 @@ window.COVER_CHOICES = [
     "alt": "A reaction in The Favourite Son"
   },
   {
+    "slug": "apple-across-markets",
+    "source": "media/apple-across-markets.jpg",
+    "note": "A launch. Ten days. Many voices.",
+    "position": "50% 50%",
+    "image": "media/apple-across-markets.jpg",
+    "alt": "iPhone 18 Pro suspended above a workbench in the launch film"
+  },
+  {
     "slug": "apple-switchers",
     "source": "assets/video/apple-switchers-tahani.mp4",
     "note": "It started with a conversation.",
@@ -16,14 +24,6 @@ window.COVER_CHOICES = [
     "image": "media/apple-switchers.jpg",
     "clip": "media/apple-switchers.mp4",
     "alt": "Tahani’s Memoji surrounded by photographs"
-  },
-  {
-    "slug": "apple-across-markets",
-    "source": "media/apple-across-markets.jpg",
-    "note": "A launch. Ten days. Many voices.",
-    "position": "50% 50%",
-    "image": "media/apple-across-markets.jpg",
-    "alt": "iPhone 18 Pro suspended above a workbench in the launch film"
   },
   {
     "slug": "apple-snaptacular",

@@ -113,12 +113,12 @@ window.IMAGE_DIMENSIONS = {
     "height": 720
   },
   "assets/img/apple-gaming-day.jpg": {
-    "width": 2200,
-    "height": 1237
+    "width": 1600,
+    "height": 899
   },
   "assets/img/apple-gaming-night.jpg": {
-    "width": 2200,
-    "height": 1463
+    "width": 1600,
+    "height": 1064
   },
   "assets/img/apple-health-ar.jpg": {
     "width": 1280,
@@ -245,8 +245,8 @@ window.IMAGE_DIMENSIONS = {
     "height": 788
   },
   "media/apple-gaming.jpg": {
-    "width": 2200,
-    "height": 1463
+    "width": 1400,
+    "height": 931
   },
   "media/apple-arabic-localisation.jpg": {
     "width": 1400,
@@ -297,20 +297,16 @@ window.IMAGE_DIMENSIONS = {
     "height": 848
   },
   "media/relax-ksa-bts.jpg": {
-    "width": 1350,
-    "height": 1800
+    "width": 1200,
+    "height": 1600
   },
   "media/relax-bts.jpg": {
-    "width": 1350,
-    "height": 1800
+    "width": 1200,
+    "height": 1600
   },
   "media/relax-bts-02.jpg": {
-    "width": 1350,
-    "height": 1800
-  },
-  "media/ziad-portrait.jpg": {
-    "width": 1122,
-    "height": 1402
+    "width": 1200,
+    "height": 1600
   },
   "media/grid/apple-pay-riyadh.jpg": {
     "width": 1280,

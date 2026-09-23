@@ -16,6 +16,7 @@ const reviewDialog = document.querySelector('#review-dialog');
 const contactDialog = document.querySelector('#contact-dialog');
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const original = path => path;
+const siteTitle = document.title;
 let motionPaused = reducedMotion.matches;
 let heroVisible = true;
 let currentProject = null;
@@ -24,7 +25,7 @@ let returnScroll = 0;
 let hasCaseOrigin = false;
 const moments = ['apple-relax-saudi', 'apple-switchers', 'lr-journey-rediscovery'].map(slug => choices.find(choice => choice.slug === slug));
 
-function motionAllowed() { return !motionPaused && !reducedMotion.matches; }
+function motionAllowed() { return !motionPaused; }
 
 function syncMotionButton() {
   const button = document.querySelector('#motion-toggle');
@@ -33,6 +34,7 @@ function syncMotionButton() {
   const body = document.querySelector('body');
   if (motionPaused) body.classList.add('motion-paused');
   else body.classList.remove('motion-paused');
+  document.documentElement?.classList.toggle('motion-playing', !motionPaused && reducedMotion.matches);
 }
 
 const previewWanted = new WeakMap();
@@ -301,6 +303,7 @@ async function openCase(slug, target, updateUrl = true) {
       caseDialog.querySelectorAll('video').forEach(other=>{if(other!==video) other.pause();});
     }));
     if (updateUrl) history.pushState({project:slug, returnToWork:true, caseDepth, parent:parentOrigin},'', '#project='+slug);
+    document.title = `${project.title} — Ziad Shehade`;
   };
   if (thumb && document.startViewTransition && motionAllowed()) {
     const transition = document.startViewTransition(render);
@@ -311,6 +314,7 @@ async function openCase(slug, target, updateUrl = true) {
 }
 
 function finishClose() {
+  document.title = siteTitle;
   if (photoDialog.open) photoDialog.close();
   caseDialog.querySelectorAll('video').forEach(video=>video.pause());
   caseDialog.close();
