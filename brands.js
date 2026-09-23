@@ -7,8 +7,9 @@ window.PORTFOLIO_BRANDS = {
   'La Vache qui rit': {key:'la-vache-qui-rit', file:'la-vache-qui-rit-full.png', width:324, height:352},
   'Cartoon Network': {key:'cartoon-network', file:'cartoon-network.svg', width:600, height:347.5},
 };
+window.portfolioEscapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 window.portfolioBrandMarkup = client => {
-  const escaped = String(client).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  const escaped = window.portfolioEscapeHtml(client);
   const brand = window.PORTFOLIO_BRANDS[client];
   if (!brand) return escaped;
   return `<span class="brand-mark brand-${brand.key}"><img src="brands/${brand.file}" alt="${escaped}" width="${brand.width}" height="${brand.height}" decoding="async"></span>`;

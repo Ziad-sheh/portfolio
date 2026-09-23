@@ -14,8 +14,7 @@ const grid = document.querySelector('#project-grid');
 const caseDialog = document.querySelector('#case-dialog');
 const reviewDialog = document.querySelector('#review-dialog');
 const contactDialog = document.querySelector('#contact-dialog');
-const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
-const original = path => path;
+const escapeHtml = window.portfolioEscapeHtml;
 const siteTitle = document.title;
 let motionPaused = reducedMotion.matches;
 let heroVisible = true;
@@ -114,7 +113,7 @@ function captionTracks(src) {
 }
 
 function filmMarkup(film) {
-  return `<figure><video src="${escapeHtml(original(film.src))}" poster="${escapeHtml(original(film.poster || ''))}" controls playsinline preload="none" aria-label="${escapeHtml(film.title || 'Campaign film')}">${captionTracks(film.src)}</video><figcaption>${film.title ? `<strong>${escapeHtml(film.title)}</strong>` : ''}${escapeHtml(film.caption || '')}${links(film.sources)}</figcaption></figure>`;
+  return `<figure><video src="${escapeHtml(film.src)}" poster="${escapeHtml(film.poster || '')}" controls playsinline preload="none" aria-label="${escapeHtml(film.title || 'Campaign film')}">${captionTracks(film.src)}</video><figcaption>${film.title ? `<strong>${escapeHtml(film.title)}</strong>` : ''}${escapeHtml(film.caption || '')}${links(film.sources)}</figcaption></figure>`;
 }
 
 function campaignMarkup(section) {
@@ -170,7 +169,7 @@ function renderSection(section) {
   if (section.type === 'links') return `<section class="case-section case-links">${heading}${links(section.items)}</section>`;
   if (section.type === 'copy') return `<section class="case-section case-copy">${heading}<div>${section.heading ? `<p><strong>${escapeHtml(section.heading)}</strong></p>` : ''}${(section.paragraphs || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}${links(section.sources)}</div></section>`;
   if (section.type === 'films') return `<section class="case-section case-films${section.layout === 'compact' ? ' case-films-compact' : ''}">${heading}<div class="film-grid ${section.items.length===1?'single':''}">${section.items.map(filmMarkup).join('')}</div></section>`;
-  if (section.type === 'stills') return `<section class="case-section case-stills">${heading}<div class="still-grid">${section.items.map(item=>`<figure><img src="${escapeHtml(original(item.src))}" alt="${escapeHtml(item.alt || '')}" ${imageSize(item.src)} loading="lazy">${item.caption?`<figcaption>${escapeHtml(item.caption)}</figcaption>`:''}</figure>`).join('')}</div></section>`;
+  if (section.type === 'stills') return `<section class="case-section case-stills">${heading}<div class="still-grid">${section.items.map(item=>`<figure><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt || '')}" ${imageSize(item.src)} loading="lazy">${item.caption?`<figcaption>${escapeHtml(item.caption)}</figcaption>`:''}</figure>`).join('')}</div></section>`;
   if (section.type === 'credits') return `<section class="case-section case-credits">${heading}<ul>${section.items.map(item=>`<li><strong>${escapeHtml(item.role)}</strong>${escapeHtml(Array.isArray(item.names)?item.names.join(', '):item.names)}</li>`).join('')}</ul></section>`;
   if (section.type === 'coverage') return `<section class="case-section case-coverage">${heading}${section.intro?`<p>${escapeHtml(section.intro)}</p>`:''}${section.items.map(item=>`<article class="coverage-item"><div class="source-label">${escapeHtml(item.kind || '')}<br>${escapeHtml(item.author || item.platform || '')}${item.scope?`<p>${escapeHtml(item.scope)}</p>`:''}</div><div>${item.quote?`<p>“${escapeHtml(item.quote)}”</p>`:''}<p>${escapeHtml(item.summary || '')}</p>${resourceLink(item.href, item.linkLabel || 'View source')}</div></article>`).join('')}</section>`;
   return '';
@@ -220,7 +219,7 @@ function nextChoice(project) {
 function caseMarkup(project, choice) {
   const heroFilm = choice.source.endsWith('.mp4') && !choice.crop ? choice.source : null;
   const heroMedia = heroFilm
-    ? `<video class="hero-media" src="${escapeHtml(original(heroFilm))}" poster="${choice.image}" controls playsinline preload="none" aria-label="${escapeHtml(project.slug === 'cn-gumball' ? 'Gumball scene preview, silent' : project.title + ' film')}">${captionTracks(heroFilm)}</video>`
+    ? `<video class="hero-media" src="${escapeHtml(heroFilm)}" poster="${choice.image}" controls playsinline preload="none" aria-label="${escapeHtml(project.slug === 'cn-gumball' ? 'Gumball scene preview, silent' : project.title + ' film')}">${captionTracks(heroFilm)}</video>`
     : `<img class="hero-media" src="${choice.image}" alt="${escapeHtml(choice.alt)}" ${imageSize(choice.image)} style="object-position:${choice.position}">`;
   const extraPrimary = project.primaryFilm && project.primaryFilm !== heroFilm
     ? `<section class="case-section case-films"><h3>${escapeHtml(project.primaryLabel || 'The film')}</h3><div class="film-grid single">${filmMarkup({src:project.primaryFilm,poster:project.poster,title:project.primaryLabel || project.title,caption:project.primaryCaption})}</div></section>` : '';
@@ -307,6 +306,8 @@ async function openCase(slug, target, updateUrl = true) {
   };
   if (thumb && document.startViewTransition && motionAllowed()) {
     const transition = document.startViewTransition(render);
+    transition.ready.catch(()=>{});
+    transition.updateCallbackDone.catch(()=>{});
     await transition.finished.catch(()=>{});
     const cover = caseDialog.querySelector('.hero-media');
     if (cover) cover.style.viewTransitionName = '';

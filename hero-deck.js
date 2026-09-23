@@ -3,7 +3,7 @@ window.createHeroDeck = function ({stack, moments, projects, open, play, pause, 
   const deck = stack.querySelector('.moment-deck');
   const nextButton = stack.querySelector('#next-moment');
   const status = stack.querySelector('.deck-status');
-  const escape = value => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  const escape = window.portfolioEscapeHtml;
   const positions = [
     'translate3d(0, 0, 0) rotate(3deg) scale(1)',
     'translate3d(-4%, -2%, 0) rotate(-5deg) scale(.98)',

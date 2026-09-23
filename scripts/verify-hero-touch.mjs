@@ -6,6 +6,8 @@ import assert from 'node:assert/strict';
 // Instant motion keeps these checks focused on gesture semantics; visual motion is checked in-browser.
 const filename = process.argv[2] || new URL('../hero-deck.js', import.meta.url);
 const source = fs.readFileSync(filename, 'utf8');
+// brands.js defines the shared HTML escaper the deck uses in the real page, so load it first.
+const brandsSource = fs.readFileSync(new URL('../brands.js', import.meta.url), 'utf8');
 
 function setup() {
   let capture = null;
@@ -52,7 +54,7 @@ function setup() {
   const moments = cards.map((_, index) => ({slug: String(index), image: 'image.jpg', clip: 'clip.mp4', alt: 'poster'}));
   const projects = new Map(moments.map(moment => [moment.slug, {title: moment.slug, client: 'Apple'}]));
   const window = {};
-  vm.runInNewContext(source, {window, document, console});
+  vm.runInNewContext(brandsSource + '\n' + source, {window, document, console});
   window.createHeroDeck({stack, moments, projects, open: slug => opened.push(slug), play() {}, pause() {}, canPlay: () => false, canAnimate: () => false});
   function dispatch(type, target, options = {}) {
     const event = {type, target, currentTarget: null, pointerId: 1, isPrimary: true, button: 0, clientX: 200, clientY: 100, detail: 1, prevented: false, preventDefault() { this.prevented = true; }, ...options};

@@ -121,10 +121,11 @@ const approvedVelar = approvedContext.window.PORTFOLIO_PROJECTS.find(project => 
 approvedVelar.sections = approvedVelar.sections.filter(section => section.type !== 'links' || section.label !== 'Explore in 360°');
 approvedVelar.primaryCaption = 'Panoramic preview of the Arabic film.';
 // Maintain public citations without changing approved stories, roles, credits or media.
+// `loop` was a never-rendered preview pointer; it was removed with its files on 2026-09-23.
 function editorialContent(value) {
   if (Array.isArray(value)) return value.map(editorialContent);
   if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'sources' && key !== 'href').map(([key, child]) => [key, editorialContent(child)]));
+  return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'sources' && key !== 'href' && key !== 'loop').map(([key, child]) => [key, editorialContent(child)]));
 }
 // September 18: Ziad authorised the regional leadership case and the connected
 // Health role correction. Freeze those edits while retaining all other stories.
@@ -132,7 +133,7 @@ const authorisedEdits = new Map([
   ['apple-across-markets', '821b0c3eacb76e3048a3112693c46e6bf03cb69b7de37cfac1963bff49df5f29'],
   ['apple-iphone-launch-localisation', 'e65b6be49410adf69a5cd53a762cac59ed785c049235a72e3e11c1d109f50b1f'],
   ['apple-health-localisation', '789018f16d5b7e0b1a0761469f8d894eccba6c3d411196a9bf840841e006f58d'],
-  ['apple-arabic-localisation', '1af94f7e04ad862ede72737d3ae3c0828fce68ae4c0a920d932f7eb94f3059af'],
+  ['apple-arabic-localisation', '104e48905b42df6c37fd52a789600c3467defe0cd5935f33e87bc7cdf76fcaf3'], // rehashed 2026-09-23 after the dead loop field was dropped; story unchanged
 ]);
 const unchanged = list => editorialContent(list.filter(project => !authorisedEdits.has(project.slug)));
 check(JSON.stringify(unchanged(projects)) === JSON.stringify(unchanged(approvedContext.window.PORTFOLIO_PROJECTS)), 'Unrelated campaign stories, roles, credits or media differ from the approved editorial baseline');

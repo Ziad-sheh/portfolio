@@ -5,6 +5,11 @@
 // { type: "films", label: "More films", items: [{ title, src, poster, caption }] }
 // { type: "credits", label: "Credits", items: [{ role, names }] }
 // { type: "coverage", label: "Conversation & coverage", intro, items: [{ kind, scope, author, platform, quote, summary, href, linkLabel }] }
+// { type: "links", label: "...", items: [{ label, href }] }
+// { type: "related", label: "...", items: [slug] }
+// { type: "collection", label: "...", items: [child slug] }        — overview card grid on a parent case
+// { type: "campaign", label: "...", variants: [{ market, treatment, src, poster, source }] } — market versions with a language switcher
+// { type: "social", label: "...", items: [{ title, src, poster, caption }] }
 // Optional factual fields:
 // role: "Exact credited role"
 // meta: [{ label: "Versions", value: "Arabic · English" }]
@@ -90,7 +95,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-switchers-tahani.mp4"
   },
   {
     "slug": "apple-relax-saudi",
@@ -255,7 +259,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-relax-matchmaker.mp4"
   },
   {
     "slug": "apple-across-markets",
@@ -896,7 +899,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-pay-metro-ar.mp4"
   },
   {
     "slug": "apple-watch-saudi",
@@ -942,7 +944,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-watch-saudi.mp4"
   },
   {
     "slug": "apple-ipad-musical",
@@ -1008,7 +1009,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-ipad-musical.mp4"
   },
   {
     "slug": "apple-gaming",
@@ -1205,7 +1205,6 @@ window.PORTFOLIO_PROJECTS = [
         ]
       }
     ],
-    "loop": "assets/loop/apple-health-ar.mp4"
   },
   {
     "slug": "velar-vr",
@@ -1872,7 +1871,6 @@ window.PORTFOLIO_PROJECTS = [
     "client": "Cartoon Network",
     "title": "The Amazing World of Gumball",
     "poster": "assets/img/cn-gumball.jpg",
-    "loop": "assets/loop/cn-gumball.mp4",
     "role": "Arabic scripts & actor management",
     "meta": [
       {
