@@ -30,9 +30,9 @@
 .moment-deck.is-dragging .moment-image { cursor: grabbing; }
 .moment-deck.is-shuffling .moment-image { cursor: default; }
 .moment-deck .moment-frame figcaption { display: block; font-size: clamp(11px, .95vw, 14px); padding: 13px 4px 6px; min-height: 37px; }
-.deck-controls { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 6px 0; }
+.deck-controls { display: flex; align-items: center; justify-content: flex-end; gap: 18px; padding: 22px 6px 0; }
 .deck-controls > .hand { font-size: clamp(21px, 2vw, 29px); transform: rotate(-4deg); }
-.deck-controls #next-moment { font-size: 12px; padding: 10px 0; min-height: 42px; display: flex; align-items: center; gap: 8px; }
+.deck-controls #next-moment { width: 44px; height: 44px; padding: 0; border: 1px solid var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blue); background: transparent; }
 .deck-controls #next-moment span { font-size: 21px; display: inline-block; transition: transform 350ms ease; }
 .deck-controls #next-moment:hover span { transform: rotate(45deg); }
 .deck-controls #next-moment[aria-disabled="true"] { opacity: .6; cursor: default; }
@@ -43,7 +43,6 @@
   .opening h1 { top: 52px; left: -.11em; font-size: 24vw; }
   .moment-stack { top: 130px; width: 44%; }
   .deck-controls { gap: 8px; padding-top: 25px; }
-  .deck-controls > .hand { font-size: 21px; }
   .deck-controls #next-moment { font-size: 11px; }
 }
 @media (max-width: 600px) {
@@ -54,14 +53,12 @@
   .moment-deck .moment-frame { padding: 8px; }
   .moment-deck .moment-frame figcaption { padding: 11px 3px 3px; min-height: 30px; font-size: 11px; }
   .deck-controls { padding-top: 25px; gap: 8px; }
-  .deck-controls > .hand { font-size: 23px; }
   .deck-controls #next-moment { font-size: 11px; }
 }
 @media (max-width: 360px) {
   .opening-stage { height: 470px; }
   .moment-stack { top: 206px; }
   .moment-deck .moment-frame figcaption { font-size: 10px; }
-  .deck-controls > .hand { font-size: 21px; }
   .deck-controls #next-moment { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {html:not(.motion-playing) .deck-controls #next-moment span{ transition: none; }html:not(.motion-playing) .deck-controls #next-moment:hover span{ transform: none; }

@@ -325,8 +325,8 @@ window.IMAGE_DIMENSIONS = {
     "height": 720
   },
   "media/apple-across-markets.jpg": {
-    "width": 1280,
-    "height": 720
+    "width": 1400,
+    "height": 788
   },
   "media/apple-health-social-cycle.jpg": {
     "width": 360,

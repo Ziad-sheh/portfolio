@@ -14,7 +14,7 @@ window.COVER_CHOICES = [
     "note": "A launch. Ten days. Many voices.",
     "position": "50% 50%",
     "image": "media/apple-across-markets.jpg",
-    "alt": "iPhone 18 Pro suspended above a workbench in the launch film"
+    "alt": "The same closing shot of the iPhone 18 Pro launch film in six versions: English master, then French, German, Italian, Spanish and Arabic with their localised lines"
   },
   {
     "slug": "apple-switchers",
