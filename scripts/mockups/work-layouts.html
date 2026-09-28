@@ -79,6 +79,23 @@
     .label .desc { margin-top: 6px; font-size: 14px; line-height: 1.45; }
     .label .role { margin-top: 8px; font-size: 12px; }
 
+    /* B1 / B2 · sticky notes */
+    .sticky { position: absolute; z-index: 3; padding: 16px 16px 18px; background: linear-gradient(170deg, #ffe37a 0%, #ffdc5e 88%, #f5cf4c 100%); box-shadow: 0 8px 14px -6px #17203955, 0 1px 2px #1720391f; transform: rotate(var(--sturn, 2deg)); font-family: var(--hand); color: var(--blue); }
+    .b-card:nth-child(3n + 1) .sticky { color: var(--red); }
+    .b1 .print, .b2 .print { padding: 9px; }
+    .b1 .sticky { right: -16px; bottom: -34px; width: min(46%, 190px); min-height: 104px; font-size: clamp(22px, 1.9vw, 27px); line-height: 1.02; }
+    .b1 .caption { margin-top: 20px; max-width: 58%; }
+    .b1 .caption .title { font-size: clamp(21px, 1.9vw, 30px); letter-spacing: -.04em; margin-top: 6px; }
+    .b1 .b-card[data-size="big"] .caption .title { font-size: clamp(28px, 2.8vw, 42px); }
+    .b1 .caption .desc { margin-top: 6px; font-size: 14px; line-height: 1.45; }
+    .b1 .caption .role { margin-top: 8px; font-size: 12px; }
+    .b2 .sticky { position: relative; width: 88%; margin: -26px 0 0 auto; }
+    .b2 .sticky .s-title { font-size: clamp(30px, 2.6vw, 40px); line-height: .95; }
+    .b2 .sticky .s-desc { margin-top: 8px; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.08; }
+    .b2 .sticky .s-role { margin-top: 10px; font-size: 19px; line-height: 1; opacity: .85; }
+    .b2 .sticky .brand { margin-bottom: 4px; }
+    @media (max-width: 600px) { .b1 .caption { max-width: 100%; margin-top: 46px; } }
+
     /* C · Exhibition */
     .c-row { display: grid; grid-template-columns: var(--cols); gap: clamp(28px, 4vw, 64px); align-items: center; padding: 56px 0; border-top: 1px solid #193d9120; }
     .c-row:first-child { border-top: 0; padding-top: 0; }
@@ -108,13 +125,15 @@
 <body>
   <div class="bar">
     <span><strong>Work layouts</strong> — three directions, a mockup, not the live site</span>
-    <div class="switch" role="group" aria-label="Direction"><button type="button" data-v="a">A · Magazine spread</button><button type="button" data-v="b">B · Studio wall</button><button type="button" data-v="c">C · Exhibition</button></div>
+    <div class="switch" role="group" aria-label="Direction"><button type="button" data-v="a">A · Magazine spread</button><button type="button" data-v="b">B · Studio wall</button><button type="button" data-v="b1">B1 · Sticky + typed</button><button type="button" data-v="b2">B2 · All handwritten</button><button type="button" data-v="c">C · Exhibition</button></div>
   </div>
   <section class="work">
     <div class="inner">
       <div class="top"><h2><span class="hand">the</span> Work</h2><p>All 18 projects, same order, each with its explanation and your role. Only the sizes and the arrangement change.</p></div>
       <div class="direction" id="a"><div class="a-grid" id="a-grid"></div></div>
       <div class="direction" id="b"><div class="wall"><div class="b-grid" id="b-grid"></div></div></div>
+      <div class="direction" id="b1"><div class="wall"><div class="b-grid" id="b1-grid"></div></div></div>
+      <div class="direction" id="b2"><div class="wall"><div class="b-grid" id="b2-grid"></div></div></div>
       <div class="direction" id="c"><div id="c-list"></div></div>
     </div>
   </section>
@@ -140,7 +159,7 @@
       const p = project(c.slug), span = aSpans[i];
       return `<article class="card a-card${aDrop.has(i) ? ' drop' : ''}" data-size="${size(span)}" style="--span:${span};--tspan:${tablet(span)};--turn:${[-0.8, 0.6, -0.4, 0.8, -0.6, 0.5][i % 6]}deg">
         <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
-        <div class="head"><span class="idx">${num(i)}</span>${brand(p)}</div>
+        <div class="head">${brand(p)}</div>
         <h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></article>`;
     }).join('');
 
@@ -152,8 +171,25 @@
       const p = project(c.slug), span = bSpans[i];
       return `<article class="card b-card" data-size="${size(span + 1)}" style="--span:${span};--tspan:${span >= 5 ? 6 : 3};--turn:${turns[i]}deg;--y:${ys[i]}px;--tape:${turns[(i + 5) % 18] * 1.5}deg;--lturn:${-turns[i] / 2}deg">
         <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"><figcaption class="note">${esc((window.PERSONAL_TOUCHES[c.slug] || {}).note || '')}</figcaption></figure>
-        <div class="label"><div class="top-line"><span class="idx">${num(i)}</span>${brand(p)}</div><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div></article>`;
+        <div class="label"><div class="top-line">${brand(p)}</div><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div></article>`;
     }).join('');
+
+    // B1 · handwritten sticky note on each print; the explanation typed below.
+    const note = c => esc((window.PERSONAL_TOUCHES[c.slug] || {}).note || '');
+    const bCard = (c, i, body) => {
+      const p = project(c.slug), span = bSpans[i];
+      return `<article class="card b-card" data-size="${size(span + 1)}" style="--span:${span};--tspan:${span >= 5 ? 6 : 3};--turn:${turns[i]}deg;--y:${ys[i]}px;--sturn:${turns[(i + 7) % 18] * 1.3}deg">${body(p)}</article>`;
+    };
+    document.getElementById('b1-grid').innerHTML = home.map((c, i) => bCard(c, i, p => `
+      <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"><div class="sticky">${note(c)}</div></figure>
+      <div class="caption">${brand(p)}<h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div>`)).join('');
+    document.getElementById('b1-grid').closest('.direction').classList.add('b1');
+
+    // B2 · everything handwritten on a sticky note under the print.
+    document.getElementById('b2-grid').innerHTML = home.map((c, i) => bCard(c, i, p => `
+      <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
+      <div class="sticky">${brand(p)}<div class="s-title">${esc(p.title)}</div><div class="s-desc">${esc(p.deck)}</div><div class="s-role">my role · ${esc(p.role)}</div></div>`)).join('');
+    document.getElementById('b2-grid').closest('.direction').classList.add('b2');
 
     // C · one room per project: big and compact rows alternate sides.
     const bigRows = new Set([0, 2, 5, 7, 12, 14]);
@@ -161,7 +197,7 @@
       const p = project(c.slug), big = bigRows.has(i);
       return `<article class="card c-row${big ? '' : ' compact'}${i % 2 ? ' flip' : ''}" style="--cols:${big ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.4fr)'};--turn:${i % 2 ? 0.7 : -0.7}deg">
         <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
-        <div><span class="num">${num(i)}</span><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p>${brand(p)}</div></article>`;
+        <div><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p>${brand(p)}</div></article>`;
     }).join('');
 
     const show = v => {
