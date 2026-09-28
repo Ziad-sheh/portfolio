@@ -59,8 +59,6 @@ for (const relative of runtimeFiles) {
   }
 }
 check(!/<meta[^>]+(?:noindex|nofollow)/i.test(read('index.html')), 'Homepage must be indexable');
-const ruleLinks = [...read('index.html').matchAll(/<ul class="work-rules">[\s\S]*?<\/ul>/g)].flatMap(block => [...block[0].matchAll(/data-project="([^"]+)"/g)].map(match => match[1]));
-check(ruleLinks.length === 5, `Expected five working rules; found ${ruleLinks.length}`);
 check(/rel="canonical" href="https:\/\/ziad-sheh\.github\.io\/portfolio\/"/.test(read('index.html')), 'Homepage canonical URL is missing or wrong');
 
 // Evaluate only repository JavaScript in a DOM-shaped inert context, without network or browser access.
@@ -88,7 +86,6 @@ const projects = context.window.PORTFOLIO_PROJECTS;
 const choices = context.window.COVER_CHOICES;
 const touches = context.window.PERSONAL_TOUCHES;
 const homepageProjects = projects.filter(project => !project.parent);
-for (const slug of ruleLinks) check(projects.some(project => project.slug === slug), `Working rule links to a missing campaign: ${slug}`);
 check(projects.length === 20, `Expected 17 existing cases, one collection and two child campaigns; found ${projects.length}`);
 check(homepageProjects.length === 18, 'Homepage must retain the 17 existing campaigns and one localisation collection');
 check(choices.length === projects.length, `Expected ${projects.length} case covers; found ${choices.length}`);

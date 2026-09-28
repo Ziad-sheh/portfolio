@@ -6,7 +6,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 
 ## Editing
 
-- `index.html`: opening, navigation, portrait, About (including “how I work”, five working rules that open their cases) and contact.
+- `index.html`: opening, navigation, portrait, About and contact.
 - `work-data.js`: canonical campaign titles, roles, stories, credits, films and public sources.
 - `choices.js`: project cover images, preview clips and featured case films. Projects with a `parent` appear inside their collection, not on the homepage.
 - `personal-touches.js`: project arrangements, handwritten notes and selected film moments.
