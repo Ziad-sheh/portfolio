@@ -56,20 +56,7 @@ const heroDeck = window.createHeroDeck({
   canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open && !contactDialog.open,
   canAnimate: () => motionAllowed() && !document.hidden,
 });
-// The three feature films play while they are the most visible thing on screen; only one at a time.
-const featureVideos = new Map();
-function syncFeatures() {
-  let best = null;
-  let bestRatio = .35;
-  featureVideos.forEach((ratio, video) => { if (ratio >= bestRatio) { best = video; bestRatio = ratio; } });
-  featureVideos.forEach((ratio, video) => { if (video !== best) pausePreview(video); });
-  if (best) playPreview(best);
-}
-const featureObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => featureVideos.set(entry.target, entry.intersectionRatio));
-  syncFeatures();
-}, {threshold: [0, .35, .6, .85]});
-function syncHero() { heroDeck.sync(); syncFeatures(); }
+function syncHero() { heroDeck.sync(); }
 
 new IntersectionObserver(entries => {heroVisible = entries[0].isIntersecting; syncHero();}, {threshold: 0.2}).observe(document.querySelector('.moment-stack'));
 document.addEventListener('visibilitychange', () => {if (document.hidden) document.querySelectorAll('video').forEach(pausePreview); syncHero();});
@@ -82,27 +69,33 @@ document.querySelector('#motion-toggle').addEventListener('click', () => {
 });
 syncMotionButton();
 
-function coverButton(choice, project) {
-  const image = choice.gridImage || choice.image;
-  const clip = choice.gridClip || choice.clip;
-  return `<button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}" style="--cover-position:${choice.gridPosition || choice.position};--cover-scale:${choice.gridScale || 1};--cover-origin:${choice.gridOrigin || '50% 50%'}"><img src="${image}" alt="${escapeHtml(choice.gridAlt || choice.alt)}" ${imageSize(image)} loading="lazy">${clip ? `<video data-preview src="${clip}" poster="${image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button>`;
-}
+// The work as a studio wall: prints in mixed sizes, each with a handwritten sticky note.
+// The rhythm follows the order (each row of spans adds up to 12) and is fixed, so nothing reshuffles.
+const WALL = {
+  span: [6, 3, 3, 4, 4, 4, 5, 7, 3, 5, 4, 6, 6, 4, 3, 5, 6, 6],
+  turn: [-2, 1.6, -1.2, 2.2, -1.8, 1, -1.4, 1.8, -2.2, 1.2, -1, 2, -1.6, 1.4, -2, 1.1, -1.3, 1.7],
+  drop: [0, 34, 12, 0, 40, 16, 8, 0, 36, 10, 30, 0, 22, 6, 38, 14, 0, 26],
+  side: ['r', 'l', 'r', 'r', 'l', 'r', 'l', 'r', 'l', 'r', 'r', 'l', 'r', 'l', 'r', 'r', 'l', 'r'],
+  overlap: [-30, -14, -38, -20, -26, -12, -34, -18, -40, -24, -16, -30, -22, -36, -14, -28, -20, -32],
+  nudge: [0, 14, -10, 18, -14, 8, -6, 12, -18, 6, 16, -8, 10, -12, 4, -16, 12, -4],
+  tilt: [2, -3, 4, -2, 3, -4, 2, -3, 5, -2, 3, -4, 2, -3, 4, -2, 3, -3],
+  width: [88, 82, 90, 84, 86, 80, 88, 84, 90, 82, 86, 84, 88, 80, 86, 90, 84, 88],
+  paper: ['y', 'p', 'y', 'b', 'y', 'y', 'p', 'y', 'b', 'y', 'p', 'y', 'y', 'b', 'p', 'y', 'y', 'b'],
+  fix: ['pin', 'tape', '', 'tape', 'pin', '', 'pin', '', 'tape', 'pin', '', 'tape', '', 'pin', 'tape', '', 'pin', 'tape'],
+};
 
-// Lead with three: the first three campaigns get full-width features; the rest sit in a tighter grid.
 function renderGrid() {
   document.querySelectorAll('.project-cover video').forEach(pausePreview);
-  const features = choices.slice(0, 3);
-  const rest = choices.slice(3);
-  grid.innerHTML = features.map(choice => {
+  grid.innerHTML = `<div class="wall-grid">${choices.map((choice, index) => {
     const project = projects.get(choice.slug);
-    return `<article class="project-card project-feature" data-campaign="${choice.slug}"><figure class="cover-mount">${coverButton(choice, project)}</figure><div class="feature-copy"><span class="client">${window.portfolioBrandMarkup(project.client)}</span><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><p class="project-description">${escapeHtml(project.deck)}</p><p class="feature-role"><span>My role</span> ${escapeHtml(project.role)}</p></div></article>`;
-  }).join('') + `<section class="more-work" aria-labelledby="more-work-heading"><h3 id="more-work-heading">More work</h3><div class="work-tiles">${rest.map(choice => {
-    const project = projects.get(choice.slug);
-    return `<article class="project-card work-tile" data-campaign="${choice.slug}"><figure class="cover-mount">${coverButton(choice, project)}</figure><h4><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h4><span class="tile-client">${escapeHtml(project.client)}</span></article>`;
-  }).join('')}</div></section>`;
+    const at = key => WALL[key][index % WALL[key].length];
+    const image = choice.gridImage || choice.image;
+    const clip = choice.gridClip || choice.clip;
+    const style = `--span:${at('span')};--tablet-span:${at('span') >= 7 ? 6 : 3};--turn:${at('turn')}deg;--drop:${at('drop')}px;--overlap:${at('overlap')}px;--nudge:${at('nudge')}px;--tilt:${at('tilt')}deg;--sticky-width:${at('width')}%`;
+    return `<article class="project-card wall-card${at('span') >= 6 ? ' is-big' : ''}" data-campaign="${choice.slug}" style="${style}"><figure class="wall-print"><button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}" style="--cover-position:${choice.gridPosition || choice.position};--cover-scale:${choice.gridScale || 1};--cover-origin:${choice.gridOrigin || '50% 50%'}"><img src="${image}" alt="${escapeHtml(choice.gridAlt || choice.alt)}" ${imageSize(image)} loading="lazy">${clip ? `<video data-preview src="${clip}" poster="${image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button></figure><div class="sticky sticky-${at('side')} paper-${at('paper')}${at('fix') ? ` fix-${at('fix')}` : ''}"><span class="client">${window.portfolioBrandMarkup(project.client)}</span><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><p class="sticky-deck">${escapeHtml(project.deck)}</p><p class="sticky-role">my role · ${escapeHtml(project.role)}</p></div></article>`;
+  }).join('')}</div>`;
   grid.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
-  grid.querySelectorAll('.project-feature video').forEach(video => { featureVideos.set(video, 0); featureObserver.observe(video); });
-  grid.querySelectorAll('.work-tile .project-cover').forEach(button => {
+  grid.querySelectorAll('.project-cover').forEach(button => {
     const video = button.querySelector('video');
     if (!video) return;
     button.addEventListener('pointerenter', () => playPreview(video));
