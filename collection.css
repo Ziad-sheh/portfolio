@@ -166,10 +166,10 @@
 .feature-role { margin-top: 16px; color: #535b6d; font-size: 14px; }
 .feature-role span::after { content: " ·"; }
 
-/* The other fifteen, as a list. The print appears on hover; phones show it beside each row. */
+/* The other fifteen, as a tighter grid of prints. Hover plays a preview where one exists. */
 .more-work { margin-top: clamp(84px, 10vw, 140px); }
 .more-work h3 {
-  margin-bottom: 18px;
+  margin-bottom: 26px;
   font-family: var(--display);
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 800;
@@ -177,53 +177,22 @@
   line-height: 1;
   color: var(--blue);
 }
-.work-list { margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--blue); }
-.work-row button {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 190px) minmax(0, 1fr) minmax(0, 250px);
-  align-items: baseline;
-  gap: 24px;
-  width: 100%;
-  padding: 18px 4px;
-  border-bottom: 1px solid #193d9124;
-  text-align: left;
-}
-.row-client, .row-role { color: #535b6d; font-size: 14px; }
-.row-title {
+.work-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: 44px 26px; }
+#project-grid .work-tile .cover-mount { padding: 7px; }
+.work-tile .project-cover .open-hint { right: 8px; bottom: 8px; padding: 6px 9px; font-size: 12px; }
+.work-tile h4 {
+  margin-top: 14px;
   font-family: var(--display);
-  font-size: clamp(24px, 2.8vw, 38px);
-  font-weight: 800;
-  letter-spacing: -.05em;
-  line-height: 1.05;
-  color: var(--blue);
-  transition: color 160ms;
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.15;
 }
-.row-thumb {
-  position: absolute;
-  top: 50%;
-  right: 290px;
-  z-index: 2;
-  width: 240px;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border: 7px solid var(--butter);
-  box-shadow: 0 12px 26px #17203930;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) rotate(2.5deg) scale(.96);
-  transition: opacity 180ms, transform 240ms;
-}
-.work-row button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-@media (hover: hover) and (pointer: fine) {
-  .work-row button:hover .row-title { color: var(--red); }
-  .work-row button:hover .row-thumb,
-  .work-row button:focus-visible .row-thumb { opacity: 1; transform: translateY(-50%) rotate(2.5deg) scale(1); }
-}
-@media (max-width: 1000px) and (min-width: 701px) {
-  .work-row button { grid-template-columns: minmax(0, 130px) minmax(0, 1fr) minmax(0, 170px); gap: 18px; }
-  .row-thumb { right: 200px; width: 200px; }
+.work-tile h4 button { text-align: left; }
+.work-tile h4 button:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.tile-client { display: block; margin-top: 4px; color: #535b6d; font-size: 13px; }
+@media (max-width: 1000px) {
+  .work-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
   #project-grid .project-feature,
@@ -232,14 +201,10 @@
   #project-grid .project-feature .cover-mount { padding: 8px; }
   .feature-copy h3 { margin-top: 10px; }
   .feature-copy .project-description { font-size: 16px; }
-}
-@media (max-width: 700px), not all and (hover: hover) and (pointer: fine) {
-  .work-row button { grid-template-columns: 96px minmax(0, 1fr); align-items: center; column-gap: 14px; row-gap: 2px; padding: 14px 0; }
-  .row-thumb { position: static; grid-column: 1; grid-row: 1 / span 3; width: 96px; border-width: 4px; box-shadow: 0 4px 10px #17203920; opacity: 1; transform: none; }
-  .row-client, .row-title, .row-role { grid-column: 2; }
-  .row-client { font-size: 12px; }
-  .row-title { font-size: clamp(20px, 5.6vw, 26px); }
-  .row-role { font-size: 12px; }
+  .work-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 14px; }
+  #project-grid .work-tile .cover-mount { padding: 5px; }
+  .work-tile h4 { margin-top: 10px; font-size: 16px; }
+  .tile-client { font-size: 12px; }
 }
 
 /* This loop is drawn to the button bounds, including the arrow. */

@@ -2,7 +2,7 @@
 
 Live site: https://ziad-sheh.github.io/portfolio/
 
-A static portfolio for Ziad Shehade, creative director and copywriter. The homepage shows the 17 existing campaigns and one Across markets card: the first three lead as full-width features and the rest form a list. That collection opens a compact overview with separate cards for iPhone 18 Pro and Health; each campaign has its own story, language versions and supporting films. Project stories, role statements and public references come from `work-data.js`; original campaign films and artwork retain their published language. Site copy is English.
+A static portfolio for Ziad Shehade, creative director and copywriter. The homepage shows the 17 existing campaigns and one Across markets card: the first three lead as full-width features and the rest sit in a tighter grid. That collection opens a compact overview with separate cards for iPhone 18 Pro and Health; each campaign has its own story, language versions and supporting films. Project stories, role statements and public references come from `work-data.js`; original campaign films and artwork retain their published language. Site copy is English.
 
 ## Editing
 
@@ -15,7 +15,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `site.js` / `site.css`: shared interaction and responsive design.
 - `brands.js` / `brands.css` / `brands/`: official brand marks, their accessible labels and optical sizing; source URLs are retained in `LICENSES.md`.
 - `hero-deck.js` / `opening.css`: the three-card photo stack, drag and keyboard shuffle, and opening layout.
-- `collection.css`: paper frames, the homepage's three features (their films play one at a time while in view) and the work list (hover shows the print; touch screens show it beside each row), hover/focus movement and the invitation circle.
+- `collection.css`: paper frames, the homepage's three features (their films play one at a time while in view) and the tighter grid of the other fifteen (hover plays a preview where one exists), hover/focus movement and the invitation circle.
 - `localisation.css`: collection cards, campaign stories, accessible language controls and social reference gallery.
 - `image-dimensions.js`: intrinsic media dimensions that reserve layout space while images load.
 - `assets/`: original portfolio web media. `media/`: selected cover frames, short previews, portrait and BTS derivatives.

@@ -88,7 +88,7 @@ function coverButton(choice, project) {
   return `<button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}" style="--cover-position:${choice.gridPosition || choice.position};--cover-scale:${choice.gridScale || 1};--cover-origin:${choice.gridOrigin || '50% 50%'}"><img src="${image}" alt="${escapeHtml(choice.gridAlt || choice.alt)}" ${imageSize(image)} loading="lazy">${clip ? `<video data-preview src="${clip}" poster="${image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button>`;
 }
 
-// Lead with three: the first three campaigns get full-width features; the rest form a list.
+// Lead with three: the first three campaigns get full-width features; the rest sit in a tighter grid.
 function renderGrid() {
   document.querySelectorAll('.project-cover video').forEach(pausePreview);
   const features = choices.slice(0, 3);
@@ -96,13 +96,20 @@ function renderGrid() {
   grid.innerHTML = features.map(choice => {
     const project = projects.get(choice.slug);
     return `<article class="project-card project-feature" data-campaign="${choice.slug}"><figure class="cover-mount">${coverButton(choice, project)}</figure><div class="feature-copy"><span class="client">${window.portfolioBrandMarkup(project.client)}</span><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><p class="project-description">${escapeHtml(project.deck)}</p><p class="feature-role"><span>My role</span> ${escapeHtml(project.role)}</p></div></article>`;
-  }).join('') + `<section class="more-work" aria-labelledby="more-work-heading"><h3 id="more-work-heading">More work</h3><ol class="work-list">${rest.map(choice => {
+  }).join('') + `<section class="more-work" aria-labelledby="more-work-heading"><h3 id="more-work-heading">More work</h3><div class="work-tiles">${rest.map(choice => {
     const project = projects.get(choice.slug);
-    const image = choice.gridImage || choice.image;
-    return `<li class="work-row" data-campaign="${choice.slug}"><button type="button" data-project="${choice.slug}"><span class="row-client">${escapeHtml(project.client)}</span><span class="row-title">${escapeHtml(project.title)}</span><span class="row-role">${escapeHtml(project.role)}</span><img class="row-thumb" src="${image}" alt="" ${imageSize(image)} loading="lazy" style="object-position:${choice.gridPosition || choice.position}"></button></li>`;
-  }).join('')}</ol></section>`;
+    return `<article class="project-card work-tile" data-campaign="${choice.slug}"><figure class="cover-mount">${coverButton(choice, project)}</figure><h4><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h4><span class="tile-client">${escapeHtml(project.client)}</span></article>`;
+  }).join('')}</div></section>`;
   grid.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
   grid.querySelectorAll('.project-feature video').forEach(video => { featureVideos.set(video, 0); featureObserver.observe(video); });
+  grid.querySelectorAll('.work-tile .project-cover').forEach(button => {
+    const video = button.querySelector('video');
+    if (!video) return;
+    button.addEventListener('pointerenter', () => playPreview(video));
+    button.addEventListener('pointerleave', () => pausePreview(video));
+    button.addEventListener('focus', () => playPreview(video));
+    button.addEventListener('blur', () => pausePreview(video));
+  });
 }
 
 document.querySelector('#surprise-project').addEventListener('click', event => {
