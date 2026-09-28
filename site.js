@@ -408,6 +408,7 @@ function showBackground() {
   reviewDialog.scrollTop = 0;
 }
 document.querySelector('#background-open').addEventListener('click',showBackground);
+document.querySelectorAll('.work-rules [data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
 document.querySelector('#review-close').addEventListener('click',()=>reviewDialog.close());
 reviewDialog.addEventListener('close',syncHero);
 
