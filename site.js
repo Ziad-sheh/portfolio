@@ -116,6 +116,16 @@ const momentCollection = document.querySelector('#moment-collection');
 momentCollection.innerHTML = window.FILM_MOMENTS.map(moment => `<figure class="little-frame"><button type="button" data-project="${moment.slug}" aria-label="Open ${escapeHtml(projects.get(moment.slug).title)} from this film moment"><img src="${moment.image}" alt="${escapeHtml(moment.alt)}" ${imageSize(moment.image)} loading="lazy"></button><figcaption class="hand">${escapeHtml(moment.caption)}</figcaption></figure>`).join('');
 momentCollection.querySelectorAll('button').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
 
+// The words, decoded: each line opens to show what it says and why it works.
+const lineCollection = document.querySelector('#line-collection');
+lineCollection.innerHTML = (window.PORTFOLIO_LINES || []).map((item, index) => `<article class="line-card"><button type="button" class="line-face" aria-expanded="false" aria-controls="line-decode-${index}"><span class="line-text"${item.lang === 'ar' ? ' lang="ar" dir="rtl"' : ''}>${item.line.split('\n').map(escapeHtml).join('<br>')}</span><span class="line-meta"><span>${escapeHtml(item.label)}</span><span class="line-toggle">Decode</span></span></button><dl class="line-decode" id="line-decode-${index}" hidden>${item.decode.map(([term, detail]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(detail)}</dd></div>`).join('')}<div><dt>Campaign</dt><dd><button type="button" data-project="${item.slug}">See the campaign ↗</button></dd></div></dl></article>`).join('');
+lineCollection.querySelectorAll('.line-face').forEach(face => face.addEventListener('click', () => {
+  const open = face.getAttribute('aria-expanded') !== 'true';
+  face.setAttribute('aria-expanded', String(open));
+  document.getElementById(face.getAttribute('aria-controls')).hidden = !open;
+}));
+lineCollection.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
+
 function resourceLink(href, label) {
   return `<a class="resource-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(label)}</span><span class="resource-arrow" aria-hidden="true">↗</span></a>`;
 }

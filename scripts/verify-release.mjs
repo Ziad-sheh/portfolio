@@ -12,8 +12,8 @@ const check = (condition, message) => { if (!condition) failures.push(message); 
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = relative => fs.existsSync(path.join(root, relative));
 const entryFiles = ['index.html', 'work.html', 'about.html'];
-const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js', 'captions.js'];
-const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css', 'localisation.css'];
+const dataFiles = ['work-data.js', 'background-data.js', 'choices.js', 'personal-touches.js', 'bts-content.js', 'image-dimensions.js', 'brands.js', 'captions.js', 'lines-data.js'];
+const stylesheetFiles = ['site.css', 'fonts.css', 'opening.css', 'collection.css', 'brands.css', 'localisation.css', 'lines.css'];
 const runtimeFiles = [...entryFiles, ...dataFiles, ...stylesheetFiles, 'site.js', 'hero-deck.js', 'legacy-route.js', 'favicon.svg', 'robots.txt', 'sitemap.xml'];
 const allFiles = [];
 
@@ -195,6 +195,10 @@ try {
   for (const project of projects.filter(project => project.parent)) check(!gridHtml.includes(project.slug), `Child campaign leaked onto homepage: ${project.slug}`);
   auditHtml(gridHtml, 'index.html');
   auditHtml(node('#moment-collection').innerHTML, 'index.html');
+  const linesHtml = node('#line-collection').innerHTML;
+  auditHtml(linesHtml, 'index.html');
+  check((linesHtml.match(/class="line-card"/g) || []).length === context.window.PORTFOLIO_LINES.length, 'Every decoded line must render');
+  check(context.window.PORTFOLIO_LINES.every(item => projects.some(project => project.slug === item.slug)), 'A decoded line points to a missing campaign');
   auditHtml(context.releaseAudit.backgroundNotes(), 'index.html');
   for (const project of projects) {
     try {
