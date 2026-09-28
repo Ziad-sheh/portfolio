@@ -68,8 +68,11 @@
     .b-card { grid-column: span var(--span); transform: translateY(var(--y, 0)); }
     .b-card .print { padding: 9px 9px 0; }
     .b-card .print::after { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 28px; margin-left: -48px; background: #ffffffa8; box-shadow: 0 1px 3px #1720391a; transform: rotate(var(--tape, -3deg)); }
-    .b-card .print img { margin-bottom: 9px; }
-    .label { position: relative; width: 90%; margin: -22px 0 0 auto; padding: 14px 16px 15px; background: var(--white); box-shadow: 0 4px 12px #17203918; transform: rotate(var(--lturn, 1deg)); }
+    .b-card .print img { margin-bottom: 0; }
+    .b-card .note { min-height: 56px; padding: 10px 4px 20px; font: 400 clamp(22px, 1.9vw, 27px)/1.05 var(--hand); color: var(--blue); max-width: 64%; }
+    .b-card:nth-child(3n + 1) .note { color: var(--red); }
+    .b-card[data-size="big"] .note { font-size: clamp(25px, 2.2vw, 31px); }
+    .label { position: relative; width: 88%; margin: -6px 0 0 auto; padding: 14px 16px 15px; background: var(--white); box-shadow: 0 4px 12px #17203918; transform: rotate(var(--lturn, 1deg)); }
     .label .top-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
     .label .title { margin-top: 8px; font-size: clamp(21px, 1.9vw, 30px); letter-spacing: -.04em; }
     .b-card[data-size="big"] .label .title { font-size: clamp(28px, 2.8vw, 42px); }
@@ -118,6 +121,7 @@
   <script src="../../work-data.js"></script>
   <script src="../../choices.js"></script>
   <script src="../../brands.js"></script>
+  <script src="../../personal-touches.js"></script>
   <script>
     const esc = window.portfolioEscapeHtml;
     const P = window.PORTFOLIO_PROJECTS, C = window.COVER_CHOICES;
@@ -147,7 +151,7 @@
     document.getElementById('b-grid').innerHTML = home.map((c, i) => {
       const p = project(c.slug), span = bSpans[i];
       return `<article class="card b-card" data-size="${size(span + 1)}" style="--span:${span};--tspan:${span >= 5 ? 6 : 3};--turn:${turns[i]}deg;--y:${ys[i]}px;--tape:${turns[(i + 5) % 18] * 1.5}deg;--lturn:${-turns[i] / 2}deg">
-        <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
+        <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"><figcaption class="note">${esc((window.PERSONAL_TOUCHES[c.slug] || {}).note || '')}</figcaption></figure>
         <div class="label"><div class="top-line"><span class="idx">${num(i)}</span>${brand(p)}</div><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div></article>`;
     }).join('');
 
