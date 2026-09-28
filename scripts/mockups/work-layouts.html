@@ -1,0 +1,171 @@
+<!doctype html>
+<!-- Three layout directions for the homepage work section (2026-09-28). A mockup, not the site:
+     it lives under scripts/, which Pages excludes. Every project keeps its explanation; sizes vary; order is unchanged.
+     Choose a direction with ?v=a, ?v=b or ?v=c (or the buttons). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Work layouts · three directions</title>
+  <link rel="stylesheet" href="../../fonts.css">
+  <link rel="stylesheet" href="../../brands.css">
+  <style>
+    :root { --blue:#193d91; --butter:#fff6d5; --white:#fff; --ink:#172039; --red:#ac3448; --grey:#535b6d; --display:'Bricolage Grotesque',sans-serif; --body:'DM Sans',sans-serif; --hand:'Caveat',cursive; --gutter:clamp(18px,4.7vw,80px); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--white); color: var(--ink); font: 16px/1.55 var(--body); }
+    img { display: block; max-width: 100%; }
+    h2, h3, p { margin: 0; }
+    button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
+    .hand { font-family: var(--hand); font-weight: 400; }
+    .bar { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; padding: 12px var(--gutter); background: var(--blue); color: var(--butter); font-size: 13px; }
+    .switch { display: inline-flex; border: 1.5px solid var(--butter); border-radius: 999px; overflow: hidden; }
+    .switch button { padding: 7px 14px; font-weight: 600; font-size: 13px; }
+    .switch button[aria-pressed="true"] { background: var(--butter); color: var(--blue); }
+    .work { padding: 76px var(--gutter) 90px; }
+    .inner { max-width: 1400px; margin: 0 auto; }
+    .top { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 56px; }
+    .top h2 { font: 800 clamp(68px,9vw,136px)/.95 var(--display); letter-spacing: -.075em; color: var(--blue); }
+    .top h2 .hand { font-size: 1.08em; display: inline-block; transform: rotate(-7deg); letter-spacing: -.06em; margin-right: .05em; }
+    .top p { max-width: 34ch; color: var(--grey); font-size: 14px; }
+    .direction { display: none; }
+    .direction.on { display: block; }
+
+    /* Shared card parts */
+    .print { position: relative; background: var(--white); padding: 10px; box-shadow: 0 6px 18px #17203920; transform: rotate(var(--turn, 0deg)); transition: transform .35s cubic-bezier(.2,.75,.2,1), box-shadow .35s; }
+    .print img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .card:hover .print { transform: rotate(0deg) translateY(-5px); box-shadow: 0 14px 28px #17203926; }
+    .brand { display: flex; align-items: center; height: 30px; }
+    .brand .brand-mark { max-width: 104px; }
+    .brand .brand-apple { --logo-height: 24px; }
+    .brand .brand-land-rover { --logo-height: 30px; }
+    .brand .brand-range-rover { width: 104px; }
+    .brand .brand-fab { --logo-height: 24px; padding: 3px 7px; }
+    .brand .brand-cartoon-network { --logo-height: 24px; padding: 4px 6px; }
+    .brand .brand-la-vache-qui-rit { --logo-height: 34px; }
+    .title { font-family: var(--display); font-weight: 800; letter-spacing: -.05em; line-height: 1; color: var(--blue); }
+    .desc { color: var(--grey); }
+    .role { font-size: 13px; color: var(--grey); }
+    .role b { font-weight: 600; color: var(--ink); }
+    .idx { font: 600 12px/1 var(--body); letter-spacing: .12em; color: var(--blue); }
+
+    /* A · Magazine spread */
+    .a-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 70px 34px; align-items: start; }
+    .a-card { grid-column: span var(--span); }
+    .a-card.drop { margin-top: 84px; }
+    .a-card .head { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+    .a-card .title { margin-top: 8px; }
+    .a-card[data-size="big"] .title { font-size: clamp(36px, 3.8vw, 58px); }
+    .a-card[data-size="mid"] .title { font-size: clamp(28px, 2.6vw, 40px); }
+    .a-card[data-size="small"] .title { font-size: clamp(22px, 1.9vw, 28px); letter-spacing: -.04em; }
+    .a-card .desc { margin-top: 10px; max-width: 52ch; font-size: 15px; }
+    .a-card[data-size="big"] .desc { font-size: 17px; color: var(--ink); }
+    .a-card .role { margin-top: 10px; }
+
+    /* B · Studio wall */
+    .wall { background: var(--butter); border-radius: 4px; padding: 64px clamp(20px, 3vw, 48px) 90px; }
+    .b-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 76px 38px; align-items: start; }
+    .b-card { grid-column: span var(--span); transform: translateY(var(--y, 0)); }
+    .b-card .print { padding: 9px 9px 0; }
+    .b-card .print::after { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 28px; margin-left: -48px; background: #ffffffa8; box-shadow: 0 1px 3px #1720391a; transform: rotate(var(--tape, -3deg)); }
+    .b-card .print img { margin-bottom: 9px; }
+    .label { position: relative; width: 90%; margin: -22px 0 0 auto; padding: 14px 16px 15px; background: var(--white); box-shadow: 0 4px 12px #17203918; transform: rotate(var(--lturn, 1deg)); }
+    .label .top-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .label .title { margin-top: 8px; font-size: clamp(21px, 1.9vw, 30px); letter-spacing: -.04em; }
+    .b-card[data-size="big"] .label .title { font-size: clamp(28px, 2.8vw, 42px); }
+    .label .desc { margin-top: 6px; font-size: 14px; line-height: 1.45; }
+    .label .role { margin-top: 8px; font-size: 12px; }
+
+    /* C · Exhibition */
+    .c-row { display: grid; grid-template-columns: var(--cols); gap: clamp(28px, 4vw, 64px); align-items: center; padding: 56px 0; border-top: 1px solid #193d9120; }
+    .c-row:first-child { border-top: 0; padding-top: 0; }
+    .c-row.flip .print { order: 2; }
+    .c-row .num { font: 800 clamp(54px, 6vw, 96px)/.8 var(--display); letter-spacing: -.07em; color: transparent; -webkit-text-stroke: 1.5px var(--blue); }
+    .c-row .title { margin-top: 14px; font-size: clamp(34px, 4.4vw, 68px); letter-spacing: -.055em; }
+    .c-row.compact .title { font-size: clamp(28px, 3.2vw, 48px); }
+    .c-row .desc { margin-top: 14px; max-width: 44ch; font-size: 18px; color: var(--ink); }
+    .c-row .role { margin-top: 14px; font-size: 14px; }
+    .c-row .brand { margin-top: 16px; }
+
+    @media (max-width: 900px) {
+      .a-grid, .b-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .a-card, .b-card { grid-column: span var(--tspan); }
+      .a-card.drop { margin-top: 0; }
+      .b-card { transform: none; }
+    }
+    @media (max-width: 600px) {
+      .a-grid, .b-grid { grid-template-columns: minmax(0, 1fr); gap: 54px; }
+      .a-card, .b-card { grid-column: auto; }
+      .c-row, .c-row.compact { grid-template-columns: minmax(0, 1fr); padding: 40px 0; }
+      .c-row.flip .print { order: 0; }
+      .top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <span><strong>Work layouts</strong> — three directions, a mockup, not the live site</span>
+    <div class="switch" role="group" aria-label="Direction"><button type="button" data-v="a">A · Magazine spread</button><button type="button" data-v="b">B · Studio wall</button><button type="button" data-v="c">C · Exhibition</button></div>
+  </div>
+  <section class="work">
+    <div class="inner">
+      <div class="top"><h2><span class="hand">the</span> Work</h2><p>All 18 projects, same order, each with its explanation and your role. Only the sizes and the arrangement change.</p></div>
+      <div class="direction" id="a"><div class="a-grid" id="a-grid"></div></div>
+      <div class="direction" id="b"><div class="wall"><div class="b-grid" id="b-grid"></div></div></div>
+      <div class="direction" id="c"><div id="c-list"></div></div>
+    </div>
+  </section>
+  <script src="../../work-data.js"></script>
+  <script src="../../choices.js"></script>
+  <script src="../../brands.js"></script>
+  <script>
+    const esc = window.portfolioEscapeHtml;
+    const P = window.PORTFOLIO_PROJECTS, C = window.COVER_CHOICES;
+    const project = slug => P.find(p => p.slug === slug);
+    const home = C.filter(c => !project(c.slug).parent);
+    const img = c => '../../' + (c.gridImage || c.image);
+    const brand = p => `<span class="brand">${window.portfolioBrandMarkup(p.client).replace(/src="brands\//g, 'src="../../brands/')}</span>`;
+    const num = i => String(i + 1).padStart(2, '0');
+    const size = span => span >= 7 ? 'big' : span >= 5 ? 'mid' : 'small';
+
+    // A · spans keep the order; each row adds up to 12. Bigger campaigns land on the bigger slots.
+    const aSpans = [7, 5, 8, 4, 4, 8, 4, 4, 4, 7, 5, 4, 8, 6, 6, 4, 4, 4];
+    const aDrop = new Set([3, 4, 7, 11, 16]);
+    const tablet = span => span >= 7 ? 6 : 3;
+    document.getElementById('a-grid').innerHTML = home.map((c, i) => {
+      const p = project(c.slug), span = aSpans[i];
+      return `<article class="card a-card${aDrop.has(i) ? ' drop' : ''}" data-size="${size(span)}" style="--span:${span};--tspan:${tablet(span)};--turn:${[-0.8, 0.6, -0.4, 0.8, -0.6, 0.5][i % 6]}deg">
+        <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
+        <div class="head"><span class="idx">${num(i)}</span>${brand(p)}</div>
+        <h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></article>`;
+    }).join('');
+
+    // B · prints pinned on a wall: mixed sizes, small tilts, tape and a typed label.
+    const bSpans = [6, 3, 3, 4, 4, 4, 5, 7, 3, 5, 4, 6, 6, 4, 3, 5, 6, 6];
+    const turns = [-2, 1.6, -1.2, 2.2, -1.8, 1, -1.4, 1.8, -2.2, 1.2, -1, 2, -1.6, 1.4, -2, 1.1, -1.3, 1.7];
+    const ys = [0, 34, 12, 0, 40, 16, 8, 0, 36, 10, 30, 0, 22, 6, 38, 14, 0, 26];
+    document.getElementById('b-grid').innerHTML = home.map((c, i) => {
+      const p = project(c.slug), span = bSpans[i];
+      return `<article class="card b-card" data-size="${size(span + 1)}" style="--span:${span};--tspan:${span >= 5 ? 6 : 3};--turn:${turns[i]}deg;--y:${ys[i]}px;--tape:${turns[(i + 5) % 18] * 1.5}deg;--lturn:${-turns[i] / 2}deg">
+        <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
+        <div class="label"><div class="top-line"><span class="idx">${num(i)}</span>${brand(p)}</div><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div></article>`;
+    }).join('');
+
+    // C · one room per project: big and compact rows alternate sides.
+    const bigRows = new Set([0, 2, 5, 7, 12, 14]);
+    document.getElementById('c-list').innerHTML = home.map((c, i) => {
+      const p = project(c.slug), big = bigRows.has(i);
+      return `<article class="card c-row${big ? '' : ' compact'}${i % 2 ? ' flip' : ''}" style="--cols:${big ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.4fr)'};--turn:${i % 2 ? 0.7 : -0.7}deg">
+        <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
+        <div><span class="num">${num(i)}</span><h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p>${brand(p)}</div></article>`;
+    }).join('');
+
+    const show = v => {
+      document.querySelectorAll('.direction').forEach(d => d.classList.toggle('on', d.id === v));
+      document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
+    };
+    document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => { show(b.dataset.v); history.replaceState(null, '', '?v=' + b.dataset.v); }));
+    show(new URLSearchParams(location.search).get('v') || 'a');
+  </script>
+</body>
+</html>
