@@ -10,7 +10,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `work-data.js`: canonical campaign titles, roles, stories, credits, films and public sources.
 - `choices.js`: project cover images, preview clips and featured case films. Projects with a `parent` appear inside their collection, not on the homepage.
 - `personal-touches.js`: project arrangements, handwritten notes and selected film moments.
-- `lines-data.js` / `lines.css`: “The line” inside the Snaptacular and iPhone 16 Pro gaming cases — the Arabic outdoor line set large (Alexandria, right to left) with its English line or literal meaning.
+- `lines-data.js` / `lines.css`: “The line” inside the Snaptacular and iPhone 16 Pro gaming cases — the Arabic outdoor line set large (Alexandria, self-hosted Arabic subset, right to left) with its English line or literal meaning.
 - `bts-content.js`: supplied Switchers and Relax behind-the-scenes material.
 - `background-data.js`: approved professional background, experience and education.
 - `site.js` / `site.css`: shared interaction and responsive design.

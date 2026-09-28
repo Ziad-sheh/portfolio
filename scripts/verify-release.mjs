@@ -284,7 +284,7 @@ for (const project of projects) {
 }
 check(legacyDestination('work', '?project=missing') === 'https://ziad-sheh.github.io/portfolio/index.html#work', 'Unknown legacy campaign does not return to the collection');
 check(legacyDestination('about', '') === 'https://ziad-sheh.github.io/portfolio/index.html#about', 'Legacy About URL is broken');
-for (const relative of ['fonts/Caveat-OFL.txt', 'fonts/DM-Sans-OFL.txt', 'fonts/Bricolage-Grotesque-OFL.txt']) check(exists(relative), `Font licence missing: ${relative}`);
+for (const relative of ['fonts/Caveat-OFL.txt', 'fonts/DM-Sans-OFL.txt', 'fonts/Bricolage-Grotesque-OFL.txt', 'fonts/Alexandria-OFL.txt']) check(exists(relative), `Font licence missing: ${relative}`);
 
 if (failures.length) {
   console.error(`Release verification failed (${failures.length} checks):\n${failures.map(message => '- ' + message).join('\n')}`);
