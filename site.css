@@ -225,3 +225,5 @@ footer{display:block;padding-block:28px 30px}
 .footer-notes p{font-size:11px;line-height:1.65;max-width:66ch;color:var(--butter)}
 .footer-notes p:last-child{text-align:right}
 @media(max-width:600px){.footer-notes{display:block;margin-top:18px;padding-top:18px}.footer-notes p{font-size:10px}.footer-notes p+p{margin-top:10px}.footer-notes p:last-child{text-align:left}}
+/* Case section labels in plain type (2026-09-28): handwriting stays for Ziad talking — notes, stickies, eyebrows. */
+.case-copy h3,.case-copy:nth-of-type(3n) h3,.case-credits>h3,.case-coverage>h3,.case-links>h3,.case-social>h3,.case-related>h3,.case-films-compact>h3{font-family:var(--body);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);transform:none;max-width:none;text-wrap:wrap}
