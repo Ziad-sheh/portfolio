@@ -1,9 +1,5 @@
-/* A steady two-column collection, with handwritten notes on the prints. */
+/* Paper prints for campaign cards. The homepage leads with three features, then a list. */
 #project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 72px 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -125,11 +121,9 @@
   .project-info h3 { min-height: 2.2em; }
 }
 @media (max-width: 1000px) and (min-width: 701px) {
-  #project-grid { column-gap: 28px; }
   .project-annotation { font-size: 25px; padding-inline: 6px; }
 }
 @media (max-width: 700px) {
-  #project-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; }
   .cover-mount { padding: 8px 8px 0; }
   .project-annotation { min-height: 50px; font-size: 26px; padding: 9px 7px 11px; }
   .project-info { margin-top: 18px; gap: 14px; }
@@ -140,6 +134,114 @@
   .project-info .brand-range-rover { width: 94px; }
   .project-annotation { font-size: 24px; }
 }
+/* Lead with three: full-width features. Handwriting stays off these cards (rule B). */
+#project-grid .project-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 72px);
+}
+#project-grid .project-feature + .project-feature { margin-top: clamp(64px, 8vw, 116px); }
+#project-grid .project-feature:nth-child(1) { --print-turn: -.7deg; }
+#project-grid .project-feature:nth-child(2) { --print-turn: .7deg; }
+#project-grid .project-feature:nth-child(3) { --print-turn: -.45deg; }
+#project-grid .project-feature:nth-child(2) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+#project-grid .project-feature:nth-child(2) .cover-mount { order: 2; }
+#project-grid .project-feature .cover-mount { padding: 10px; }
+.feature-copy { min-width: 0; }
+.feature-copy .client { display: flex; align-items: center; height: 34px; }
+.feature-copy .brand-apple { --logo-height: 28px; }
+.feature-copy h3 {
+  margin-top: 14px;
+  font-family: var(--display);
+  font-size: clamp(40px, 5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -.06em;
+  line-height: .95;
+  color: var(--blue);
+}
+.feature-copy h3 button { text-align: left; }
+.feature-copy h3 button:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.feature-copy .project-description { margin-top: 16px; max-width: 36ch; color: var(--ink); font-size: 18px; }
+.feature-role { margin-top: 16px; color: #535b6d; font-size: 14px; }
+.feature-role span::after { content: " ·"; }
+
+/* The other fifteen, as a list. The print appears on hover; phones show it beside each row. */
+.more-work { margin-top: clamp(84px, 10vw, 140px); }
+.more-work h3 {
+  margin-bottom: 18px;
+  font-family: var(--display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1;
+  color: var(--blue);
+}
+.work-list { margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--blue); }
+.work-row button {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 190px) minmax(0, 1fr) minmax(0, 250px);
+  align-items: baseline;
+  gap: 24px;
+  width: 100%;
+  padding: 18px 4px;
+  border-bottom: 1px solid #193d9124;
+  text-align: left;
+}
+.row-client, .row-role { color: #535b6d; font-size: 14px; }
+.row-title {
+  font-family: var(--display);
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1.05;
+  color: var(--blue);
+  transition: color 160ms;
+}
+.row-thumb {
+  position: absolute;
+  top: 50%;
+  right: 290px;
+  z-index: 2;
+  width: 240px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 7px solid var(--butter);
+  box-shadow: 0 12px 26px #17203930;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(2.5deg) scale(.96);
+  transition: opacity 180ms, transform 240ms;
+}
+.work-row button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) {
+  .work-row button:hover .row-title { color: var(--red); }
+  .work-row button:hover .row-thumb,
+  .work-row button:focus-visible .row-thumb { opacity: 1; transform: translateY(-50%) rotate(2.5deg) scale(1); }
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .work-row button { grid-template-columns: minmax(0, 130px) minmax(0, 1fr) minmax(0, 170px); gap: 18px; }
+  .row-thumb { right: 200px; width: 200px; }
+}
+@media (max-width: 700px) {
+  #project-grid .project-feature,
+  #project-grid .project-feature:nth-child(2) { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  #project-grid .project-feature:nth-child(2) .cover-mount { order: 0; }
+  #project-grid .project-feature .cover-mount { padding: 8px; }
+  .feature-copy h3 { margin-top: 10px; }
+  .feature-copy .project-description { font-size: 16px; }
+}
+@media (max-width: 700px), not all and (hover: hover) and (pointer: fine) {
+  .work-row button { grid-template-columns: 96px minmax(0, 1fr); align-items: center; column-gap: 14px; row-gap: 2px; padding: 14px 0; }
+  .row-thumb { position: static; grid-column: 1; grid-row: 1 / span 3; width: 96px; border-width: 4px; box-shadow: 0 4px 10px #17203920; opacity: 1; transform: none; }
+  .row-client, .row-title, .row-role { grid-column: 2; }
+  .row-client { font-size: 12px; }
+  .row-title { font-size: clamp(20px, 5.6vw, 26px); }
+  .row-role { font-size: 12px; }
+}
+
 /* This loop is drawn to the button bounds, including the arrow. */
 .work-invitation {
   flex-wrap: wrap;

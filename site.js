@@ -56,7 +56,20 @@ const heroDeck = window.createHeroDeck({
   canPlay: () => heroVisible && !motionPaused && !document.hidden && !caseDialog.open && !reviewDialog.open && !contactDialog.open,
   canAnimate: () => motionAllowed() && !document.hidden,
 });
-function syncHero() { heroDeck.sync(); }
+// The three feature films play while they are the most visible thing on screen; only one at a time.
+const featureVideos = new Map();
+function syncFeatures() {
+  let best = null;
+  let bestRatio = .35;
+  featureVideos.forEach((ratio, video) => { if (ratio >= bestRatio) { best = video; bestRatio = ratio; } });
+  featureVideos.forEach((ratio, video) => { if (video !== best) pausePreview(video); });
+  if (best) playPreview(best);
+}
+const featureObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => featureVideos.set(entry.target, entry.intersectionRatio));
+  syncFeatures();
+}, {threshold: [0, .35, .6, .85]});
+function syncHero() { heroDeck.sync(); syncFeatures(); }
 
 new IntersectionObserver(entries => {heroVisible = entries[0].isIntersecting; syncHero();}, {threshold: 0.2}).observe(document.querySelector('.moment-stack'));
 document.addEventListener('visibilitychange', () => {if (document.hidden) document.querySelectorAll('video').forEach(pausePreview); syncHero();});
@@ -69,22 +82,27 @@ document.querySelector('#motion-toggle').addEventListener('click', () => {
 });
 syncMotionButton();
 
+function coverButton(choice, project) {
+  const image = choice.gridImage || choice.image;
+  const clip = choice.gridClip || choice.clip;
+  return `<button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}" style="--cover-position:${choice.gridPosition || choice.position};--cover-scale:${choice.gridScale || 1};--cover-origin:${choice.gridOrigin || '50% 50%'}"><img src="${image}" alt="${escapeHtml(choice.gridAlt || choice.alt)}" ${imageSize(image)} loading="lazy">${clip ? `<video data-preview src="${clip}" poster="${image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button>`;
+}
+
+// Lead with three: the first three campaigns get full-width features; the rest form a list.
 function renderGrid() {
   document.querySelectorAll('.project-cover video').forEach(pausePreview);
-  grid.innerHTML = choices.map(choice => {
+  const features = choices.slice(0, 3);
+  const rest = choices.slice(3);
+  grid.innerHTML = features.map(choice => {
     const project = projects.get(choice.slug);
-    const touch = touches[choice.slug];
-    return `<article class="project-card" data-campaign="${choice.slug}"><figure class="cover-mount"><button type="button" class="project-cover" data-project="${choice.slug}" aria-label="Open ${escapeHtml(project.title)}" style="--cover-position:${choice.gridPosition || choice.position};--cover-scale:${choice.gridScale || 1};--cover-origin:${choice.gridOrigin || '50% 50%'}"><img src="${choice.gridImage || choice.image}" alt="${escapeHtml(choice.gridAlt || choice.alt)}" ${imageSize(choice.gridImage || choice.image)} loading="lazy">${(choice.gridClip || choice.clip) ? `<video data-preview src="${choice.gridClip || choice.clip}" poster="${choice.gridImage || choice.image}" loop muted playsinline preload="none" aria-hidden="true"></video>` : ''}<span class="open-hint">Take a look ↗</span></button><figcaption class="project-annotation hand">${escapeHtml(touch.note)}</figcaption></figure><div class="project-info"><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><span class="client">${window.portfolioBrandMarkup(project.client)}</span></div><p class="project-description">${escapeHtml(project.deck)}</p></article>`;
-  }).join('');
+    return `<article class="project-card project-feature" data-campaign="${choice.slug}"><figure class="cover-mount">${coverButton(choice, project)}</figure><div class="feature-copy"><span class="client">${window.portfolioBrandMarkup(project.client)}</span><h3><button type="button" data-project="${choice.slug}">${escapeHtml(project.title)}</button></h3><p class="project-description">${escapeHtml(project.deck)}</p><p class="feature-role"><span>My role</span> ${escapeHtml(project.role)}</p></div></article>`;
+  }).join('') + `<section class="more-work" aria-labelledby="more-work-heading"><h3 id="more-work-heading">More work</h3><ol class="work-list">${rest.map(choice => {
+    const project = projects.get(choice.slug);
+    const image = choice.gridImage || choice.image;
+    return `<li class="work-row" data-campaign="${choice.slug}"><button type="button" data-project="${choice.slug}"><span class="row-client">${escapeHtml(project.client)}</span><span class="row-title">${escapeHtml(project.title)}</span><span class="row-role">${escapeHtml(project.role)}</span><img class="row-thumb" src="${image}" alt="" ${imageSize(image)} loading="lazy" style="object-position:${choice.gridPosition || choice.position}"></button></li>`;
+  }).join('')}</ol></section>`;
   grid.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
-  grid.querySelectorAll('.project-cover').forEach(button => {
-    const video = button.querySelector('video');
-    if (!video) return;
-    button.addEventListener('pointerenter', () => playPreview(video));
-    button.addEventListener('pointerleave', () => pausePreview(video));
-    button.addEventListener('focus', () => playPreview(video));
-    button.addEventListener('blur', () => pausePreview(video));
-  });
+  grid.querySelectorAll('.project-feature video').forEach(video => { featureVideos.set(video, 0); featureObserver.observe(video); });
 }
 
 document.querySelector('#surprise-project').addEventListener('click', event => {
