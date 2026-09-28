@@ -83,18 +83,38 @@
     .sticky { position: absolute; z-index: 3; padding: 16px 16px 18px; background: linear-gradient(170deg, #ffe37a 0%, #ffdc5e 88%, #f5cf4c 100%); box-shadow: 0 8px 14px -6px #17203955, 0 1px 2px #1720391f; transform: rotate(var(--sturn, 2deg)); font-family: var(--hand); color: var(--blue); }
     .b-card:nth-child(3n + 1) .sticky { color: var(--red); }
     .b1 .print, .b2 .print { padding: 9px; }
-    .b1 .sticky { right: -16px; bottom: -34px; width: min(46%, 190px); min-height: 104px; font-size: clamp(22px, 1.9vw, 27px); line-height: 1.02; }
+    .sticky.c-p { background: linear-gradient(170deg, #ffcdd5 0%, #ffbfca 88%, #f4adba 100%); }
+    .sticky.c-b { background: linear-gradient(170deg, #d6e5ff 0%, #c7dbff 88%, #b5cdf5 100%); }
+    .sticky.fix-pin::before { content: ""; position: absolute; top: -7px; left: 50%; width: 15px; height: 15px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e46a7c, #ac3448 60%, #6e1b2b); box-shadow: 0 3px 4px #17203955; }
+    .sticky.fix-pin.c-p::before { background: radial-gradient(circle at 35% 35%, #5b7fd6, #193d91 60%, #0f2560); }
+    .sticky.fix-tape::before { content: ""; position: absolute; top: -11px; left: 50%; width: 64px; height: 21px; margin-left: -32px; background: #ffffffb0; box-shadow: 0 1px 2px #1720391a; transform: rotate(-5deg); }
+    .b1 .sticky { width: var(--sw, 46%); max-width: 200px; min-width: 118px; min-height: 100px; font-size: clamp(22px, 1.9vw, 27px); line-height: 1.02; }
+    .b1 .sticky.pos-br { right: -18px; bottom: -34px; }
+    .b1 .sticky.pos-bl { left: -18px; bottom: -30px; }
+    .b1 .sticky.pos-tr { right: -16px; top: -24px; }
+    .b1 .sticky.pos-tl { left: -16px; top: -26px; }
+    .b1 .sticky.pos-rm { right: -30px; top: 34%; }
+    .b1 .sticky.pos-lm { left: -28px; top: 40%; }
+    .b1 .caption.cap-right { margin-left: auto; }
+    .b1 .caption.cap-full { max-width: 78%; }
     .b1 .caption { margin-top: 20px; max-width: 58%; }
     .b1 .caption .title { font-size: clamp(21px, 1.9vw, 30px); letter-spacing: -.04em; margin-top: 6px; }
     .b1 .b-card[data-size="big"] .caption .title { font-size: clamp(28px, 2.8vw, 42px); }
     .b1 .caption .desc { margin-top: 6px; font-size: 14px; line-height: 1.45; }
     .b1 .caption .role { margin-top: 8px; font-size: 12px; }
-    .b2 .sticky { position: relative; width: 88%; margin: -26px 0 0 auto; }
+    .b2 .sticky { position: relative; width: var(--sw, 88%); margin-top: var(--st, -26px); transform: translateX(var(--sx, 0)) rotate(var(--sturn, 2deg)); }
+    .b2 .sticky.side-r { margin-left: auto; }
+    .b2 .sticky.side-l { margin-right: auto; }
     .b2 .sticky .s-title { font-size: clamp(30px, 2.6vw, 40px); line-height: .95; }
     .b2 .sticky .s-desc { margin-top: 8px; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.08; }
     .b2 .sticky .s-role { margin-top: 10px; font-size: 19px; line-height: 1; opacity: .85; }
     .b2 .sticky .brand { margin-bottom: 4px; }
-    @media (max-width: 600px) { .b1 .caption { max-width: 100%; margin-top: 46px; } }
+    @media (max-width: 600px) {
+      .b1 .caption, .b1 .caption.cap-full { max-width: 100%; margin: 46px 0 0; }
+      .b1 .sticky.pos-br, .b1 .sticky.pos-tr, .b1 .sticky.pos-rm { right: -6px; }
+      .b1 .sticky.pos-bl, .b1 .sticky.pos-tl, .b1 .sticky.pos-lm { left: -6px; }
+      .b2 .sticky { transform: rotate(var(--sturn, 2deg)); width: 94%; }
+    }
 
     /* C · Exhibition */
     .c-row { display: grid; grid-template-columns: var(--cols); gap: clamp(28px, 4vw, 64px); align-items: center; padding: 56px 0; border-top: 1px solid #193d9120; }
@@ -180,15 +200,26 @@
       const p = project(c.slug), span = bSpans[i];
       return `<article class="card b-card" data-size="${size(span + 1)}" style="--span:${span};--tspan:${span >= 5 ? 6 : 3};--turn:${turns[i]}deg;--y:${ys[i]}px;--sturn:${turns[(i + 7) % 18] * 1.3}deg">${body(p)}</article>`;
     };
+    const sPos = ['br', 'tl', 'rm', 'bl', 'tr', 'br', 'lm', 'tr', 'bl', 'br', 'tl', 'rm', 'bl', 'tr', 'br', 'lm', 'tl', 'br'];
+    const sRot = [4, -6, 3, -3, 6, -2, 5, -5, 2, -4, 6, -3, 4, -6, 3, -2, 5, -4];
+    const sCol = ['y', 'p', 'y', 'b', 'y', 'y', 'p', 'y', 'b', 'y', 'p', 'y', 'y', 'b', 'p', 'y', 'y', 'b'];
+    const sWid = [46, 42, 40, 48, 44, 50, 40, 46, 42, 48, 44, 40, 50, 42, 46, 40, 44, 48];
+    const sFix = ['pin', 'tape', '', 'tape', 'pin', '', 'pin', '', 'tape', 'pin', '', 'tape', '', 'pin', 'tape', '', 'pin', 'tape'];
+    const capFor = pos => pos === 'bl' ? 'cap-right' : pos === 'br' ? '' : 'cap-full';
     document.getElementById('b1-grid').innerHTML = home.map((c, i) => bCard(c, i, p => `
-      <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"><div class="sticky">${note(c)}</div></figure>
-      <div class="caption">${brand(p)}<h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div>`)).join('');
+      <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"><div class="sticky pos-${sPos[i]} c-${sCol[i]}${sFix[i] ? ' fix-' + sFix[i] : ''}" style="--sturn:${sRot[i]}deg;--sw:${sWid[i]}%">${note(c)}</div></figure>
+      <div class="caption ${capFor(sPos[i])}">${brand(p)}<h3 class="title">${esc(p.title)}</h3><p class="desc">${esc(p.deck)}</p><p class="role">My role · <b>${esc(p.role)}</b></p></div>`)).join('');
     document.getElementById('b1-grid').closest('.direction').classList.add('b1');
 
     // B2 · everything handwritten on a sticky note under the print.
+    const b2Side = ['r', 'l', 'r', 'r', 'l', 'r', 'l', 'r', 'l', 'r', 'r', 'l', 'r', 'l', 'r', 'r', 'l', 'r'];
+    const b2Top = [-30, -14, -38, -20, -26, -12, -34, -18, -40, -24, -16, -30, -22, -36, -14, -28, -20, -32];
+    const b2X = [0, 14, -10, 18, -14, 8, -6, 12, -18, 6, 16, -8, 10, -12, 4, -16, 12, -4];
+    const b2Rot = [2, -3, 4, -2, 3, -4, 2, -3, 5, -2, 3, -4, 2, -3, 4, -2, 3, -3];
+    const b2W = [88, 82, 90, 84, 86, 80, 88, 84, 90, 82, 86, 84, 88, 80, 86, 90, 84, 88];
     document.getElementById('b2-grid').innerHTML = home.map((c, i) => bCard(c, i, p => `
       <figure class="print" style="margin:0"><img src="${img(c)}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.gridPosition || c.position}"></figure>
-      <div class="sticky">${brand(p)}<div class="s-title">${esc(p.title)}</div><div class="s-desc">${esc(p.deck)}</div><div class="s-role">my role · ${esc(p.role)}</div></div>`)).join('');
+      <div class="sticky side-${b2Side[i]} c-${sCol[i]}${sFix[i] ? ' fix-' + sFix[i] : ''}" style="--st:${b2Top[i]}px;--sx:${b2X[i]}px;--sturn:${b2Rot[i]}deg;--sw:${b2W[i]}%">${brand(p)}<div class="s-title">${esc(p.title)}</div><div class="s-desc">${esc(p.deck)}</div><div class="s-role">my role · ${esc(p.role)}</div></div>`)).join('');
     document.getElementById('b2-grid').closest('.direction').classList.add('b2');
 
     // C · one room per project: big and compact rows alternate sides.
