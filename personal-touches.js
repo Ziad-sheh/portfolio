@@ -21,8 +21,10 @@ window.PERSONAL_TOUCHES = {
   'fab-heartbeat': {note:'a change of pace', chapter:'Find the rhythm.'},
   'cn-gumball': {note:'a familiar kind of chaos', chapter:'A little comic timing.'}
 };
+// The little things: each moment plays its own 6-second clip (cut from the film at the moment),
+// with Ziad's red-pen note as the caption.
 window.FILM_MOMENTS = [
-  {slug:'apple-relax-saudi', image:'media/moment-matchmaker.jpg', caption:'that look.', alt:'The Matchmaker character reacting with a raised eyebrow', source:'assets/video/apple-relax-matchmaker.mp4', time:10.63},
-  {slug:'lr-journey-rediscovery', image:'media/moment-archive.jpg', caption:'a way back.', alt:'Archive footage of a Land Rover on a desert road', source:'assets/video/lr-journey-rediscovery.mp4', time:127.01},
-  {slug:'lvqr-stayhome', image:'media/moment-family.jpg', caption:'room to play.', alt:'Two family members smiling during a living-room game', source:'assets/video/lvqr-stayhome.mp4', time:22.09}
+  {slug:'apple-relax-saudi', image:'media/moment-matchmaker.jpg', caption:'the eyebrow does the selling.', alt:'The Matchmaker character reacting with a raised eyebrow', clip:'media/moments/moment-matchmaker.mp4'},
+  {slug:'lr-journey-rediscovery', image:'media/moment-archive.jpg', caption:'his own footage, fifty years on.', alt:'Archive footage of a Land Rover on a desert road', clip:'media/moments/moment-archive.mp4'},
+  {slug:'lvqr-stayhome', image:'media/moment-family.jpg', caption:'start slouched. end playing.', alt:'Two family members smiling during a living-room game', clip:'media/moments/moment-family.mp4'}
 ];

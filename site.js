@@ -113,8 +113,25 @@ document.querySelector('#surprise-project').addEventListener('click', event => {
 });
 
 const momentCollection = document.querySelector('#moment-collection');
-momentCollection.innerHTML = window.FILM_MOMENTS.map(moment => `<figure class="little-frame"><button type="button" data-project="${moment.slug}" aria-label="Open ${escapeHtml(projects.get(moment.slug).title)} from this film moment"><img src="${moment.image}" alt="${escapeHtml(moment.alt)}" ${imageSize(moment.image)} loading="lazy"></button><figcaption class="hand">${escapeHtml(moment.caption)}</figcaption></figure>`).join('');
-momentCollection.querySelectorAll('button').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
+momentCollection.innerHTML = window.FILM_MOMENTS.map(moment => {
+  const project = projects.get(moment.slug);
+  return `<figure class="little-frame"><button type="button" class="moment-play" aria-pressed="false" aria-label="Play the moment from ${escapeHtml(project.title)}"><img src="${moment.image}" alt="${escapeHtml(moment.alt)}" ${imageSize(moment.image)} loading="lazy"><video src="${moment.clip}" playsinline preload="none" aria-hidden="true"></video><span class="play-badge" aria-hidden="true">▶</span></button><figcaption><span class="hand">${escapeHtml(moment.caption)}</span><button type="button" class="moment-case" data-project="${moment.slug}">${escapeHtml(project.title)} ↗</button></figcaption></figure>`;
+}).join('');
+momentCollection.querySelectorAll('.moment-case').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
+momentCollection.querySelectorAll('.moment-play').forEach(button => {
+  const frame = button.closest('.little-frame');
+  const video = button.querySelector('video');
+  const stop = () => { video.pause(); frame.classList.remove('is-playing'); button.setAttribute('aria-pressed', 'false'); };
+  video.addEventListener('ended', stop);
+  button.addEventListener('click', () => {
+    if (frame.classList.contains('is-playing')) return stop();
+    momentCollection.querySelectorAll('.little-frame.is-playing .moment-play').forEach(other => other.click());
+    video.currentTime = 0;
+    frame.classList.add('is-playing');
+    button.setAttribute('aria-pressed', 'true');
+    video.play().catch(stop);
+  });
+});
 
 function resourceLink(href, label) {
   return `<a class="resource-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(label)}</span><span class="resource-arrow" aria-hidden="true">↗</span></a>`;

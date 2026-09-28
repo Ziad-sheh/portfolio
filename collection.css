@@ -237,6 +237,25 @@
   .sticky-deck { font-size: 21px; }
 }
 
+/* The little things: each print plays its moment; the caption is Ziad's red-pen note. */
+.little-frame .moment-play { position: relative; display: block; width: 100%; }
+.little-frame .moment-play video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 200ms; }
+.little-frame.is-playing .moment-play video { opacity: 1; }
+.play-badge { position: absolute; right: 8px; bottom: 8px; display: grid; place-items: center; width: 34px; height: 34px; padding-left: 2px; border-radius: 50%; background: var(--butter); color: var(--blue); font-size: 12px; box-shadow: 0 2px 6px #17203933; transition: transform 200ms, opacity 200ms; }
+.little-frame.is-playing .play-badge { opacity: 0; }
+.little-frame .moment-play:hover .play-badge { transform: scale(1.08); }
+.little-frame .moment-play:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.little-frame figcaption { padding: 10px 6px 12px; white-space: normal; }
+.little-frame figcaption .hand { display: block; color: var(--red); font-size: clamp(20px, 1.7vw, 24px); line-height: 1.05; }
+.moment-case { margin-top: 6px; color: #535b6d; font-size: 12px; text-align: left; }
+.moment-case:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .moment-collection { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 0 10px; }
+  .little-frame, .little-frame:nth-child(2), .little-frame:nth-child(3) { width: 82%; margin-top: 0; }
+  .little-frame:nth-child(2) { justify-self: end; }
+  .little-frame figcaption .hand { font-size: 24px; }
+}
+
 /* This loop is drawn to the button bounds, including the arrow. */
 .work-invitation {
   flex-wrap: wrap;
