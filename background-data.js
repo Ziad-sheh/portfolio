@@ -1,13 +1,13 @@
 window.PORTFOLIO_BACKGROUND = {
-  "deck": "I’m a creative director and copywriter working in Arabic and English, with creative localisation leadership across EU, CEMEA and wider EMEA markets. I lead teams, shape the work and stay close to the writing.",
+  "deck": "I’m a creative director and copywriter, working in Arabic and English. I lead teams, shape the work and stay close to the writing.",
   "sections": [
     {
       "heading": "What I do",
       "paragraphs": [
-        "At TBWA\\Media Arts Lab, I lead creative work for Apple with a team of copywriters, designers and art directors. My work runs from cultural insight and concept through to production, across film, digital, social and outdoor.",
-        "I also lead the creative localisation of Apple campaigns across EU, CEMEA and wider EMEA markets. I set the direction, approve adaptations and oversee production with local teams, from casting and voice recording to subtitling, TV, social and digital advertising. I own final production sign-off for the markets I lead.",
-        "Arabic and English are both part of how I work. I care about ideas that feel natural in their language and culture, and work with the team on the details that make them land: the line, the image, the performance and the sound.",
-        "I also build tools for the team, including support for Arabic copy, copy review and production trackers. It is practical work that helps us spend more time on the creative decisions."
+        "I lead creative work for Apple at TBWA\\Media Arts Lab.",
+        "I run a team of writers, designers and art directors, from first idea to final film.",
+        "I guide how Apple campaigns are adapted across Europe, the Middle East and Africa, and sign them off.",
+        "I work in Arabic and English, and build small tools that save the team time."
       ],
       "entries": []
     },
