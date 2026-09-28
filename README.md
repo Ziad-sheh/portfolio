@@ -10,7 +10,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `work-data.js`: canonical campaign titles, roles, stories, credits, films and public sources.
 - `choices.js`: project cover images, preview clips and featured case films. Projects with a `parent` appear inside their collection, not on the homepage.
 - `personal-touches.js`: project arrangements, handwritten notes and selected film moments.
-- `lines-data.js` / `lines.css`: “A few lines, decoded” — campaign lines set large (Arabic in Alexandria, right to left), each opening to its literal meaning and why it works.
+- `lines-data.js` / `lines.css`: “The line” inside six cases — the campaign line set large (Arabic in Alexandria, right to left) with its English line, literal meaning and why it works.
 - `bts-content.js`: supplied Switchers and Relax behind-the-scenes material.
 - `background-data.js`: approved professional background, experience and education.
 - `site.js` / `site.css`: shared interaction and responsive design.

@@ -1,30 +1,13 @@
-/* The words, decoded: lines set large; tap one to see what it says and why it works. */
-.lines-section { max-width: 1400px; margin: clamp(96px, 10vw, 150px) auto 0; }
-.lines-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px 24px; margin-bottom: 34px; color: var(--blue); }
-.lines-intro .hand { grid-column: 1 / -1; justify-self: start; font-size: 28px; color: var(--red); transform: rotate(-3deg); transform-origin: left center; }
-.lines-intro h3 { font-family: var(--display); font-size: clamp(36px, 4.4vw, 64px); font-weight: 800; letter-spacing: -.06em; line-height: 1; }
-.lines-intro p { max-width: 30ch; color: #535b6d; font-size: 14px; text-align: right; }
-.line-collection { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 20px; }
-.line-card { background: var(--butter); border: 1px solid #193d9120; border-radius: 6px; }
-.line-face { display: flex; flex-direction: column; gap: 24px; width: 100%; min-height: 230px; padding: 32px 30px 22px; text-align: left; }
-.line-text { font-family: var(--display); font-size: clamp(32px, 3.8vw, 54px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; color: var(--blue); }
-.line-text[lang="ar"] { font-family: 'Alexandria', 'Geeza Pro', 'Noto Sans Arabic', sans-serif; letter-spacing: 0; line-height: 1.3; text-align: right; }
-.line-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; color: #535b6d; font-size: 13px; }
-.line-toggle { color: var(--blue); font-weight: 600; white-space: nowrap; }
-.line-toggle::after { content: " +"; }
-.line-face[aria-expanded="true"] .line-toggle::after { content: " −"; }
-.line-face:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; border-radius: 6px; }
-.line-decode { display: grid; gap: 12px; margin: 0; padding: 0 30px 26px; }
-.line-decode[hidden] { display: none; }
-.line-decode > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding-top: 12px; border-top: 1px solid #193d9118; font-size: 15px; }
-.line-decode dt { padding-top: 2px; color: var(--blue); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.line-decode dd { margin: 0; }
-.line-decode dd button { color: var(--blue); font-weight: 600; border-bottom: 1px solid; }
-@media (max-width: 700px) {
-  .line-collection { grid-template-columns: minmax(0, 1fr); }
-  .lines-intro { grid-template-columns: minmax(0, 1fr); }
-  .lines-intro p { text-align: left; }
-  .line-face { min-height: 0; padding: 26px 22px 18px; }
-  .line-decode { padding: 0 22px 22px; }
-  .line-decode > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+/* The line: inside a case, the campaign line set large, with what it says and why it works. */
+.case-line .case-line-text { max-width: none; margin: 0 0 22px; font-family: var(--display); font-size: clamp(40px, 5.2vw, 76px); font-weight: 800; letter-spacing: -.055em; line-height: 1.02; color: var(--blue); }
+.case-line .case-line-text[lang="ar"] { font-family: 'Alexandria', 'Geeza Pro', 'Noto Sans Arabic', sans-serif; letter-spacing: 0; line-height: 1.3; text-align: right; }
+.case-line-decode { display: grid; margin: 0; }
+.case-line-decode > div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid #193d9122; }
+.case-line-decode > div:last-child { border-bottom: 1px solid #193d9122; }
+.case-line-decode dt { padding-top: 3px; color: var(--blue); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.case-line-decode dd { margin: 0; font-size: 17px; line-height: 1.5; }
+@media (max-width: 600px) {
+  .case-line .case-line-text { font-size: clamp(36px, 11vw, 48px); }
+  .case-line-decode > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .case-line-decode dd { font-size: 16px; }
 }

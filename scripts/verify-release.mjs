@@ -195,9 +195,6 @@ try {
   for (const project of projects.filter(project => project.parent)) check(!gridHtml.includes(project.slug), `Child campaign leaked onto homepage: ${project.slug}`);
   auditHtml(gridHtml, 'index.html');
   auditHtml(node('#moment-collection').innerHTML, 'index.html');
-  const linesHtml = node('#line-collection').innerHTML;
-  auditHtml(linesHtml, 'index.html');
-  check((linesHtml.match(/class="line-card"/g) || []).length === context.window.PORTFOLIO_LINES.length, 'Every decoded line must render');
   check(context.window.PORTFOLIO_LINES.every(item => projects.some(project => project.slug === item.slug)), 'A decoded line points to a missing campaign');
   auditHtml(context.releaseAudit.backgroundNotes(), 'index.html');
   for (const project of projects) {
@@ -205,6 +202,8 @@ try {
       const choice = choices.find(item => item.slug === project.slug);
       const html = context.releaseAudit.caseMarkup(project, choice);
       auditHtml(html, 'index.html');
+      const decodedLine = context.window.PORTFOLIO_LINES.find(item => item.slug === project.slug);
+      check(!decodedLine || html.includes('class="case-section case-copy case-line"'), `Decoded line missing from its case: ${project.slug}`);
       if (project.layout === 'collection') {
         const children = project.sections.find(section => section.type === 'collection').items;
         check(!html.includes('<video'), 'Collection overview must not render campaign players');

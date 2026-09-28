@@ -116,16 +116,6 @@ const momentCollection = document.querySelector('#moment-collection');
 momentCollection.innerHTML = window.FILM_MOMENTS.map(moment => `<figure class="little-frame"><button type="button" data-project="${moment.slug}" aria-label="Open ${escapeHtml(projects.get(moment.slug).title)} from this film moment"><img src="${moment.image}" alt="${escapeHtml(moment.alt)}" ${imageSize(moment.image)} loading="lazy"></button><figcaption class="hand">${escapeHtml(moment.caption)}</figcaption></figure>`).join('');
 momentCollection.querySelectorAll('button').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
 
-// The words, decoded: each line opens to show what it says and why it works.
-const lineCollection = document.querySelector('#line-collection');
-lineCollection.innerHTML = (window.PORTFOLIO_LINES || []).map((item, index) => `<article class="line-card"><button type="button" class="line-face" aria-expanded="false" aria-controls="line-decode-${index}"><span class="line-text"${item.lang === 'ar' ? ' lang="ar" dir="rtl"' : ''}>${item.line.split('\n').map(escapeHtml).join('<br>')}</span><span class="line-meta"><span>${escapeHtml(item.label)}</span><span class="line-toggle">Decode</span></span></button><dl class="line-decode" id="line-decode-${index}" hidden>${item.decode.map(([term, detail]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(detail)}</dd></div>`).join('')}<div><dt>Campaign</dt><dd><button type="button" data-project="${item.slug}">See the campaign ↗</button></dd></div></dl></article>`).join('');
-lineCollection.querySelectorAll('.line-face').forEach(face => face.addEventListener('click', () => {
-  const open = face.getAttribute('aria-expanded') !== 'true';
-  face.setAttribute('aria-expanded', String(open));
-  document.getElementById(face.getAttribute('aria-controls')).hidden = !open;
-}));
-lineCollection.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openCase(button.dataset.project, button)));
-
 function resourceLink(href, label) {
   return `<a class="resource-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(label)}</span><span class="resource-arrow" aria-hidden="true">↗</span></a>`;
 }
@@ -264,9 +254,12 @@ function caseMarkup(project, choice) {
   const story = sections.map((section,index)=>renderSection(section) + (index===1 ? btsMarkup(project.slug) + frame : '')).join('');
   const chapterNav = project.layout === 'chapters' ? `<nav class="campaign-nav" aria-label="Campaigns in this collection">${sections.filter(section => section.type === 'campaign').map(section => `<button type="button" data-case-jump="campaign-${section.id}">${escapeHtml(section.title)} <span aria-hidden="true">↓</span></button>`).join('')}</nav>` : '';
   const hero = ['collection', 'campaign'].includes(project.layout) ? '' : project.layout === 'chapters' ? chapterNav : `<figure class="case-hero">${heroMedia}${heroCaption || primaryCaption ? `<figcaption>${heroCaption ? `<span>${escapeHtml(heroCaption)}</span>` : ''}${primaryCaption ? `<span class="media-context">${escapeHtml(primaryCaption)}</span>` : ''}</figcaption>` : ''}</figure>`;
+  // The line: the campaign line set large inside its case, with what it says and why it works.
+  const line = (window.PORTFOLIO_LINES || []).find(item => item.slug === project.slug);
+  const lineBlock = line ? `<section class="case-section case-copy case-line"><h3>The line</h3><div><p class="case-line-text"${line.lang === 'ar' ? ' lang="ar" dir="rtl"' : ''}>${line.line.split('\n').map(escapeHtml).join('<br>')}</p><dl class="case-line-decode">${line.decode.map(([term, detail]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(detail)}</dd></div>`).join('')}</dl></div></section>` : '';
   const backLabel = project.parent ? `Back to ${projects.get(project.parent).title} ↖` : 'Back to work ↖';
   const nextLink = project.layout === 'collection' ? '<button type="button" data-next>Next project →</button>' : `<button class="next-story" type="button" data-next aria-label="Next project: ${escapeHtml(nextProject.title)}"><span><span class="hand">one more?</span><strong>${escapeHtml(nextProject.title)} ↗</strong></span><img src="${next.image}" alt="" ${imageSize(next.image)} loading="lazy" style="object-position:${next.position}"></button>`;
-  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header>${hero}${extraPrimary}${story}<div class="case-end"><button type="button" data-back>${escapeHtml(backLabel)}</button>${nextLink}</div>`;
+  return `<header class="case-head"><div class="case-title-group"><p class="case-sidenote hand">${escapeHtml(touch.chapter)}</p><h2 id="case-title" tabindex="-1">${escapeHtml(project.title)}</h2></div><div><p class="case-deck">${escapeHtml(project.deck)}</p><div class="case-facts"><p class="case-role">My role<strong>${escapeHtml(project.role || '')}</strong></p>${(project.meta || []).map(meta=>`<p class="case-role">${escapeHtml(meta.label)}<strong>${escapeHtml(meta.value)}</strong></p>`).join('')}</div>${behindTheScenes[project.slug] ? '<button class="bts-jump" type="button" data-bts-jump>Behind the scenes ↓</button>' : ''}</div></header>${hero}${extraPrimary}${lineBlock}${story}<div class="case-end"><button type="button" data-back>${escapeHtml(backLabel)}</button>${nextLink}</div>`;
 }
 
 async function openCase(slug, target, updateUrl = true) {
