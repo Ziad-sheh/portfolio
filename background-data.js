@@ -16,8 +16,12 @@ window.PORTFOLIO_BACKGROUND = {
       "paragraphs": [],
       "entries": [
         {
-          "label": "2020 — Present",
-          "detail": "TBWA\\Media Arts Lab · Dubai & London · Creative Director · previously Associate Creative Director and Senior Creative"
+          "label": "2021 — Present",
+          "detail": "Associate Creative Director, TBWA\\Media Arts Lab · Dubai & London"
+        },
+        {
+          "label": "2020 — 2021",
+          "detail": "Senior Creative, TBWA\\Media Arts Lab · Dubai & London"
         },
         {
           "label": "2019 — 2020",

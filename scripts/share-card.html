@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Source for media/share-card.jpg, the 1200×630 link preview.
+     Render with headless Chrome over the local preview server (see README), then save as JPEG. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Share card</title>
+  <link rel="stylesheet" href="../fonts.css">
+  <style>
+    html, body { margin: 0; }
+    body { width: 1200px; height: 630px; overflow: hidden; position: relative; background: #fff6d5; color: #193d91; font-family: 'DM Sans', sans-serif; }
+    h1 { position: absolute; left: 42px; top: 34px; margin: 0; font: 800 250px/1 'Bricolage Grotesque', sans-serif; letter-spacing: -.075em; }
+    .line { position: absolute; left: 60px; top: 284px; width: 500px; margin: 0; font: 600 50px/1.1 'Bricolage Grotesque', sans-serif; letter-spacing: -.035em; text-wrap: balance; }
+    .who { position: absolute; left: 60px; bottom: 50px; margin: 0; font: 500 22px/1.3 'DM Sans', sans-serif; }
+    .print { position: absolute; width: 510px; margin: 0; padding: 14px 14px 0; box-sizing: border-box; background: #fff; box-shadow: 0 14px 36px #1720392e; }
+    .print img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .print figcaption { padding: 16px 4px 18px; font: 500 16px/1 'DM Sans', sans-serif; text-align: right; min-height: 16px; }
+    .front { right: 50px; top: 104px; transform: rotate(3deg); z-index: 2; }
+    .back { right: 80px; top: 80px; transform: rotate(-5deg); z-index: 1; }
+  </style>
+</head>
+<body>
+  <h1>Ziad.</h1>
+  <p class="line">Work that feels like it knows you.</p>
+  <p class="who">Ziad Shehade · Creative director &amp; copywriter</p>
+  <figure class="print back"><img id="back" src="../media/grid/apple-pay-riyadh.jpg" alt=""><figcaption></figcaption></figure>
+  <figure class="print front"><img id="front" src="../media/moment-matchmaker.jpg" alt=""><figcaption id="caption">Apple · Relax, it’s iPhone</figcaption></figure>
+  <script>
+    // ?frame=pay puts Tap. Ride. Done. in front instead of Relax.
+    if (new URLSearchParams(location.search).get('frame') === 'pay') {
+      document.getElementById('front').src = '../media/grid/apple-pay-riyadh.jpg';
+      document.getElementById('back').src = '../media/moment-matchmaker.jpg';
+      document.getElementById('caption').textContent = 'Apple · Tap. Ride. Done.';
+    }
+  </script>
+</body>
+</html>

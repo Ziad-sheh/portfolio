@@ -222,7 +222,7 @@ window.IMAGE_DIMENSIONS = {
   },
   "media/apple-snaptacular.jpg": {
     "width": 1320,
-    "height": 1150
+    "height": 742
   },
   "media/lr-journey-rediscovery.jpg": {
     "width": 1400,

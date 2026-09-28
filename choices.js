@@ -29,7 +29,7 @@ window.COVER_CHOICES = [
     "slug": "apple-snaptacular",
     "source": "assets/img/apple-snaptacular.jpg",
     "note": "A little photographic licence.",
-    "position": "50% 76%",
+    "position": "50% 50%",
     "image": "media/apple-snaptacular.jpg",
     "alt": "The bilingual Snaptacular iPhone billboard beside the road"
   },

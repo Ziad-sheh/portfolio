@@ -20,6 +20,7 @@ A static portfolio for Ziad Shehade, creative director and copywriter. The homep
 - `image-dimensions.js`: intrinsic media dimensions that reserve layout space while images load.
 - `assets/`: original portfolio web media. `media/`: selected cover frames, short previews, portrait and BTS derivatives.
 - `fonts/`, `fonts.css`, `marks/`: local fonts and hand-drawn accents; licence files are retained.
+- `scripts/share-card.html`: source for `media/share-card.jpg`, the 1200×630 link preview. If the opening line changes, re-render it with headless Chrome from the local preview server (`?frame=pay` gives the Tap. Ride. Done. alternative).
 
 Keep campaign facts in `work-data.js`. New editorial readings should not introduce unconfirmed personal credits, production identities or outcome claims. The visible portrait includes the requested subtle smile edit; original personal files remain outside this public site.
 
